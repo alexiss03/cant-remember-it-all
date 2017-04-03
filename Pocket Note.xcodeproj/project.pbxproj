@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66C9D1E89F95200924C34 /* AppDelegate.swift */; };
+		00A66CA01E89F95200924C34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66C9F1E89F95200924C34 /* ViewController.swift */; };
+		00A66CA31E89F95200924C34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CA11E89F95200924C34 /* Main.storyboard */; };
+		00A66CA51E89F95200924C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CA41E89F95200924C34 /* Assets.xcassets */; };
+		00A66CA81E89F95200924C34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CA61E89F95200924C34 /* LaunchScreen.storyboard */; };
+		00A66CB31E89F95200924C34 /* Pocket_NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CB21E89F95200924C34 /* Pocket_NoteTests.swift */; };
+		00A66CBE1E89F95200924C34 /* Pocket_NoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CBD1E89F95200924C34 /* Pocket_NoteUITests.swift */; };
+		00A66CCF1E89F9EE00924C34 /* PNNotesFeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CCE1E89F9EE00924C34 /* PNNotesFeedView.xib */; };
+		00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CD01E89FBA900924C34 /* PNNotesFeedViewController.swift */; };
+		00A66CD31E89FC6100924C34 /* PNNotesFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CD21E89FC6100924C34 /* PNNotesFeedTableViewCell.xib */; };
+		00A66CD51E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CD41E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib */; };
+		00A66CD71E8A002F00924C34 /* PNNotesFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */; };
+		00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */; };
+		00A66CDB1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */; };
+		00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */; };
+		00AE749C1E8CE8A50081C35C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */; };
+		00AE749D1E8CE8A50081C35C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */; };
+		00AE749E1E8CE8A50081C35C /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748C1E8CE4C10081C35C /* Lato-Bold.ttf */; };
+		00AE749F1E8CE8A50081C35C /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748D1E8CE4C10081C35C /* Lato-BoldItalic.ttf */; };
+		00AE74A01E8CE8A50081C35C /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748E1E8CE4C10081C35C /* Lato-Hairline.ttf */; };
+		00AE74A11E8CE8A50081C35C /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748F1E8CE4C10081C35C /* Lato-HairlineItalic.ttf */; };
+		00AE74A21E8CE8A50081C35C /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74901E8CE4C10081C35C /* Lato-Heavy.ttf */; };
+		00AE74A31E8CE8A50081C35C /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74911E8CE4C10081C35C /* Lato-HeavyItalic.ttf */; };
+		00AE74A41E8CE8A50081C35C /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74921E8CE4C10081C35C /* Lato-Italic.ttf */; };
+		00AE74A51E8CE8A50081C35C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74931E8CE4C10081C35C /* Lato-Light.ttf */; };
+		00AE74A61E8CE8A50081C35C /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74941E8CE4C10081C35C /* Lato-LightItalic.ttf */; };
+		00AE74A71E8CE8A50081C35C /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74951E8CE4C10081C35C /* Lato-Medium.ttf */; };
+		00AE74A81E8CE8A50081C35C /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74961E8CE4C10081C35C /* Lato-MediumItalic.ttf */; };
+		00AE74A91E8CE8A50081C35C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74971E8CE4C10081C35C /* Lato-Regular.ttf */; };
+		00AE74AA1E8CE8A50081C35C /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74981E8CE4C10081C35C /* Lato-Semibold.ttf */; };
+		00AE74AB1E8CE8A50081C35C /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74991E8CE4C10081C35C /* Lato-SemiboldItalic.ttf */; };
+		00AE74AC1E8CE8A50081C35C /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE749A1E8CE4C10081C35C /* Lato-Thin.ttf */; };
+		00AE74AD1E8CE8A50081C35C /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */; };
+		00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */; };
+		00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00A66CAF1E89F95200924C34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00A66C921E89F95200924C34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00A66C991E89F95200924C34;
+			remoteInfo = "Pocket Note";
+		};
+		00A66CBA1E89F95200924C34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00A66C921E89F95200924C34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00A66C991E89F95200924C34;
+			remoteInfo = "Pocket Note";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00A66C9A1E89F95200924C34 /* Pocket Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A66C9D1E89F95200924C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		00A66C9F1E89F95200924C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00A66CA21E89F95200924C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		00A66CA41E89F95200924C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00A66CA71E89F95200924C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		00A66CA91E89F95200924C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A66CAE1E89F95200924C34 /* Pocket NoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket NoteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A66CB21E89F95200924C34 /* Pocket_NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_NoteTests.swift; sourceTree = "<group>"; };
+		00A66CB41E89F95200924C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A66CB91E89F95200924C34 /* Pocket NoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket NoteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A66CBD1E89F95200924C34 /* Pocket_NoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_NoteUITests.swift; sourceTree = "<group>"; };
+		00A66CBF1E89F95200924C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A66CCE1E89F9EE00924C34 /* PNNotesFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotesFeedView.xib; path = "Modules/Notes Feed/PNNotesFeedView.xib"; sourceTree = "<group>"; };
+		00A66CD01E89FBA900924C34 /* PNNotesFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedViewController.swift; path = "Modules/Notes Feed/PNNotesFeedViewController.swift"; sourceTree = "<group>"; };
+		00A66CD21E89FC6100924C34 /* PNNotesFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotesFeedTableViewCell.xib; path = "Modules/Notes Feed/PNNotesFeedTableViewCell.xib"; sourceTree = "<group>"; };
+		00A66CD41E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNNotesFeedCollectionViewCell.xib; sourceTree = "<group>"; };
+		00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedView.swift; path = "Modules/Notes Feed/PNNotesFeedView.swift"; sourceTree = "<group>"; };
+		00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedTableViewCell.swift; path = Modules/PNNotesFeedTableViewCell.swift; sourceTree = "<group>"; };
+		00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedCollectionViewCell.swift; path = "Modules/Notes Feed/PNNotesFeedCollectionViewCell.swift"; sourceTree = "<group>"; };
+		00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNCreateNoteView.xib; path = "Modules/Create Note/PNCreateNoteView.xib"; sourceTree = "<group>"; };
+		00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Resources/Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
+		00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Resources/Lato/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		00AE748C1E8CE4C10081C35C /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "Resources/Lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		00AE748D1E8CE4C10081C35C /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BoldItalic.ttf"; path = "Resources/Lato/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		00AE748E1E8CE4C10081C35C /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Hairline.ttf"; path = "Resources/Lato/Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		00AE748F1E8CE4C10081C35C /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-HairlineItalic.ttf"; path = "Resources/Lato/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		00AE74901E8CE4C10081C35C /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Heavy.ttf"; path = "Resources/Lato/Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		00AE74911E8CE4C10081C35C /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-HeavyItalic.ttf"; path = "Resources/Lato/Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		00AE74921E8CE4C10081C35C /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "Resources/Lato/Lato-Italic.ttf"; sourceTree = "<group>"; };
+		00AE74931E8CE4C10081C35C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "Resources/Lato/Lato-Light.ttf"; sourceTree = "<group>"; };
+		00AE74941E8CE4C10081C35C /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-LightItalic.ttf"; path = "Resources/Lato/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		00AE74951E8CE4C10081C35C /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Medium.ttf"; path = "Resources/Lato/Lato-Medium.ttf"; sourceTree = "<group>"; };
+		00AE74961E8CE4C10081C35C /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-MediumItalic.ttf"; path = "Resources/Lato/Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		00AE74971E8CE4C10081C35C /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "Resources/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		00AE74981E8CE4C10081C35C /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Semibold.ttf"; path = "Resources/Lato/Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		00AE74991E8CE4C10081C35C /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-SemiboldItalic.ttf"; path = "Resources/Lato/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		00AE749A1E8CE4C10081C35C /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Thin.ttf"; path = "Resources/Lato/Lato-Thin.ttf"; sourceTree = "<group>"; };
+		00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "Resources/Lato/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteViewController.swift; path = "Modules/Create Note/PNCreateNoteViewController.swift"; sourceTree = "<group>"; };
+		00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteView.swift; path = "Modules/Create Note/PNCreateNoteView.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00A66C971E89F95200924C34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A66CAB1E89F95200924C34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A66CB61E89F95200924C34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00A66C911E89F95200924C34 = {
+			isa = PBXGroup;
+			children = (
+				00A66C9C1E89F95200924C34 /* Pocket Note */,
+				00A66CB11E89F95200924C34 /* Pocket NoteTests */,
+				00A66CBC1E89F95200924C34 /* Pocket NoteUITests */,
+				00A66C9B1E89F95200924C34 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00A66C9B1E89F95200924C34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00A66C9A1E89F95200924C34 /* Pocket Note.app */,
+				00A66CAE1E89F95200924C34 /* Pocket NoteTests.xctest */,
+				00A66CB91E89F95200924C34 /* Pocket NoteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00A66C9C1E89F95200924C34 /* Pocket Note */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74761E8CE4650081C35C /* Resources */,
+				00A66CCB1E89F95C00924C34 /* Modules */,
+				00A66C9D1E89F95200924C34 /* AppDelegate.swift */,
+				00A66C9F1E89F95200924C34 /* ViewController.swift */,
+				00A66CA11E89F95200924C34 /* Main.storyboard */,
+				00A66CA41E89F95200924C34 /* Assets.xcassets */,
+				00A66CA61E89F95200924C34 /* LaunchScreen.storyboard */,
+				00A66CA91E89F95200924C34 /* Info.plist */,
+			);
+			path = "Pocket Note";
+			sourceTree = "<group>";
+		};
+		00A66CB11E89F95200924C34 /* Pocket NoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				00A66CB21E89F95200924C34 /* Pocket_NoteTests.swift */,
+				00A66CB41E89F95200924C34 /* Info.plist */,
+			);
+			path = "Pocket NoteTests";
+			sourceTree = "<group>";
+		};
+		00A66CBC1E89F95200924C34 /* Pocket NoteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				00A66CBD1E89F95200924C34 /* Pocket_NoteUITests.swift */,
+				00A66CBF1E89F95200924C34 /* Info.plist */,
+			);
+			path = "Pocket NoteUITests";
+			sourceTree = "<group>";
+		};
+		00A66CCB1E89F95C00924C34 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74711E8CDE200081C35C /* Create Note */,
+				00A66CCC1E89F96B00924C34 /* Notes Feed */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		00A66CCC1E89F96B00924C34 /* Notes Feed */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74721E8CE1D40081C35C /* Views */,
+				00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */,
+				00A66CD01E89FBA900924C34 /* PNNotesFeedViewController.swift */,
+				00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */,
+				00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */,
+			);
+			name = "Notes Feed";
+			sourceTree = "<group>";
+		};
+		00AE74711E8CDE200081C35C /* Create Note */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74731E8CE2C80081C35C /* Views */,
+				00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */,
+			);
+			name = "Create Note";
+			sourceTree = "<group>";
+		};
+		00AE74721E8CE1D40081C35C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00A66CCE1E89F9EE00924C34 /* PNNotesFeedView.xib */,
+				00A66CD21E89FC6100924C34 /* PNNotesFeedTableViewCell.xib */,
+				00A66CD41E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		00AE74731E8CE2C80081C35C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */,
+				00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		00AE74761E8CE4650081C35C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74771E8CE46F0081C35C /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		00AE74771E8CE46F0081C35C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */,
+				00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */,
+				00AE748C1E8CE4C10081C35C /* Lato-Bold.ttf */,
+				00AE748D1E8CE4C10081C35C /* Lato-BoldItalic.ttf */,
+				00AE748E1E8CE4C10081C35C /* Lato-Hairline.ttf */,
+				00AE748F1E8CE4C10081C35C /* Lato-HairlineItalic.ttf */,
+				00AE74901E8CE4C10081C35C /* Lato-Heavy.ttf */,
+				00AE74911E8CE4C10081C35C /* Lato-HeavyItalic.ttf */,
+				00AE74921E8CE4C10081C35C /* Lato-Italic.ttf */,
+				00AE74931E8CE4C10081C35C /* Lato-Light.ttf */,
+				00AE74941E8CE4C10081C35C /* Lato-LightItalic.ttf */,
+				00AE74951E8CE4C10081C35C /* Lato-Medium.ttf */,
+				00AE74961E8CE4C10081C35C /* Lato-MediumItalic.ttf */,
+				00AE74971E8CE4C10081C35C /* Lato-Regular.ttf */,
+				00AE74981E8CE4C10081C35C /* Lato-Semibold.ttf */,
+				00AE74991E8CE4C10081C35C /* Lato-SemiboldItalic.ttf */,
+				00AE749A1E8CE4C10081C35C /* Lato-Thin.ttf */,
+				00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00A66C991E89F95200924C34 /* Pocket Note */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A66CC21E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket Note" */;
+			buildPhases = (
+				00A66C961E89F95200924C34 /* Sources */,
+				00A66C971E89F95200924C34 /* Frameworks */,
+				00A66C981E89F95200924C34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pocket Note";
+			productName = "Pocket Note";
+			productReference = 00A66C9A1E89F95200924C34 /* Pocket Note.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00A66CAD1E89F95200924C34 /* Pocket NoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A66CC51E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteTests" */;
+			buildPhases = (
+				00A66CAA1E89F95200924C34 /* Sources */,
+				00A66CAB1E89F95200924C34 /* Frameworks */,
+				00A66CAC1E89F95200924C34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00A66CB01E89F95200924C34 /* PBXTargetDependency */,
+			);
+			name = "Pocket NoteTests";
+			productName = "Pocket NoteTests";
+			productReference = 00A66CAE1E89F95200924C34 /* Pocket NoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		00A66CB81E89F95200924C34 /* Pocket NoteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A66CC81E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteUITests" */;
+			buildPhases = (
+				00A66CB51E89F95200924C34 /* Sources */,
+				00A66CB61E89F95200924C34 /* Frameworks */,
+				00A66CB71E89F95200924C34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00A66CBB1E89F95200924C34 /* PBXTargetDependency */,
+			);
+			name = "Pocket NoteUITests";
+			productName = "Pocket NoteUITests";
+			productReference = 00A66CB91E89F95200924C34 /* Pocket NoteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00A66C921E89F95200924C34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Mary Alexis Solis";
+				TargetAttributes = {
+					00A66C991E89F95200924C34 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9926J9ME2U;
+						ProvisioningStyle = Automatic;
+					};
+					00A66CAD1E89F95200924C34 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9926J9ME2U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 00A66C991E89F95200924C34;
+					};
+					00A66CB81E89F95200924C34 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9926J9ME2U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 00A66C991E89F95200924C34;
+					};
+				};
+			};
+			buildConfigurationList = 00A66C951E89F95200924C34 /* Build configuration list for PBXProject "Pocket Note" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00A66C911E89F95200924C34;
+			productRefGroup = 00A66C9B1E89F95200924C34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00A66C991E89F95200924C34 /* Pocket Note */,
+				00A66CAD1E89F95200924C34 /* Pocket NoteTests */,
+				00A66CB81E89F95200924C34 /* Pocket NoteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00A66C981E89F95200924C34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00AE749C1E8CE8A50081C35C /* Lato-Black.ttf in Resources */,
+				00AE749D1E8CE8A50081C35C /* Lato-BlackItalic.ttf in Resources */,
+				00AE749E1E8CE8A50081C35C /* Lato-Bold.ttf in Resources */,
+				00AE749F1E8CE8A50081C35C /* Lato-BoldItalic.ttf in Resources */,
+				00AE74A01E8CE8A50081C35C /* Lato-Hairline.ttf in Resources */,
+				00AE74A11E8CE8A50081C35C /* Lato-HairlineItalic.ttf in Resources */,
+				00AE74A21E8CE8A50081C35C /* Lato-Heavy.ttf in Resources */,
+				00AE74A31E8CE8A50081C35C /* Lato-HeavyItalic.ttf in Resources */,
+				00AE74A41E8CE8A50081C35C /* Lato-Italic.ttf in Resources */,
+				00AE74A51E8CE8A50081C35C /* Lato-Light.ttf in Resources */,
+				00AE74A61E8CE8A50081C35C /* Lato-LightItalic.ttf in Resources */,
+				00AE74A71E8CE8A50081C35C /* Lato-Medium.ttf in Resources */,
+				00AE74A81E8CE8A50081C35C /* Lato-MediumItalic.ttf in Resources */,
+				00AE74A91E8CE8A50081C35C /* Lato-Regular.ttf in Resources */,
+				00AE74AA1E8CE8A50081C35C /* Lato-Semibold.ttf in Resources */,
+				00AE74AB1E8CE8A50081C35C /* Lato-SemiboldItalic.ttf in Resources */,
+				00AE74AC1E8CE8A50081C35C /* Lato-Thin.ttf in Resources */,
+				00AE74AD1E8CE8A50081C35C /* Lato-ThinItalic.ttf in Resources */,
+				00A66CA81E89F95200924C34 /* LaunchScreen.storyboard in Resources */,
+				00A66CA51E89F95200924C34 /* Assets.xcassets in Resources */,
+				00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */,
+				00A66CD31E89FC6100924C34 /* PNNotesFeedTableViewCell.xib in Resources */,
+				00A66CCF1E89F9EE00924C34 /* PNNotesFeedView.xib in Resources */,
+				00A66CD51E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib in Resources */,
+				00A66CA31E89F95200924C34 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A66CAC1E89F95200924C34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A66CB71E89F95200924C34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00A66C961E89F95200924C34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A66CA01E89F95200924C34 /* ViewController.swift in Sources */,
+				00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */,
+				00A66CDB1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift in Sources */,
+				00A66CD71E8A002F00924C34 /* PNNotesFeedView.swift in Sources */,
+				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
+				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
+				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
+				00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A66CAA1E89F95200924C34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A66CB31E89F95200924C34 /* Pocket_NoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A66CB51E89F95200924C34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A66CBE1E89F95200924C34 /* Pocket_NoteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00A66CB01E89F95200924C34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00A66C991E89F95200924C34 /* Pocket Note */;
+			targetProxy = 00A66CAF1E89F95200924C34 /* PBXContainerItemProxy */;
+		};
+		00A66CBB1E89F95200924C34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00A66C991E89F95200924C34 /* Pocket Note */;
+			targetProxy = 00A66CBA1E89F95200924C34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		00A66CA11E89F95200924C34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00A66CA21E89F95200924C34 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		00A66CA61E89F95200924C34 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00A66CA71E89F95200924C34 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00A66CC01E89F95200924C34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00A66CC11E89F95200924C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00A66CC31E89F95200924C34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9926J9ME2U;
+				INFOPLIST_FILE = "Pocket Note/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-Note";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		00A66CC41E89F95200924C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9926J9ME2U;
+				INFOPLIST_FILE = "Pocket Note/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-Note";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		00A66CC61E89F95200924C34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9926J9ME2U;
+				INFOPLIST_FILE = "Pocket NoteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-NoteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pocket Note.app/Pocket Note";
+			};
+			name = Debug;
+		};
+		00A66CC71E89F95200924C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9926J9ME2U;
+				INFOPLIST_FILE = "Pocket NoteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-NoteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pocket Note.app/Pocket Note";
+			};
+			name = Release;
+		};
+		00A66CC91E89F95200924C34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9926J9ME2U;
+				INFOPLIST_FILE = "Pocket NoteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-NoteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Pocket Note";
+			};
+			name = Debug;
+		};
+		00A66CCA1E89F95200924C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9926J9ME2U;
+				INFOPLIST_FILE = "Pocket NoteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-NoteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Pocket Note";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00A66C951E89F95200924C34 /* Build configuration list for PBXProject "Pocket Note" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A66CC01E89F95200924C34 /* Debug */,
+				00A66CC11E89F95200924C34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00A66CC21E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket Note" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A66CC31E89F95200924C34 /* Debug */,
+				00A66CC41E89F95200924C34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00A66CC51E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A66CC61E89F95200924C34 /* Debug */,
+				00A66CC71E89F95200924C34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00A66CC81E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A66CC91E89F95200924C34 /* Debug */,
+				00A66CCA1E89F95200924C34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00A66C921E89F95200924C34 /* Project object */;
+}

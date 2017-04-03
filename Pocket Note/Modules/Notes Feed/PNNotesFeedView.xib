@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PNNotesFeedView" customModule="Pocket_Note" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTc-Ya-LTM">
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="4Go-gI-nLC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
+            <constraints>
+                <constraint firstItem="XTc-Ya-LTM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Wx-1c-7PL"/>
+                <constraint firstItem="XTc-Ya-LTM" firstAttribute="top" secondItem="4Go-gI-nLC" secondAttribute="bottom" id="8I2-KV-OI5"/>
+                <constraint firstAttribute="trailing" secondItem="XTc-Ya-LTM" secondAttribute="trailing" id="Nlz-xC-0LA"/>
+                <constraint firstItem="4Go-gI-nLC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" symbolic="YES" id="ToS-rh-U3U"/>
+                <constraint firstItem="4Go-gI-nLC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VEC-ii-cwC"/>
+                <constraint firstAttribute="bottom" secondItem="XTc-Ya-LTM" secondAttribute="bottom" id="X4I-9W-ocV"/>
+                <constraint firstAttribute="trailing" secondItem="4Go-gI-nLC" secondAttribute="trailing" id="atG-Va-PmJ"/>
+            </constraints>
+            <connections>
+                <outlet property="notesListTableView" destination="XTc-Ya-LTM" id="WOU-3V-OwR"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+        <searchDisplayController id="Cjz-68-49X"/>
+    </objects>
+</document>
