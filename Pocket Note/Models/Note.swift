@@ -1,0 +1,23 @@
+//
+//  Note.swift
+//  Pocket Note
+//
+//  Created by Hanet on 4/10/17.
+//  Copyright © 2017 Mary Alexis Solis. All rights reserved.
+//
+
+import Foundation
+import RealmSwift
+
+class Note: Object {
+    dynamic var body: String?
+    dynamic var title: String?
+    dynamic var dateCreated: Date?
+    dynamic var notebook: Notebook?
+    dynamic var id: String?
+    dynamic var account: Account?
+    
+    override static func primaryKey()-> String? {
+        return "id"
+    }
+}

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket NoteTests/Models/NoteModelTestCase.swift"
+            timestampString = "513571261.452289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "testUpdateNoteBody()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.NoteModelTestCase.(testUpdateNoteBody () -&gt; ()).(closure #2)"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Models/NoteModelTestCase.swift"
+                  timestampString = "513567204.486395"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.NoteModelTestCase.(testUpdateNoteBody () -&gt; ()).(closure #2)"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Models/NoteModelTestCase.swift"
+                  timestampString = "513567204.489017"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "223">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket NoteTests/Models/NoteModelTestCase.swift"
+            timestampString = "513571261.452289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "testUpdateNoteBody()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket NoteTests/Models/NoteModelTestCase.swift"
+            timestampString = "513571261.452289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "testUpdateNoteBody()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.NoteModelTestCase.testUpdateNoteBody () -&gt; ()"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Models/NoteModelTestCase.swift"
+                  timestampString = "513586252.089559"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "1220">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.NoteModelTestCase.(testUpdateNoteBody () -&gt; ()).(implicit closure #1)"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Models/NoteModelTestCase.swift"
+                  timestampString = "513586252.092052"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.NoteModelTestCase.(testUpdateNoteBody () -&gt; ()).(implicit closure #2)"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Models/NoteModelTestCase.swift"
+                  timestampString = "513586252.094864"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

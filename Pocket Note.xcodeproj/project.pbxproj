@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE31E9B91F000DEBBF5 /* Note.swift */; };
+		00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE51E9B929800DEBBF5 /* Notebook.swift */; };
 		00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66C9D1E89F95200924C34 /* AppDelegate.swift */; };
 		00A66CA01E89F95200924C34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66C9F1E89F95200924C34 /* ViewController.swift */; };
 		00A66CA31E89F95200924C34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CA11E89F95200924C34 /* Main.storyboard */; };
@@ -42,6 +44,10 @@
 		00AE74AD1E8CE8A50081C35C /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */; };
 		00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */; };
 		00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */; };
+		00CD5A831E9C5D87009F9569 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A821E9C5D87009F9569 /* Account.swift */; };
+		00CD5A881E9C613D009F9569 /* NoteModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A871E9C613D009F9569 /* NoteModelTestCase.swift */; };
+		00CD5A8A1E9C78BE009F9569 /* NotebookModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A891E9C78BE009F9569 /* NotebookModelTestCase.swift */; };
+		00CD5A8C1E9C7D96009F9569 /* AccountModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A8B1E9C7D96009F9569 /* AccountModelTestCase.swift */; };
 		3BD465A76F2F7A8BF47CF919 /* Pods_Pocket_NoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6E55A9B49609287D447E6A /* Pods_Pocket_NoteTests.framework */; };
 		B36481A42264BFD61DBBA8D5 /* Pods_Pocket_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16B268962CE95BA953B08CA /* Pods_Pocket_NoteUITests.framework */; };
 		BF4907B536DD2FF1698A9E09 /* Pods_Pocket_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D4A68C973EF47B60B880D /* Pods_Pocket_Note.framework */; };
@@ -65,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00231BE31E9B91F000DEBBF5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
+		00231BE51E9B929800DEBBF5 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notebook.swift; path = Modules/Notebook.swift; sourceTree = "<group>"; };
 		00A66C9A1E89F95200924C34 /* Pocket Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A66C9D1E89F95200924C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00A66C9F1E89F95200924C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 		00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "Resources/Lato/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteViewController.swift; path = "Modules/Create Note/PNCreateNoteViewController.swift"; sourceTree = "<group>"; };
 		00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteView.swift; path = "Modules/Create Note/PNCreateNoteView.swift"; sourceTree = "<group>"; };
+		00CD5A821E9C5D87009F9569 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Models/Account.swift; sourceTree = "<group>"; };
+		00CD5A871E9C613D009F9569 /* NoteModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteModelTestCase.swift; path = Models/NoteModelTestCase.swift; sourceTree = "<group>"; };
+		00CD5A891E9C78BE009F9569 /* NotebookModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookModelTestCase.swift; path = Models/NotebookModelTestCase.swift; sourceTree = "<group>"; };
+		00CD5A8B1E9C7D96009F9569 /* AccountModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountModelTestCase.swift; path = Models/AccountModelTestCase.swift; sourceTree = "<group>"; };
 		02672A05D8FEE82A0A4AEFFF /* Pods-Pocket NoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket NoteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket NoteTests/Pods-Pocket NoteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		198C873062EAD3BDEA18B7B5 /* Pods-Pocket NoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket NoteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket NoteTests/Pods-Pocket NoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F8D4A68C973EF47B60B880D /* Pods_Pocket_Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +157,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00231BE21E9B90B100DEBBF5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00231BE31E9B91F000DEBBF5 /* Note.swift */,
+				00231BE51E9B929800DEBBF5 /* Notebook.swift */,
+				00CD5A821E9C5D87009F9569 /* Account.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		00A66C911E89F95200924C34 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +192,7 @@
 		00A66C9C1E89F95200924C34 /* Pocket Note */ = {
 			isa = PBXGroup;
 			children = (
+				00231BE21E9B90B100DEBBF5 /* Models */,
 				00AE74761E8CE4650081C35C /* Resources */,
 				00A66CCB1E89F95C00924C34 /* Modules */,
 				00A66C9D1E89F95200924C34 /* AppDelegate.swift */,
@@ -185,6 +208,7 @@
 		00A66CB11E89F95200924C34 /* Pocket NoteTests */ = {
 			isa = PBXGroup;
 			children = (
+				00CD5A841E9C5EDC009F9569 /* Models */,
 				00A66CB21E89F95200924C34 /* Pocket_NoteTests.swift */,
 				00A66CB41E89F95200924C34 /* Info.plist */,
 			);
@@ -282,6 +306,16 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		00CD5A841E9C5EDC009F9569 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00CD5A871E9C613D009F9569 /* NoteModelTestCase.swift */,
+				00CD5A891E9C78BE009F9569 /* NotebookModelTestCase.swift */,
+				00CD5A8B1E9C7D96009F9569 /* AccountModelTestCase.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		7577D1F7A76539CC8B194F90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +411,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Mary Alexis Solis";
 				TargetAttributes = {
 					00A66C991E89F95200924C34 = {
@@ -612,10 +646,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A66CA01E89F95200924C34 /* ViewController.swift in Sources */,
+				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
 				00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */,
 				00A66CDB1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift in Sources */,
 				00A66CD71E8A002F00924C34 /* PNNotesFeedView.swift in Sources */,
+				00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */,
 				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
+				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
 				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
 				00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */,
@@ -626,7 +663,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CD5A8A1E9C78BE009F9569 /* NotebookModelTestCase.swift in Sources */,
 				00A66CB31E89F95200924C34 /* Pocket_NoteTests.swift in Sources */,
+				00CD5A881E9C613D009F9569 /* NoteModelTestCase.swift in Sources */,
+				00CD5A8C1E9C7D96009F9569 /* AccountModelTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,6 +810,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ACCCBEE7F4C74014AA7D9A7 /* Pods-Pocket Note.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket Note/Info.plist";
@@ -784,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 854B3F2C13D73790DC18316B /* Pods-Pocket Note.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket Note/Info.plist";
