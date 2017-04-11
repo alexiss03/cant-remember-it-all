@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pocket_Note
 
-class Pocket_NoteTests: XCTestCase {
+class PocketNoteTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

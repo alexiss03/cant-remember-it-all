@@ -14,9 +14,9 @@ class Account: Object {
     dynamic var firstName: String?
     dynamic var lastName: String?
     dynamic var password: String?
-    dynamic var id: String?
+    dynamic var accountId: String?
     
-    override static func primaryKey()-> String? {
-        return "id"
+    override static func primaryKey() -> String? {
+        return "accountId"
     }
 }

@@ -16,7 +16,14 @@ class NoteModelTestCase: XCTestCase {
     var realm: Realm?
     
     override func setUp() {
-        do { realm = try Realm() } catch {}
+        do {
+            realm = try Realm()
+            
+            guard let unwrappedRealm = realm else { return }
+            try unwrappedRealm.write {
+                realm?.deleteAll()
+            }
+        } catch { }
         super.setUp()
     }
     
@@ -28,19 +35,20 @@ class NoteModelTestCase: XCTestCase {
         guard let unwrappedRealm = realm else { return }
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
 
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        let newNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'").first
+        let newNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
         XCTAssertNotNil(newNote)
     }
-    
     
     func testAddNoteWithNotebook() {
         guard let unwrappedRealm = realm else { return }
@@ -48,43 +56,49 @@ class NoteModelTestCase: XCTestCase {
         let notebook = Notebook()
         notebook.name = "This is a notebook title."
         notebook.dateCreated = Date()
-        notebook.id = "NOTEBOOK01"
+        notebook.notebookId = "NOTEBOOK01"
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         note.notebook = notebook
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        let newNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'").first
+        let newNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
     
-        XCTAssertEqual(newNote?.notebook?.id, "NOTEBOOK01")
+        XCTAssertEqual(newNote?.notebook?.notebookId, "NOTEBOOK01")
     }
-    
     
     func testUpdateNoteBody() {
         guard let unwrappedRealm = realm else { return }
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-             _ = unwrappedRealm.create(Note.self, value: ["id":"NOTE01", "body":"This is an updated note body"], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                let values = ["noteId": "NOTE01", "body": "This is an updated note body."]
+                _ = unwrappedRealm.create(Note.self, value: values, update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'").first
+        let updatedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
         XCTAssertEqual(updatedNote?.body, "This is an updated note body.")
         
     }
@@ -93,66 +107,77 @@ class NoteModelTestCase: XCTestCase {
         guard let unwrappedRealm = realm else { return }
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Note.self, value: ["id":"NOTE01"], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                _ = unwrappedRealm.create(Note.self, value: ["noteId": "NOTE01"], update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'").first
+        let updatedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
         XCTAssertEqual(updatedNote?.body, "This is a body.")
         
     }
 
-    
     func testUpdateNoteTitle() {
         guard let unwrappedRealm = realm else { return }
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Note.self, value: ["id":"NOTE01", "title":"This is an updated note title"], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                let values = ["noteId": "NOTE01", "title": "This is an updated note title."]
+                _ = unwrappedRealm.create(Note.self, value: values, update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'").first
+        let updatedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
         XCTAssertEqual(updatedNote?.title, "This is an updated note title.")
         
     }
-    
     
     func testUpdateNotNoteTitle() {
         guard let unwrappedRealm = realm else { return }
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Note.self, value: ["id":"NOTE01"], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                _ = unwrappedRealm.create(Note.self, value: ["noteId": "NOTE01"], update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'")
+        let updatedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'")
         XCTAssertEqual(updatedNote.first?.title, "This is a title.")
         
     }
@@ -163,10 +188,10 @@ class NoteModelTestCase: XCTestCase {
         let notebook = Notebook()
         notebook.name = "This is a notebook title."
         notebook.dateCreated = Date()
-        notebook.id = "NOTEBOOK01"
+        notebook.notebookId = "NOTEBOOK01"
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
@@ -175,37 +200,43 @@ class NoteModelTestCase: XCTestCase {
         let notebook2 = Notebook()
         notebook2.name = "This is a notebook title."
         notebook2.dateCreated = Date()
-        notebook2.id = "NOTEBOOK02"
+        notebook2.notebookId = "NOTEBOOK02"
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Note.self, value: ["id":"NOTE01", "notebook":notebook2], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                let values = ["noteId": "NOTE01", "notebook": notebook2] as [String : Any]
+                _ = unwrappedRealm.create(Note.self, value: values, update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'")
-        XCTAssertEqual(updatedNote.first?.notebook?.id, "NOTEBOOK02")
+        let updatedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'")
+        XCTAssertEqual(updatedNote.first?.notebook?.notebookId, "NOTEBOOK02")
     }
     
     func testDeleteNoteWithoutNotebook() {
         guard let unwrappedRealm = realm else { return }
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.delete(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                _ = unwrappedRealm.delete(note)
+            }
+        } catch { }
         
-        let deletedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'")
+        let deletedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
         XCTAssertNil(deletedNote)
     }
-    
     
     func testDeleteNoteWithNotebook() {
         guard let unwrappedRealm = realm else { return }
@@ -213,25 +244,29 @@ class NoteModelTestCase: XCTestCase {
         let notebook = Notebook()
         notebook.name = "This is a notebook title."
         notebook.dateCreated = Date()
-        notebook.id = "NOTEBOOK01"
+        notebook.notebookId = "NOTEBOOK01"
         
         let note = Note()
-        note.id = "NOTE01"
+        note.noteId = "NOTE01"
         note.body = "This is a body."
         note.title = "This is a title."
         note.dateCreated = Date()
         note.notebook = notebook
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.delete(note)
-        }
+        do {
+            try unwrappedRealm.write {
+                _ = unwrappedRealm.delete(note)
+            }
+        } catch { }
         
-        let deletedNote = unwrappedRealm.objects(Note.self).filter("id = 'NOTE01'").first
-        let updatedNotebook = unwrappedRealm.objects(Note.self).filter("id = 'NOTEBOOK01'")
+        let deletedNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
+        let updatedNotebook = unwrappedRealm.objects(Notebook.self).filter("notebookId = 'NOTEBOOK01'")
         
         XCTAssertNil(deletedNote)
         XCTAssertEqual(updatedNotebook.count, 1)

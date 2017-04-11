@@ -10,12 +10,19 @@ import XCTest
 import RealmSwift
 @testable import Pocket_Note
 
-
 class AccountModelTestCase: XCTestCase {
+    
     var realm: Realm?
     
     override func setUp() {
-        do { realm = try Realm() } catch {}
+        do {
+            realm = try Realm()
+
+            guard let unwrappedRealm = realm else { return }
+            try unwrappedRealm.write {
+                realm?.deleteAll()
+            }
+        } catch { }
         super.setUp()
     }
     
@@ -27,17 +34,19 @@ class AccountModelTestCase: XCTestCase {
         guard let unwrappedRealm = realm else { return }
         
         let account = Account()
-        account.id = "ACCOUNT01"
+        account.accountId = "ACCOUNT01"
         account.username = "USERNAME01"
         account.firstName = "This is a first name"
         account.lastName = "This is a last name"
         account.password = "This is a password"
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(account)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(account)
+            }
+        } catch { }
         
-        let newAccount = unwrappedRealm.objects(Note.self).filter("id = 'ACCOUNT01'").first
+        let newAccount = unwrappedRealm.objects(Account.self).filter("accountId = 'ACCOUNT01'").first
         XCTAssertNotNil(newAccount)
     }
     
@@ -45,44 +54,53 @@ class AccountModelTestCase: XCTestCase {
         guard let unwrappedRealm = realm else { return }
         
         let account = Account()
-        account.id = "ACCOUNT01"
+        account.accountId = "ACCOUNT01"
         account.username = "USERNAME01"
         account.firstName = "This is a first name"
         account.lastName = "This is a last name"
         account.password = "This is a password"
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(account)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(account)
+            }
+            
+            try unwrappedRealm.write {
+                let values = ["accountId": "ACCOUNT01", "firstName": "This is an updated first name"]
+                _ = unwrappedRealm.create(Account.self, value: values, update: true)
+            }
+
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Notebook.self, value: ["id":"ACCOUNT01", "firstName":"This is an updated first name"], update: true)
-        }
-        
-        let updatedNote = unwrappedRealm.objects(Account.self).filter("id = 'ACCOUNT01'").first
-        XCTAssertEqual(updatedNote?.firstName, "This is an updated first name")
+        let updatedAccount = unwrappedRealm.objects(Account.self).filter("accountId = 'ACCOUNT01'").first
+        XCTAssertEqual(updatedAccount?.firstName, "This is an updated first name")
     }
     
     func testUpdateLastName() {
         guard let unwrappedRealm = realm else { return }
         
         let account = Account()
-        account.id = "ACCOUNT01"
+        account.accountId = "ACCOUNT01"
         account.username = "USERNAME01"
         account.firstName = "This is a first name"
         account.lastName = "This is a last name"
         account.password = "This is a password"
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(account)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(account)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Notebook.self, value: ["id":"ACCOUNT01", "lastName":"This is an updated last name"], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                let values =  ["accountId": "ACCOUNT01", "lastName": "This is an updated last name"]
+                _ = unwrappedRealm.create(Account.self, value: values, update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Account.self).filter("id = 'ACCOUNT01'").first
-        XCTAssertEqual(updatedNote?.lastName, "This is an updated last name")
+        let updatedAccount = unwrappedRealm.objects(Account.self).filter("accountId = 'ACCOUNT01'").first
+        XCTAssertEqual(updatedAccount?.lastName, "This is an updated last name")
         
     }
     
@@ -90,21 +108,26 @@ class AccountModelTestCase: XCTestCase {
         guard let unwrappedRealm = realm else { return }
         
         let account = Account()
-        account.id = "ACCOUNT01"
+        account.accountId = "ACCOUNT01"
         account.username = "USERNAME01"
         account.firstName = "This is a first name"
         account.lastName = "This is a last name"
         account.password = "This is a password"
         
-        try! unwrappedRealm.write(){
-            unwrappedRealm.add(account)
-        }
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(account)
+            }
+        } catch { }
         
-        try! unwrappedRealm.write(){
-            _ = unwrappedRealm.create(Notebook.self, value: ["id":"ACCOUNT01", "password":"This is an updated password"], update: true)
-        }
+        do {
+            try unwrappedRealm.write {
+                let values =  ["accountId": "ACCOUNT01", "password": "This is an updated password"]
+                _ = unwrappedRealm.create(Account.self, value: values, update: true)
+            }
+        } catch { }
         
-        let updatedNote = unwrappedRealm.objects(Account.self).filter("id = 'ACCOUNT01'").first
-        XCTAssertEqual(updatedNote?.password, "This is an updated password")
+        let updatedAccount = unwrappedRealm.objects(Account.self).filter("accountId = 'ACCOUNT01'").first
+        XCTAssertEqual(updatedAccount?.password, "This is an updated password")
     }
 }

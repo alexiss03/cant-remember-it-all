@@ -14,10 +14,10 @@ class Note: Object {
     dynamic var title: String?
     dynamic var dateCreated: Date?
     dynamic var notebook: Notebook?
-    dynamic var id: String?
+    dynamic var noteId: String?
     dynamic var account: Account?
     
-    override static func primaryKey()-> String? {
-        return "id"
+    override static func primaryKey() -> String? {
+        return "noteId"
     }
 }

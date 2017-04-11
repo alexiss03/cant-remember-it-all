@@ -13,10 +13,10 @@ class Notebook: Object {
     dynamic var name: String?
     var notes: List<Note>?
     dynamic var dateCreated: Date?
-    dynamic var id:String?
+    dynamic var notebookId: String?
     dynamic var account: Account?
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "notebookId"
     }
 }

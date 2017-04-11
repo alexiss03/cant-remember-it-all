@@ -7,6 +7,7 @@ target 'Pocket Note' do
 
   # Pods for Pocket Note
   pod 'RealmSwift' 
+  pod 'SwiftLint'
 
   target 'Pocket NoteTests' do
     inherit! :search_paths
