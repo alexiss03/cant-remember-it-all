@@ -1,4 +1,6 @@
 PODS:
+  - Nimble (6.1.0)
+  - Quick (1.1.0)
   - Realm (2.5.0):
     - Realm/Headers (= 2.5.0)
   - Realm/Headers (2.5.0)
@@ -7,14 +9,18 @@ PODS:
   - SwiftLint (0.17.0)
 
 DEPENDENCIES:
+  - Nimble
+  - Quick
   - RealmSwift
   - SwiftLint
 
 SPEC CHECKSUMS:
+  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
   RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
 
-PODFILE CHECKSUM: 36103ee9b99d81d2390c73ce7bff5fb73adcbbb2
+PODFILE CHECKSUM: ffbb05235fc169541b0f9e0cf91c1ad0a32fc611
 
 COCOAPODS: 1.1.1
