@@ -2,7 +2,7 @@
 //  Note.swift
 //  Pocket Note
 //
-//  Created by Hanet on 4/10/17.
+//  Created by Mary Alexis Solis on 4/10/17.
 //  Copyright © 2017 Mary Alexis Solis. All rights reserved.
 //
 

@@ -45,9 +45,9 @@
 		00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */; };
 		00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */; };
 		00CD5A831E9C5D87009F9569 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A821E9C5D87009F9569 /* Account.swift */; };
-		00CD5A881E9C613D009F9569 /* NoteModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A871E9C613D009F9569 /* NoteModelTestCase.swift */; };
-		00CD5A8A1E9C78BE009F9569 /* NotebookModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A891E9C78BE009F9569 /* NotebookModelTestCase.swift */; };
-		00CD5A8C1E9C7D96009F9569 /* AccountModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A8B1E9C7D96009F9569 /* AccountModelTestCase.swift */; };
+		00CD5A881E9C613D009F9569 /* NoteModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */; };
+		00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */; };
+		00CD5A8C1E9C7D96009F9569 /* AccountModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */; };
 		95883121EF813807E5E0F157 /* Pods_Pocket_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16B268962CE95BA953B08CA /* Pods_Pocket_NoteUITests.framework */; };
 		B87E50F0520B752C750DA85D /* Pods_Pocket_NoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6E55A9B49609287D447E6A /* Pods_Pocket_NoteTests.framework */; };
 		BF4907B536DD2FF1698A9E09 /* Pods_Pocket_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D4A68C973EF47B60B880D /* Pods_Pocket_Note.framework */; };
@@ -115,9 +115,9 @@
 		00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteViewController.swift; path = "Modules/Create Note/PNCreateNoteViewController.swift"; sourceTree = "<group>"; };
 		00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteView.swift; path = "Modules/Create Note/PNCreateNoteView.swift"; sourceTree = "<group>"; };
 		00CD5A821E9C5D87009F9569 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Models/Account.swift; sourceTree = "<group>"; };
-		00CD5A871E9C613D009F9569 /* NoteModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteModelTestCase.swift; path = Models/NoteModelTestCase.swift; sourceTree = "<group>"; };
-		00CD5A891E9C78BE009F9569 /* NotebookModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookModelTestCase.swift; path = Models/NotebookModelTestCase.swift; sourceTree = "<group>"; };
-		00CD5A8B1E9C7D96009F9569 /* AccountModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountModelTestCase.swift; path = Models/AccountModelTestCase.swift; sourceTree = "<group>"; };
+		00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteModelQuickSpec.swift; path = Models/NoteModelQuickSpec.swift; sourceTree = "<group>"; };
+		00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookQuickSpec.swift; path = Models/NotebookQuickSpec.swift; sourceTree = "<group>"; };
+		00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountModelQuickSpec.swift; path = Models/AccountModelQuickSpec.swift; sourceTree = "<group>"; };
 		01BF788A29D5A4B994FE7DF5 /* Pods-Pocket NoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket NoteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket NoteUITests/Pods-Pocket NoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1F8D4A68C973EF47B60B880D /* Pods_Pocket_Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34464E6B4829A69B8689C7D5 /* Pods-Pocket NoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket NoteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket NoteTests/Pods-Pocket NoteTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -309,9 +309,9 @@
 		00CD5A841E9C5EDC009F9569 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				00CD5A871E9C613D009F9569 /* NoteModelTestCase.swift */,
-				00CD5A891E9C78BE009F9569 /* NotebookModelTestCase.swift */,
-				00CD5A8B1E9C7D96009F9569 /* AccountModelTestCase.swift */,
+				00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */,
+				00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */,
+				00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -677,10 +677,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00CD5A8A1E9C78BE009F9569 /* NotebookModelTestCase.swift in Sources */,
+				00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */,
 				00A66CB31E89F95200924C34 /* Pocket_NoteTests.swift in Sources */,
-				00CD5A881E9C613D009F9569 /* NoteModelTestCase.swift in Sources */,
-				00CD5A8C1E9C7D96009F9569 /* AccountModelTestCase.swift in Sources */,
+				00CD5A881E9C613D009F9569 /* NoteModelQuickSpec.swift in Sources */,
+				00CD5A8C1E9C7D96009F9569 /* AccountModelQuickSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -811,7 +811,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
