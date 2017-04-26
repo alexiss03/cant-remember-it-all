@@ -8,6 +8,8 @@ target 'Pocket Note' do
   # Pods for Pocket Note
   pod 'RealmSwift' 
   pod 'SwiftLint'
+  pod 'Swinject', '~> 2.1.0'
+  pod 'SlideMenuControllerSwift'
   
   def testing_pods
     pod 'Quick'

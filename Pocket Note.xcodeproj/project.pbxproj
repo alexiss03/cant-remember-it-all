@@ -48,6 +48,9 @@
 		00CD5A881E9C613D009F9569 /* NoteModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */; };
 		00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */; };
 		00CD5A8C1E9C7D96009F9569 /* AccountModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */; };
+		00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */; };
+		00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */; };
+		00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */; };
 		95883121EF813807E5E0F157 /* Pods_Pocket_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16B268962CE95BA953B08CA /* Pods_Pocket_NoteUITests.framework */; };
 		B87E50F0520B752C750DA85D /* Pods_Pocket_NoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6E55A9B49609287D447E6A /* Pods_Pocket_NoteTests.framework */; };
 		BF4907B536DD2FF1698A9E09 /* Pods_Pocket_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D4A68C973EF47B60B880D /* Pods_Pocket_Note.framework */; };
@@ -118,6 +121,9 @@
 		00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteModelQuickSpec.swift; path = Models/NoteModelQuickSpec.swift; sourceTree = "<group>"; };
 		00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookQuickSpec.swift; path = Models/NotebookQuickSpec.swift; sourceTree = "<group>"; };
 		00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountModelQuickSpec.swift; path = Models/AccountModelQuickSpec.swift; sourceTree = "<group>"; };
+		00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNSideMenuView.xib; path = "Modules/Settings/Side Menu/PNSideMenuView.xib"; sourceTree = "<group>"; };
+		00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuView.swift; path = "Modules/Settings/Side Menu/PNSideMenuView.swift"; sourceTree = "<group>"; };
+		00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuViewController.swift; path = "Modules/Settings/Side Menu/PNSideMenuViewController.swift"; sourceTree = "<group>"; };
 		01BF788A29D5A4B994FE7DF5 /* Pods-Pocket NoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket NoteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket NoteUITests/Pods-Pocket NoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1F8D4A68C973EF47B60B880D /* Pods_Pocket_Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34464E6B4829A69B8689C7D5 /* Pods-Pocket NoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket NoteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket NoteTests/Pods-Pocket NoteTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +163,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001D03451EB03D4000B627D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */,
+				00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */,
+				00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		001D03461EB03D5200B627D2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00A66CD01E89FBA900924C34 /* PNNotesFeedViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		00231BE21E9B90B100DEBBF5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,11 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				00231BE21E9B90B100DEBBF5 /* Models */,
+				00F611E41EB061D6000160BA /* Storyboards */,
 				00AE74761E8CE4650081C35C /* Resources */,
 				00A66CCB1E89F95C00924C34 /* Modules */,
 				00A66C9D1E89F95200924C34 /* AppDelegate.swift */,
 				00A66C9F1E89F95200924C34 /* ViewController.swift */,
-				00A66CA11E89F95200924C34 /* Main.storyboard */,
 				00A66CA41E89F95200924C34 /* Assets.xcassets */,
 				00A66CA61E89F95200924C34 /* LaunchScreen.storyboard */,
 				00A66CA91E89F95200924C34 /* Info.plist */,
@@ -227,8 +251,9 @@
 		00A66CCB1E89F95C00924C34 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				00AE74711E8CDE200081C35C /* Create Note */,
-				00A66CCC1E89F96B00924C34 /* Notes Feed */,
+				00F611D71EB05E86000160BA /* Settings */,
+				00F611D61EB04339000160BA /* Notebooks */,
+				00F611D51EB0432E000160BA /* Notes */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -236,11 +261,9 @@
 		00A66CCC1E89F96B00924C34 /* Notes Feed */ = {
 			isa = PBXGroup;
 			children = (
-				00AE74721E8CE1D40081C35C /* Views */,
-				00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */,
-				00A66CD01E89FBA900924C34 /* PNNotesFeedViewController.swift */,
-				00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */,
-				00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */,
+				001D03461EB03D5200B627D2 /* View Controllers */,
+				001D03451EB03D4000B627D2 /* Views */,
+				00AE74721E8CE1D40081C35C /* Nibs */,
 			);
 			name = "Notes Feed";
 			sourceTree = "<group>";
@@ -248,26 +271,26 @@
 		00AE74711E8CDE200081C35C /* Create Note */ = {
 			isa = PBXGroup;
 			children = (
+				00F611E31EB05FD4000160BA /* Nibs */,
 				00AE74731E8CE2C80081C35C /* Views */,
 				00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */,
 			);
 			name = "Create Note";
 			sourceTree = "<group>";
 		};
-		00AE74721E8CE1D40081C35C /* Views */ = {
+		00AE74721E8CE1D40081C35C /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
 				00A66CCE1E89F9EE00924C34 /* PNNotesFeedView.xib */,
 				00A66CD21E89FC6100924C34 /* PNNotesFeedTableViewCell.xib */,
 				00A66CD41E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib */,
 			);
-			name = Views;
+			name = Nibs;
 			sourceTree = "<group>";
 		};
 		00AE74731E8CE2C80081C35C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */,
 				00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */,
 			);
 			name = Views;
@@ -314,6 +337,88 @@
 				00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		00F611D51EB0432E000160BA /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74711E8CDE200081C35C /* Create Note */,
+				00A66CCC1E89F96B00924C34 /* Notes Feed */,
+			);
+			name = Notes;
+			sourceTree = "<group>";
+		};
+		00F611D61EB04339000160BA /* Notebooks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Notebooks;
+			sourceTree = "<group>";
+		};
+		00F611D71EB05E86000160BA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				00F611D81EB05E8E000160BA /* Side Menu */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		00F611D81EB05E8E000160BA /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				00F611DB1EB05EA7000160BA /* Web Services */,
+				00F611DA1EB05EA0000160BA /* View Controllers */,
+				00F611D91EB05E9C000160BA /* View */,
+				00F611DE1EB05F05000160BA /* Nibs */,
+			);
+			name = "Side Menu";
+			sourceTree = "<group>";
+		};
+		00F611D91EB05E9C000160BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		00F611DA1EB05EA0000160BA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		00F611DB1EB05EA7000160BA /* Web Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Web Services";
+			sourceTree = "<group>";
+		};
+		00F611DE1EB05F05000160BA /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		00F611E31EB05FD4000160BA /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		00F611E41EB061D6000160BA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				00A66CA11E89F95200924C34 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		7577D1F7A76539CC8B194F90 /* Frameworks */ = {
@@ -477,6 +582,7 @@
 				00AE74AB1E8CE8A50081C35C /* Lato-SemiboldItalic.ttf in Resources */,
 				00AE74AC1E8CE8A50081C35C /* Lato-Thin.ttf in Resources */,
 				00AE74AD1E8CE8A50081C35C /* Lato-ThinItalic.ttf in Resources */,
+				00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */,
 				00A66CA81E89F95200924C34 /* LaunchScreen.storyboard in Resources */,
 				00A66CA51E89F95200924C34 /* Assets.xcassets in Resources */,
 				00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */,
@@ -669,6 +775,8 @@
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
 				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
+				00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */,
+				00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */,
 				00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -767,7 +875,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -811,7 +919,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

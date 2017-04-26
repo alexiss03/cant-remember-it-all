@@ -6,21 +6,27 @@ PODS:
   - Realm/Headers (2.5.0)
   - RealmSwift (2.5.0):
     - Realm (= 2.5.0)
+  - SlideMenuControllerSwift (3.0.1)
   - SwiftLint (0.17.0)
+  - Swinject (2.1.0)
 
 DEPENDENCIES:
   - Nimble
   - Quick
   - RealmSwift
+  - SlideMenuControllerSwift
   - SwiftLint
+  - Swinject (~> 2.1.0)
 
 SPEC CHECKSUMS:
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
   RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
+  SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
+  Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
 
-PODFILE CHECKSUM: dfa726b049e4c7257b0bc80009076298b922f06c
+PODFILE CHECKSUM: 982ed531f9f039251328665e3471044351beee56
 
 COCOAPODS: 1.1.1

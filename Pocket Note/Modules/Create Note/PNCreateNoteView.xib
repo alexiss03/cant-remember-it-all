@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
         </array>
     </customFonts>
     <objects>
@@ -20,18 +22,63 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cha-U5-C8O">
-                    <rect key="frame" x="20" y="40" width="335" height="607"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cha-U5-C8O">
+                    <rect key="frame" x="5" y="30" width="365" height="632"/>
+                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                 </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-c7-DWy">
+                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-kH-fJ1">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWY-hB-GCq">
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                    <state key="normal" title="DELETE">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-PF-4HE">
+                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
+                                    <state key="normal" title="MOVE">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="AWf-pI-f34"/>
+                        <constraint firstItem="2kM-kH-fJ1" firstAttribute="top" secondItem="zbP-c7-DWy" secondAttribute="top" id="B3J-VJ-mqS"/>
+                        <constraint firstAttribute="trailing" secondItem="2kM-kH-fJ1" secondAttribute="trailing" id="eO6-rp-OtR"/>
+                        <constraint firstAttribute="bottom" secondItem="2kM-kH-fJ1" secondAttribute="bottom" id="nm9-Tw-xZI"/>
+                        <constraint firstItem="2kM-kH-fJ1" firstAttribute="leading" secondItem="zbP-c7-DWy" secondAttribute="leading" id="oKJ-jG-ogh"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bms-m8-pgU">
+                    <rect key="frame" x="10" y="13" width="99" height="28"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                    <state key="normal" title="SELECT FOLDER">
+                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Cha-U5-C8O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="9zk-7v-Df5"/>
-                <constraint firstItem="Cha-U5-C8O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="KBj-bu-dXW"/>
-                <constraint firstAttribute="bottom" secondItem="Cha-U5-C8O" secondAttribute="bottom" constant="20" symbolic="YES" id="aWa-fy-IBE"/>
-                <constraint firstAttribute="trailing" secondItem="Cha-U5-C8O" secondAttribute="trailing" constant="20" symbolic="YES" id="krU-vP-DUr"/>
+                <constraint firstItem="Cha-U5-C8O" firstAttribute="top" secondItem="bms-m8-pgU" secondAttribute="bottom" constant="-11" id="7Uc-m0-rYd"/>
+                <constraint firstItem="Cha-U5-C8O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="9zk-7v-Df5"/>
+                <constraint firstItem="Cha-U5-C8O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="KBj-bu-dXW"/>
+                <constraint firstAttribute="bottom" secondItem="zbP-c7-DWy" secondAttribute="bottom" id="TdN-1Q-PJC"/>
+                <constraint firstItem="zbP-c7-DWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YMN-sV-F1z"/>
+                <constraint firstAttribute="bottom" secondItem="Cha-U5-C8O" secondAttribute="bottom" constant="5" id="aWa-fy-IBE"/>
+                <constraint firstAttribute="trailing" secondItem="zbP-c7-DWy" secondAttribute="trailing" id="eac-el-9jX"/>
+                <constraint firstItem="bms-m8-pgU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="jK4-Ys-1Z8"/>
+                <constraint firstAttribute="trailing" secondItem="Cha-U5-C8O" secondAttribute="trailing" constant="5" id="krU-vP-DUr"/>
             </constraints>
             <point key="canvasLocation" x="18.5" y="44.5"/>
         </view>
