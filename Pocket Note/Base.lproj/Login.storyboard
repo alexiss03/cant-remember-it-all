@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XKz-cX-aSg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dbu-R9-dQq">
+            <objects>
+                <navigationController id="XKz-cX-aSg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="weJ-Ln-dNG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oqY-dl-Rel" kind="relationship" relationship="rootViewController" id="5eQ-sy-Z2W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Axr-Cu-JQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1782" y="217"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="hoJ-g7-vHB">
+            <objects>
+                <viewController id="oqY-dl-Rel" customClass="PNLoginViewController" customModule="Pocket_Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EbH-QW-eN5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xrm-tV-0U6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AfX-mZ-qvj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nPD-q8-k8i"/>
+                    <connections>
+                        <segue destination="zKI-dj-m7T" kind="show" identifier="TO_REGISTRATION" id="9Kp-AP-ojd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNQ-6r-Xr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1049" y="216"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="1W5-Qh-kSy">
+            <objects>
+                <viewController id="zKI-dj-m7T" customClass="PNRegistrationViewController" customModule="Pocket_Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JUI-7G-Hcj"/>
+                        <viewControllerLayoutGuide type="bottom" id="EQp-bZ-dnY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DKC-0E-eEd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rnc-Q1-4O6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-337" y="215"/>
+        </scene>
+    </scenes>
+</document>

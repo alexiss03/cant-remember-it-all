@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Swinject
-import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        showInitialViewController()
         return true
     }
 
@@ -39,27 +36,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     
-    }
-}
-
-extension AppDelegate {
-    func showInitialViewController () {
-        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
-            print("Notes Feed View Controller is nil")
-            return
-        }
-        
-        guard let unwrappedSideMenuViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNSideMenuViewController") as? PNSideMenuViewController else {
-            print("Side Menu View Controller is nil")
-            return
-        }
-
-        let slideMenuController = SlideMenuController(mainViewController:unwrappedMainViewController, leftMenuViewController: unwrappedSideMenuViewController)
-        SlideMenuOptions.contentViewScale = 1
-        SlideMenuOptions.hideStatusBar = false
-        SlideMenuOptions.contentViewDrag = true
-        
-        UIApplication.shared.windows.first?.rootViewController = slideMenuController
     }
 }

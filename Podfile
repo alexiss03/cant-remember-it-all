@@ -9,8 +9,7 @@ target 'Pocket Note' do
   pod 'RealmSwift' 
   pod 'SwiftLint'
   pod 'Swinject', '~> 2.1.0'
-  pod 'SlideMenuControllerSwift'
-  
+  pod 'SlideMenuControllerSwift'  
   def testing_pods
     pod 'Quick'
     pod 'Nimble'

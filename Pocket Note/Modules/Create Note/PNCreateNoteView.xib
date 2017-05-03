@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,29 +31,29 @@
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-c7-DWy">
-                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-kH-fJ1">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWY-hB-GCq">
-                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                                     <state key="normal" title="DELETE">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-PF-4HE">
-                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
+                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
                                     <state key="normal" title="MOVE">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.1215686275" green="0.30588235289999999" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="AWf-pI-f34"/>
+                        <constraint firstAttribute="height" constant="50" id="AWf-pI-f34"/>
                         <constraint firstItem="2kM-kH-fJ1" firstAttribute="top" secondItem="zbP-c7-DWy" secondAttribute="top" id="B3J-VJ-mqS"/>
                         <constraint firstAttribute="trailing" secondItem="2kM-kH-fJ1" secondAttribute="trailing" id="eO6-rp-OtR"/>
                         <constraint firstAttribute="bottom" secondItem="2kM-kH-fJ1" secondAttribute="bottom" id="nm9-Tw-xZI"/>
@@ -64,7 +64,7 @@
                     <rect key="frame" x="10" y="13" width="99" height="28"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
                     <state key="normal" title="SELECT FOLDER">
-                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.1215686275" green="0.30588235289999999" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
             </subviews>

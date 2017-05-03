@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE31E9B91F000DEBBF5 /* Note.swift */; };
 		00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE51E9B929800DEBBF5 /* Notebook.swift */; };
+		0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */; };
+		0036F5881EB81D1E00D19F75 /* PNNotebooksListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */; };
+		0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */; };
+		009E5A9C1EB1865E001F4889 /* PNPasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */; };
+		009E5AA21EB18E40001F4889 /* PNPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */; };
+		009E5AA41EB18E76001F4889 /* PNPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AA31EB18E76001F4889 /* PNPasscodeViewController.swift */; };
+		009E5AA81EB1A66F001F4889 /* PNNavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AA71EB1A66F001F4889 /* PNNavigationBarProtocol.swift */; };
+		009E5AAF1EB1AB1F001F4889 /* PNLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009E5AAE1EB1AB1F001F4889 /* PNLoginView.xib */; };
+		009E5AB11EB1AEA2001F4889 /* PNLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AB01EB1AEA2001F4889 /* PNLoginView.swift */; };
+		009E5AB31EB1AF34001F4889 /* PNLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AB21EB1AF34001F4889 /* PNLoginViewController.swift */; };
+		009E5AB61EB1AF72001F4889 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009E5AB41EB1AF72001F4889 /* Login.storyboard */; };
+		009E5ABB1EB1B3B6001F4889 /* PNRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5ABA1EB1B3B6001F4889 /* PNRegistrationViewController.swift */; };
+		009E5ABD1EB1B3D3001F4889 /* PNRegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009E5ABC1EB1B3D3001F4889 /* PNRegistrationView.xib */; };
+		009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5ABE1EB1B44E001F4889 /* PNRegistrationView.swift */; };
 		00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66C9D1E89F95200924C34 /* AppDelegate.swift */; };
 		00A66CA01E89F95200924C34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66C9F1E89F95200924C34 /* ViewController.swift */; };
 		00A66CA31E89F95200924C34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A66CA11E89F95200924C34 /* Main.storyboard */; };
@@ -76,6 +90,20 @@
 /* Begin PBXFileReference section */
 		00231BE31E9B91F000DEBBF5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
 		00231BE51E9B929800DEBBF5 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notebook.swift; path = Modules/Notebook.swift; sourceTree = "<group>"; };
+		0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListViewController.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"; sourceTree = "<group>"; };
+		0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebooksListView.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.xib"; sourceTree = "<group>"; };
+		0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListView.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.swift"; sourceTree = "<group>"; };
+		009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNPasscodeView.xib; path = Modules/Account/Passcode/PNPasscodeView.xib; sourceTree = "<group>"; };
+		009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNPasscodeView.swift; path = Modules/Account/Passcode/PNPasscodeView.swift; sourceTree = "<group>"; };
+		009E5AA31EB18E76001F4889 /* PNPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNPasscodeViewController.swift; path = Modules/Account/Passcode/PNPasscodeViewController.swift; sourceTree = "<group>"; };
+		009E5AA71EB1A66F001F4889 /* PNNavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNavigationBarProtocol.swift; path = Modules/Account/Passcode/PNNavigationBarProtocol.swift; sourceTree = "<group>"; };
+		009E5AAE1EB1AB1F001F4889 /* PNLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNLoginView.xib; path = Modules/Account/Login/PNLoginView.xib; sourceTree = "<group>"; };
+		009E5AB01EB1AEA2001F4889 /* PNLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginView.swift; path = Modules/Account/Login/PNLoginView.swift; sourceTree = "<group>"; };
+		009E5AB21EB1AF34001F4889 /* PNLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewController.swift; path = Modules/Account/Login/PNLoginViewController.swift; sourceTree = "<group>"; };
+		009E5AB51EB1AF72001F4889 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		009E5ABA1EB1B3B6001F4889 /* PNRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationViewController.swift; path = Modules/Account/Registration/PNRegistrationViewController.swift; sourceTree = "<group>"; };
+		009E5ABC1EB1B3D3001F4889 /* PNRegistrationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNRegistrationView.xib; path = Modules/Account/Registration/PNRegistrationView.xib; sourceTree = "<group>"; };
+		009E5ABE1EB1B44E001F4889 /* PNRegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationView.swift; path = Modules/Account/Registration/PNRegistrationView.swift; sourceTree = "<group>"; };
 		00A66C9A1E89F95200924C34 /* Pocket Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A66C9D1E89F95200924C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00A66C9F1E89F95200924C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +219,166 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		0036F5891EB81D7400D19F75 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0036F58A1EB81D7D00D19F75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0036F58B1EB81D8800D19F75 /* Web Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Web Services";
+			sourceTree = "<group>";
+		};
+		0036F58C1EB81D9000D19F75 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		009E5A941EB18602001F4889 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				009E5A971EB18621001F4889 /* Passcode */,
+				009E5A961EB18614001F4889 /* Registration */,
+				009E5A951EB1860B001F4889 /* Login */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		009E5A951EB1860B001F4889 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AAA1EB1A92E001F4889 /* View Controllers */,
+				009E5AA91EB1A919001F4889 /* Views */,
+				009E5AAD1EB1A952001F4889 /* Nibs */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		009E5A961EB18614001F4889 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AB71EB1B36B001F4889 /* View Controllers */,
+				009E5AB81EB1B376001F4889 /* Views */,
+				009E5AB91EB1B37F001F4889 /* Nibs */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		009E5A971EB18621001F4889 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AA61EB1A5E2001F4889 /* Protocols */,
+				009E5A991EB18630001F4889 /* Nibs */,
+				009E5A981EB18628001F4889 /* Views */,
+				009E5A9A1EB18634001F4889 /* View Controllers */,
+			);
+			name = Passcode;
+			sourceTree = "<group>";
+		};
+		009E5A981EB18628001F4889 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		009E5A991EB18630001F4889 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		009E5A9A1EB18634001F4889 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AA31EB18E76001F4889 /* PNPasscodeViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		009E5AA51EB18E83001F4889 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		009E5AA61EB1A5E2001F4889 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AA71EB1A66F001F4889 /* PNNavigationBarProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		009E5AA91EB1A919001F4889 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AB01EB1AEA2001F4889 /* PNLoginView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		009E5AAA1EB1A92E001F4889 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AB21EB1AF34001F4889 /* PNLoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		009E5AAD1EB1A952001F4889 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				009E5AAE1EB1AB1F001F4889 /* PNLoginView.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		009E5AB71EB1B36B001F4889 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				009E5ABA1EB1B3B6001F4889 /* PNRegistrationViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		009E5AB81EB1B376001F4889 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				009E5ABE1EB1B44E001F4889 /* PNRegistrationView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		009E5AB91EB1B37F001F4889 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				009E5ABC1EB1B3D3001F4889 /* PNRegistrationView.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
 		00A66C911E89F95200924C34 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +439,7 @@
 		00A66CCB1E89F95C00924C34 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				009E5A941EB18602001F4889 /* Account */,
 				00F611D71EB05E86000160BA /* Settings */,
 				00F611D61EB04339000160BA /* Notebooks */,
 				00F611D51EB0432E000160BA /* Notes */,
@@ -271,9 +460,9 @@
 		00AE74711E8CDE200081C35C /* Create Note */ = {
 			isa = PBXGroup;
 			children = (
+				009E5AA51EB18E83001F4889 /* View Controllers */,
 				00F611E31EB05FD4000160BA /* Nibs */,
 				00AE74731E8CE2C80081C35C /* Views */,
-				00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */,
 			);
 			name = "Create Note";
 			sourceTree = "<group>";
@@ -351,6 +540,10 @@
 		00F611D61EB04339000160BA /* Notebooks */ = {
 			isa = PBXGroup;
 			children = (
+				0036F58C1EB81D9000D19F75 /* Nibs */,
+				0036F58B1EB81D8800D19F75 /* Web Services */,
+				0036F5891EB81D7400D19F75 /* View Controllers */,
+				0036F58A1EB81D7D00D19F75 /* View */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -417,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				00A66CA11E89F95200924C34 /* Main.storyboard */,
+				009E5AB41EB1AF72001F4889 /* Login.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -565,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00AE749C1E8CE8A50081C35C /* Lato-Black.ttf in Resources */,
+				009E5ABD1EB1B3D3001F4889 /* PNRegistrationView.xib in Resources */,
 				00AE749D1E8CE8A50081C35C /* Lato-BlackItalic.ttf in Resources */,
 				00AE749E1E8CE8A50081C35C /* Lato-Bold.ttf in Resources */,
 				00AE749F1E8CE8A50081C35C /* Lato-BoldItalic.ttf in Resources */,
@@ -574,6 +769,7 @@
 				00AE74A31E8CE8A50081C35C /* Lato-HeavyItalic.ttf in Resources */,
 				00AE74A41E8CE8A50081C35C /* Lato-Italic.ttf in Resources */,
 				00AE74A51E8CE8A50081C35C /* Lato-Light.ttf in Resources */,
+				009E5AAF1EB1AB1F001F4889 /* PNLoginView.xib in Resources */,
 				00AE74A61E8CE8A50081C35C /* Lato-LightItalic.ttf in Resources */,
 				00AE74A71E8CE8A50081C35C /* Lato-Medium.ttf in Resources */,
 				00AE74A81E8CE8A50081C35C /* Lato-MediumItalic.ttf in Resources */,
@@ -582,10 +778,13 @@
 				00AE74AB1E8CE8A50081C35C /* Lato-SemiboldItalic.ttf in Resources */,
 				00AE74AC1E8CE8A50081C35C /* Lato-Thin.ttf in Resources */,
 				00AE74AD1E8CE8A50081C35C /* Lato-ThinItalic.ttf in Resources */,
+				009E5A9C1EB1865E001F4889 /* PNPasscodeView.xib in Resources */,
 				00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */,
 				00A66CA81E89F95200924C34 /* LaunchScreen.storyboard in Resources */,
 				00A66CA51E89F95200924C34 /* Assets.xcassets in Resources */,
+				0036F5881EB81D1E00D19F75 /* PNNotebooksListView.xib in Resources */,
 				00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */,
+				009E5AB61EB1AF72001F4889 /* Login.storyboard in Resources */,
 				00A66CD31E89FC6100924C34 /* PNNotesFeedTableViewCell.xib in Resources */,
 				00A66CCF1E89F9EE00924C34 /* PNNotesFeedView.xib in Resources */,
 				00A66CD51E89FF0A00924C34 /* PNNotesFeedCollectionViewCell.xib in Resources */,
@@ -765,19 +964,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009E5ABB1EB1B3B6001F4889 /* PNRegistrationViewController.swift in Sources */,
 				00A66CA01E89F95200924C34 /* ViewController.swift in Sources */,
 				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
+				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
+				009E5AA41EB18E76001F4889 /* PNPasscodeViewController.swift in Sources */,
 				00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */,
 				00A66CDB1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift in Sources */,
 				00A66CD71E8A002F00924C34 /* PNNotesFeedView.swift in Sources */,
+				009E5AB31EB1AF34001F4889 /* PNLoginViewController.swift in Sources */,
+				009E5AB11EB1AEA2001F4889 /* PNLoginView.swift in Sources */,
+				009E5AA81EB1A66F001F4889 /* PNNavigationBarProtocol.swift in Sources */,
 				00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */,
 				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
+				0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */,
 				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
 				00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */,
 				00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */,
+				009E5AA21EB18E40001F4889 /* PNPasscodeView.swift in Sources */,
 				00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */,
+				0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +1024,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		009E5AB41EB1AF72001F4889 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				009E5AB51EB1AF72001F4889 /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
 		00A66CA11E89F95200924C34 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

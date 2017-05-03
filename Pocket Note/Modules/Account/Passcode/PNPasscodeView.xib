@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+        <array key="Lato-Thin.ttf">
+            <string>Lato-Thin</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PNPasscodeView" customModule="Pocket_Note" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9jM-kc-lHz">
+                    <rect key="frame" x="56.5" y="202.5" width="262.5" height="262.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HLY-Ok-wri">
+                            <rect key="frame" x="0.0" y="0.0" width="262.5" height="65.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywR-E5-4ch">
+                                    <rect key="frame" x="0.0" y="0.0" width="87.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="1">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Osj-3z-XSr"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-Ae-gh4">
+                                    <rect key="frame" x="87.5" y="0.0" width="87.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="2">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="sug-LO-s4l"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blZ-Nq-8kr">
+                                    <rect key="frame" x="175" y="0.0" width="87.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="3">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="6eB-Yc-Nen"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qO9-d8-Jyx">
+                            <rect key="frame" x="0.0" y="65.5" width="262.5" height="66"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auL-68-3dC">
+                                    <rect key="frame" x="0.0" y="0.0" width="87.5" height="66"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="4">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="k7W-KJ-4PN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-XW-Ndr">
+                                    <rect key="frame" x="87.5" y="0.0" width="87.5" height="66"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="5">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="pTV-t2-dg5"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFJ-xW-Yfh">
+                                    <rect key="frame" x="175" y="0.0" width="87.5" height="66"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="6">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="pyM-r8-GvU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BLd-BD-4VN">
+                            <rect key="frame" x="0.0" y="131.5" width="262.5" height="65.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD1-b8-Kln">
+                                    <rect key="frame" x="0.0" y="0.0" width="87.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="7">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="qAt-NU-6ZS"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXQ-nQ-ddE">
+                                    <rect key="frame" x="87.5" y="0.0" width="87.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="8">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="dM1-11-KFO"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWC-Lj-tx6">
+                                    <rect key="frame" x="175" y="0.0" width="87.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="9">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="uV4-qV-2B6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sh1-ID-Ajk">
+                            <rect key="frame" x="0.0" y="197" width="262.5" height="65.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2O-wZ-VQD">
+                                    <rect key="frame" x="0.0" y="0.0" width="262.5" height="65.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="34"/>
+                                    <state key="normal" title="0">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="TvK-rU-68F"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9jM-kc-lHz" secondAttribute="height" multiplier="1:1" id="IQQ-ZF-B8Z"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Passcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-mu-gGG">
+                    <rect key="frame" x="106" y="150" width="164" height="30"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9jM-kc-lHz" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="LCP-Yf-mlv"/>
+                <constraint firstItem="9jM-kc-lHz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Nkv-C3-DQt"/>
+                <constraint firstItem="9jM-kc-lHz" firstAttribute="top" secondItem="NNz-mu-gGG" secondAttribute="bottom" constant="22.5" id="Tzb-Id-Wxo"/>
+                <constraint firstItem="9jM-kc-lHz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ymj-dz-lJH"/>
+                <constraint firstItem="NNz-mu-gGG" firstAttribute="centerX" secondItem="9jM-kc-lHz" secondAttribute="centerX" id="k2I-oO-kUE"/>
+            </constraints>
+            <point key="canvasLocation" x="65.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
