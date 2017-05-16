@@ -8,13 +8,12 @@
 
 import UIKit
 
-protocol PNNotesFeedViewDelegate {
+protocol PNNotesFeedViewDelegate: class {
     func addNoteButton()
 }
 
 class PNNotesFeedView: UIView {
-    
-    var delegate: PNNotesFeedViewDelegate?
+    weak var delegate: PNNotesFeedViewDelegate?
     
     @IBOutlet weak var notesListTableView: UITableView!
     @IBOutlet weak var notesListCollectionView: UICollectionView!

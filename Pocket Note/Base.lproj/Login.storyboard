@@ -12,7 +12,7 @@
         <scene sceneID="dbu-R9-dQq">
             <objects>
                 <navigationController id="XKz-cX-aSg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="weJ-Ln-dNG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="weJ-Ln-dNG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -49,7 +49,7 @@
         <!--Registration View Controller-->
         <scene sceneID="1W5-Qh-kSy">
             <objects>
-                <viewController id="zKI-dj-m7T" customClass="PNRegistrationViewController" customModule="Pocket_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PNRegistrationViewController" id="zKI-dj-m7T" customClass="PNRegistrationViewController" customModule="Pocket_Note" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JUI-7G-Hcj"/>
                         <viewControllerLayoutGuide type="bottom" id="EQp-bZ-dnY"/>

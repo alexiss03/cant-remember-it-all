@@ -12,6 +12,9 @@
         <array key="Lato-Medium.ttf">
             <string>Lato-Medium</string>
         </array>
+        <array key="Lato-Semibold.ttf">
+            <string>Lato-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -20,23 +23,35 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FlN-wi-Opg">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="FlN-wi-Opg">
                     <rect key="frame" x="37.5" y="250.5" width="300" height="166.5"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5up-Hz-Yoh">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="49"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="41.5"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-N7-tei">
+                            <rect key="frame" x="0.0" y="41.5" width="300" height="16.5"/>
+                            <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
+                            <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guR-Ci-com">
-                            <rect key="frame" x="0.0" y="59" width="300" height="48.5"/>
+                            <rect key="frame" x="0.0" y="58.5" width="300" height="41.5"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlC-2m-3dZ">
+                            <rect key="frame" x="0.0" y="100" width="300" height="16.5"/>
+                            <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
+                            <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6K-dn-wra">
-                            <rect key="frame" x="0.0" y="117.5" width="300" height="49"/>
+                            <rect key="frame" x="0.0" y="116.5" width="300" height="50"/>
                             <color key="backgroundColor" red="0.031372549020000001" green="0.50588235290000005" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="17"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,6 +67,14 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="mlC-2m-3dZ" firstAttribute="height" secondItem="FlN-wi-Opg" secondAttribute="height" multiplier="0.1" id="Oig-mX-P0s"/>
+                        <constraint firstItem="ej9-N7-tei" firstAttribute="leading" secondItem="FlN-wi-Opg" secondAttribute="leading" id="d3D-TY-IHc"/>
+                        <constraint firstItem="i6K-dn-wra" firstAttribute="height" secondItem="FlN-wi-Opg" secondAttribute="height" multiplier="0.3" id="iGs-kO-cXS"/>
+                        <constraint firstItem="5up-Hz-Yoh" firstAttribute="height" secondItem="FlN-wi-Opg" secondAttribute="height" multiplier="0.25" id="sRj-qF-eEq"/>
+                        <constraint firstItem="guR-Ci-com" firstAttribute="height" secondItem="FlN-wi-Opg" secondAttribute="height" multiplier="0.25" id="sbH-Xo-0cZ"/>
+                        <constraint firstItem="ej9-N7-tei" firstAttribute="height" secondItem="FlN-wi-Opg" secondAttribute="height" multiplier="0.1" id="v5I-kZ-Hvk"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,6 +84,12 @@
                 <constraint firstItem="FlN-wi-Opg" firstAttribute="centerY" secondItem="xDQ-pA-TiK" secondAttribute="centerY" id="blz-0a-mkH"/>
                 <constraint firstItem="FlN-wi-Opg" firstAttribute="height" secondItem="xDQ-pA-TiK" secondAttribute="height" multiplier="0.25" id="lpi-g1-Aeg"/>
             </constraints>
+            <connections>
+                <outlet property="emailErrorLabel" destination="ej9-N7-tei" id="Vdb-hf-edu"/>
+                <outlet property="emailTextField" destination="5up-Hz-Yoh" id="eM8-CQ-b6Y"/>
+                <outlet property="passwordErrorLabel" destination="mlC-2m-3dZ" id="JMC-qY-Xoo"/>
+                <outlet property="passwordTextField" destination="guR-Ci-com" id="Raa-gn-ewE"/>
+            </connections>
             <point key="canvasLocation" x="65.5" y="53.5"/>
         </view>
     </objects>

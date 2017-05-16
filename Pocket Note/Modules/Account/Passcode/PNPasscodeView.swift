@@ -8,14 +8,12 @@
 
 import UIKit
 
-
-protocol PNPasscodeViewDelegate {
+protocol PNPasscodeViewDelegate: class {
     func buttonTapped()
 }
 
 class PNPasscodeView: UIView {
-
-    var delegate: PNPasscodeViewDelegate?
+    weak var delegate: PNPasscodeViewDelegate?
     
     @IBAction func buttonTapped(_ sender: Any) {
         delegate?.buttonTapped()

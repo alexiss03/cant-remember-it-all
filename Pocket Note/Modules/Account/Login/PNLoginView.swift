@@ -8,14 +8,13 @@
 
 import UIKit
 
-protocol PNLoginViewDelegate {
+protocol PNLoginViewDelegate: class {
     func loginButtonTapped()
     func signUpHereButtonTapped()
 }
 
 class PNLoginView: UIView {
-    
-    var delegate: PNLoginViewDelegate?
+    weak var delegate: PNLoginViewDelegate?
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         delegate?.loginButtonTapped()

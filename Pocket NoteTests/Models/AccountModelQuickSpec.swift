@@ -9,7 +9,6 @@ import Quick
 import Nimble
 
 @testable import Pocket_Note
-
 import RealmSwift
 
 class AccountModelQuickSpec: QuickSpec {

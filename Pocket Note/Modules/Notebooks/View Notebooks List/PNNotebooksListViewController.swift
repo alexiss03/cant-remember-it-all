@@ -80,7 +80,7 @@ extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (_ : UIAlertAction!) -> Void in
         })
         
-        alertController.addTextField { (textField :UITextField!) -> Void in
+        alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Notebook Name"
         }
 

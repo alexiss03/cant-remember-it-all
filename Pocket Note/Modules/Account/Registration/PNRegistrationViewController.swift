@@ -7,7 +7,9 @@
 //
 
 import UIKit
+
 import SlideMenuControllerSwift
+import RealmSwift
 
 class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, PNRegistrationViewDelegate {
 
@@ -38,7 +40,87 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
 
     // MARK: PNRegistrationViewDelegate Methods
     func signUpButtonTapped() {
-        showNotesFeed()
+        var isValidInput = true
+        
+        if baseView?.emailTextField.text == "" {
+            baseView?.emailErrorLabel.text = "       You can't leave this empty"
+            isValidInput = false
+        } else if !validEmailFormat(string: baseView?.emailTextField.text) {
+            baseView?.emailErrorLabel.text = "       Invalid email format"
+            isValidInput = false
+        } else {
+            baseView?.emailErrorLabel.text = ""
+        }
+        
+        if baseView?.passwordTextField.text == "" {
+            baseView?.passwordErrorLabel.text = "       You can't leave this empty"
+            isValidInput = false
+        } else if let characters = baseView?.passwordTextField.text?.characters, characters.count < 6 {
+            baseView?.passwordErrorLabel.text = "       Password too short (minimum of 6 characters)"
+            isValidInput = false
+        } else if let characters = baseView?.passwordTextField.text?.characters, characters.count > 30 {
+            baseView?.passwordErrorLabel.text = "       Password too long (maximum of 30 characters)"
+            isValidInput = false
+        } else {
+            baseView?.passwordErrorLabel.text = ""
+        }
+        
+        if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput && !validateIfExisting() {
+            addAccountWith(username: username, password: password)
+            showNotesFeed()
+        } else if validateIfExisting() {
+            baseView?.emailErrorLabel.text = "Account is already existing. You may want to log in instead."
+        }
+    }
+    
+    func validEmailFormat(string: String?) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let result = emailTest.evaluate(with: string)
+        return result
+    }
+    
+    func validateIfExisting() -> Bool {
+        var realm: Realm?
+        do {
+            realm = try Realm()
+        } catch { }
+        
+        guard let unwrappedRealm = realm else { return true }
+        
+        let account = Account()
+        account.username = baseView?.emailTextField.text
+        account.firstName = ""
+        account.lastName = "This is a last name"
+        account.password = baseView?.passwordTextField.text
+        
+        guard let username = baseView?.emailTextField.text else {
+            return true
+        }
+
+        let existingAccount = unwrappedRealm.objects(Account.self).filter("username = '\(username)'").first
+        return existingAccount != nil
+    }
+    
+    func addAccountWith(username: String, password: String) {
+        var realm: Realm?
+        do {
+            realm = try Realm()
+        } catch { }
+        
+        guard let unwrappedRealm = realm else { return }
+        
+        let account = Account()
+        account.username = username
+        account.firstName = ""
+        account.lastName = ""
+        account.password = password
+        
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(account)
+            }
+        } catch { }
     }
     
 }
@@ -64,4 +146,3 @@ extension PNRegistrationViewController {
         present(slideMenuController, animated: true, completion: nil)
     }
 }
-

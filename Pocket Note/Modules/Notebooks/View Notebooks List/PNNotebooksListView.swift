@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol PNNotebooksListViewDelegate {
+protocol PNNotebooksListViewDelegate: class {
     func addButtonTapped()
 }
 
 class PNNotebooksListView: UIView {
     
-    var delegate: PNNotebooksListViewDelegate?
+    weak var delegate: PNNotebooksListViewDelegate?
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func addButtonTapped(_ sender: Any) {

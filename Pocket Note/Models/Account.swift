@@ -13,7 +13,7 @@ class Account: Object {
     dynamic var firstName: String?
     dynamic var lastName: String?
     dynamic var password: String?
-    dynamic var accountId: String?
+    dynamic var accountId: String? = UUID.init().uuidString
     
     override static func primaryKey() -> String? {
         return "accountId"

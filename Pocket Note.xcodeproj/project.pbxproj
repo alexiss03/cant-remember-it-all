@@ -12,6 +12,7 @@
 		0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */; };
 		0036F5881EB81D1E00D19F75 /* PNNotebooksListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */; };
 		0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */; };
+		0054AC3F1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0054AC3E1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift */; };
 		009E5A9C1EB1865E001F4889 /* PNPasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */; };
 		009E5AA21EB18E40001F4889 /* PNPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */; };
 		009E5AA41EB18E76001F4889 /* PNPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AA31EB18E76001F4889 /* PNPasscodeViewController.swift */; };
@@ -58,10 +59,12 @@
 		00AE74AD1E8CE8A50081C35C /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */; };
 		00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */; };
 		00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */; };
+		00B0C8481EC193890061F5E8 /* RegistrationQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B0C8471EC193890061F5E8 /* RegistrationQuickSpec.swift */; };
 		00CD5A831E9C5D87009F9569 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A821E9C5D87009F9569 /* Account.swift */; };
 		00CD5A881E9C613D009F9569 /* NoteModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */; };
 		00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */; };
 		00CD5A8C1E9C7D96009F9569 /* AccountModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */; };
+		00D028271EC00351000E8B25 /* LoginQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D028261EC00351000E8B25 /* LoginQuickSpec.swift */; };
 		00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */; };
 		00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */; };
 		00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */; };
@@ -93,6 +96,7 @@
 		0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListViewController.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"; sourceTree = "<group>"; };
 		0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebooksListView.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.xib"; sourceTree = "<group>"; };
 		0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListView.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.swift"; sourceTree = "<group>"; };
+		0054AC3E1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASNetworkAvailabilityCondition.swift; path = Operations/Network/ASNetworkAvailabilityCondition.swift; sourceTree = "<group>"; };
 		009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNPasscodeView.xib; path = Modules/Account/Passcode/PNPasscodeView.xib; sourceTree = "<group>"; };
 		009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNPasscodeView.swift; path = Modules/Account/Passcode/PNPasscodeView.swift; sourceTree = "<group>"; };
 		009E5AA31EB18E76001F4889 /* PNPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNPasscodeViewController.swift; path = Modules/Account/Passcode/PNPasscodeViewController.swift; sourceTree = "<group>"; };
@@ -145,10 +149,12 @@
 		00AE749B1E8CE4C10081C35C /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "Resources/Lato/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteViewController.swift; path = "Modules/Create Note/PNCreateNoteViewController.swift"; sourceTree = "<group>"; };
 		00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteView.swift; path = "Modules/Create Note/PNCreateNoteView.swift"; sourceTree = "<group>"; };
+		00B0C8471EC193890061F5E8 /* RegistrationQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationQuickSpec.swift; path = Modules/Registration/RegistrationQuickSpec.swift; sourceTree = "<group>"; };
 		00CD5A821E9C5D87009F9569 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Models/Account.swift; sourceTree = "<group>"; };
 		00CD5A871E9C613D009F9569 /* NoteModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteModelQuickSpec.swift; path = Models/NoteModelQuickSpec.swift; sourceTree = "<group>"; };
 		00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookQuickSpec.swift; path = Models/NotebookQuickSpec.swift; sourceTree = "<group>"; };
 		00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountModelQuickSpec.swift; path = Models/AccountModelQuickSpec.swift; sourceTree = "<group>"; };
+		00D028261EC00351000E8B25 /* LoginQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginQuickSpec.swift; path = Modules/Login/LoginQuickSpec.swift; sourceTree = "<group>"; };
 		00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNSideMenuView.xib; path = "Modules/Settings/Side Menu/PNSideMenuView.xib"; sourceTree = "<group>"; };
 		00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuView.swift; path = "Modules/Settings/Side Menu/PNSideMenuView.swift"; sourceTree = "<group>"; };
 		00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuViewController.swift; path = "Modules/Settings/Side Menu/PNSideMenuViewController.swift"; sourceTree = "<group>"; };
@@ -250,6 +256,37 @@
 			name = Nibs;
 			sourceTree = "<group>";
 		};
+		0054AC3C1ECA7D5800F5BE96 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				0054AC3D1ECA7D6700F5BE96 /* Network */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		0054AC3D1ECA7D6700F5BE96 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0054AC3E1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		008674781EC987C9008C6295 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				008674791EC987D3008C6295 /* Network */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		008674791EC987D3008C6295 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		009E5A941EB18602001F4889 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +310,7 @@
 		009E5A961EB18614001F4889 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				009E5AB71EB1B36B001F4889 /* View Controllers */,
+				009E5AB71EB1B36B001F4889 /* Controllers */,
 				009E5AB81EB1B376001F4889 /* Views */,
 				009E5AB91EB1B37F001F4889 /* Nibs */,
 			);
@@ -355,12 +392,12 @@
 			name = Nibs;
 			sourceTree = "<group>";
 		};
-		009E5AB71EB1B36B001F4889 /* View Controllers */ = {
+		009E5AB71EB1B36B001F4889 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				009E5ABA1EB1B3B6001F4889 /* PNRegistrationViewController.swift */,
 			);
-			name = "View Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		009E5AB81EB1B376001F4889 /* Views */ = {
@@ -404,9 +441,11 @@
 		00A66C9C1E89F95200924C34 /* Pocket Note */ = {
 			isa = PBXGroup;
 			children = (
+				008674781EC987C9008C6295 /* Operations */,
 				00231BE21E9B90B100DEBBF5 /* Models */,
 				00F611E41EB061D6000160BA /* Storyboards */,
 				00AE74761E8CE4650081C35C /* Resources */,
+				0054AC3C1ECA7D5800F5BE96 /* Operations */,
 				00A66CCB1E89F95C00924C34 /* Modules */,
 				00A66C9D1E89F95200924C34 /* AppDelegate.swift */,
 				00A66C9F1E89F95200924C34 /* ViewController.swift */,
@@ -420,6 +459,7 @@
 		00A66CB11E89F95200924C34 /* Pocket NoteTests */ = {
 			isa = PBXGroup;
 			children = (
+				00D028231EBFFB38000E8B25 /* Modules */,
 				00CD5A841E9C5EDC009F9569 /* Models */,
 				00A66CB21E89F95200924C34 /* Pocket_NoteTests.swift */,
 				00A66CB41E89F95200924C34 /* Info.plist */,
@@ -526,6 +566,31 @@
 				00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		00D028231EBFFB38000E8B25 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				00D028251EBFFB53000E8B25 /* Registration */,
+				00D028241EBFFB4E000E8B25 /* Login */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		00D028241EBFFB4E000E8B25 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				00D028261EC00351000E8B25 /* LoginQuickSpec.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		00D028251EBFFB53000E8B25 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				00B0C8471EC193890061F5E8 /* RegistrationQuickSpec.swift */,
+			);
+			name = Registration;
 			sourceTree = "<group>";
 		};
 		00F611D51EB0432E000160BA /* Notes */ = {
@@ -978,6 +1043,7 @@
 				00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */,
 				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
+				0054AC3F1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift in Sources */,
 				0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */,
 				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
@@ -993,6 +1059,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D028271EC00351000E8B25 /* LoginQuickSpec.swift in Sources */,
+				00B0C8481EC193890061F5E8 /* RegistrationQuickSpec.swift in Sources */,
 				00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */,
 				00A66CB31E89F95200924C34 /* Pocket_NoteTests.swift in Sources */,
 				00CD5A881E9C613D009F9569 /* NoteModelQuickSpec.swift in Sources */,
@@ -1148,6 +1216,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ACCCBEE7F4C74014AA7D9A7 /* Pods-Pocket Note.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket Note/Info.plist";
@@ -1155,6 +1224,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-Note";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1162,6 +1232,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 854B3F2C13D73790DC18316B /* Pods-Pocket Note.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket Note/Info.plist";
@@ -1169,6 +1240,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-Note";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1176,6 +1248,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34464E6B4829A69B8689C7D5 /* Pods-Pocket NoteTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket NoteTests/Info.plist";
@@ -1191,6 +1264,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58194ADA537358297BCCBFBB /* Pods-Pocket NoteTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket NoteTests/Info.plist";
@@ -1206,6 +1280,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C851070CFE46C957B70BA9E3 /* Pods-Pocket NoteUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket NoteUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1220,6 +1295,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01BF788A29D5A4B994FE7DF5 /* Pods-Pocket NoteUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9926J9ME2U;
 				INFOPLIST_FILE = "Pocket NoteUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

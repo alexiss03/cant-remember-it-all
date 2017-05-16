@@ -102,7 +102,6 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         self.present(unwrappedNotebookListViewController, animated: true, completion: nil)
     }
     
-    
     @objc private func showNotebookActions() {
         let alertController = UIAlertController(title: "Notebook Settings", message: "", preferredStyle: .actionSheet)
         
@@ -110,7 +109,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             self.editNotebookPopUp()
         })
         
-        let deleteNotebookAction = UIAlertAction(title: "Delete Noteabook", style: .default, handler: { (_ : UIAlertAction!) -> Void in
+        let deleteNotebookAction = UIAlertAction(title: "Delete Notebook", style: .default, handler: { (_ : UIAlertAction!) -> Void in
         })
         
         alertController.addAction(editNotebookAction)
@@ -118,7 +117,6 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.present(alertController, animated: true, completion: nil)
     }
-    
     
     func editNotebookPopUp() {
         let alertController = UIAlertController(title: "Edit Notebook", message: "", preferredStyle: .alert)
@@ -131,7 +129,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (_ : UIAlertAction!) -> Void in
         })
         
-        alertController.addTextField { (textField :UITextField!) -> Void in
+        alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "New Notebook Name"
         }
         

@@ -9,64 +9,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"
-            timestampString = "515393681.464438"
+            filePath = "Pocket NoteTests/Modules/Registration/RegistrationQuickSpec.swift"
+            timestampString = "516529202.094802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "spec()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Pocket_Note.PNNotebooksListViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "Pocket Note"
+                  symbolName = "Pocket_NoteTests.RegistrationQuickSpec.(spec () -&gt; ()).(closure #2)"
+                  moduleName = "Pocket NoteTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Modules/Notebooks/View%20Notebooks%20List/PNNotebooksListViewController.swift"
-                  timestampString = "515393776.362291"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Modules/Registration/RegistrationQuickSpec.swift"
+                  timestampString = "516091021.388757"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "96">
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "888">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Pocket_Note.PNNotebooksListViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "Pocket Note"
+                  symbolName = "Pocket_NoteTests.RegistrationQuickSpec.(spec () -&gt; ()).(closure #2).(closure #5)"
+                  moduleName = "Pocket NoteTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Modules/Notebooks/View%20Notebooks%20List/PNNotebooksListViewController.swift"
-                  timestampString = "515393776.363933"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Modules/Registration/RegistrationQuickSpec.swift"
+                  timestampString = "516091021.393874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "148">
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -75,61 +57,185 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"
-            timestampString = "515393736.318163"
+            filePath = "Pocket NoteTests/Modules/Registration/RegistrationQuickSpec.swift"
+            timestampString = "516524786.338591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "baseView"
-            landmarkType = "24">
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "spec()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.RegistrationQuickSpec.(spec () -&gt; ()).(closure #2).(closure #2).(closure #3)"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Modules/Registration/RegistrationQuickSpec.swift"
+                  timestampString = "516528682.078982"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "768">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_NoteTests.RegistrationQuickSpec.(spec () -&gt; ()).(closure #2).(closure #2).(closure #3).(implicit closure #1)"
+                  moduleName = "Pocket NoteTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20NoteTests/Modules/Registration/RegistrationQuickSpec.swift"
+                  timestampString = "516528682.081122"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"
-            timestampString = "515393736.991036"
+            filePath = "Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift"
+            timestampString = "516529202.094802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "baseView"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"
-            timestampString = "515485725.781409"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "validateIfExisting()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"
-            timestampString = "515485725.781409"
+            filePath = "Pocket Note/Models/Account.swift"
+            timestampString = "516525594.259021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "Account"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Note.Account.accountId.getter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "Pocket Note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Models/Account.swift"
+                  timestampString = "516526505.002242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Note.Account.accountId.setter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "Pocket Note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Models/Account.swift"
+                  timestampString = "516526505.003686"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Note.Account.init () -&gt; Pocket_Note.Account"
+                  moduleName = "Pocket Note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Models/Account.swift"
+                  timestampString = "516526505.005215"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Note.Account.init (value : Any) -&gt; Pocket_Note.Account"
+                  moduleName = "Pocket Note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Models/Account.swift"
+                  timestampString = "516526505.006869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Note.Account.init (realm : __ObjC.RLMRealm, schema : __ObjC.RLMObjectSchema) -&gt; Pocket_Note.Account"
+                  moduleName = "Pocket Note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Models/Account.swift"
+                  timestampString = "516526505.008421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Note.Account.init (value : Any, schema : __ObjC.RLMSchema) -&gt; Pocket_Note.Account"
+                  moduleName = "Pocket Note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/Pocket%20Note/Pocket%20Note/Models/Account.swift"
+                  timestampString = "516526505.010211"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "372">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift"
+            timestampString = "516529202.094802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "validateIfExisting()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

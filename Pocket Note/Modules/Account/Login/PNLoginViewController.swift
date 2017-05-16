@@ -69,7 +69,6 @@ extension PNLoginViewController {
         SlideMenuOptions.hideStatusBar = false
         SlideMenuOptions.contentViewDrag = true
         
-        
         present(slideMenuController, animated: true, completion: nil)
     }
 }

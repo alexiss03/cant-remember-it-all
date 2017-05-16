@@ -10,6 +10,8 @@ target 'Pocket Note' do
   pod 'SwiftLint'
   pod 'Swinject', '~> 2.1.0'
   pod 'SlideMenuControllerSwift'  
+  pod 'PSOperations'
+
   def testing_pods
     pod 'Quick'
     pod 'Nimble'
