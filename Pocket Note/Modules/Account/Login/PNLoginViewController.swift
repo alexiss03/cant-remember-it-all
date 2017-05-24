@@ -17,38 +17,38 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
         }
         return nil
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let unwrappedBaseView = self.baseView {
             unwrappedBaseView.frame = self.view.frame
             self.view = unwrappedBaseView
-            
+
             unwrappedBaseView.delegate = self
         }
-        
+
         hideNavigationBar(viewController: self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     private func showRegistration() {
         self.performSegue(withIdentifier: "TO_REGISTRATION", sender: self)
     }
-    
+
     // MARK: PNLoginViewDelegate Methods
-    
+
     func loginButtonTapped() {
         showNotesFeed()
     }
-    
+
     func signUpHereButtonTapped() {
         showRegistration()
     }
-    
+
 }
 
 extension PNLoginViewController {
@@ -58,17 +58,17 @@ extension PNLoginViewController {
             print("Notes Feed View Controller is nil")
             return
         }
-        
+
         guard let unwrappedSideMenuViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNSideMenuViewController") as? PNSideMenuViewController else {
             print("Side Menu View Controller is nil")
             return
         }
-        
+
         let slideMenuController = SlideMenuController(mainViewController:unwrappedMainViewController, leftMenuViewController: unwrappedSideMenuViewController)
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
         SlideMenuOptions.contentViewDrag = true
-        
+
         present(slideMenuController, animated: true, completion: nil)
     }
 }

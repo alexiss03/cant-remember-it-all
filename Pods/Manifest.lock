@@ -1,14 +1,6 @@
 PODS:
   - Nimble (6.1.0)
-  - PSOperations (3.0.0):
-    - PSOperations/Core (= 3.0.0)
-    - PSOperations/Health (= 3.0.0)
-    - PSOperations/Passbook (= 3.0.0)
   - PSOperations/Core (3.0.0)
-  - PSOperations/Health (3.0.0):
-    - PSOperations/Core
-  - PSOperations/Passbook (3.0.0):
-    - PSOperations/Core
   - Quick (1.1.0)
   - Realm (2.5.0):
     - Realm/Headers (= 2.5.0)
@@ -21,7 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Nimble
-  - PSOperations
+  - PSOperations/Core (~> 3.0)
   - Quick
   - RealmSwift
   - SlideMenuControllerSwift
@@ -38,6 +30,6 @@ SPEC CHECKSUMS:
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
 
-PODFILE CHECKSUM: 3815b54841ebe337cb3011d8ea946fbdfd69da2b
+PODFILE CHECKSUM: 5e4778908c72fbec4e959a1fd52d82d3b2700f77
 
 COCOAPODS: 1.1.1

@@ -1,0 +1,47 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 12,
+      "symbol": "ASNetworkAvailabilityCondition",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 13,
+      "symbol": "ASNetworkAvailabilityCondition.name",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 14,
+      "symbol": "ASNetworkAvailabilityCondition.isMutuallyExclusive",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 16,
+      "symbol": "ASNetworkAvailabilityCondition.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 18,
+      "symbol": "ASNetworkAvailabilityCondition.dependencyForOperation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 22,
+      "symbol": "ASNetworkAvailabilityCondition.evaluateForOperation(_:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/hanet/Documents/Installers/pocket-note"
+}

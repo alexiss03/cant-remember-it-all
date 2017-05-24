@@ -14,15 +14,15 @@ protocol PNRegistrationViewDelegate: class {
 
 class PNRegistrationView: UIView {
     weak var delegate: PNRegistrationViewDelegate?
-    
+
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
-    
+
     @IBAction func signUpButtonTapped(_ sender: Any) {
         delegate?.signUpButtonTapped()
     }
-    
+
 }

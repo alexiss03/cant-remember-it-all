@@ -11,5 +11,5 @@ import UIKit
 class PNSideMenuView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
-    
+
 }

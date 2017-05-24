@@ -15,7 +15,7 @@ class Notebook: Object {
     dynamic var dateCreated: Date?
     dynamic var notebookId: String?
     dynamic var account: Account?
-    
+
     override static func primaryKey() -> String? {
         return "notebookId"
     }

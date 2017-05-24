@@ -9,17 +9,17 @@
 import XCTest
 
 class PocketNoteUITests: XCTestCase {
-        
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testExample() {
     }
-    
+
 }

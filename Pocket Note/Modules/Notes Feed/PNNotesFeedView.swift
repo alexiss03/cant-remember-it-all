@@ -14,10 +14,10 @@ protocol PNNotesFeedViewDelegate: class {
 
 class PNNotesFeedView: UIView {
     weak var delegate: PNNotesFeedViewDelegate?
-    
+
     @IBOutlet weak var notesListTableView: UITableView!
     @IBOutlet weak var notesListCollectionView: UICollectionView!
-    
+
     @IBAction func addNoteButton(_ sender: Any) {
         delegate?.addNoteButton()
     }

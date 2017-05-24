@@ -13,50 +13,50 @@ import Nimble
 
 class LoginQuickSpec: QuickSpec {
     override func spec() {
-        
+
         _ = PNLoginViewController()
-        
+
         beforeEach {
-           
+
         }
-        
+
         describe("login via email") {
             describe("wrong username") {
                 it("empty email") {
                 }
             }
-            
+
             describe("wrong password") {
                 it("empty password") {
-                
+
                 }
-                
+
                 it("too short") {
-                    
+
                 }
-                
+
                 it("too long") {
-                    
+
                 }
-                
+
                 it("wrong combination") {
-                    
+
                 }
             }
-            
+
             it("right input") {
-                
+
             }
-            
+
             it("no internet connection") {
-                
+
             }
-            
+
             it("slow internet connection") {
-                
+
             }
         }
-        
+
     }
 
 }

@@ -14,7 +14,7 @@ protocol PNPasscodeViewDelegate: class {
 
 class PNPasscodeView: UIView {
     weak var delegate: PNPasscodeViewDelegate?
-    
+
     @IBAction func buttonTapped(_ sender: Any) {
         delegate?.buttonTapped()
     }

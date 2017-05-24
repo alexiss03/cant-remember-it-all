@@ -13,12 +13,12 @@ protocol PNNotebooksListViewDelegate: class {
 }
 
 class PNNotebooksListView: UIView {
-    
+
     weak var delegate: PNNotebooksListViewDelegate?
     @IBOutlet weak var tableView: UITableView!
-    
+
     @IBAction func addButtonTapped(_ sender: Any) {
         delegate?.addButtonTapped()
     }
-    
+
 }

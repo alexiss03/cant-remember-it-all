@@ -17,7 +17,7 @@ extension PNNavigationBarProtocol {
     func hideNavigationBar(viewController: UIViewController) {
         viewController.navigationController?.navigationBar.isHidden = true
     }
-    
+
     func showNavigationBar(viewController: UIViewController) {
         viewController.navigationController?.navigationBar.isHidden = false
     }

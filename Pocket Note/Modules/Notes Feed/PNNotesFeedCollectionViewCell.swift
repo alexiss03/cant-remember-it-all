@@ -9,8 +9,8 @@
 import UIKit
 
 class PNNotesFeedCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+
 }

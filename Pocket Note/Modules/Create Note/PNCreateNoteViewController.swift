@@ -16,7 +16,7 @@ class PNCreateNoteViewController: UIViewController {
         }
         return nil
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -15,11 +15,11 @@ protocol PNLoginViewDelegate: class {
 
 class PNLoginView: UIView {
     weak var delegate: PNLoginViewDelegate?
-    
+
     @IBAction func loginButtonTapped(_ sender: Any) {
         delegate?.loginButtonTapped()
     }
-    
+
     @IBAction func signUpHereButtonTapped(_ sender: Any) {
         delegate?.signUpHereButtonTapped()
     }

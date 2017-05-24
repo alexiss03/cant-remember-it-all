@@ -19,17 +19,17 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         }
         return nil
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let unwrappedBaseView = self.baseView {
             unwrappedBaseView.frame = self.view.frame
             self.view = unwrappedBaseView
-            
+
             unwrappedBaseView.delegate = self
         }
-        
+
         showNavigationBar(viewController: self)
     }
 
@@ -41,7 +41,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
     // MARK: PNRegistrationViewDelegate Methods
     func signUpButtonTapped() {
         var isValidInput = true
-        
+
         if baseView?.emailTextField.text == "" {
             baseView?.emailErrorLabel.text = "       You can't leave this empty"
             isValidInput = false
@@ -51,7 +51,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         } else {
             baseView?.emailErrorLabel.text = ""
         }
-        
+
         if baseView?.passwordTextField.text == "" {
             baseView?.passwordErrorLabel.text = "       You can't leave this empty"
             isValidInput = false
@@ -64,7 +64,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         } else {
             baseView?.passwordErrorLabel.text = ""
         }
-        
+
         if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput && !validateIfExisting() {
             addAccountWith(username: username, password: password)
             showNotesFeed()
@@ -72,28 +72,28 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
             baseView?.emailErrorLabel.text = "Account is already existing. You may want to log in instead."
         }
     }
-    
+
     func validEmailFormat(string: String?) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         let result = emailTest.evaluate(with: string)
         return result
     }
-    
+
     func validateIfExisting() -> Bool {
         var realm: Realm?
         do {
             realm = try Realm()
         } catch { }
-        
+
         guard let unwrappedRealm = realm else { return true }
-        
+
         let account = Account()
         account.username = baseView?.emailTextField.text
         account.firstName = ""
         account.lastName = "This is a last name"
         account.password = baseView?.passwordTextField.text
-        
+
         guard let username = baseView?.emailTextField.text else {
             return true
         }
@@ -101,28 +101,28 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         let existingAccount = unwrappedRealm.objects(Account.self).filter("username = '\(username)'").first
         return existingAccount != nil
     }
-    
+
     func addAccountWith(username: String, password: String) {
         var realm: Realm?
         do {
             realm = try Realm()
         } catch { }
-        
+
         guard let unwrappedRealm = realm else { return }
-        
+
         let account = Account()
         account.username = username
         account.firstName = ""
         account.lastName = ""
         account.password = password
-        
+
         do {
             try unwrappedRealm.write {
                 unwrappedRealm.add(account)
             }
         } catch { }
     }
-    
+
 }
 
 extension PNRegistrationViewController {
@@ -132,17 +132,17 @@ extension PNRegistrationViewController {
             print("Notes Feed View Controller is nil")
             return
         }
-        
+
         guard let unwrappedSideMenuViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNSideMenuViewController") as? PNSideMenuViewController else {
             print("Side Menu View Controller is nil")
             return
         }
-        
+
         let slideMenuController = SlideMenuController(mainViewController:unwrappedMainViewController, leftMenuViewController: unwrappedSideMenuViewController)
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
         SlideMenuOptions.contentViewDrag = true
-        
+
         present(slideMenuController, animated: true, completion: nil)
     }
 }
