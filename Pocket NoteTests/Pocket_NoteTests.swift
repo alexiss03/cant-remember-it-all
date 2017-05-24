@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Pocket_Note
+@testable import Memo
 
 class PocketNoteTests: XCTestCase {
 

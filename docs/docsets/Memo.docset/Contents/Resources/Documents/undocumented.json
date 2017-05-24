@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 12,
+      "symbol": "ASNetworkAvailabilityCondition",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
+      "line": 16,
+      "symbol": "ASNetworkAvailabilityCondition.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/hanet/Documents/Installers/pocket-note"
+}

@@ -8,7 +8,7 @@
 import Quick
 import Nimble
 
-@testable import Pocket_Note
+@testable import Memo
 import RealmSwift
 
 class AccountModelQuickSpec: QuickSpec {

@@ -69,7 +69,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
             addAccountWith(username: username, password: password)
             showNotesFeed()
         } else if validateIfExisting() {
-            baseView?.emailErrorLabel.text = "Account is already existing. You may want to log in instead."
+            baseView?.emailErrorLabel.text = "       Account is already existing."
         }
     }
 

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00A66C991E89F95200924C34"
-               BuildableName = "Pocket Note.app"
-               BlueprintName = "Pocket Note"
-               ReferencedContainer = "container:Pocket Note.xcodeproj">
+               BuildableName = "Memo.app"
+               BlueprintName = "Memo"
+               ReferencedContainer = "container:Memo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00A66CAD1E89F95200924C34"
-               BuildableName = "Pocket NoteTests.xctest"
-               BlueprintName = "Pocket NoteTests"
-               ReferencedContainer = "container:Pocket Note.xcodeproj">
+               BuildableName = "MemoTests.xctest"
+               BlueprintName = "MemoTests"
+               ReferencedContainer = "container:Memo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00A66CB81E89F95200924C34"
-               BuildableName = "Pocket NoteUITests.xctest"
-               BlueprintName = "Pocket NoteUITests"
-               ReferencedContainer = "container:Pocket Note.xcodeproj">
+               BuildableName = "MemoUITests.xctest"
+               BlueprintName = "MemoUITests"
+               ReferencedContainer = "container:Memo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00A66C991E89F95200924C34"
-            BuildableName = "Pocket Note.app"
-            BlueprintName = "Pocket Note"
-            ReferencedContainer = "container:Pocket Note.xcodeproj">
+            BuildableName = "Memo.app"
+            BlueprintName = "Memo"
+            ReferencedContainer = "container:Memo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00A66C991E89F95200924C34"
-            BuildableName = "Pocket Note.app"
-            BlueprintName = "Pocket Note"
-            ReferencedContainer = "container:Pocket Note.xcodeproj">
+            BuildableName = "Memo.app"
+            BlueprintName = "Memo"
+            ReferencedContainer = "container:Memo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00A66C991E89F95200924C34"
-            BuildableName = "Pocket Note.app"
-            BlueprintName = "Pocket Note"
-            ReferencedContainer = "container:Pocket Note.xcodeproj">
+            BuildableName = "Memo.app"
+            BlueprintName = "Memo"
+            ReferencedContainer = "container:Memo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

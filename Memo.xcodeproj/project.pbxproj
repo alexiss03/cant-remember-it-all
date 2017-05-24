@@ -111,17 +111,17 @@
 		009E5ABA1EB1B3B6001F4889 /* PNRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationViewController.swift; path = Modules/Account/Registration/PNRegistrationViewController.swift; sourceTree = "<group>"; };
 		009E5ABC1EB1B3D3001F4889 /* PNRegistrationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNRegistrationView.xib; path = Modules/Account/Registration/PNRegistrationView.xib; sourceTree = "<group>"; };
 		009E5ABE1EB1B44E001F4889 /* PNRegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationView.swift; path = Modules/Account/Registration/PNRegistrationView.swift; sourceTree = "<group>"; };
-		00A66C9A1E89F95200924C34 /* Pocket Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A66C9A1E89F95200924C34 /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A66C9D1E89F95200924C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00A66C9F1E89F95200924C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		00A66CA21E89F95200924C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00A66CA41E89F95200924C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00A66CA71E89F95200924C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00A66CA91E89F95200924C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00A66CAE1E89F95200924C34 /* Pocket NoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket NoteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A66CAE1E89F95200924C34 /* MemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A66CB21E89F95200924C34 /* Pocket_NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_NoteTests.swift; sourceTree = "<group>"; };
 		00A66CB41E89F95200924C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00A66CB91E89F95200924C34 /* Pocket NoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket NoteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A66CB91E89F95200924C34 /* MemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A66CBD1E89F95200924C34 /* Pocket_NoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_NoteUITests.swift; sourceTree = "<group>"; };
 		00A66CBF1E89F95200924C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00A66CCE1E89F9EE00924C34 /* PNNotesFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotesFeedView.xib; path = "Modules/Notes Feed/PNNotesFeedView.xib"; sourceTree = "<group>"; };
@@ -442,9 +442,9 @@
 		00A66C9B1E89F95200924C34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00A66C9A1E89F95200924C34 /* Pocket Note.app */,
-				00A66CAE1E89F95200924C34 /* Pocket NoteTests.xctest */,
-				00A66CB91E89F95200924C34 /* Pocket NoteUITests.xctest */,
+				00A66C9A1E89F95200924C34 /* Memo.app */,
+				00A66CAE1E89F95200924C34 /* MemoTests.xctest */,
+				00A66CB91E89F95200924C34 /* MemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -719,9 +719,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00A66C991E89F95200924C34 /* Pocket Note */ = {
+		00A66C991E89F95200924C34 /* Memo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00A66CC21E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket Note" */;
+			buildConfigurationList = 00A66CC21E89F95200924C34 /* Build configuration list for PBXNativeTarget "Memo" */;
 			buildPhases = (
 				3A2BADE7D72D21642C376925 /* [CP] Check Pods Manifest.lock */,
 				00A66C961E89F95200924C34 /* Sources */,
@@ -735,14 +735,14 @@
 			);
 			dependencies = (
 			);
-			name = "Pocket Note";
+			name = Memo;
 			productName = "Pocket Note";
-			productReference = 00A66C9A1E89F95200924C34 /* Pocket Note.app */;
+			productReference = 00A66C9A1E89F95200924C34 /* Memo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		00A66CAD1E89F95200924C34 /* Pocket NoteTests */ = {
+		00A66CAD1E89F95200924C34 /* MemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00A66CC51E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteTests" */;
+			buildConfigurationList = 00A66CC51E89F95200924C34 /* Build configuration list for PBXNativeTarget "MemoTests" */;
 			buildPhases = (
 				F32708C624406B2E1F087DBB /* [CP] Check Pods Manifest.lock */,
 				00A66CAA1E89F95200924C34 /* Sources */,
@@ -756,14 +756,14 @@
 			dependencies = (
 				00A66CB01E89F95200924C34 /* PBXTargetDependency */,
 			);
-			name = "Pocket NoteTests";
+			name = MemoTests;
 			productName = "Pocket NoteTests";
-			productReference = 00A66CAE1E89F95200924C34 /* Pocket NoteTests.xctest */;
+			productReference = 00A66CAE1E89F95200924C34 /* MemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		00A66CB81E89F95200924C34 /* Pocket NoteUITests */ = {
+		00A66CB81E89F95200924C34 /* MemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00A66CC81E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteUITests" */;
+			buildConfigurationList = 00A66CC81E89F95200924C34 /* Build configuration list for PBXNativeTarget "MemoUITests" */;
 			buildPhases = (
 				EE8B62569CA71B7952BEDFD2 /* [CP] Check Pods Manifest.lock */,
 				00A66CB51E89F95200924C34 /* Sources */,
@@ -777,9 +777,9 @@
 			dependencies = (
 				00A66CBB1E89F95200924C34 /* PBXTargetDependency */,
 			);
-			name = "Pocket NoteUITests";
+			name = MemoUITests;
 			productName = "Pocket NoteUITests";
-			productReference = 00A66CB91E89F95200924C34 /* Pocket NoteUITests.xctest */;
+			productReference = 00A66CB91E89F95200924C34 /* MemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -819,7 +819,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00A66C951E89F95200924C34 /* Build configuration list for PBXProject "Pocket Note" */;
+			buildConfigurationList = 00A66C951E89F95200924C34 /* Build configuration list for PBXProject "Memo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -832,9 +832,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00A66C991E89F95200924C34 /* Pocket Note */,
-				00A66CAD1E89F95200924C34 /* Pocket NoteTests */,
-				00A66CB81E89F95200924C34 /* Pocket NoteUITests */,
+				00A66C991E89F95200924C34 /* Memo */,
+				00A66CAD1E89F95200924C34 /* MemoTests */,
+				00A66CB81E89F95200924C34 /* MemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1103,12 +1103,12 @@
 /* Begin PBXTargetDependency section */
 		00A66CB01E89F95200924C34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00A66C991E89F95200924C34 /* Pocket Note */;
+			target = 00A66C991E89F95200924C34 /* Memo */;
 			targetProxy = 00A66CAF1E89F95200924C34 /* PBXContainerItemProxy */;
 		};
 		00A66CBB1E89F95200924C34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00A66C991E89F95200924C34 /* Pocket Note */;
+			target = 00A66C991E89F95200924C34 /* Memo */;
 			targetProxy = 00A66CBA1E89F95200924C34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1283,7 +1283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-NoteTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pocket Note.app/Pocket Note";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memo.app/Memo";
 			};
 			name = Debug;
 		};
@@ -1298,7 +1298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.solis.mary.alexis.Pocket-NoteTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pocket Note.app/Pocket Note";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memo.app/Memo";
 			};
 			name = Release;
 		};
@@ -1333,7 +1333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00A66C951E89F95200924C34 /* Build configuration list for PBXProject "Pocket Note" */ = {
+		00A66C951E89F95200924C34 /* Build configuration list for PBXProject "Memo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00A66CC01E89F95200924C34 /* Debug */,
@@ -1342,7 +1342,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00A66CC21E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket Note" */ = {
+		00A66CC21E89F95200924C34 /* Build configuration list for PBXNativeTarget "Memo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00A66CC31E89F95200924C34 /* Debug */,
@@ -1351,7 +1351,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00A66CC51E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteTests" */ = {
+		00A66CC51E89F95200924C34 /* Build configuration list for PBXNativeTarget "MemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00A66CC61E89F95200924C34 /* Debug */,
@@ -1360,7 +1360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00A66CC81E89F95200924C34 /* Build configuration list for PBXNativeTarget "Pocket NoteUITests" */ = {
+		00A66CC81E89F95200924C34 /* Build configuration list for PBXNativeTarget "MemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00A66CC91E89F95200924C34 /* Debug */,

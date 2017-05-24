@@ -12,7 +12,7 @@ import Nimble
 import UIKit
 import RealmSwift
 
-@testable import Pocket_Note
+@testable import Memo
 
 class RegistrationQuickSpec: QuickSpec {
     override func spec() {

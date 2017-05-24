@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 
-@testable import Pocket_Note
+@testable import Memo
 
 class LoginQuickSpec: QuickSpec {
     override func spec() {
