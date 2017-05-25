@@ -10,6 +10,7 @@ import UIKit
 
 import SlideMenuControllerSwift
 import RealmSwift
+import PSOperations
 
 class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, PNRegistrationViewDelegate {
 
@@ -66,8 +67,10 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         }
 
         if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput && !validateIfExisting() {
-            addAccountWith(username: username, password: password)
-            showNotesFeed()
+
+            let syncOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: self)
+            RealmConstants.networkOperationQueue.addOperation(syncOperation)
+
         } else if validateIfExisting() {
             baseView?.emailErrorLabel.text = "       Account is already existing."
         }
@@ -125,7 +128,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
 
 }
 
-extension PNRegistrationViewController {
+extension PNRegistrationViewController: PNShowNotesFeedProtocol {
     func showNotesFeed() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
@@ -145,4 +148,8 @@ extension PNRegistrationViewController {
 
         present(slideMenuController, animated: true, completion: nil)
     }
+}
+
+protocol PNShowNotesFeedProtocol {
+    func showNotesFeed()
 }

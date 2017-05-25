@@ -27,7 +27,7 @@
         <!--Login View Controller-->
         <scene sceneID="hoJ-g7-vHB">
             <objects>
-                <viewController id="oqY-dl-Rel" customClass="PNLoginViewController" customModule="Pocket_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PNLoginViewController" id="oqY-dl-Rel" customClass="PNLoginViewController" customModule="Memo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EbH-QW-eN5"/>
                         <viewControllerLayoutGuide type="bottom" id="Xrm-tV-0U6"/>
@@ -49,7 +49,7 @@
         <!--Registration View Controller-->
         <scene sceneID="1W5-Qh-kSy">
             <objects>
-                <viewController storyboardIdentifier="PNRegistrationViewController" id="zKI-dj-m7T" customClass="PNRegistrationViewController" customModule="Pocket_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PNRegistrationViewController" id="zKI-dj-m7T" customClass="PNRegistrationViewController" customModule="Memo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JUI-7G-Hcj"/>
                         <viewControllerLayoutGuide type="bottom" id="EQp-bZ-dnY"/>

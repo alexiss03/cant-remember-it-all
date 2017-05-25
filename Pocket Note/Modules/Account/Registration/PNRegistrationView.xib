@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FlN-wi-Opg">
-                    <rect key="frame" x="37.5" y="234" width="300" height="200"/>
+                    <rect key="frame" x="38" y="234" width="300" height="200"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="piA-ar-ECL">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
@@ -50,13 +50,13 @@
                             <rect key="frame" x="0.0" y="70" width="300" height="60"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guR-Ci-com">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="48"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlC-2m-3dZ">
-                                    <rect key="frame" x="0.0" y="47.5" width="300" height="12.5"/>
+                                    <rect key="frame" x="0.0" y="48" width="300" height="12"/>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                             <state key="normal" title="SIGN UP"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="20"/>
+                                    <integer key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>

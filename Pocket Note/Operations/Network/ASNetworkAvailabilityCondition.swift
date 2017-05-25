@@ -20,6 +20,6 @@ public struct ASNetworkAvailabilityCondition: OperationCondition {
     }
 
     public func evaluateForOperation(_ operation: PSOperations.Operation, completion: @escaping (PSOperations.OperationConditionResult) -> Swift.Void) {
-
+        
     }
 }
