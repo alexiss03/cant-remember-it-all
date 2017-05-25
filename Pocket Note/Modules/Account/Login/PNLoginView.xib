@@ -101,19 +101,19 @@
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-iJ-xDE">
-                    <rect key="frame" x="70" y="442" width="236" height="28"/>
+                    <rect key="frame" x="112" y="442" width="152" height="27"/>
                     <state key="normal">
                         <attributedString key="attributedTitle">
-                            <fragment content="Already have an account? ">
+                            <fragment content="No account? ">
                                 <attributes>
-                                    <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                    <color key="NSColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="13" name="LucidaGrande"/>
                                 </attributes>
                             </fragment>
                             <fragment content="Sign up here">
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                    <font key="NSFont" size="13" name="LucidaGrande"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
