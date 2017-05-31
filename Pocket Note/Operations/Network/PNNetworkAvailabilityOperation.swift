@@ -18,7 +18,7 @@ public class PNNetworkAvailabilityOperation: PSOperation, PSOperationQueueDelega
         if Reachability.isConnectedToNetwork() {
             self.finish()
         } else {
-            self.cancelWithError(PNNetworkAvailabilityOperation.noNetworkError)
+            self.finishWithError(PNNetworkAvailabilityOperation.noNetworkError)
         }
     }
 }

@@ -82,18 +82,10 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
         }
         
         if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput {
-            let loginOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: self)
-            let networkAvailabilityOperation = PNNetworkAvailabilityOperation.init()
+            let loginOperationChain = createLoginOperationChain(username: username, password: password)
             
-            let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: self)
-        
-            networkAvailabilityOperation.addObserver(noNetworkObserver)
-            loginOperation.addDependency(networkAvailabilityOperation)
-            
-            RealmConstants.networkOperationQueue.addOperations([networkAvailabilityOperation, loginOperation], waitUntilFinished: false)
-            
+            RealmConstants.networkOperationQueue.addOperations(loginOperationChain, waitUntilFinished: false)
         }
-        
     }
     
     func signUpHereButtonTapped() {
@@ -121,5 +113,26 @@ extension PNLoginViewController: PNShowNotesFeedProtocol {
         SlideMenuOptions.contentViewDrag = true
         
         present(slideMenuController, animated: true, completion: nil)
+    }
+}
+
+extension PNLoginViewController {
+    func createLoginOperationChain(username: String, password: String) -> [PSOperation] {
+        guard let unwrappedBaseView = baseView else {
+            print("Login base view is nil")
+            return []
+        }
+        
+        let loginOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: self)
+        let networkAvailabilityOperation = PNNetworkAvailabilityOperation.init()
+        
+        let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: self)
+        let invalidLoginObserver = PNInvalidLoginCredentialsErrorObserver.init(loginView: unwrappedBaseView)
+        
+        networkAvailabilityOperation.addObserver(noNetworkObserver)
+        loginOperation.addObserver(invalidLoginObserver)
+        
+        loginOperation.addDependency(networkAvailabilityOperation)
+        return [networkAvailabilityOperation, loginOperation]
     }
 }

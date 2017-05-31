@@ -14,9 +14,11 @@
 		0036F5881EB81D1E00D19F75 /* PNNotebooksListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */; };
 		0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */; };
 		0054AC3F1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0054AC3E1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift */; };
+		006091781EDD4A2C0058068B /* PNLoginUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006091771EDD4A2C0058068B /* PNLoginUserOperation.swift */; };
+		0060917B1EDD50F40058068B /* PNInvalidLoginCredentialsErrorObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0060917A1EDD50F40058068B /* PNInvalidLoginCredentialsErrorObserver.swift */; };
+		0060917D1EDD5CB40058068B /* PNExistingUserAlreadyErrorObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0060917C1EDD5CB40058068B /* PNExistingUserAlreadyErrorObserver.swift */; };
 		008D3A7A1ED66D7C003B51DE /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A791ED66D7C003B51DE /* RealmConstants.swift */; };
 		008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */; };
-		008D3A7E1ED6AB1C003B51DE /* PNLoginUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A7D1ED6AB1C003B51DE /* PNLoginUserOperation.swift */; };
 		008D3A811ED6AC2D003B51DE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A801ED6AC2D003B51DE /* Reachability.swift */; };
 		008D3A841ED6CB82003B51DE /* PNNoNetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A831ED6CB82003B51DE /* PNNoNetworkObserver.swift */; };
 		009E5A9C1EB1865E001F4889 /* PNPasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */; };
@@ -104,10 +106,12 @@
 		0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebooksListView.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.xib"; sourceTree = "<group>"; };
 		0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListView.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.swift"; sourceTree = "<group>"; };
 		0054AC3E1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASNetworkAvailabilityCondition.swift; path = Operations/Network/ASNetworkAvailabilityCondition.swift; sourceTree = "<group>"; };
+		006091771EDD4A2C0058068B /* PNLoginUserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserOperation.swift; path = Operations/PNLoginUserOperation.swift; sourceTree = "<group>"; };
+		0060917A1EDD50F40058068B /* PNInvalidLoginCredentialsErrorObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNInvalidLoginCredentialsErrorObserver.swift; path = Observers/PNInvalidLoginCredentialsErrorObserver.swift; sourceTree = "<group>"; };
+		0060917C1EDD5CB40058068B /* PNExistingUserAlreadyErrorObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNExistingUserAlreadyErrorObserver.swift; path = Observers/PNExistingUserAlreadyErrorObserver.swift; sourceTree = "<group>"; };
 		00821E8C1ECD431100177780 /* Pocket Note.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pocket Note.entitlements"; sourceTree = "<group>"; };
 		008D3A791ED66D7C003B51DE /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConstants.swift; path = Structs/RealmConstants.swift; sourceTree = "<group>"; };
 		008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNetworkAvailabilityOperation.swift; path = Operations/Network/PNNetworkAvailabilityOperation.swift; sourceTree = "<group>"; };
-		008D3A7D1ED6AB1C003B51DE /* PNLoginUserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLoginUserOperation.swift; sourceTree = "<group>"; };
 		008D3A801ED6AC2D003B51DE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Helpers/Reachability.swift; sourceTree = "<group>"; };
 		008D3A831ED6CB82003B51DE /* PNNoNetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNoNetworkObserver.swift; path = Observers/PNNoNetworkObserver.swift; sourceTree = "<group>"; };
 		009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNPasscodeView.xib; path = Modules/Account/Passcode/PNPasscodeView.xib; sourceTree = "<group>"; };
@@ -295,10 +299,20 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		006091791EDD50C70058068B /* User Login */ = {
+			isa = PBXGroup;
+			children = (
+				008D3A831ED6CB82003B51DE /* PNNoNetworkObserver.swift */,
+				0060917A1EDD50F40058068B /* PNInvalidLoginCredentialsErrorObserver.swift */,
+				0060917C1EDD5CB40058068B /* PNExistingUserAlreadyErrorObserver.swift */,
+			);
+			name = "User Login";
+			sourceTree = "<group>";
+		};
 		008D3A751ED66C64003B51DE /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				008D3A7D1ED6AB1C003B51DE /* PNLoginUserOperation.swift */,
+				006091771EDD4A2C0058068B /* PNLoginUserOperation.swift */,
 			);
 			name = Realm;
 			path = "Pocket NoteTests";
@@ -324,7 +338,7 @@
 		008D3A821ED6CB47003B51DE /* Observers */ = {
 			isa = PBXGroup;
 			children = (
-				008D3A831ED6CB82003B51DE /* PNNoNetworkObserver.swift */,
+				006091791EDD50C70058068B /* User Login */,
 			);
 			name = Observers;
 			sourceTree = "<group>";
@@ -1084,10 +1098,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				009E5ABB1EB1B3B6001F4889 /* PNRegistrationViewController.swift in Sources */,
+				0060917D1EDD5CB40058068B /* PNExistingUserAlreadyErrorObserver.swift in Sources */,
 				00A66CA01E89F95200924C34 /* ViewController.swift in Sources */,
 				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
 				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
 				009E5AA41EB18E76001F4889 /* PNPasscodeViewController.swift in Sources */,
+				0060917B1EDD50F40058068B /* PNInvalidLoginCredentialsErrorObserver.swift in Sources */,
 				008D3A811ED6AC2D003B51DE /* Reachability.swift in Sources */,
 				00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */,
 				00A66CDB1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift in Sources */,
@@ -1098,11 +1114,11 @@
 				00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */,
 				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
 				008D3A7A1ED66D7C003B51DE /* RealmConstants.swift in Sources */,
+				006091781EDD4A2C0058068B /* PNLoginUserOperation.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
 				0054AC3F1ECA8CF300F5BE96 /* ASNetworkAvailabilityCondition.swift in Sources */,
 				0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */,
 				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
-				008D3A7E1ED6AB1C003B51DE /* PNLoginUserOperation.swift in Sources */,
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
 				00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */,
 				00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */,

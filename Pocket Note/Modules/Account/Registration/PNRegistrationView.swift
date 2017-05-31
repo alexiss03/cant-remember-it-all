@@ -12,7 +12,12 @@ protocol PNRegistrationViewDelegate: class {
     func signUpButtonTapped()
 }
 
-class PNRegistrationView: UIView {
+protocol PNRegistrationViewProtocol: class {
+    var emailErrorLabel: UILabel! {get set}
+    var passwordErrorLabel: UILabel! {get set}
+}
+
+class PNRegistrationView: UIView, PNRegistrationViewProtocol {
     weak var delegate: PNRegistrationViewDelegate?
 
     @IBOutlet weak var emailTextField: UITextField!

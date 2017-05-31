@@ -3,4 +3,4 @@ xcodebuild_arguments:
     - "-workspace"
     - "Pocket Note.xcworkspace"
     - "-scheme"
-    - "Pocket Note"
+    - "Memo"

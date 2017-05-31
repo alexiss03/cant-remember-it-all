@@ -16,15 +16,17 @@ class PNLoginUserOperation: PSOperation {
     private var username: String
     private var password: String
     private var nextViewController: PNShowNotesFeedProtocol
+    private var isRegister: Bool
 
-    public init(username: String, password: String, nextViewController: PNShowNotesFeedProtocol) {
+    public init(username: String, password: String, isRegister: Bool = false, nextViewController: PNShowNotesFeedProtocol) {
         self.username = username
         self.password = password
         self.nextViewController = nextViewController
+        self.isRegister = isRegister
     }
 
     public override func execute() {
-        let usernameCredentials = SyncCredentials.usernamePassword(username: username, password: password)
+        let usernameCredentials = SyncCredentials.usernamePassword(username: username, password: password, register: isRegister)
 
         weak var weakSelf = self
         SyncUser.logIn(with: usernameCredentials,
@@ -37,14 +39,14 @@ class PNLoginUserOperation: PSOperation {
                 weakSelf?.finish()
             } else if let error = error {
                 print("Realm error \(error)")
-                weakSelf?.finishWithError(PNLoginUserOperation.realmError)
+                weakSelf?.finishWithError(error as NSError)
             }
         }
     }
 }
 
 extension PNLoginUserOperation {
-    static let realmError = NSError.init(domain: "error.login.realm", code: 1000, userInfo: nil)
+    static let realmError = NSError.init(domain: "error.login.register.realm", code: 1000, userInfo: nil)
 }
 
 extension PSOperation {

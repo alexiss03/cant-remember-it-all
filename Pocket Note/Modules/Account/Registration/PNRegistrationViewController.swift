@@ -41,38 +41,37 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
 
     // MARK: PNRegistrationViewDelegate Methods
     func signUpButtonTapped() {
+        self.view.endEditing(true)
+        
         var isValidInput = true
-
+        
         if baseView?.emailTextField.text == "" {
-            baseView?.emailErrorLabel.text = "       You can't leave this empty"
+            baseView?.emailErrorLabel.text = "You can't leave this empty"
             isValidInput = false
         } else if !validEmailFormat(string: baseView?.emailTextField.text) {
-            baseView?.emailErrorLabel.text = "       Invalid email format"
+            baseView?.emailErrorLabel.text = "Invalid email format"
             isValidInput = false
         } else {
             baseView?.emailErrorLabel.text = ""
         }
-
+        
         if baseView?.passwordTextField.text == "" {
-            baseView?.passwordErrorLabel.text = "       You can't leave this empty"
+            baseView?.passwordErrorLabel.text = "You can't leave this empty"
             isValidInput = false
         } else if let characters = baseView?.passwordTextField.text?.characters, characters.count < 6 {
-            baseView?.passwordErrorLabel.text = "       Password too short (minimum of 6 characters)"
+            baseView?.passwordErrorLabel.text = "Password too short (minimum of 6 characters)"
             isValidInput = false
         } else if let characters = baseView?.passwordTextField.text?.characters, characters.count > 30 {
-            baseView?.passwordErrorLabel.text = "       Password too long (maximum of 30 characters)"
+            baseView?.passwordErrorLabel.text = "Password too long (maximum of 30 characters)"
             isValidInput = false
         } else {
             baseView?.passwordErrorLabel.text = ""
         }
-
-        if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput && !validateIfExisting() {
-
-            let syncOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: self)
-            RealmConstants.networkOperationQueue.addOperation(syncOperation)
-
-        } else if validateIfExisting() {
-            baseView?.emailErrorLabel.text = "       Account is already existing."
+        
+        if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput {
+            let loginOperationChain = createRegistrationOperationsChain(username: username, password: password)
+            
+            RealmConstants.networkOperationQueue.addOperations(loginOperationChain, waitUntilFinished: false)
         }
     }
 
@@ -125,7 +124,6 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
             }
         } catch { }
     }
-
 }
 
 extension PNRegistrationViewController: PNShowNotesFeedProtocol {
@@ -147,6 +145,27 @@ extension PNRegistrationViewController: PNShowNotesFeedProtocol {
         SlideMenuOptions.contentViewDrag = true
 
         present(slideMenuController, animated: true, completion: nil)
+    }
+}
+
+extension PNRegistrationViewController {
+    func createRegistrationOperationsChain(username: String, password: String) -> [PSOperation] {
+        guard let unwrappedBaseView = baseView else {
+            print("Registration view is nil")
+            return []
+        }
+        
+        let registerOperation = PNLoginUserOperation.init(username: username, password: password, isRegister: true, nextViewController: self)
+        let networkAvailabilityOperation = PNNetworkAvailabilityOperation.init()
+        
+        let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: self)
+        let existingUserAlreadErrorObserver = PNExistingUserAlreadyErrorObserver.init(register: unwrappedBaseView)
+        
+        networkAvailabilityOperation.addObserver(noNetworkObserver)
+        registerOperation.addObserver(existingUserAlreadErrorObserver)
+        
+        registerOperation.addDependency(networkAvailabilityOperation)
+        return [networkAvailabilityOperation, registerOperation]
     }
 }
 

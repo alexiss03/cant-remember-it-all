@@ -57,6 +57,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Helpers/Reachability.swift",
+      "line": 12,
+      "symbol": "Reachability",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Helpers/Reachability.swift",
+      "line": 13,
+      "symbol": "Reachability.isConnectedToNetwork()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Models/Account.swift",
       "line": 11,
       "symbol": "Account",
@@ -171,27 +185,76 @@
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
       "line": 16,
+      "symbol": "PNLoginViewProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 17,
+      "symbol": "PNLoginViewProtocol.emailErrorLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 18,
+      "symbol": "PNLoginViewProtocol.passwordErrorLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 21,
       "symbol": "PNLoginView",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
-      "line": 17,
+      "line": 22,
       "symbol": "PNLoginView.delegate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
-      "line": 19,
+      "line": 24,
+      "symbol": "PNLoginView.emailTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 25,
+      "symbol": "PNLoginView.passwordTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 27,
+      "symbol": "PNLoginView.emailErrorLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 28,
+      "symbol": "PNLoginView.passwordErrorLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
+      "line": 30,
       "symbol": "PNLoginView.loginButtonTapped(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginView.swift",
-      "line": 23,
+      "line": 34,
       "symbol": "PNLoginView.signUpHereButtonTapped(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -205,57 +268,85 @@
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 12,
+      "line": null,
+      "symbol": "PNLoginViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
+      "line": 14,
       "symbol": "PNLoginViewController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 14,
+      "line": 15,
       "symbol": "PNLoginViewController.baseView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 21,
+      "line": 22,
       "symbol": "PNLoginViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 34,
+      "line": 33,
+      "symbol": "PNLoginViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
+      "line": 39,
       "symbol": "PNLoginViewController.didReceiveMemoryWarning()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 38,
+      "line": 44,
+      "symbol": "PNLoginViewController.validEmailFormat(string:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
+      "line": 51,
       "symbol": "PNLoginViewController.showRegistration()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 44,
+      "line": 56,
       "symbol": "PNLoginViewController.loginButtonTapped()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 48,
+      "line": 91,
       "symbol": "PNLoginViewController.signUpHereButtonTapped()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
-      "line": 55,
+      "line": 98,
       "symbol": "PNLoginViewController.showNotesFeed()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Login/PNLoginViewController.swift",
+      "line": 120,
+      "symbol": "PNLoginViewController.createLoginOperationChain(username:password:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -402,48 +493,69 @@
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
       "line": 15,
+      "symbol": "PNRegistrationViewProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
+      "line": 16,
+      "symbol": "PNRegistrationViewProtocol.emailErrorLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
+      "line": 17,
+      "symbol": "PNRegistrationViewProtocol.passwordErrorLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
+      "line": 20,
       "symbol": "PNRegistrationView",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
-      "line": 16,
+      "line": 21,
       "symbol": "PNRegistrationView.delegate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
-      "line": 18,
+      "line": 23,
       "symbol": "PNRegistrationView.emailTextField",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
-      "line": 19,
+      "line": 24,
       "symbol": "PNRegistrationView.passwordTextField",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
-      "line": 21,
+      "line": 26,
       "symbol": "PNRegistrationView.emailErrorLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
-      "line": 22,
+      "line": 27,
       "symbol": "PNRegistrationView.passwordErrorLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationView.swift",
-      "line": 24,
+      "line": 29,
       "symbol": "PNRegistrationView.signUpButtonTapped(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -457,64 +569,92 @@
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 14,
+      "line": null,
+      "symbol": "PNRegistrationViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
+      "line": 15,
       "symbol": "PNRegistrationViewController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 16,
+      "line": 17,
       "symbol": "PNRegistrationViewController.baseView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 23,
+      "line": 24,
       "symbol": "PNRegistrationViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 36,
+      "line": 37,
       "symbol": "PNRegistrationViewController.didReceiveMemoryWarning()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 42,
+      "line": 43,
       "symbol": "PNRegistrationViewController.signUpButtonTapped()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 76,
+      "line": 78,
       "symbol": "PNRegistrationViewController.validEmailFormat(string:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 83,
+      "line": 85,
       "symbol": "PNRegistrationViewController.validateIfExisting()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 105,
+      "line": 107,
       "symbol": "PNRegistrationViewController.addAccountWith(username:password:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
-      "line": 129,
+      "line": 130,
       "symbol": "PNRegistrationViewController.showNotesFeed()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
+      "line": 152,
+      "symbol": "PNRegistrationViewController.createRegistrationOperationsChain(username:password:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
+      "line": 172,
+      "symbol": "PNShowNotesFeedProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Account/Registration/PNRegistrationViewController.swift",
+      "line": 173,
+      "symbol": "PNShowNotesFeedProtocol.showNotesFeed()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -828,77 +968,77 @@
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 49,
+      "line": 48,
       "symbol": "PNNotesFeedViewController.tableView(_:heightForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 53,
+      "line": 52,
       "symbol": "PNNotesFeedViewController.tableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 57,
+      "line": 56,
       "symbol": "PNNotesFeedViewController.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 62,
+      "line": 61,
       "symbol": "PNNotesFeedViewController.setMenu()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 69,
+      "line": 68,
       "symbol": "PNNotesFeedViewController.showCreateNote()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 73,
+      "line": 72,
       "symbol": "PNNotesFeedViewController.showViewNote()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 78,
+      "line": 77,
       "symbol": "PNNotesFeedViewController.addNoteButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 82,
+      "line": 81,
       "symbol": "PNNotesFeedViewController.setNotebookButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 95,
+      "line": 94,
       "symbol": "PNNotesFeedViewController.openNotebooks()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 105,
+      "line": 104,
       "symbol": "PNNotesFeedViewController.showNotebookActions()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift",
-      "line": 121,
+      "line": 120,
       "symbol": "PNNotesFeedViewController.editNotebookPopUp()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1016,6 +1156,69 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserAlreadyErrorObserver.swift",
+      "line": 12,
+      "symbol": "PNExistingUserAlreadyErrorObserver",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserAlreadyErrorObserver.swift",
+      "line": 13,
+      "symbol": "PNExistingUserAlreadyErrorObserver.register",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserAlreadyErrorObserver.swift",
+      "line": 15,
+      "symbol": "PNExistingUserAlreadyErrorObserver.init(register:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginCredentialsErrorObserver.swift",
+      "line": 12,
+      "symbol": "PNInvalidLoginCredentialsErrorObserver",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginCredentialsErrorObserver.swift",
+      "line": 13,
+      "symbol": "PNInvalidLoginCredentialsErrorObserver.loginView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginCredentialsErrorObserver.swift",
+      "line": 15,
+      "symbol": "PNInvalidLoginCredentialsErrorObserver.init(loginView:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNNoNetworkObserver.swift",
+      "line": 12,
+      "symbol": "PNNoNetworkObserver",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNNoNetworkObserver.swift",
+      "line": 13,
+      "symbol": "PNNoNetworkObserver.presentationContext",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNNoNetworkObserver.swift",
+      "line": 15,
+      "symbol": "PNNoNetworkObserver.init(presentationContext:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
       "line": 12,
       "symbol": "ASNetworkAvailabilityCondition",
@@ -1027,6 +1230,41 @@
       "line": 16,
       "symbol": "ASNetworkAvailabilityCondition.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": null,
+      "symbol": "PNNetworkAvailabilityOperation",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 12,
+      "symbol": "PNNetworkAvailabilityOperation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 14,
+      "symbol": "PNNetworkAvailabilityOperation.name",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 15,
+      "symbol": "PNNetworkAvailabilityOperation.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 27,
+      "symbol": "PNNetworkAvailabilityOperation.noNetworkError",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
@@ -1048,6 +1286,97 @@
       "line": 17,
       "symbol": "ViewController.didReceiveMemoryWarning()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": null,
+      "symbol": "PNLoginUserOperation",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 13,
+      "symbol": "PNLoginUserOperation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 14,
+      "symbol": "PNLoginUserOperation.name",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 16,
+      "symbol": "PNLoginUserOperation.username",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 17,
+      "symbol": "PNLoginUserOperation.password",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 18,
+      "symbol": "PNLoginUserOperation.nextViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 19,
+      "symbol": "PNLoginUserOperation.isRegister",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 21,
+      "symbol": "PNLoginUserOperation.init(username:password:isRegister:nextViewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 49,
+      "symbol": "PNLoginUserOperation.realmError",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 53,
+      "symbol": "PSOperation.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Structs/RealmConstants.swift",
+      "line": 12,
+      "symbol": "RealmConstants",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Structs/RealmConstants.swift",
+      "line": 13,
+      "symbol": "RealmConstants.serverURL",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Structs/RealmConstants.swift",
+      "line": 15,
+      "symbol": "RealmConstants.networkOperationQueue",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     }
   ],

@@ -13,7 +13,12 @@ protocol PNLoginViewDelegate: class {
     func signUpHereButtonTapped()
 }
 
-class PNLoginView: UIView {
+protocol PNLoginViewProtocol: class {
+    var emailErrorLabel: UILabel! {get set}
+    var passwordErrorLabel: UILabel! {get set}
+}
+
+class PNLoginView: UIView, PNLoginViewProtocol {
     weak var delegate: PNLoginViewDelegate?
     
     @IBOutlet weak var emailTextField: UITextField!

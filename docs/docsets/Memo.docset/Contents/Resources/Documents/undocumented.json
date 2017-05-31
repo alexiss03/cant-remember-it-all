@@ -1,6 +1,13 @@
 {
   "warnings": [
     {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Helpers/Reachability.swift",
+      "line": 12,
+      "symbol": "Reachability",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
       "line": 12,
       "symbol": "ASNetworkAvailabilityCondition",
@@ -11,6 +18,34 @@
       "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/ASNetworkAvailabilityCondition.swift",
       "line": 16,
       "symbol": "ASNetworkAvailabilityCondition.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 12,
+      "symbol": "PNNetworkAvailabilityOperation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 14,
+      "symbol": "PNNetworkAvailabilityOperation.name",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Operations/Network/PNNetworkAvailabilityOperation.swift",
+      "line": 15,
+      "symbol": "PNNetworkAvailabilityOperation.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket NoteTests/Operations/PNLoginUserOperation.swift",
+      "line": 53,
+      "symbol": "PSOperation.start()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
