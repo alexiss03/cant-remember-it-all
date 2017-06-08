@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PNCreateNoteViewController: UIViewController {
 
@@ -26,8 +27,26 @@ class PNCreateNoteViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    internal override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    internal override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
+        
+        let note = Note()
+        note.noteId = "\(Date().timeStampFromDate())"
+        note.body = baseView?.contentTextView.text
+        note.title = "This is a title."
+        note.dateCreated = Date()
+        
+        do {
+            try unwrappedRealm.write {
+                unwrappedRealm.add(note)
+            }
+        } catch { }
+
     }
 }

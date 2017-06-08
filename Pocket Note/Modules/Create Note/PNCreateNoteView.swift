@@ -9,5 +9,5 @@
 import UIKit
 
 class PNCreateNoteView: UIView {
-
+    @IBOutlet weak var contentTextView: UITextView!
 }

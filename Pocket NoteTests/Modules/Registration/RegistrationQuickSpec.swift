@@ -110,22 +110,6 @@ class RegistrationQuickSpec: QuickSpec {
             }
 
             describe("account") {
-//                it("valid email and password") {
-//                    guard let unwrappedRealm = realm else { return }
-//
-//                    let beforeSignUpAccountCount = unwrappedRealm.objects(Account.self).count
-//
-//                    vc?.baseView?.emailTextField.text = "user2@domain.com"
-//                    vc?.baseView?.passwordTextField.text = "123456"
-//                    vc?.baseView?.delegate?.signUpButtonTapped()
-//
-//                    let afterSignUpAccountCount = unwrappedRealm.objects(Account.self).count
-//
-//                    expect(afterSignUpAccountCount).to(equal(beforeSignUpAccountCount+1))
-//                    expect(vc?.baseView?.emailErrorLabel.text).to(equal(""))
-//
-//                }
-
                 it("existing account") {
                     guard let unwrappedRealm = realm else { return }
 
@@ -138,7 +122,6 @@ class RegistrationQuickSpec: QuickSpec {
                     let afterSignUpAccountCount = unwrappedRealm.objects(Account.self).count
 
                     expect(afterSignUpAccountCount).to(equal(beforeSignUpAccountCount))
-                    //expect(vc?.baseView?.emailErrorLabel.text).notTo(equal(""))
                 }
             }
 

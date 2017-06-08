@@ -24,5 +24,9 @@ class PNNotesFeedTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    public func setContent(note: Note) {
+        descriptionLabel.text = note.body
+    }
 
 }

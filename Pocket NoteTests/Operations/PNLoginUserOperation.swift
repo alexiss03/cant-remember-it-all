@@ -54,6 +54,8 @@ class PNLoginUserOperation: PSOperation {
         SyncUser.logIn(with: usernameCredentials,
            server: PNSharedRealm.authenticationServerURL) { user, error in
             if let user = user {
+                _ = PNSharedRealm.configureRealm(user: user)
+                
                 DispatchQueue.main.async {
                     weakSelf?.nextViewController.showNotesFeed()
                 }

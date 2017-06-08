@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PNNotesFeedViewDelegate {
 
@@ -16,6 +17,8 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         }
         return nil
     }()
+    
+    var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,24 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             unwrappedBaseView.notesListTableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
 
             setNotebookButton()
+            
         }
+    }
+    
+    internal override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    internal override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+        
+        let results = unwrappedRealm.objects(Note.self)
+        if let unwrappedNotesListTableView = baseView?.notesListTableView {
+            notificationToken = results.addNotificationBlock(unwrappedNotesListTableView.applyChanges)
+        }
+        
     }
 
     // MARK: UITableViewDelegate Methods
@@ -50,12 +70,21 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+       guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
+        
+        let noteList = unwrappedRealm.objects(Note.self)
+        return noteList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotesFeedTableViewCell")
-        return cell!
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotesFeedTableViewCell") as? PNNotesFeedTableViewCell {
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return UITableViewCell.init() }
+            let noteList = unwrappedRealm.objects(Note.self)
+            
+            cell.setContent(note: noteList[indexPath.row])
+            return cell
+        }
+        return UITableViewCell.init()
     }
 
     func setMenu() {
@@ -136,5 +165,29 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         alertController.addAction(cancelAction)
 
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension Date {
+    /** Returns a timeStamp from a NSDate instance */
+    func timeStampFromDate() -> Int {
+        return Int(self.timeIntervalSince1970)
+    }
+}
+
+extension UITableView {
+    func applyChanges<T>(changes: RealmCollectionChange<T>) {
+        switch changes {
+        case .initial: reloadData()
+        case .update(let results, let deletions, let insertions, let updates):
+            let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
+            
+            beginUpdates()
+            insertRows(at: insertions.map(fromRow), with: .bottom)
+            reloadRows(at: updates.map(fromRow), with: .bottom)
+            deleteRows(at: deletions.map(fromRow), with: .bottom)
+            endUpdates()
+        case .error(let error): fatalError("\(error)")
+        }
     }
 }

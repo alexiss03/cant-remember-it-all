@@ -79,6 +79,9 @@
                 <constraint firstItem="bms-m8-pgU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="jK4-Ys-1Z8"/>
                 <constraint firstAttribute="trailing" secondItem="Cha-U5-C8O" secondAttribute="trailing" constant="5" id="krU-vP-DUr"/>
             </constraints>
+            <connections>
+                <outlet property="contentTextView" destination="Cha-U5-C8O" id="Fbt-uN-Nf7"/>
+            </connections>
             <point key="canvasLocation" x="18.5" y="44.5"/>
         </view>
     </objects>
