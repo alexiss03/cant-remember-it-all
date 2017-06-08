@@ -12,15 +12,25 @@ import SlideMenuControllerSwift
 import RealmSwift
 import PSOperations
 
+/**
+    The view controller class responsible for the Registration module.
+ */
 class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, PNRegistrationViewDelegate {
-
+    
+    /// This is the main view of the registration page.
     let baseView: PNRegistrationView? = {
         if let view = Bundle.main.loadNibNamed("PNRegistrationView", owner: self, options: nil)![0] as? PNRegistrationView {
             return view
         }
         return nil
     }()
+    
+    /// This is the event handler for the Registration module.
+    var registrationEventHandler: PNRegistrationEventHandler?
 
+    /**
+     This method overrides `viewDidLoad()` to initialize the `baseView` and set the navigation bar visibility.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,14 +42,23 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         }
 
         showNavigationBar(viewController: self)
+        initializeInteractors()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+    /**
+     This methods initializes logic interactors for this class
+     */
+    private func initializeInteractors() {
+        if let unwrappedBaseView = baseView {
+            registrationEventHandler = PNRegistrationInteractor.init(baseView: unwrappedBaseView, nextViewController: self, presentationContext: self)
+        }
     }
-
+    
     // MARK: PNRegistrationViewDelegate Methods
+    /**
+        This method acts when the sign up button is tapped. This checks the validity of the user input in the forms. If valid, performs the chain of operation for the login operations. If invalid, shows the necessary error messages.
+     
+     */
     func signUpButtonTapped() {
         self.view.endEditing(true)
         
@@ -69,64 +88,27 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
         }
         
         if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput {
-            let loginOperationChain = createRegistrationOperationsChain(username: username, password: password)
-            
-            RealmConstants.networkOperationQueue.addOperations(loginOperationChain, waitUntilFinished: false)
+            registrationEventHandler?.handleRegistration(username: username, password: password)
         }
     }
 
+    /**
+        This method checks if an input string is in the form of a valid email address.
+     
+        - Parameter string: Input string to be checked for email format
+     */
     func validEmailFormat(string: String?) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         let result = emailTest.evaluate(with: string)
         return result
     }
-
-    func validateIfExisting() -> Bool {
-        var realm: Realm?
-        do {
-            realm = try Realm()
-        } catch { }
-
-        guard let unwrappedRealm = realm else { return true }
-
-        let account = Account()
-        account.username = baseView?.emailTextField.text
-        account.firstName = ""
-        account.lastName = "This is a last name"
-        account.password = baseView?.passwordTextField.text
-
-        guard let username = baseView?.emailTextField.text else {
-            return true
-        }
-
-        let existingAccount = unwrappedRealm.objects(Account.self).filter("username = '\(username)'").first
-        return existingAccount != nil
-    }
-
-    func addAccountWith(username: String, password: String) {
-        var realm: Realm?
-        do {
-            realm = try Realm()
-        } catch { }
-
-        guard let unwrappedRealm = realm else { return }
-
-        let account = Account()
-        account.username = username
-        account.firstName = ""
-        account.lastName = ""
-        account.password = password
-
-        do {
-            try unwrappedRealm.write {
-                unwrappedRealm.add(account)
-            }
-        } catch { }
-    }
 }
 
 extension PNRegistrationViewController: PNShowNotesFeedProtocol {
+    /**
+     This is an implementation method of a protocol method for `PNShowNotesFeedProtocol`. This directs the current view controller to the notes feed screen.
+     */
     func showNotesFeed() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
@@ -145,30 +127,6 @@ extension PNRegistrationViewController: PNShowNotesFeedProtocol {
         SlideMenuOptions.contentViewDrag = true
 
         present(slideMenuController, animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
-}
-
-extension PNRegistrationViewController {
-    func createRegistrationOperationsChain(username: String, password: String) -> [PSOperation] {
-        guard let unwrappedBaseView = baseView else {
-            print("Registration view is nil")
-            return []
-        }
-        
-        let registerOperation = PNLoginUserOperation.init(username: username, password: password, isRegister: true, nextViewController: self)
-        let networkAvailabilityOperation = PNNetworkAvailabilityOperation.init()
-        
-        let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: self)
-        let existingUserAlreadErrorObserver = PNExistingUserAlreadyErrorObserver.init(register: unwrappedBaseView)
-        
-        networkAvailabilityOperation.addObserver(noNetworkObserver)
-        registerOperation.addObserver(existingUserAlreadErrorObserver)
-        
-        registerOperation.addDependency(networkAvailabilityOperation)
-        return [networkAvailabilityOperation, registerOperation]
-    }
-}
-
-protocol PNShowNotesFeedProtocol {
-    func showNotesFeed()
 }

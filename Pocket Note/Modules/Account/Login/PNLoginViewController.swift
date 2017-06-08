@@ -11,49 +11,85 @@ import SlideMenuControllerSwift
 import RealmSwift
 import PSOperations
 
-class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginViewDelegate {
+/**
+ This class is the view controller for the Login module.
+ */
+class PNLoginViewController: UIViewController, PNNavigationBarProtocol {
+    
+    /// This instance property is the superview of the current controller.
     let baseView: PNLoginView? = {
         if let view = Bundle.main.loadNibNamed("PNLoginView", owner: self, options: nil)![0] as? PNLoginView {
             return view
         }
         return nil
     }()
+    
+    /// This instance property holds the login interactor that serves as an event handler.
+    fileprivate var loginInteractor: PNLoginViewEventHandler?
 
-    override func viewDidLoad() {
+    /** 
+     This method overrides the superclass' implementation of `viewDidLoad()` to set the `baseView` and setting the baseView delegate.
+    */
+    internal override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !SyncUser.all.isEmpty {
+            showNotesFeed()
+        }
         
         if let unwrappedBaseView = self.baseView {
             unwrappedBaseView.frame = self.view.frame
             self.view = unwrappedBaseView
             
             unwrappedBaseView.delegate = self
+            initializeInteractors()
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    /**
+     This method is responsible for initializing interactors such as the `PNLoginInteractor`.
+     */
+    private func initializeInteractors() {
+        if let unwrappedBaseView = baseView {
+            loginInteractor = PNLoginInteractor.init(baseView: unwrappedBaseView, nextViewController: self, presentationContext: self)
+        }
+    }
+    
+    /** 
+     This method overrides the superclass' implementation of `viewWillAppear()` set the navigation bar's visibility and resetting the `baseView` to reusing
+    */
+    internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         hideNavigationBar(viewController: self)
+        baseView?.prepareForReuse()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-    
-    func validEmailFormat(string: String?) -> Bool {
+    /**
+     This method that returns a boolean value for checking a string valid email format.
+     
+     - Paramter string: String to be validated for email format
+    */
+    final fileprivate func validEmailFormat(string: String?) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         let result = emailTest.evaluate(with: string)
         return result
     }
     
-    private func showRegistration() {
+    /**
+     This method calls a perform segue to the Registration page.
+     */
+    final fileprivate func showRegistration() {
         self.performSegue(withIdentifier: "TO_REGISTRATION", sender: self)
     }
-    
-    // MARK: PNLoginViewDelegate Methods
-    func loginButtonTapped() {
+}
+
+extension PNLoginViewController: PNLoginViewDelegate {
+    /**
+     This method is the protocol implementation of a delegate method that is called whenever the login button is tapped. This is responsible for checking the validity of the user input to the login form. If valid, this creates an instance to a chain of operations for login. Otherwise, this method outputs error messages to the respective views.
+     */
+    final internal func loginButtonTapped() {
         self.view.endEditing(true)
         
         var isValidInput = true
@@ -82,20 +118,24 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
         }
         
         if let username = baseView?.emailTextField.text, let password = baseView?.passwordTextField.text, isValidInput {
-            let loginOperationChain = createLoginOperationChain(username: username, password: password)
-            
-            RealmConstants.networkOperationQueue.addOperations(loginOperationChain, waitUntilFinished: false)
+            loginInteractor?.handleLogin(username: username, password: password)
         }
     }
     
-    func signUpHereButtonTapped() {
+    /**
+     This method is a protocol implementation of the delegate method that is called whenever the user taps the sign up button.
+     */
+    final internal func signUpHereButtonTapped() {
         showRegistration()
     }
     
 }
 
 extension PNLoginViewController: PNShowNotesFeedProtocol {
-    func showNotesFeed() {
+    /**
+     This method directs this view controller to the event's feed page.
+     */
+    final internal func showNotesFeed() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
             print("Notes Feed View Controller is nil")
@@ -113,26 +153,5 @@ extension PNLoginViewController: PNShowNotesFeedProtocol {
         SlideMenuOptions.contentViewDrag = true
         
         present(slideMenuController, animated: true, completion: nil)
-    }
-}
-
-extension PNLoginViewController {
-    func createLoginOperationChain(username: String, password: String) -> [PSOperation] {
-        guard let unwrappedBaseView = baseView else {
-            print("Login base view is nil")
-            return []
-        }
-        
-        let loginOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: self)
-        let networkAvailabilityOperation = PNNetworkAvailabilityOperation.init()
-        
-        let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: self)
-        let invalidLoginObserver = PNInvalidLoginCredentialsErrorObserver.init(loginView: unwrappedBaseView)
-        
-        networkAvailabilityOperation.addObserver(noNetworkObserver)
-        loginOperation.addObserver(invalidLoginObserver)
-        
-        loginOperation.addDependency(networkAvailabilityOperation)
-        return [networkAvailabilityOperation, loginOperation]
     }
 }

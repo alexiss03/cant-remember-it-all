@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import RealmSwift
+import UIKit
 
 @testable import Memo
 
@@ -109,9 +110,8 @@ class LoginQuickSpec: QuickSpec {
             
             describe("account") {
                 it("valid email and password") {
-                    
-                    vc?.baseView?.emailTextField.text = "user2@domain.com"
-                    vc?.baseView?.passwordTextField.text = "123456"
+                    vc?.baseView?.emailTextField.text = "admin@memo.com"
+                    vc?.baseView?.passwordTextField.text = "password"
                     vc?.baseView?.delegate?.loginButtonTapped()
                     
                     guard let username = vc?.baseView?.emailTextField.text else {
@@ -130,7 +130,7 @@ class LoginQuickSpec: QuickSpec {
                     }
                     
                     let loginOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: unwrappedVC)
-                    RealmConstants.networkOperationQueue.addOperation(loginOperation)
+                    PNOperationQueue.networkOperationQueue.addOperation(loginOperation)
 
                     expect(unwrappedVC.isBeingPresented).to(equal(false))
                     expect(vc?.baseView?.emailErrorLabel.text).to(equal(""))
@@ -139,22 +139,33 @@ class LoginQuickSpec: QuickSpec {
             }
             
             it("no internet connection") {
-                
+//                 guard let unwrappedVC = vc else {
+//                    print("View Controller is nil")
+//                    return
+//                 }
+//                 vc?.baseView?.emailTextField.text = "user2@domain.com"
+//                 vc?.baseView?.passwordTextField.text = "123456"
+//                 vc?.baseView?.delegate?.loginButtonTapped()
+//                 self.stub(everything, http(404))
+//                
+//                guard let username = vc?.baseView?.emailTextField.text else {
+//                    print("Username is empty")
+//                    return
+//                }
+//                
+//                guard let password = vc?.baseView?.passwordTextField.text else {
+//                    print("Password is empty")
+//                    return
+//                }
+//                
+//                let loginOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: unwrappedVC)
+//                PNOperationQueue.networkOperationQueue.addOperation(loginOperation)
             }
             
             it("slow internet connection") {
                 
             }
-            
-            describe("keyboard dismiss") {
-                it("tap on view") {
-                    
-                }
-                
-                it("tap on sign up") {
-                    
-                }
-            }
+
         }
     }
 }

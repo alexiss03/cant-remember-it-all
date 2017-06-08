@@ -4,178 +4,217 @@
     <title>AppDelegate Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Class/AppDelegate" class="dashAnchor"></a>
+
     <a title="AppDelegate Class Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">Memo Docs</a> (9% documented)</p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">Memo Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        AppDelegate Class Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Memo Docs
+        </a>
+         (34% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Memo Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      AppDelegate Class Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Account.html">Account</a>
+                <a class="nav-group-task-link" href="../Classes/Account.html">Account</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+                <a class="nav-group-task-link" href="../Classes/AppDelegate.html">AppDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Note.html">Note</a>
+                <a class="nav-group-task-link" href="../Classes/Note.html">Note</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Notebook.html">Notebook</a>
+                <a class="nav-group-task-link" href="../Classes/Notebook.html">Notebook</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes.html#/s:C4Memo16PNCreateNoteView">PNCreateNoteView</a>
+                <a class="nav-group-task-link" href="../Classes.html#/s:C4Memo16PNCreateNoteView">PNCreateNoteView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNCreateNoteViewController.html">PNCreateNoteViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNCreateNoteViewController.html">PNCreateNoteViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNLoginUserOperation.html">PNLoginUserOperation</a>
+                <a class="nav-group-task-link" href="../Classes/PNLoginUserOperation.html">PNLoginUserOperation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNLoginView.html">PNLoginView</a>
+                <a class="nav-group-task-link" href="../Classes/PNLoginView.html">PNLoginView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNLoginViewController.html">PNLoginViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNLoginViewController.html">PNLoginViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNetworkAvailabilityOperation.html">PNNetworkAvailabilityOperation</a>
+                <a class="nav-group-task-link" href="../Classes/PNLogoutUserOperation.html">PNLogoutUserOperation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNotebooksListView.html">PNNotebooksListView</a>
+                <a class="nav-group-task-link" href="../Classes/PNNetworkAvailabilityOperation.html">PNNetworkAvailabilityOperation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNotebooksListViewController.html">PNNotebooksListViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNNotebooksListView.html">PNNotebooksListView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNotesFeedCollectionViewCell.html">PNNotesFeedCollectionViewCell</a>
+                <a class="nav-group-task-link" href="../Classes/PNNotebooksListViewController.html">PNNotebooksListViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNotesFeedTableViewCell.html">PNNotesFeedTableViewCell</a>
+                <a class="nav-group-task-link" href="../Classes/PNNotesFeedCollectionViewCell.html">PNNotesFeedCollectionViewCell</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNotesFeedView.html">PNNotesFeedView</a>
+                <a class="nav-group-task-link" href="../Classes/PNNotesFeedTableViewCell.html">PNNotesFeedTableViewCell</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNNotesFeedViewController.html">PNNotesFeedViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNNotesFeedView.html">PNNotesFeedView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNPasscodeView.html">PNPasscodeView</a>
+                <a class="nav-group-task-link" href="../Classes/PNNotesFeedViewController.html">PNNotesFeedViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNPasscodeViewController.html">PNPasscodeViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNPasscodeView.html">PNPasscodeView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNRegistrationView.html">PNRegistrationView</a>
+                <a class="nav-group-task-link" href="../Classes/PNPasscodeViewController.html">PNPasscodeViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNRegistrationViewController.html">PNRegistrationViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNRegistrationView.html">PNRegistrationView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNSideMenuView.html">PNSideMenuView</a>
+                <a class="nav-group-task-link" href="../Classes/PNRegistrationViewController.html">PNRegistrationViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PNSideMenuViewController.html">PNSideMenuViewController</a>
+                <a class="nav-group-task-link" href="../Classes/PNSideMenuView.html">PNSideMenuView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Reachability.html">Reachability</a>
+                <a class="nav-group-task-link" href="../Classes/PNSideMenuViewController.html">PNSideMenuViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ViewController.html">ViewController</a>
+                <a class="nav-group-task-link" href="../Classes/Reachability.html">Reachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ViewController.html">ViewController</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/PSOperation.html">PSOperation</a>
+                <a class="nav-group-task-link" href="../Extensions/PSOperation.html">PSOperation</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/PNLoginViewDelegate.html">PNLoginViewDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/PNLoginViewDelegate.html">PNLoginViewDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNLoginViewProtocol.html">PNLoginViewProtocol</a>
+                <a class="nav-group-task-link" href="../Protocols/PNLoginViewEventHandler.html">PNLoginViewEventHandler</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNNavigationBarProtocol.html">PNNavigationBarProtocol</a>
+                <a class="nav-group-task-link" href="../Protocols/PNLoginViewProtocol.html">PNLoginViewProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNNotebooksListViewDelegate.html">PNNotebooksListViewDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/PNNavigationBarProtocol.html">PNNavigationBarProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNNotesFeedViewDelegate.html">PNNotesFeedViewDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/PNNotebooksListViewDelegate.html">PNNotebooksListViewDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNPasscodeViewDelegate.html">PNPasscodeViewDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/PNNotesFeedViewDelegate.html">PNNotesFeedViewDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNRegistrationViewDelegate.html">PNRegistrationViewDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/PNPasscodeViewDelegate.html">PNPasscodeViewDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNRegistrationViewProtocol.html">PNRegistrationViewProtocol</a>
+                <a class="nav-group-task-link" href="../Protocols/PNRegistrationEventHandler.html">PNRegistrationEventHandler</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PNShowNotesFeedProtocol.html">PNShowNotesFeedProtocol</a>
+                <a class="nav-group-task-link" href="../Protocols/PNRegistrationViewDelegate.html">PNRegistrationViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PNRegistrationViewProtocol.html">PNRegistrationViewProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PNShowNotesFeedProtocol.html">PNShowNotesFeedProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PNSideMenuViewDelegate.html">PNSideMenuViewDelegate</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/ASNetworkAvailabilityCondition.html">ASNetworkAvailabilityCondition</a>
+                <a class="nav-group-task-link" href="../Structs/PNExistingUserErrorObserver.html">PNExistingUserErrorObserver</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/PNExistingUserAlreadyErrorObserver.html">PNExistingUserAlreadyErrorObserver</a>
+                <a class="nav-group-task-link" href="../Structs/PNInvalidLoginErrorObserver.html">PNInvalidLoginErrorObserver</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/PNInvalidLoginCredentialsErrorObserver.html">PNInvalidLoginCredentialsErrorObserver</a>
+                <a class="nav-group-task-link" href="../Structs/PNLoginInteractor.html">PNLoginInteractor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/PNNoNetworkObserver.html">PNNoNetworkObserver</a>
+                <a class="nav-group-task-link" href="../Structs/PNNoNetworkObserver.html">PNNoNetworkObserver</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/RealmConstants.html">RealmConstants</a>
+                <a class="nav-group-task-link" href="../Structs/PNOperationQueue.html">PNOperationQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/PNRegistrationInteractor.html">PNRegistrationInteractor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/PNSharedRealm.html">PNSharedRealm</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>AppDelegate</h1>
             <p>Undocumented</p>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -311,14 +350,15 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-05-31)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Mary Alexis Solis</a>. All rights reserved. (Last updated: 2017-06-08)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

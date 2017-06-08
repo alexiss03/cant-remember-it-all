@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PNSideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -26,6 +27,7 @@ class PNSideMenuViewController: UIViewController, UITableViewDelegate, UITableVi
             unwrappedBaseView.frame = self.view.frame
             self.view = unwrappedBaseView
 
+            unwrappedBaseView.delegate = self
             unwrappedBaseView.tableView.delegate = self
             unwrappedBaseView.tableView.dataSource = self
             unwrappedBaseView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
@@ -59,4 +61,11 @@ class PNSideMenuViewController: UIViewController, UITableViewDelegate, UITableVi
         return unwrappedCell
     }
 
+}
+
+extension PNSideMenuViewController: PNSideMenuViewDelegate {
+    func logoutButtonTapped() {
+        let logoutOperation = PNLogoutUserOperation.init(dismissingContext: self)
+        PNOperationQueue.networkOperationQueue.addOperations([logoutOperation], waitUntilFinished: false)
+    }
 }

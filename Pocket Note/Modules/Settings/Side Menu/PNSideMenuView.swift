@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol PNSideMenuViewDelegate: class {
+    func logoutButtonTapped()
+}
+
 class PNSideMenuView: UIView {
 
+    weak var delegate: PNSideMenuViewDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
-
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        delegate?.logoutButtonTapped()
+    }
 }

@@ -4,3 +4,6 @@ xcodebuild_arguments:
     - "Pocket Note.xcworkspace"
     - "-scheme"
     - "Memo"
+min_acl: "private"
+author: "Mary Alexis Solis"
+theme: "fullwidth"

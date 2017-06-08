@@ -143,7 +143,7 @@ class RegistrationQuickSpec: QuickSpec {
             }
 
             it("no internet connection") {
-
+               
             }
 
             it("slow internet connection") {

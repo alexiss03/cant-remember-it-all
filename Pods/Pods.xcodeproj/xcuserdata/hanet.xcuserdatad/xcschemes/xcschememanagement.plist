@@ -8,101 +8,66 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>PSOperations.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
-		<key>Pods-Pocket Note.xcscheme</key>
+		<key>Pods-Memo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
-		<key>Pods-Pocket NoteTests.xcscheme</key>
+		<key>Pods-MemoTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
-		<key>Pods-Pocket NoteUITests.xcscheme</key>
+		<key>Pods-MemoUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Quick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>SlideMenuControllerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>Swinject.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FACC40AEFDB00B8753AC2EF42BAA841</key>
+		<key>0338CADF9705C87BDA4FCF27E1A3ED27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1151DB570324610EBD6DC45531A92AD9</key>
+		<key>0DD3031CDA743AA223DE1E2E18BBC8FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>142F7398F4C064920214F7082961B3A9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18500E3042ABCC3B29AB00ABF60417A3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>25F8E597D321E58067B334AD87661F2A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3605E910E329F09722C3C4F5DC7C7F0C</key>
+		<key>3429D68DEB4CA3E4E28BE2F0A7F37D18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +77,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C64DBDA703D57E8A37B544E806A52F1</key>
+		<key>606FF508E107E14FE274C8E8D6E7526F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1A18C56D549CE2C255B3E89D513C652</key>
+		<key>A46E56410A181737A48674717196C65F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC14ADF9BA8E56FA3BA4656AC05054A4</key>
+		<key>AF5588E5B7DBA4B4E4236B3345DD236E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4F9C1AA3A1FCA2D9B50C84003F62949</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E59D148AFF26BEE7DBCA6D1CA30B609C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F05B7E50726DFBC7E110BE5C7CAC648A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
