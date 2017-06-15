@@ -198,16 +198,20 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     private func setNotebookButton() {
-        let notebookIcon  = UIImage(named: "IconOption")!.withRenderingMode(.alwaysOriginal)
-        let notebookButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        notebookButton.setBackgroundImage(notebookIcon, for: .normal)
+        if currentNotebook != nil {
+            let notebookIcon  = UIImage(named: "IconOption")!.withRenderingMode(.alwaysOriginal)
+            let notebookButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            notebookButton.setBackgroundImage(notebookIcon, for: .normal)
 
-        let menuIconContainer = UIView(frame: notebookButton.frame)
-        menuIconContainer.addSubview(notebookButton)
+            let menuIconContainer = UIView(frame: notebookButton.frame)
+            menuIconContainer.addSubview(notebookButton)
 
-        let menuNotificationButtonItem = UIBarButtonItem(customView: menuIconContainer)
-        navigationItem.rightBarButtonItem = menuNotificationButtonItem
-        notebookButton.addTarget(self, action: #selector(PNNotesFeedViewController.showNotebookActions), for:.touchUpInside)
+            let menuNotificationButtonItem = UIBarButtonItem(customView: menuIconContainer)
+            navigationItem.rightBarButtonItem = menuNotificationButtonItem
+            notebookButton.addTarget(self, action: #selector(PNNotesFeedViewController.showNotebookActions), for:.touchUpInside)
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
 
     @objc private func openNotebooks() {
