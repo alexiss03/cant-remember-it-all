@@ -9,10 +9,10 @@
 import UIKit
 
 class PNNotesFeedTableViewCell: UITableViewCell {
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var markedIconImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +27,24 @@ class PNNotesFeedTableViewCell: UITableViewCell {
     
     public func setContent(note: Note) {
         descriptionLabel.text = note.body
+        titleLabel.text = note.body
+        dateLabel.text = note.dateUpdated?.displayString()
+        if note.notebook != nil {
+            markedIconImageView.isHidden = false
+        } else {
+            markedIconImageView.isHidden = true
+        }
     }
+}
 
+extension Date {
+    func displayString() -> String {
+        let dateFormatter = DateFormatter()
+        let date = self
+        dateFormatter.dateFormat = "MMMM dd, yyyy hh:mm a"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+
+        return dateFormatter.string(from: date)
+    }
 }

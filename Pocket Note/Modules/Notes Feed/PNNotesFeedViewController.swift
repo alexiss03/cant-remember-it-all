@@ -9,8 +9,11 @@
 import UIKit
 import RealmSwift
 
-class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PNNotesFeedViewDelegate {
+protocol PNNotesFeedViewProtocol: class {
+    var currentNotebook: Notebook? {get set}
+}
 
+class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PNNotesFeedViewDelegate, PNNotesFeedViewProtocol {
     let baseView: PNNotesFeedView? = {
         if let view = Bundle.main.loadNibNamed("PNNotesFeedView", owner: self, options: nil)![0] as? PNNotesFeedView {
             return view
@@ -19,6 +22,24 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }()
     
     var notificationToken: NotificationToken?
+    var currentNotebook: Notebook? {
+        didSet {
+            if let unwrappedCurrentNotebook = currentNotebook {
+                notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
+                if let notebookName = unwrappedCurrentNotebook.name {
+                    setMenu(notebookName: notebookName)
+                    setNotebookButton()
+                }
+            } else {
+                notebookFilter = NSPredicate.init(format: "dateCreated != nil")
+                setMenu(notebookName: "MEMO")
+                setNotebookButton()
+            }
+        }
+    }
+    var notebookFilter: NSPredicate = {
+        return NSPredicate.init(format: "dateCreated != nil")
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +47,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         if let unwrappedBaseView = baseView {
             unwrappedBaseView.frame = self.view.frame
             self.view = unwrappedBaseView
-            self.setMenu()
+            setMenu()
 
             unwrappedBaseView.notesListTableView.delegate = self
             unwrappedBaseView.notesListTableView.dataSource = self
@@ -36,9 +57,6 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             let tableViewCellNib = UINib.init(nibName: "PNNotesFeedTableViewCell", bundle: Bundle.main)
             let tableViewCellNibId = "PNNotesFeedTableViewCell"
             unwrappedBaseView.notesListTableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
-
-            setNotebookButton()
-            
         }
     }
     
@@ -50,8 +68,9 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidAppear(animated)
         
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+
+        let results = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
         
-        let results = unwrappedRealm.objects(Note.self)
         if let unwrappedNotesListTableView = baseView?.notesListTableView {
             notificationToken = results.addNotificationBlock(unwrappedNotesListTableView.applyChanges)
         }
@@ -60,46 +79,117 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
 
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         showViewNote()
     }
 
     // MARK: UITableViewDataSource Methods
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
         
-        let noteList = unwrappedRealm.objects(Note.self)
+        let noteList = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
         return noteList.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotesFeedTableViewCell") as? PNNotesFeedTableViewCell {
             guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return UITableViewCell.init() }
-            let noteList = unwrappedRealm.objects(Note.self)
+            let noteList = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
             
             cell.setContent(note: noteList[indexPath.row])
+            cell.selectionStyle = .none
+            cell.isEditing = true
+            cell.editingAccessoryView = UITableViewCell.init()
             return cell
         }
         return UITableViewCell.init()
     }
+    
+    internal func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+        } else if editingStyle == .insert {
+            
+        }
+    }
+    
+    internal func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        weak var weakSelf = self
+        let editAction = UITableViewRowAction(style: .default, title: "Move", handler: { (_, _) in
+            print("Move tapped")
+            
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+            guard let strongSelf = weakSelf else { return }
+            
+            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+            strongSelf.openMoveNoteNotebookSelector(note: noteList[indexPath.row])
+        })
+        
+        editAction.backgroundColor = PNConstants.blueColor
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (_, _) in
+            print("Delete tapped")
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+            guard let strongSelf = weakSelf else { return }
+            
+            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+            do {
+                try unwrappedRealm.write {
+                    unwrappedRealm.delete(noteList[indexPath.row])
+                }
+            } catch { }
+        })
+        deleteAction.backgroundColor = PNConstants.redColor
+        
+        return [deleteAction, editAction]
+    }
 
     func setMenu() {
         let pocketNoteButton = UIButton.init(type: .custom)
-        pocketNoteButton.setTitle("Pocket Note", for: .normal)
+        let attributedTitle = NSAttributedString.init(string: "MEMO", attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: PNConstants.blueColor])
+        pocketNoteButton.setAttributedTitle(attributedTitle, for: .normal)
         pocketNoteButton.addTarget(self, action: #selector(PNNotesFeedViewController.openNotebooks), for: .touchUpInside)
-        self.navigationItem.titleView = pocketNoteButton
+        navigationItem.titleView = pocketNoteButton
+        navigationController?.navigationBar.backgroundColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    func setMenu(notebookName: String) {
+        let pocketNoteButton = UIButton.init(type: .custom)
+        let attributedTitle = NSAttributedString.init(string: "\(notebookName)", attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: PNConstants.blueColor])
+        pocketNoteButton.setAttributedTitle(attributedTitle, for: .normal)
+        pocketNoteButton.addTarget(self, action: #selector(PNNotesFeedViewController.openNotebooks), for: .touchUpInside)
+        navigationItem.titleView = pocketNoteButton
     }
 
     private func showCreateNote() {
-        self.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
+        performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
     }
 
-    func showViewNote() {
-        self.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
+    private func showViewNote() {
+        performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? PNCreateNoteViewController {
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+        
+            let noteList = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+            destinationViewController.notebook = currentNotebook
+            
+            if let selectedIndexPath = baseView?.notesListTableView.indexPathForSelectedRow {
+                destinationViewController.note =  noteList[selectedIndexPath.row]
+                baseView?.notesListTableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
+        }
     }
 
     // MARK: PNNotesFeedViewDelegate Methods
@@ -108,7 +198,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     private func setNotebookButton() {
-        let notebookIcon  = UIImage(named: "DrawerNotification")!.withRenderingMode(.alwaysOriginal)
+        let notebookIcon  = UIImage(named: "IconOption")!.withRenderingMode(.alwaysOriginal)
         let notebookButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         notebookButton.setBackgroundImage(notebookIcon, for: .normal)
 
@@ -116,7 +206,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         menuIconContainer.addSubview(notebookButton)
 
         let menuNotificationButtonItem = UIBarButtonItem(customView: menuIconContainer)
-        self.navigationItem.rightBarButtonItem = menuNotificationButtonItem
+        navigationItem.rightBarButtonItem = menuNotificationButtonItem
         notebookButton.addTarget(self, action: #selector(PNNotesFeedViewController.showNotebookActions), for:.touchUpInside)
     }
 
@@ -126,8 +216,18 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             print("Notebook List View Controller is nil")
             return
         }
-
-        self.present(unwrappedNotebookListViewController, animated: true, completion: nil)
+        unwrappedNotebookListViewController.notesFeedDelegate = self
+        present(unwrappedNotebookListViewController, animated: true, completion: nil)
+    }
+    
+    private func openMoveNoteNotebookSelector(note: Note) {
+        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        guard let unwrappedMoveNoteViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNMoveNoteViewController") as? PNMoveNoteViewController else {
+            print("Move Note Controller is nil")
+            return
+        }
+        unwrappedMoveNoteViewController.note = note
+        present(unwrappedMoveNoteViewController, animated: true, completion: nil)
     }
 
     @objc private func showNotebookActions() {
@@ -137,11 +237,36 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             self.editNotebookPopUp()
         })
 
+        weak var weakSelf = self
         let deleteNotebookAction = UIAlertAction(title: "Delete Notebook", style: .default, handler: { (_ : UIAlertAction!) -> Void in
+            let strongSelf = weakSelf
+            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
+            guard let unwrappedCurrentNotebook = strongSelf?.currentNotebook else {
+                print("Current notebook is nil")
+                return
+            }
+            do {
+                try unwrappedRealm.write {
+                    
+                    DispatchQueue.main.async {
+                        strongSelf?.viewDidAppear(true)
+                        strongSelf?.currentNotebook = nil
+                    }
+                    
+                    unwrappedRealm.delete(unwrappedCurrentNotebook.notes)
+                    unwrappedRealm.delete(unwrappedCurrentNotebook)
+                }
+            } catch {
+
+            }
+            
         })
+        
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
 
         alertController.addAction(editNotebookAction)
         alertController.addAction(deleteNotebookAction)
+        alertController.addAction(cancelAction)
 
         self.present(alertController, animated: true, completion: nil)
     }
@@ -152,6 +277,21 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
             print("firstName \(String(describing: firstTextField.text))")
+            
+            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
+            do {
+                weak var weakSelf = self
+                try unwrappedRealm.write {
+                    let strongSelf = weakSelf
+                    if let unwrappedCurrentNotebook = strongSelf?.currentNotebook {
+                        unwrappedCurrentNotebook.name = firstTextField.text
+                    }
+                    
+                    if let currentNotebookName = strongSelf?.currentNotebook?.name {
+                        strongSelf?.setMenu(notebookName: currentNotebookName)
+                    }
+                }
+            } catch { }
         })
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (_ : UIAlertAction!) -> Void in
@@ -179,15 +319,30 @@ extension UITableView {
     func applyChanges<T>(changes: RealmCollectionChange<T>) {
         switch changes {
         case .initial: reloadData()
-        case .update(let results, let deletions, let insertions, let updates):
-            let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
-            
-            beginUpdates()
-            insertRows(at: insertions.map(fromRow), with: .bottom)
-            reloadRows(at: updates.map(fromRow), with: .bottom)
-            deleteRows(at: deletions.map(fromRow), with: .bottom)
-            endUpdates()
-        case .error(let error): fatalError("\(error)")
+            case .update(let results, let deletions, let insertions, let updates):
+                let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
+                
+                beginUpdates()
+                insertRows(at: insertions.map(fromRow), with: .automatic)
+                reloadRows(at: updates.map(fromRow), with: .automatic)
+                deleteRows(at: deletions.map(fromRow), with: .automatic)
+                endUpdates()
+            case .error(let error): fatalError("\(error)")
+        }
+    }
+    
+    func applyChangesWithOffset<T>(changes: RealmCollectionChange<T>, offset: Int = 0) {
+        switch changes {
+            case .initial: reloadData()
+            case .update(let results, let deletions, let insertions, let updates):
+                let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
+                
+                beginUpdates()
+                insertRows(at: insertions.map(fromRow), with: .automatic)
+                reloadRows(at: updates.map(fromRow), with: .automatic)
+                deleteRows(at: deletions.map(fromRow), with: .automatic)
+                endUpdates()
+            case .error(let error): fatalError("\(error)")
         }
     }
 }

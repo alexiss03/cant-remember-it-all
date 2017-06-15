@@ -10,4 +10,8 @@ import UIKit
 
 class PNCreateNoteView: UIView {
     @IBOutlet weak var contentTextView: UITextView!
+    
+    public func setContent(note: Note?) {
+        contentTextView.text = note?.body
+    }
 }

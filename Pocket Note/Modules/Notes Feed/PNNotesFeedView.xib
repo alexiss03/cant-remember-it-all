@@ -16,24 +16,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PNNotesFeedView" customModule="Pocket_Note" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PNNotesFeedView" customModule="Memo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTc-Ya-LTM">
-                    <rect key="frame" x="20" y="44" width="335" height="603"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTc-Ya-LTM">
+                    <rect key="frame" x="0.0" y="44" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="4Go-gI-nLC">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="4Go-gI-nLC">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgY-V7-irl">
-                    <rect key="frame" x="285" y="577" width="60" height="60"/>
-                    <color key="backgroundColor" red="0.031372549020000001" green="0.50588235290000005" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="285" y="577" width="70" height="70"/>
+                    <color key="backgroundColor" red="0.24313725489999999" green="0.31764705879999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="kgY-V7-irl" secondAttribute="height" multiplier="1:1" id="DMI-fM-VnR"/>
-                        <constraint firstAttribute="width" constant="60" id="s4L-od-TN1"/>
+                        <constraint firstAttribute="width" constant="70" id="s4L-od-TN1"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="50"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,7 +42,7 @@
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="30"/>
+                            <integer key="value" value="35"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -52,12 +52,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="XTc-Ya-LTM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="7Wx-1c-7PL"/>
+                <constraint firstItem="XTc-Ya-LTM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Wx-1c-7PL"/>
                 <constraint firstItem="XTc-Ya-LTM" firstAttribute="top" secondItem="4Go-gI-nLC" secondAttribute="bottom" id="8I2-KV-OI5"/>
-                <constraint firstAttribute="trailing" secondItem="XTc-Ya-LTM" secondAttribute="trailing" constant="20" symbolic="YES" id="Nlz-xC-0LA"/>
-                <constraint firstAttribute="trailing" secondItem="kgY-V7-irl" secondAttribute="trailing" constant="30" id="Pry-7n-ge6"/>
-                <constraint firstItem="4Go-gI-nLC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" symbolic="YES" id="ToS-rh-U3U"/>
-                <constraint firstAttribute="bottom" secondItem="kgY-V7-irl" secondAttribute="bottom" constant="30" id="TtE-SI-ivU"/>
+                <constraint firstAttribute="trailing" secondItem="XTc-Ya-LTM" secondAttribute="trailing" id="Nlz-xC-0LA"/>
+                <constraint firstAttribute="trailing" secondItem="kgY-V7-irl" secondAttribute="trailing" constant="20" id="Pry-7n-ge6"/>
+                <constraint firstItem="4Go-gI-nLC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ToS-rh-U3U"/>
+                <constraint firstAttribute="bottom" secondItem="kgY-V7-irl" secondAttribute="bottom" constant="20" id="TtE-SI-ivU"/>
                 <constraint firstItem="4Go-gI-nLC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VEC-ii-cwC"/>
                 <constraint firstAttribute="bottom" secondItem="XTc-Ya-LTM" secondAttribute="bottom" constant="20" symbolic="YES" id="X4I-9W-ocV"/>
                 <constraint firstAttribute="trailing" secondItem="4Go-gI-nLC" secondAttribute="trailing" id="atG-Va-PmJ"/>

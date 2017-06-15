@@ -17,7 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         PNSharedRealm.configureDefaultRealm()
+        navigationBarCustomization()
         return true
+    }
+    
+    private func navigationBarCustomization() {
+        UINavigationBar.appearance().setBackgroundImage(
+            UIImage(),
+            for: .any,
+            barMetrics: .default)
+        
+        UINavigationBar.appearance().shadowImage = UIImage()
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

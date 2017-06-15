@@ -13,6 +13,7 @@ class Note: Object {
     dynamic var body: String?
     dynamic var title: String?
     dynamic var dateCreated: Date?
+    dynamic var dateUpdated: Date?
     dynamic var notebook: Notebook?
     dynamic var noteId: String?
     dynamic var account: Account?

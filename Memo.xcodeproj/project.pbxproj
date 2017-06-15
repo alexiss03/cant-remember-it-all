@@ -17,6 +17,9 @@
 		0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */; };
 		0036F5881EB81D1E00D19F75 /* PNNotebooksListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */; };
 		0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */; };
+		00513C7A1EF0D06B00E658E2 /* PNNotebooksListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00513C791EF0D06B00E658E2 /* PNNotebooksListTableViewCell.xib */; };
+		00513C7C1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00513C7B1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift */; };
+		00513C7E1EF0E1D800E658E2 /* PNConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00513C7D1EF0E1D800E658E2 /* PNConstants.swift */; };
 		005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */; };
 		006091781EDD4A2C0058068B /* PNLoginUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006091771EDD4A2C0058068B /* PNLoginUserOperation.swift */; };
 		0060917B1EDD50F40058068B /* PNInvalidLoginErrorObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0060917A1EDD50F40058068B /* PNInvalidLoginErrorObserver.swift */; };
@@ -83,6 +86,8 @@
 		00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */; };
 		00CD5A8C1E9C7D96009F9569 /* AccountModelQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */; };
 		00D028271EC00351000E8B25 /* LoginQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D028261EC00351000E8B25 /* LoginQuickSpec.swift */; };
+		00D5F2B71EF2640500CBF81B /* PNNotebookListViewHeaderFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00D5F2B61EF2640500CBF81B /* PNNotebookListViewHeaderFooterCell.xib */; };
+		00D5F2B91EF2676C00CBF81B /* PNMoveNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D5F2B81EF2676C00CBF81B /* PNMoveNoteViewController.swift */; };
 		00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */; };
 		00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */; };
 		00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */; };
@@ -120,6 +125,9 @@
 		0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListViewController.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"; sourceTree = "<group>"; };
 		0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebooksListView.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.xib"; sourceTree = "<group>"; };
 		0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListView.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListView.swift"; sourceTree = "<group>"; };
+		00513C791EF0D06B00E658E2 /* PNNotebooksListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebooksListTableViewCell.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListTableViewCell.xib"; sourceTree = "<group>"; };
+		00513C7B1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListTableViewCell.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListTableViewCell.swift"; sourceTree = "<group>"; };
+		00513C7D1EF0E1D800E658E2 /* PNConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNConstants.swift; path = Structs/PNConstants.swift; sourceTree = "<group>"; };
 		005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNOperationQueue.swift; path = Structs/PNOperationQueue.swift; sourceTree = "<group>"; };
 		006091771EDD4A2C0058068B /* PNLoginUserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserOperation.swift; path = Operations/PNLoginUserOperation.swift; sourceTree = "<group>"; };
 		0060917A1EDD50F40058068B /* PNInvalidLoginErrorObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNInvalidLoginErrorObserver.swift; path = Observers/PNInvalidLoginErrorObserver.swift; sourceTree = "<group>"; };
@@ -193,6 +201,8 @@
 		00CD5A891E9C78BE009F9569 /* NotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookQuickSpec.swift; path = Models/NotebookQuickSpec.swift; sourceTree = "<group>"; };
 		00CD5A8B1E9C7D96009F9569 /* AccountModelQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountModelQuickSpec.swift; path = Models/AccountModelQuickSpec.swift; sourceTree = "<group>"; };
 		00D028261EC00351000E8B25 /* LoginQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginQuickSpec.swift; path = Modules/Login/LoginQuickSpec.swift; sourceTree = "<group>"; };
+		00D5F2B61EF2640500CBF81B /* PNNotebookListViewHeaderFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebookListViewHeaderFooterCell.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebookListViewHeaderFooterCell.xib"; sourceTree = "<group>"; };
+		00D5F2B81EF2676C00CBF81B /* PNMoveNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNMoveNoteViewController.swift; path = "Modules/Move Note/PNMoveNoteViewController.swift"; sourceTree = "<group>"; };
 		00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNSideMenuView.xib; path = "Modules/Settings/Side Menu/PNSideMenuView.xib"; sourceTree = "<group>"; };
 		00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuView.swift; path = "Modules/Settings/Side Menu/PNSideMenuView.swift"; sourceTree = "<group>"; };
 		00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuViewController.swift; path = "Modules/Settings/Side Menu/PNSideMenuViewController.swift"; sourceTree = "<group>"; };
@@ -292,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */,
+				00D5F2B81EF2676C00CBF81B /* PNMoveNoteViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -300,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				0036F58D1EB81E0C00D19F75 /* PNNotebooksListView.swift */,
+				00513C7B1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -315,6 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				0036F5861EB81D1E00D19F75 /* PNNotebooksListView.xib */,
+				00513C791EF0D06B00E658E2 /* PNNotebooksListTableViewCell.xib */,
+				00D5F2B61EF2640500CBF81B /* PNNotebookListViewHeaderFooterCell.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -380,6 +394,7 @@
 			children = (
 				008D3A791ED66D7C003B51DE /* PNSharedRealm.swift */,
 				005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */,
+				00513C7D1EF0E1D800E658E2 /* PNConstants.swift */,
 			);
 			name = Structs;
 			path = "Pocket NoteTests";
@@ -949,6 +964,7 @@
 				009E5ABD1EB1B3D3001F4889 /* PNRegistrationView.xib in Resources */,
 				00AE749D1E8CE8A50081C35C /* Lato-BlackItalic.ttf in Resources */,
 				00AE749E1E8CE8A50081C35C /* Lato-Bold.ttf in Resources */,
+				00513C7A1EF0D06B00E658E2 /* PNNotebooksListTableViewCell.xib in Resources */,
 				00AE749F1E8CE8A50081C35C /* Lato-BoldItalic.ttf in Resources */,
 				00AE74A01E8CE8A50081C35C /* Lato-Hairline.ttf in Resources */,
 				00AE74A11E8CE8A50081C35C /* Lato-HairlineItalic.ttf in Resources */,
@@ -969,6 +985,7 @@
 				00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */,
 				00A66CA81E89F95200924C34 /* LaunchScreen.storyboard in Resources */,
 				00A66CA51E89F95200924C34 /* Assets.xcassets in Resources */,
+				00D5F2B71EF2640500CBF81B /* PNNotebookListViewHeaderFooterCell.xib in Resources */,
 				0036F5881EB81D1E00D19F75 /* PNNotebooksListView.xib in Resources */,
 				00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */,
 				009E5AB61EB1AF72001F4889 /* Login.storyboard in Resources */,
@@ -1170,6 +1187,7 @@
 				00667E291EE7C6FA002504FF /* PNRegistrationInteractor.swift in Sources */,
 				009E5AB11EB1AEA2001F4889 /* PNLoginView.swift in Sources */,
 				000330C51EE816F9000A3830 /* PNLoginViewDelegate.swift in Sources */,
+				00513C7E1EF0E1D800E658E2 /* PNConstants.swift in Sources */,
 				009E5AA81EB1A66F001F4889 /* PNNavigationBarProtocol.swift in Sources */,
 				00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */,
 				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
@@ -1186,10 +1204,12 @@
 				00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */,
 				009E5AA21EB18E40001F4889 /* PNPasscodeView.swift in Sources */,
 				00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */,
+				00D5F2B91EF2676C00CBF81B /* PNMoveNoteViewController.swift in Sources */,
 				0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */,
 				000330C21EE801B4000A3830 /* PNLoginInteractor.swift in Sources */,
 				00667E2C1EE7CCCB002504FF /* PNShowNotesFeedProtocol.swift in Sources */,
 				008D3A841ED6CB82003B51DE /* PNNoNetworkObserver.swift in Sources */,
+				00513C7C1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift in Sources */,
 				008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
