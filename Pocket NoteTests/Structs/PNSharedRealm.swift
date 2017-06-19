@@ -20,7 +20,13 @@ struct PNSharedRealm {
     
     static func configureDefaultRealm() -> Realm? {
         guard let user = SyncUser.current else {
-            return nil
+            var realm: Realm?
+            
+            do {
+                realm = try Realm()
+            } catch { }
+            
+            return realm
         }
         
         let realm = configureRealm(user: user)

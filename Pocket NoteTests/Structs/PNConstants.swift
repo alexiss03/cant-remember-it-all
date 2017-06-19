@@ -9,8 +9,9 @@
 import UIKit
 
 struct PNConstants {
-    static let blueColor = UIColor.init(rgb:0x3E517A)
+    static let blueColor = UIColor.init(rgb:0x30C6291)
     static let redColor = UIColor.init(rgb:0xDA291C)
+    static let redColorTheme = UIColor.init(rgb: 0xA71D31)
 }
 
 extension UIColor {

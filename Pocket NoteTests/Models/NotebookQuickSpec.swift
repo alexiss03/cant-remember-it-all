@@ -75,24 +75,24 @@ class NotebookQuickSpec: QuickSpec {
             it("deletion") {
                 guard let unwrappedRealm = self.realm else { return }
 
+                let notebook = Notebook()
+                notebook.name = "This is a notebook name."
+                notebook.dateCreated = Date()
+                notebook.notebookId = "NOTEBOOK01"
+                
                 let note1 = Note()
                 note1.noteId = "NOTE01"
                 note1.body = "This is a body."
                 note1.title = "This is a title."
                 note1.dateCreated = Date()
-
+                note1.notebook = notebook
+                
                 let note2 = Note()
                 note2.noteId = "NOTE02"
                 note2.body = "This is a body."
                 note2.title = "This is a title."
                 note2.dateCreated = Date()
-
-                let notebook = Notebook()
-                notebook.name = "This is a notebook name."
-                notebook.dateCreated = Date()
-                notebook.notebookId = "NOTEBOOK01"
-                notebook.notes?.append(note1)
-                notebook.notes?.append(note2)
+                note2.notebook = notebook
 
                 do {
                     try unwrappedRealm.write {

@@ -54,6 +54,10 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -76,7 +80,7 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell {
             guard let unwrappedRealm = PNSharedRealm.realmInstance() else {  return UITableViewCell.init() }
-            let notebookList = unwrappedRealm.objects(Notebook.self)
+            let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
             cell.setContent(notebook: notebookList[indexPath.row])
             cell.selectionStyle = .none
 

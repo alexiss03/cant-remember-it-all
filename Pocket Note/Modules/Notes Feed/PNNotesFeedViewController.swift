@@ -24,23 +24,39 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     var notificationToken: NotificationToken?
     var currentNotebook: Notebook? {
         didSet {
-            if let unwrappedCurrentNotebook = currentNotebook {
-                notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
-                if let notebookName = unwrappedCurrentNotebook.name {
-                    setMenu(notebookName: notebookName)
-                    setNotebookButton()
-                }
-            } else {
-                notebookFilter = NSPredicate.init(format: "dateCreated != nil")
-                setMenu(notebookName: "MEMO")
-                setNotebookButton()
-            }
+            setPredicate(searchText: searchText, currentNotebook: currentNotebook)
         }
     }
+    
+    var searchText: String? {
+        didSet {
+            setPredicate(searchText: searchText, currentNotebook: currentNotebook)
+        }
+    }
+    
     var notebookFilter: NSPredicate = {
         return NSPredicate.init(format: "dateCreated != nil")
     }()
 
+    private func setPredicate(searchText: String?, currentNotebook: Notebook?) {
+        if let unwrappedSearchText = searchText, let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name {
+            notebookFilter = NSPredicate.init(format: "notebook == %@ && (body CONTAINS[c] %@ || title CONTAINS[c] %@)", unwrappedCurrentNotebook, unwrappedSearchText, unwrappedSearchText)
+            setMenu(notebookName: notebookName)
+        } else if let unwrappedSearchText = searchText, currentNotebook == nil {
+            notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
+            setMenu(notebookName: "MEMO")
+        } else if let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name, searchText == nil {
+            notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
+            setMenu(notebookName: notebookName)
+        } else {
+            notebookFilter = NSPredicate.init(format: "dateCreated != nil")
+            setMenu(notebookName: "MEMO")
+            setNotebookButton()
+        }
+        
+        tableAddNotificationBlock()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +67,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
 
             unwrappedBaseView.notesListTableView.delegate = self
             unwrappedBaseView.notesListTableView.dataSource = self
+            unwrappedBaseView.searchBar.delegate = self
 
             unwrappedBaseView.delegate = self
 
@@ -67,14 +84,20 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        tableAddNotificationBlock()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+    }
+    
+    private func tableAddNotificationBlock() {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-
         let results = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
-        
         if let unwrappedNotesListTableView = baseView?.notesListTableView {
             notificationToken = results.addNotificationBlock(unwrappedNotesListTableView.applyChanges)
         }
-        
     }
 
     // MARK: UITableViewDelegate Methods
@@ -154,7 +177,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
 
     func setMenu() {
         let pocketNoteButton = UIButton.init(type: .custom)
-        let attributedTitle = NSAttributedString.init(string: "MEMO", attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: PNConstants.blueColor])
+        let attributedTitle = NSAttributedString.init(string: "MEMO", attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: UIColor.black])
         pocketNoteButton.setAttributedTitle(attributedTitle, for: .normal)
         pocketNoteButton.addTarget(self, action: #selector(PNNotesFeedViewController.openNotebooks), for: .touchUpInside)
         navigationItem.titleView = pocketNoteButton
@@ -164,7 +187,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setMenu(notebookName: String) {
         let pocketNoteButton = UIButton.init(type: .custom)
-        let attributedTitle = NSAttributedString.init(string: "\(notebookName)", attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: PNConstants.blueColor])
+        let attributedTitle = NSAttributedString.init(string: "\(notebookName)", attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: UIColor.black])
         pocketNoteButton.setAttributedTitle(attributedTitle, for: .normal)
         pocketNoteButton.addTarget(self, action: #selector(PNNotesFeedViewController.openNotebooks), for: .touchUpInside)
         navigationItem.titleView = pocketNoteButton
@@ -314,8 +337,8 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension Date {
     /** Returns a timeStamp from a NSDate instance */
-    func timeStampFromDate() -> Int {
-        return Int(self.timeIntervalSince1970)
+    func timeStampFromDate() -> CGFloat {
+        return CGFloat(CFAbsoluteTimeGetCurrent())
     }
 }
 
@@ -348,5 +371,23 @@ extension UITableView {
                 endUpdates()
             case .error(let error): fatalError("\(error)")
         }
+    }
+}
+
+extension PNNotesFeedViewController: UISearchBarDelegate {
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if baseView?.searchBar == searchBar {
+            self.searchText = searchText
+        }
+    }
+    
+    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if baseView?.searchBar == searchBar {
+            self.searchText = searchBar.text
+        }
+    }
+    
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }

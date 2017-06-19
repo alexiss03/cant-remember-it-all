@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+
 import RealmSwift
 import UIKit
 
@@ -139,27 +140,7 @@ class LoginQuickSpec: QuickSpec {
             }
             
             it("no internet connection") {
-//                 guard let unwrappedVC = vc else {
-//                    print("View Controller is nil")
-//                    return
-//                 }
-//                 vc?.baseView?.emailTextField.text = "user2@domain.com"
-//                 vc?.baseView?.passwordTextField.text = "123456"
-//                 vc?.baseView?.delegate?.loginButtonTapped()
-//                 self.stub(everything, http(404))
-//                
-//                guard let username = vc?.baseView?.emailTextField.text else {
-//                    print("Username is empty")
-//                    return
-//                }
-//                
-//                guard let password = vc?.baseView?.passwordTextField.text else {
-//                    print("Password is empty")
-//                    return
-//                }
-//                
-//                let loginOperation = PNLoginUserOperation.init(username: username, password: password, nextViewController: unwrappedVC)
-//                PNOperationQueue.networkOperationQueue.addOperation(loginOperation)
+
             }
             
             it("slow internet connection") {

@@ -52,7 +52,7 @@
         <!--Create Note View Controller-->
         <scene sceneID="3ka-mq-vwj">
             <objects>
-                <viewController id="Uds-Ab-FRa" customClass="PNCreateNoteViewController" customModule="Memo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PNCreateNoteViewController" id="Uds-Ab-FRa" customClass="PNCreateNoteViewController" customModule="Memo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Oi-CU-sJq"/>
                         <viewControllerLayoutGuide type="bottom" id="aBa-kc-t5R"/>

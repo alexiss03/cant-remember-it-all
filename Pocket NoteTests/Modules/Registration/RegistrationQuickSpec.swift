@@ -117,7 +117,7 @@ class RegistrationQuickSpec: QuickSpec {
 
                     vc?.baseView?.emailTextField.text = "user@domain.com"
                     vc?.baseView?.passwordTextField.text = "123456"
-                    vc?.baseView?.delegate?.signUpButtonTapped()
+                        vc?.baseView?.delegate?.signUpButtonTapped()
 
                     let afterSignUpAccountCount = unwrappedRealm.objects(Account.self).count
 
