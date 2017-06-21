@@ -27,26 +27,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9DB-Ez-WY6">
-                    <rect key="frame" x="38" y="234" width="300" height="200"/>
+                    <rect key="frame" x="38" y="229" width="300" height="210"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9h-mK-aaV">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="63.5"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1g-56-TNJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="42"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44.5"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-Y6-ikS">
-                                    <rect key="frame" x="0.0" y="42" width="300" height="5"/>
+                                    <rect key="frame" x="0.0" y="44.5" width="300" height="5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="5" id="KzZ-MR-X9L"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fJ-n4-vS9">
-                                    <rect key="frame" x="0.0" y="47" width="300" height="13"/>
+                                    <rect key="frame" x="0.0" y="49.5" width="300" height="14"/>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -58,23 +58,23 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Ao-Se-91w">
-                            <rect key="frame" x="0.0" y="70" width="300" height="60"/>
+                            <rect key="frame" x="0.0" y="73.5" width="300" height="63"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="saq-Lt-kzi">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="42"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6IM-AD-6j5">
-                                    <rect key="frame" x="0.0" y="42" width="300" height="5"/>
+                                    <rect key="frame" x="0.0" y="44" width="300" height="5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="5" id="7Pg-yS-rel"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH9-3O-IqL">
-                                    <rect key="frame" x="0.0" y="47" width="300" height="13"/>
+                                    <rect key="frame" x="0.0" y="49" width="300" height="14"/>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -86,7 +86,7 @@
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSb-W0-z3j">
-                            <rect key="frame" x="0.0" y="140" width="300" height="60"/>
+                            <rect key="frame" x="0.0" y="146.5" width="300" height="63.5"/>
                             <color key="backgroundColor" red="0.65490196079999996" green="0.1137254902" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="17"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,9 +102,12 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="210" id="AOf-5c-YJL"/>
+                    </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-iJ-xDE">
-                    <rect key="frame" x="112" y="442" width="152" height="27"/>
+                    <rect key="frame" x="112" y="447" width="152" height="27"/>
                     <state key="normal">
                         <attributedString key="attributedTitle">
                             <fragment content="No account? ">
@@ -128,7 +131,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="9DB-Ez-WY6" firstAttribute="height" secondItem="z6b-FA-GGm" secondAttribute="height" multiplier="0.3" id="8W0-Sb-xHl"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="centerY" secondItem="z6b-FA-GGm" secondAttribute="centerY" id="YSk-WD-ofC"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="centerX" secondItem="z6b-FA-GGm" secondAttribute="centerX" id="eMt-R0-2ON"/>
                 <constraint firstItem="Ciy-iJ-xDE" firstAttribute="centerX" secondItem="cSb-W0-z3j" secondAttribute="centerX" id="rF8-1T-SbI"/>

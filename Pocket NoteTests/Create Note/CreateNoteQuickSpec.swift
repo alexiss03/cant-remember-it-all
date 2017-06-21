@@ -24,45 +24,57 @@ class CreateNoteQuickSpec: QuickSpec {
             realm = PNSharedRealm.configureDefaultRealm()
         }
         
-        it("without a notebook") {
-            vc?.loadViewProgrammatically()
+        describe("create new note") {
+            it("with wrong input") {
+                guard let unwrappedRealm = realm else { return }
+                
+                vc?.loadViewProgrammatically()
+                let oldCount = unwrappedRealm.objects(Note.self).count
+                
+                vc?.viewWillDisappear(true)
+                
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount), timeout: 0.1)
+            }
             
-            guard let unwrappedRealm = realm else { return }
-            let oldCount = unwrappedRealm.objects(Note.self).count
+            it("without a notebook") {
+                guard let unwrappedRealm = realm else { return }
+                
+                vc?.loadViewProgrammatically()
+                let oldCount = unwrappedRealm.objects(Note.self).count
+                
+                vc?.baseView?.contentTextView.text = "This is a note"
+                vc?.viewWillDisappear(true)
+                
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount+1), timeout: 0.1)
+                
+            }
             
-            vc?.baseView?.contentTextView.text = "This is a note"
-            vc?.viewWillDisappear(true)
-            
-            expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount+1), timeout: 1)
-        }
-        
-        it("with a notebook") {
-            guard let unwrappedRealm = realm else { return }
-            
-            let notebook = Notebook()
-            notebook.notebookId = "\(Date().timeStampFromDate())"
-            
-            DispatchQueue.main.async {
+            it("with a notebook") {
+                guard let unwrappedRealm = realm else { return }
+
+                let notebook = Notebook()
+
                 do {
                     try unwrappedRealm.write {
                         unwrappedRealm.add(notebook)
                     }
                 } catch { }
-            }
-            
-            vc?.notebook = notebook
-            vc?.loadViewProgrammatically()
-            
-            let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
-            let predicate = NSPredicate.init(format: "notebook == %@", notebook)
-            let oldCountNotebook = unwrappedRealm.objects(Note.self).filter(predicate).count
-            
-            vc?.baseView?.contentTextView.text = "This is a note"
-            vc?.viewWillDisappear(true)
-            
-            expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes+1), timeout: 1)
-            expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotebook+1), timeout: 1)
-        }
+                
+                let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
+                let predicate = NSPredicate.init(format: "notebook == %@", notebook)
+                let oldCountNotesForNotebook = unwrappedRealm.objects(Note.self).filter(predicate).count
+                
+                vc?.notebook = notebook
+                vc?.loadViewProgrammatically()
+                
+                vc?.baseView?.contentTextView.text = "This is a note"
+                vc?.viewWillDisappear(true)
+                
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes+1), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook+1), timeout: 0.1)
 
+            }
+        }
+        
     }
 }
