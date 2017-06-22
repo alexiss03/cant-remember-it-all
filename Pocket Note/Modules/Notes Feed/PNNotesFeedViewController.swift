@@ -37,6 +37,8 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     var notebookFilter: NSPredicate = {
         return NSPredicate.init(format: "dateCreated != nil")
     }()
+    
+    var deleteNoteInteractor: PNDeleteNoteInteractor?
 
     private func setPredicate(searchText: String?, currentNotebook: Notebook?) {
         if let unwrappedSearchText = searchText, let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name {
@@ -74,7 +76,13 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             let tableViewCellNib = UINib.init(nibName: "PNNotesFeedTableViewCell", bundle: Bundle.main)
             let tableViewCellNibId = "PNNotesFeedTableViewCell"
             unwrappedBaseView.notesListTableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
+            
+            initInteractors()
         }
+    }
+    
+    private func initInteractors() {
+        deleteNoteInteractor = PNDeleteNoteInteractor.init()
     }
     
     internal override func viewWillAppear(_ animated: Bool) {
@@ -144,7 +152,6 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     internal func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         weak var weakSelf = self
         let editAction = UITableViewRowAction(style: .default, title: "Move", handler: { (_, _) in
             print("Move tapped")
@@ -159,16 +166,26 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         editAction.backgroundColor = PNConstants.blueColor
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (_, _) in
-            print("Delete tapped")
-            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-            guard let strongSelf = weakSelf else { return }
+            guard let strongSelf = weakSelf else {
+                print("Weak self is nil")
+                return
+            }
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
+                print("Realm is nil")
+                return
+            }
+
+            strongSelf.deleteNoteInteractor?.deleteSelectedNote(indexPath: indexPath, filter: strongSelf.notebookFilter, realm: unwrappedRealm)
+//            print("Delete tapped")
+
+//            guard let strongSelf = weakSelf else { return }
             
-            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
-            do {
-                try unwrappedRealm.write {
-                    unwrappedRealm.delete(noteList[indexPath.row])
-                }
-            } catch { }
+//            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+//            do {
+//                try unwrappedRealm.write {
+//                    unwrappedRealm.delete(noteList[indexPath.row])
+//                }
+//            } catch { }
         })
         deleteAction.backgroundColor = PNConstants.redColor
         
@@ -346,7 +363,7 @@ extension UITableView {
     func applyChanges<T>(changes: RealmCollectionChange<T>) {
         switch changes {
         case .initial: reloadData()
-            case .update(let results, let deletions, let insertions, let updates):
+            case .update(let _, let deletions, let insertions, let updates):
                 let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
                 
                 beginUpdates()
@@ -361,7 +378,7 @@ extension UITableView {
     func applyChangesWithOffset<T>(changes: RealmCollectionChange<T>, offset: Int = 0) {
         switch changes {
             case .initial: reloadData()
-            case .update(let results, let deletions, let insertions, let updates):
+            case .update(let _, let deletions, let insertions, let updates):
                 let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
                 
                 beginUpdates()

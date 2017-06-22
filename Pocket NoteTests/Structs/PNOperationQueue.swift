@@ -8,7 +8,9 @@
 
 import UIKit
 import PSOperations
+import ProcedureKit
 
 struct PNOperationQueue {
     static let networkOperationQueue = PSOperationQueue()
+    static let realmOperationQueue = ProcedureQueue()
 }

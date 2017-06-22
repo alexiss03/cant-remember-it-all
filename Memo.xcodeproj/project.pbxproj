@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00005B651EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00005B641EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift */; };
 		000330C21EE801B4000A3830 /* PNLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C11EE801B4000A3830 /* PNLoginInteractor.swift */; };
 		000330C51EE816F9000A3830 /* PNLoginViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C41EE816F9000A3830 /* PNLoginViewDelegate.swift */; };
 		000330C71EE81745000A3830 /* PNLoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C61EE81745000A3830 /* PNLoginViewProtocol.swift */; };
@@ -38,6 +39,8 @@
 		00667E301EE7CD3A002504FF /* PNRegistrationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00667E2F1EE7CD3A002504FF /* PNRegistrationViewDelegate.swift */; };
 		00667E321EE7CD61002504FF /* PNRegistrationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00667E311EE7CD61002504FF /* PNRegistrationViewProtocol.swift */; };
 		007DEC7C1EF9FC5F00F2FC9A /* EditNoteQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DEC7A1EF9FB2000F2FC9A /* EditNoteQuickSpec.swift */; };
+		007DEC851EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DEC841EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift */; };
+		007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DEC861EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift */; };
 		008D3A7A1ED66D7C003B51DE /* PNSharedRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A791ED66D7C003B51DE /* PNSharedRealm.swift */; };
 		008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */; };
 		008D3A811ED6AC2D003B51DE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A801ED6AC2D003B51DE /* Reachability.swift */; };
@@ -123,6 +126,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00005B641EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNFetchNoteOperation.swift; path = "Modules/Delete Note/PNFetchNoteOperation.swift"; sourceTree = "<group>"; };
 		000330C11EE801B4000A3830 /* PNLoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginInteractor.swift; path = Modules/Account/Login/PNLoginInteractor.swift; sourceTree = "<group>"; };
 		000330C41EE816F9000A3830 /* PNLoginViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewDelegate.swift; path = Modules/Account/Login/PNLoginViewDelegate.swift; sourceTree = "<group>"; };
 		000330C61EE81745000A3830 /* PNLoginViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewProtocol.swift; path = Modules/Account/Login/PNLoginViewProtocol.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		00667E2F1EE7CD3A002504FF /* PNRegistrationViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationViewDelegate.swift; path = Modules/Account/Registration/PNRegistrationViewDelegate.swift; sourceTree = "<group>"; };
 		00667E311EE7CD61002504FF /* PNRegistrationViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationViewProtocol.swift; path = Modules/Account/Registration/PNRegistrationViewProtocol.swift; sourceTree = "<group>"; };
 		007DEC7A1EF9FB2000F2FC9A /* EditNoteQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNoteQuickSpec.swift; path = "Edit Note/EditNoteQuickSpec.swift"; sourceTree = "<group>"; };
+		007DEC841EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNoteInteractor.swift; path = "Modules/Delete Note/PNDeleteNoteInteractor.swift"; sourceTree = "<group>"; };
+		007DEC861EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNoteOperation.swift; path = "Modules/Delete Note/PNDeleteNoteOperation.swift"; sourceTree = "<group>"; };
 		00821E8C1ECD431100177780 /* Pocket Note.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pocket Note.entitlements"; sourceTree = "<group>"; };
 		008D3A791ED66D7C003B51DE /* PNSharedRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSharedRealm.swift; path = Structs/PNSharedRealm.swift; sourceTree = "<group>"; };
 		008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNetworkAvailabilityOperation.swift; path = Operations/Network/PNNetworkAvailabilityOperation.swift; sourceTree = "<group>"; };
@@ -472,6 +478,32 @@
 				00667E311EE7CD61002504FF /* PNRegistrationViewProtocol.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		007DEC7E1EFA395E00F2FC9A /* Delete Note */ = {
+			isa = PBXGroup;
+			children = (
+				007DEC7F1EFA398300F2FC9A /* Interactors */,
+			);
+			name = "Delete Note";
+			sourceTree = "<group>";
+		};
+		007DEC7F1EFA398300F2FC9A /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				007DEC841EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift */,
+				007DEC801EFA398A00F2FC9A /* Operations */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		007DEC801EFA398A00F2FC9A /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				007DEC861EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift */,
+				00005B641EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		008D3A751ED66C64003B51DE /* Realm */ = {
@@ -824,6 +856,7 @@
 		00F611D51EB0432E000160BA /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				007DEC7E1EFA395E00F2FC9A /* Delete Note */,
 				00AE74711E8CDE200081C35C /* Create Note */,
 				00A66CCC1E89F96B00924C34 /* Notes Feed */,
 			);
@@ -1273,6 +1306,7 @@
 				00A66CA01E89F95200924C34 /* ViewController.swift in Sources */,
 				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
 				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
+				007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */,
 				003536F91EF90AF1002B70CD /* PNFilterEventsListOperation.swift in Sources */,
 				005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */,
 				00667E301EE7CD3A002504FF /* PNRegistrationViewDelegate.swift in Sources */,
@@ -1302,6 +1336,8 @@
 				000330C71EE81745000A3830 /* PNLoginViewProtocol.swift in Sources */,
 				0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */,
 				0021551B1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift in Sources */,
+				00005B651EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift in Sources */,
+				007DEC851EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift in Sources */,
 				00A66C9E1E89F95200924C34 /* AppDelegate.swift in Sources */,
 				00667E2E1EE7CCFE002504FF /* PNRegistrationEventHandler.swift in Sources */,
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,

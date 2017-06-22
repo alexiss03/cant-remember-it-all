@@ -27,24 +27,14 @@ class EditNoteQuickSpec: QuickSpec {
         describe("edit note") {
             it("with empty content") {
                 guard let unwrappedRealm = realm else { return }
-                
-                let note = Note()
-                note.body = "This is a note"
-                note.title = "This is a note"
-                note.noteId = "\(Date().timeStampFromDate())"
-                
-                do {
-                    try unwrappedRealm.write {
-                        unwrappedRealm.add(note)
-                    }
-                } catch { }
+    
+                let note = createNoteInstance()
+                add(realm: unwrappedRealm, note: note)
                 
                 let oldCount = unwrappedRealm.objects(Note.self).count
                 
-                vc?.note = note
-                vc?.loadViewProgrammatically()
-                vc?.baseView?.contentTextView.text = ""
-                vc?.viewWillDisappear(true)
+                loadController(note: note)
+                updateNotes(notes: "")
                 
                 let predicate = NSPredicate.init(format: "noteId == %@", note.noteId!)
                 
@@ -54,24 +44,15 @@ class EditNoteQuickSpec: QuickSpec {
             }
             it("without a notebook") {
                 guard let unwrappedRealm = realm else { return }
-                
-                let note = Note()
-                note.body = "This is a note"
-                note.title = "This is a note "
-                
-                do {
-                    try unwrappedRealm.write {
-                        unwrappedRealm.add(note)
-                    }
-                } catch { }
+
+                let note = createNoteInstance()
+                add(realm: unwrappedRealm, note: note)
                 
                 let oldCount = unwrappedRealm.objects(Note.self).count
                 
-                vc?.note = note
-                vc?.loadViewProgrammatically()
-                vc?.baseView?.contentTextView.text = "This is an updated note"
-                vc?.viewWillDisappear(true)
-                
+                loadController(note: note)
+                updateNotes(notes: "This is an updated note")
+            
                 expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount), timeout: 0.1)
                 
             }
@@ -79,37 +60,64 @@ class EditNoteQuickSpec: QuickSpec {
             it("with a notebook") {
                 guard let unwrappedRealm = realm else { return }
                 
-                let notebook = Notebook()
-                notebook.notebookId = "\(Date().timeStampFromDate())"
+                let notebook = createNotebookInstance()
+                let note = createNoteInstance(notebook: notebook)
                 
-                let note = Note()
-                note.noteId = "\(Date().timeStampFromDate())"
-                note.body = "This is a note"
-                note.title = "This is a note "
-                note.notebook = notebook
-                
-                do {
-                    try unwrappedRealm.write {
-                        unwrappedRealm.add(notebook)
-                        unwrappedRealm.add(note)
-                    }
-                } catch { }
-                
-                vc?.notebook = notebook
-                vc?.note = note
-                vc?.loadViewProgrammatically()
+                add(realm: unwrappedRealm, note: note, notebook: notebook)
+                loadController(note: note, notebook: notebook)
                 
                 let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
                 let predicate = NSPredicate.init(format: "notebook == %@", notebook)
                 let oldCountNotesForNotebook = unwrappedRealm.objects(Note.self).filter(predicate).count
                 
-                vc?.baseView?.contentTextView.text = "This is a note"
-                vc?.viewWillDisappear(true)
+                updateNotes(notes: "This is a note")
                 
                 expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes), timeout: 0.1)
                 expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook), timeout: 0.1)
                 
             }
         }
+        
+        func createNoteInstance(notebook: Notebook? = nil) -> Note {
+            let note = Note()
+            note.noteId = "\(Date().timeStampFromDate())"
+            note.body = "This is a note"
+            note.title = "This is a note"
+            note.notebook = notebook
+            
+            return note
+        }
+        
+        func createNotebookInstance() -> Notebook {
+            let notebook = Notebook()
+            notebook.notebookId = "\(Date().timeStampFromDate())"
+            return notebook
+        }
+        
+        func updateNotes(notes: String) {
+            vc?.baseView?.contentTextView.text = notes
+            vc?.viewWillDisappear(true)
+        }
+        
+        func loadController(note: Note? = nil, notebook: Notebook? = nil) {
+            vc?.note = note
+            vc?.notebook = notebook
+            vc?.loadViewProgrammatically()
+        }
+        
+        func add(realm: Realm, note: Note? = nil, notebook: Notebook? = nil) {
+            do {
+                try realm.write {
+                    if let unwrappedNotebook = notebook {
+                        realm.add(unwrappedNotebook)
+                    }
+                    
+                    if let unwrappedNote = note {
+                        realm.add(unwrappedNote)
+                    }
+                }
+            } catch { }
+        }
     }
-}
+    
+  }

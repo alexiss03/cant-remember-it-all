@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import ProcedureKit
 
 class Note: Object {
     dynamic var body: String?

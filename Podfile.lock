@@ -1,5 +1,16 @@
 PODS:
   - Nimble (6.1.0)
+  - ProcedureKit/All (4.1.0):
+    - ProcedureKit/Cloud
+    - ProcedureKit/Location
+    - ProcedureKit/Network
+  - ProcedureKit/Cloud (4.1.0):
+    - ProcedureKit/Standard
+  - ProcedureKit/Location (4.1.0):
+    - ProcedureKit/Standard
+  - ProcedureKit/Network (4.1.0):
+    - ProcedureKit/Standard
+  - ProcedureKit/Standard (4.1.0)
   - PSOperations/Core (3.0.0)
   - Quick (1.1.0)
   - Realm (2.5.0):
@@ -13,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - Nimble
+  - ProcedureKit/All
   - PSOperations/Core (~> 3.0)
   - Quick
   - RealmSwift
@@ -22,6 +34,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
+  ProcedureKit: 622afbb72878fdcb82cf7cff29cad5d5d762c746
   PSOperations: 6bc00aac233d9d19b60caced190e6cb8fbcb1dcd
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
@@ -30,6 +43,6 @@ SPEC CHECKSUMS:
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
 
-PODFILE CHECKSUM: 533225bedfb33a95907ebe9285f6b5a0193f7782
+PODFILE CHECKSUM: 00bffdfc5ce29c5ce2fc4f0cc9d1fc3c817e51cd
 
 COCOAPODS: 1.1.1
