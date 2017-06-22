@@ -176,16 +176,6 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
             }
 
             strongSelf.deleteNoteInteractor?.deleteSelectedNote(indexPath: indexPath, filter: strongSelf.notebookFilter, realm: unwrappedRealm)
-//            print("Delete tapped")
-
-//            guard let strongSelf = weakSelf else { return }
-            
-//            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
-//            do {
-//                try unwrappedRealm.write {
-//                    unwrappedRealm.delete(noteList[indexPath.row])
-//                }
-//            } catch { }
         })
         deleteAction.backgroundColor = PNConstants.redColor
         

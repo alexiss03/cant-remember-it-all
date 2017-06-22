@@ -9,7 +9,23 @@
 import UIKit
 import RealmSwift
 
-class PNCreateNoteViewController: UIViewController {
+protocol UIViewControllerType {
+    
+}
+
+extension UIViewController: UIViewControllerType {
+    
+}
+
+protocol NoteContainer {
+    var note: Note? {get set}
+}
+
+protocol NotebookContainer {
+    var notebook: Notebook? {get set}
+}
+
+class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookContainer {
     let baseView: PNCreateNoteView? = {
         if let view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView {
             return view

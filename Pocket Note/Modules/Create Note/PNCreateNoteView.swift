@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PNCreateNoteView: UIView {
+protocol ContentViewContainer {
+    weak var contentTextView: UITextView! {get set}
+}
+
+class PNCreateNoteView: UIView, ContentViewContainer {
     @IBOutlet weak var contentTextView: UITextView!
     
     public func setContent(note: Note?) {

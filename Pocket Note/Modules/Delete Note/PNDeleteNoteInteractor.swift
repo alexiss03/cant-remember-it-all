@@ -12,7 +12,7 @@ class PNDeleteNoteInteractor {
     
     required init() { }
     
-    public func deleteSelectedNote(indexPath: IndexPath, filter: NSPredicate, realm: Realm) {
+    public func deleteSelectedNote(indexPath: IndexPath, filter: NSPredicate?, realm: Realm) {
         let fetchNoteOperation = PNFetchNoteOperation.init(indexPath: indexPath, filter: filter, realm: realm)
         let deleteNoteOperation = PNDeleteNoteOperation.init(realm: realm)
         deleteNoteOperation.injectResult(from: fetchNoteOperation)
