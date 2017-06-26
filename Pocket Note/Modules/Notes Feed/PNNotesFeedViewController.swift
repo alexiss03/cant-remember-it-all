@@ -14,6 +14,8 @@ protocol PNNotesFeedViewProtocol: class {
 }
 
 class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PNNotesFeedViewDelegate, PNNotesFeedViewProtocol {
+    var AlertAction = UIAlertAction.self
+    
     let baseView: PNNotesFeedView? = {
         if let view = Bundle.main.loadNibNamed("PNNotesFeedView", owner: self, options: nil)![0] as? PNNotesFeedView {
             return view
@@ -39,25 +41,27 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }()
     
     var deleteNoteInteractor: PNDeleteNoteInteractor?
+    var deleteNotebookInteractor: PNDeleteNotebookInteractor?
 
     private func setPredicate(searchText: String?, currentNotebook: Notebook?) {
-        if let unwrappedSearchText = searchText, let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name {
-            notebookFilter = NSPredicate.init(format: "notebook == %@ && (body CONTAINS[c] %@ || title CONTAINS[c] %@)", unwrappedCurrentNotebook, unwrappedSearchText, unwrappedSearchText)
-            setMenu(notebookName: notebookName)
-            setNotebookButton()
-        } else if let unwrappedSearchText = searchText, currentNotebook == nil {
-            notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
-            setMenu(notebookName: "MEMO")
-        } else if let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name, searchText == nil {
-            notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
-            setMenu(notebookName: notebookName)
-            setNotebookButton()
-        } else {
-            notebookFilter = NSPredicate.init(format: "dateCreated != nil")
-            setMenu(notebookName: "MEMO")
+        DispatchQueue.main.async {
+            if let unwrappedSearchText = searchText, let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name {
+                self.notebookFilter = NSPredicate.init(format: "notebook == %@ && (body CONTAINS[c] %@ || title CONTAINS[c] %@)", unwrappedCurrentNotebook, unwrappedSearchText, unwrappedSearchText)
+                self.setMenu(notebookName: notebookName)
+            } else if let unwrappedSearchText = searchText, currentNotebook == nil {
+                self.notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
+                self.setMenu(notebookName: "MEMO")
+            } else if let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name, searchText == nil {
+                self.notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
+                self.setMenu(notebookName: notebookName)
+            } else {
+                self.notebookFilter = NSPredicate.init(format: "dateCreated != nil")
+                self.setMenu(notebookName: "MEMO")
+            }
+            
+            self.setNotebookButton()
+            self.tableAddNotificationBlock()
         }
-        
-        tableAddNotificationBlock()
     }
     
     override func viewDidLoad() {
@@ -84,6 +88,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     private func initInteractors() {
         deleteNoteInteractor = PNDeleteNoteInteractor.init()
+        deleteNotebookInteractor = PNDeleteNotebookInteractor.init()
     }
     
     internal override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +107,8 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func tableAddNotificationBlock() {
+        notificationToken?.stop()
+        
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
         let results = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
         if let unwrappedNotesListTableView = baseView?.notesListTableView {
@@ -265,37 +272,32 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         present(unwrappedMoveNoteViewController, animated: true, completion: nil)
     }
 
-    @objc private func showNotebookActions() {
+    @objc public func showNotebookActions() {
         let alertController = UIAlertController(title: "Notebook Settings", message: "", preferredStyle: .actionSheet)
         alertController.popoverPresentationController?.delegate = self
 
-        let editNotebookAction = UIAlertAction(title: "Edit Notebook", style: .default, handler: { _ -> Void in
+        let editNotebookAction = AlertAction.init(title: "Edit Notebook", style: .default, handler: { _ -> Void in
             self.editNotebookPopUp()
         })
 
         weak var weakSelf = self
-        let deleteNotebookAction = UIAlertAction(title: "Delete Notebook", style: .default, handler: { (_ : UIAlertAction!) -> Void in
-            let strongSelf = weakSelf
-            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
-            guard let unwrappedCurrentNotebook = strongSelf?.currentNotebook else {
+        let deleteNotebookAction = AlertAction.init(title: "Delete Notebook", style: .default, handler: { (_ : UIAlertAction!) -> Void in
+            guard let strongSelf = weakSelf else {
+                print("PNNotesFeedViewController is nil")
+                return
+            }
+            
+            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else {
+                print("Realm is nil")
+                return
+            }
+            
+            guard let unwrappedCurrentNotebook = strongSelf.currentNotebook else {
                 print("Current notebook is nil")
                 return
             }
-            do {
-                try unwrappedRealm.write {
-                    
-                    DispatchQueue.main.async {
-                        strongSelf?.viewDidAppear(true)
-                        strongSelf?.currentNotebook = nil
-                    }
-                    
-                    unwrappedRealm.delete(unwrappedCurrentNotebook.notes)
-                    unwrappedRealm.delete(unwrappedCurrentNotebook)
-                }
-            } catch {
-
-            }
             
+            strongSelf.deleteNotebookInteractor?.delete(notebook: unwrappedCurrentNotebook, realm: unwrappedRealm, notesFeedViewControler: self)
         })
         
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)

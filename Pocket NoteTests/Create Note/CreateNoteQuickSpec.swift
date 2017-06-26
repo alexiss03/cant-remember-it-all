@@ -111,7 +111,7 @@ class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 
                 viewController?.viewWillDisappear(true)
                 
-                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount))
             }
             
             it("without a notebook") {
@@ -121,7 +121,7 @@ class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 let oldCount = unwrappedRealm.objects(Note.self).count
                 self.updateNotes(notes: "This is a note", baseView: viewController?.baseView)
                 
-                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount+1), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount+1))
             }
             
             it("with a notebook") {
@@ -137,8 +137,8 @@ class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 self.loadController(notebook: notebook)
                 self.updateNotes(notes: "This is a note", baseView: viewController?.baseView)
                 
-                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes+1), timeout: 0.1)
-                expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook+1), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes+1))
+                expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook+1))
             }
         }
         

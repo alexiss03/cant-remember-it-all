@@ -19,6 +19,7 @@ protocol NotebookQuickSpecProtocol {
     
     func notebookInstance() -> Notebook
     func loadController(note: Note?, notebook: Notebook?)
+    func add(realm: Realm, notebook: Notebook?)
 }
 
 extension NotebookQuickSpecProtocol {
@@ -40,6 +41,16 @@ extension NotebookQuickSpecProtocol {
         if let controllerType = controllerType as? UIViewController {
             controllerType.loadViewProgrammatically()
         }
+    }
+    
+    func add(realm: Realm, notebook: Notebook? = nil) {
+        do {
+            try realm.write {
+                if let unwrappedNotebook = notebook {
+                    realm.add(unwrappedNotebook)
+                }
+            }
+        } catch { }
     }
 }
 
@@ -126,26 +137,25 @@ class CreateNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
             expect(unwrappedRealm.objects(Notebook.self).filter(predicate).count).toEventually(equal(1))
         }
     }
+}
 
-    class MockAlertAction: UIAlertAction {
-        typealias Handler = ((UIAlertAction) -> Void)
-        var handler: Handler?
-        var mockTitle: String?
-        var mockStyle: UIAlertActionStyle
+class MockAlertAction: UIAlertAction {
+    typealias Handler = ((UIAlertAction) -> Void)
+    var handler: Handler?
+    var mockTitle: String?
+    var mockStyle: UIAlertActionStyle
+    
+    convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)?) {
+        self.init()
         
-        convenience init(title: String?, style: UIAlertActionStyle, handler: ((UIAlertAction) -> Void)?) {
-            self.init()
-            
-            mockTitle = title
-            mockStyle = style
-            self.handler = handler
-        }
-        
-        override init() {
-            mockStyle = .default
-            
-            super.init()
-        }
+        mockTitle = title
+        mockStyle = style
+        self.handler = handler
     }
     
+    override init() {
+        mockStyle = .default
+        
+        super.init()
+    }
 }

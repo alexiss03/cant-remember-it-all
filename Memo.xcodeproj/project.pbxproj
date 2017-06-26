@@ -76,6 +76,10 @@
 		00A66CD71E8A002F00924C34 /* PNNotesFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */; };
 		00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */; };
 		00A66CDB1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */; };
+		00AB35631F013823008EA86C /* DeleteNotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB35621F013823008EA86C /* DeleteNotebookQuickSpec.swift */; };
+		00AB356C1F015A70008EA86C /* PNDeleteNotebookOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB356A1F015A6C008EA86C /* PNDeleteNotebookOperation.swift */; };
+		00AB356F1F015B63008EA86C /* PNDeleteNotebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB356D1F015AD2008EA86C /* PNDeleteNotebookInteractor.swift */; };
+		00AB35721F016C8D008EA86C /* PNDeleteNotebookObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB35701F016B69008EA86C /* PNDeleteNotebookObserver.swift */; };
 		00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */; };
 		00AE749C1E8CE8A50081C35C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */; };
 		00AE749D1E8CE8A50081C35C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */; };
@@ -208,6 +212,10 @@
 		00A66CD61E8A002F00924C34 /* PNNotesFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedView.swift; path = "Modules/Notes Feed/PNNotesFeedView.swift"; sourceTree = "<group>"; };
 		00A66CD81E8A03B200924C34 /* PNNotesFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedTableViewCell.swift; path = Modules/PNNotesFeedTableViewCell.swift; sourceTree = "<group>"; };
 		00A66CDA1E8A049600924C34 /* PNNotesFeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesFeedCollectionViewCell.swift; path = "Modules/Notes Feed/PNNotesFeedCollectionViewCell.swift"; sourceTree = "<group>"; };
+		00AB35621F013823008EA86C /* DeleteNotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteNotebookQuickSpec.swift; path = "Delete Notebook/DeleteNotebookQuickSpec.swift"; sourceTree = "<group>"; };
+		00AB356A1F015A6C008EA86C /* PNDeleteNotebookOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookOperation.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookOperation.swift"; sourceTree = "<group>"; };
+		00AB356D1F015AD2008EA86C /* PNDeleteNotebookInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookInteractor.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookInteractor.swift"; sourceTree = "<group>"; };
+		00AB35701F016B69008EA86C /* PNDeleteNotebookObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookObserver.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookObserver.swift"; sourceTree = "<group>"; };
 		00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNCreateNoteView.xib; path = "Modules/Create Note/PNCreateNoteView.xib"; sourceTree = "<group>"; };
 		00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Resources/Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
 		00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Resources/Lato/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -484,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				005BE7311EFCDB05006BEE14 /* CreateNotebookQuickSpec.swift */,
+				00AB35621F013823008EA86C /* DeleteNotebookQuickSpec.swift */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -799,6 +808,32 @@
 			name = "Notes Feed";
 			sourceTree = "<group>";
 		};
+		00AB35641F014AC5008EA86C /* Delete Notebook */ = {
+			isa = PBXGroup;
+			children = (
+				00AB35691F0159F4008EA86C /* Interactors */,
+				00AB35651F014AD3008EA86C /* Operations */,
+			);
+			name = "Delete Notebook";
+			sourceTree = "<group>";
+		};
+		00AB35651F014AD3008EA86C /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				00AB356A1F015A6C008EA86C /* PNDeleteNotebookOperation.swift */,
+				00AB35701F016B69008EA86C /* PNDeleteNotebookObserver.swift */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		00AB35691F0159F4008EA86C /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				00AB356D1F015AD2008EA86C /* PNDeleteNotebookInteractor.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
 		00AE74711E8CDE200081C35C /* Create Note */ = {
 			isa = PBXGroup;
 			children = (
@@ -904,6 +939,7 @@
 		00F611D61EB04339000160BA /* Notebooks */ = {
 			isa = PBXGroup;
 			children = (
+				00AB35641F014AC5008EA86C /* Delete Notebook */,
 				000BBC8E1EFCAFB6008713A2 /* Interactors */,
 				0036F58C1EB81D9000D19F75 /* Nibs */,
 				0036F58B1EB81D8800D19F75 /* Web Services */,
@@ -1339,6 +1375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00AB356F1F015B63008EA86C /* PNDeleteNotebookInteractor.swift in Sources */,
 				009E5ABB1EB1B3B6001F4889 /* PNRegistrationViewController.swift in Sources */,
 				0060917D1EDD5CB40058068B /* PNExistingUserErrorObserver.swift in Sources */,
 				000330C91EE81782000A3830 /* PNLoginViewEventHandler.swift in Sources */,
@@ -1348,6 +1385,7 @@
 				007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */,
 				003536F91EF90AF1002B70CD /* PNFilterEventsListOperation.swift in Sources */,
 				005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */,
+				00AB356C1F015A70008EA86C /* PNDeleteNotebookOperation.swift in Sources */,
 				00667E301EE7CD3A002504FF /* PNRegistrationViewDelegate.swift in Sources */,
 				009E5AA41EB18E76001F4889 /* PNPasscodeViewController.swift in Sources */,
 				0060917B1EDD50F40058068B /* PNInvalidLoginErrorObserver.swift in Sources */,
@@ -1392,6 +1430,7 @@
 				00667E2C1EE7CCCB002504FF /* PNShowNotesFeedProtocol.swift in Sources */,
 				008D3A841ED6CB82003B51DE /* PNNoNetworkObserver.swift in Sources */,
 				00513C7C1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift in Sources */,
+				00AB35721F016C8D008EA86C /* PNDeleteNotebookObserver.swift in Sources */,
 				008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1400,6 +1439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00AB35631F013823008EA86C /* DeleteNotebookQuickSpec.swift in Sources */,
 				00D028271EC00351000E8B25 /* LoginQuickSpec.swift in Sources */,
 				00375B2C1EFBA6B400CA3C11 /* CreateNoteQuickSpec.swift in Sources */,
 				00B0C8481EC193890061F5E8 /* RegistrationQuickSpec.swift in Sources */,

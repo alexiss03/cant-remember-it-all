@@ -9,8 +9,7 @@
 import UIKit
 import RealmSwift
 
-class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     var AlertAction = UIAlertAction.self
     
     let baseView: PNNotebooksListView? = {

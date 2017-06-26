@@ -44,8 +44,8 @@ class EditNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             
                 let predicate = NSPredicate.init(format: "noteId == %@", note.noteId!)
                 
-                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount), timeout: 0.1)
-                expect(unwrappedRealm.objects(Note.self).filter(predicate).first?.title).toEventually(equal("This is a note"), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount))
+                expect(unwrappedRealm.objects(Note.self).filter(predicate).first?.title).toEventually(equal("This is a note"))
                 
             }
             it("without a notebook") {
@@ -59,7 +59,7 @@ class EditNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 self.loadController(note: note)
                 self.updateNotes(notes: "This is an updated note", baseView: viewController?.baseView)
             
-                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount))
                 
             }
             
@@ -78,8 +78,8 @@ class EditNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 
                 self.updateNotes(notes: "This is a note", baseView: viewController?.baseView)
                 
-                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes), timeout: 0.1)
-                expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook), timeout: 0.1)
+                expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes))
+                expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook))
                 
             }
         }

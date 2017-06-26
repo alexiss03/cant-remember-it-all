@@ -43,7 +43,7 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             viewController?.loadViewProgrammatically()
             viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 0, section: 0), filter: nil, realm: unwrappedRealm)
             
-            expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes-1), timeout: 0.1)
+            expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes-1))
         }
         
         it("delete two notes") {
@@ -62,7 +62,7 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 0, section: 0), filter: nil, realm: unwrappedRealm)
             viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 1, section: 0), filter: nil, realm: unwrappedRealm)
             
-            expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes-2), timeout: 0.1)
+            expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes-2))
         }
 
     }
