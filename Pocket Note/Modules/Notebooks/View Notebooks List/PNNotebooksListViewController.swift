@@ -10,12 +10,17 @@ import UIKit
 import RealmSwift
 
 class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var AlertAction = UIAlertAction.self
+    
     let baseView: PNNotebooksListView? = {
         if let view = Bundle.main.loadNibNamed("PNNotebooksListView", owner: self, options: nil)![0] as? PNNotebooksListView {
             return view
         }
         return nil
     }()
+    
+    fileprivate var createNotebookInteractor: PNCreateNotebookInteractor?
     
     var notificationToken: NotificationToken?
     weak var notesFeedDelegate: PNNotesFeedViewProtocol?
@@ -31,13 +36,18 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
             self.baseView?.tableView.delegate = self
             self.baseView?.tableView.dataSource = self
             
-
             let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
             let tableViewCellNibId = "PNNotebooksListTableViewCell"
             unwrappedBaseView.tableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
+            
+            initInteractors()
         }
     }
 
+    private func initInteractors() {
+        createNotebookInteractor = PNCreateNotebookInteractor.init()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -122,5 +132,44 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
     func allNotesTapped() {
         notesFeedDelegate?.currentNotebook = nil
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
+    public func addButtonTapped() {
+        let alertController = UIAlertController(title: "New Notebook", message: "", preferredStyle: .alert)
+        
+        weak var weakSelf = self
+        let saveAction = AlertAction.init(title: "Save", style: .default, handler: { _ -> Void in
+            guard let strongSelf = weakSelf else {
+                print("Weak self is nil")
+                return
+            }
+            
+            let firstTextField = alertController.textFields![0] as UITextField
+            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else {
+                print("Realm is nil")
+                return
+            }
+            
+            guard let unwrappedNotebookName = firstTextField.text else {
+                print("Notebook name is nil")
+                return
+            }
+            
+            strongSelf.createNotebookInteractor?.create(notebookName: unwrappedNotebookName, realm: unwrappedRealm)
+        })
+        
+        let cancelAction = AlertAction.init(title: "Cancel", style: .default, handler: { (_ : UIAlertAction!) -> Void in
+        })
+        
+        alertController.addTextField { (textField: UITextField!) -> Void in
+            textField.placeholder = "Notebook Name"
+        }
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

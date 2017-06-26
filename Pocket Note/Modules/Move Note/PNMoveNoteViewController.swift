@@ -18,7 +18,6 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
     }()
     
     var notificationToken: NotificationToken?
-
     var note: Note?
     
     override func viewDidLoad() {
@@ -35,6 +34,7 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
             let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
             let tableViewCellNibId = "PNNotebooksListTableViewCell"
             unwrappedBaseView.tableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
+            
         }
     }
     
@@ -107,41 +107,5 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         dismiss(animated: true, completion: nil)
-    }
-}
-
-extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
-    func addButtonTapped() {
-        let alertController = UIAlertController(title: "New Notebook", message: "", preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ -> Void in
-            let firstTextField = alertController.textFields![0] as UITextField
-            print("firstName \(String(describing: firstTextField.text))")
-            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
-            
-            let notebook = Notebook()
-            notebook.notebookId = "\(Date().timeStampFromDate())"
-            notebook.name = firstTextField.text
-            notebook.dateCreated = Date()
-            
-            do {
-                try unwrappedRealm.write {
-                    unwrappedRealm.add(notebook)
-                }
-            } catch { }
-            
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (_ : UIAlertAction!) -> Void in
-        })
-        
-        alertController.addTextField { (textField: UITextField!) -> Void in
-            textField.placeholder = "Notebook Name"
-        }
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
     }
 }

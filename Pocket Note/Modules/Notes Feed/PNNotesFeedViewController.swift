@@ -44,16 +44,17 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
         if let unwrappedSearchText = searchText, let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name {
             notebookFilter = NSPredicate.init(format: "notebook == %@ && (body CONTAINS[c] %@ || title CONTAINS[c] %@)", unwrappedCurrentNotebook, unwrappedSearchText, unwrappedSearchText)
             setMenu(notebookName: notebookName)
+            setNotebookButton()
         } else if let unwrappedSearchText = searchText, currentNotebook == nil {
             notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
             setMenu(notebookName: "MEMO")
         } else if let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name, searchText == nil {
             notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
             setMenu(notebookName: notebookName)
+            setNotebookButton()
         } else {
             notebookFilter = NSPredicate.init(format: "dateCreated != nil")
             setMenu(notebookName: "MEMO")
-            setNotebookButton()
         }
         
         tableAddNotificationBlock()
@@ -266,6 +267,7 @@ class PNNotesFeedViewController: UIViewController, UITableViewDelegate, UITableV
 
     @objc private func showNotebookActions() {
         let alertController = UIAlertController(title: "Notebook Settings", message: "", preferredStyle: .actionSheet)
+        alertController.popoverPresentationController?.delegate = self
 
         let editNotebookAction = UIAlertAction(title: "Edit Notebook", style: .default, handler: { _ -> Void in
             self.editNotebookPopUp()
@@ -353,7 +355,7 @@ extension UITableView {
     func applyChanges<T>(changes: RealmCollectionChange<T>) {
         switch changes {
         case .initial: reloadData()
-            case .update(let _, let deletions, let insertions, let updates):
+            case .update(_, let deletions, let insertions, let updates):
                 let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
                 
                 beginUpdates()
@@ -368,7 +370,7 @@ extension UITableView {
     func applyChangesWithOffset<T>(changes: RealmCollectionChange<T>, offset: Int = 0) {
         switch changes {
             case .initial: reloadData()
-            case .update(let _, let deletions, let insertions, let updates):
+            case .update(_, let deletions, let insertions, let updates):
                 let fromRow = { (row: Int) in return IndexPath(row: row, section: 0) }
                 
                 beginUpdates()
@@ -396,5 +398,12 @@ extension PNNotesFeedViewController: UISearchBarDelegate {
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
+    }
+}
+
+extension PNNotesFeedViewController: UIPopoverPresentationControllerDelegate {
+    public func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        popoverPresentationController.sourceView = self.navigationController?.navigationBar
+        popoverPresentationController.sourceRect = (self.navigationController?.navigationBar.frame)!
     }
 }

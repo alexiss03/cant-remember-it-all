@@ -18,7 +18,7 @@ protocol NoteQuickSpecProtocol {
     var controllerType: UIViewControllerType? {get set}
     
     func notebookInstance() -> Notebook
-    func noteInstance(notebook: Notebook?) -> Note
+    func noteInstance(notebook: Notebook?, body: String?) -> Note
     
     func updateNotes(notes: String, baseView: UIView?)
     func add(realm: Realm, note: Note?, notebook: Notebook?)
@@ -31,10 +31,16 @@ extension NoteQuickSpecProtocol {
         return notebook
     }
     
-    func noteInstance(notebook: Notebook? = nil) -> Note {
+    func noteInstance(notebook: Notebook? = nil, body: String? = nil) -> Note {
         let note = Note()
         note.noteId = "\(Date().timeStampFromDate())"
-        note.body = "This is a note"
+        
+        if let unwrappedBody = body {
+            note.body = unwrappedBody
+        } else {
+            note.body = "This is a note"
+        }
+        
         note.title = "This is a note"
         note.notebook = notebook
 

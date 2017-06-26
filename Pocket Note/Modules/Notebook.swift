@@ -11,10 +11,8 @@ import RealmSwift
 
 class Notebook: Object {
     dynamic var name: String?
-    //var notes: List<Note>?
     dynamic var dateCreated: Date?
     dynamic var notebookId: String?
-    dynamic var account: Account?
     let notes = LinkingObjects(fromType: Note.self, property: "notebook")
 
     override static func primaryKey() -> String? {

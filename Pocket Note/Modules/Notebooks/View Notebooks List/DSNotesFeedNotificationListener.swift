@@ -6,6 +6,6 @@
 //  Copyright © 2017 Mary Alexis Solis. All rights reserved.
 //
 
-struct DSNotesFeedNotificationListener  {
+struct DSNotesFeedNotificationListener {
 
 }
