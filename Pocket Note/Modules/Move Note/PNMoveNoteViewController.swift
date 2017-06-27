@@ -81,17 +81,6 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
         return UITableViewCell.init()
     }
     
-    func setMenu() {
-        
-    }
-    
-    private func showCreateNote() {
-        self.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
-    }
-    
-    func showViewNote() {
-        self.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

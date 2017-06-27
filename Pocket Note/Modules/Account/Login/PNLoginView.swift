@@ -28,7 +28,7 @@ class PNLoginView: UIView, PNLoginViewProtocol {
     /**
      This method is the action receiver of the touch inside the log in button.
      
-     - Parameter sender: Sender of the action, which is the log in button
+     - Parameter sender: This is the sender of the action, which is the log in button.
      */
     @IBAction func loginButtonTapped(_ sender: Any) {
         delegate?.loginButtonTapped()

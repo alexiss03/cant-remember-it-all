@@ -9,11 +9,20 @@
 import ProcedureKit
 import RealmSwift
 
-class PNCreateNotebookOperation: Procedure, InputProcedure {
+/**
+ This is the class responsible for creating new `Notebook` into a `Realm`
+ */
+final class PNCreateNotebookOperation: Procedure {
+    /// This is the realm where the new `Notebook` is to be created
     private var realm: Realm
+    /// This is the name of the new `Notebook`
     private var notebookName: String
-    internal var input: Pending<Note> = .pending
-    
+
+    /**
+     This is the required initialization method. 
+     - Parameter notebookName: The name of the `Notebook` to be created.
+     - Paramter realm: The `Realm` where the new `Notebook` is to be added.
+     */
     public required init(notebookName: String, realm: Realm) {
         self.notebookName = notebookName
         self.realm = realm
@@ -21,6 +30,10 @@ class PNCreateNotebookOperation: Procedure, InputProcedure {
         super.init()
     }
     
+    /**
+     This is the execution method of this `Operation`. This instantiates a new `Notebook` instance.
+     After that, inserts that instance to the realm.
+     */
     public override func execute() {
         let notebook = Notebook()
         notebook.notebookId = "\(Date().timeStampFromDate())"

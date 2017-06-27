@@ -9,9 +9,14 @@
 import UIKit
 import RealmSwift
 
-class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
+/**
+ This is the custom `UIViewController` for the Notebook List module.
+ */
+final class PNNotebooksListViewController: UIViewController {
+    /// This property contains the alert action to be used. This is for mocking.
     var AlertAction = UIAlertAction.self
     
+    /// This `PNNotebooksListView` is set to be the superview of this view controller.
     let baseView: PNNotebooksListView? = {
         if let view = Bundle.main.loadNibNamed("PNNotebooksListView", owner: self, options: nil)![0] as? PNNotebooksListView {
             return view
@@ -19,12 +24,14 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
         return nil
     }()
     
+    /// This interactor is responsible for creating a notebook
     fileprivate var createNotebookInteractor: PNCreateNotebookInteractor?
-    
-    var notificationToken: NotificationToken?
+    /// This is the storage of the notification token of the notification block of the list of `Notes`
+    fileprivate var notificationToken: NotificationToken?
+    /// This contains the delegate to the `PNNotesFeedViewProtocol`. This is to get a reference to the current notebook in the notes fed
     weak var notesFeedDelegate: PNNotesFeedViewProtocol?
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
 
         if let unwrappedBaseView = baseView {
@@ -42,17 +49,13 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
             initInteractors()
         }
     }
-
-    private func initInteractors() {
-        createNotebookInteractor = PNCreateNotebookInteractor.init()
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
+    internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
@@ -63,79 +66,36 @@ class PNNotebooksListViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    internal override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
     
-    override func didReceiveMemoryWarning() {
+    internal override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
-    }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 75
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
-        let notebookList = unwrappedRealm.objects(Notebook.self)
-        
-        return notebookList.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell {
-            guard let unwrappedRealm = PNSharedRealm.realmInstance() else {  return UITableViewCell.init() }
-            let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
-            cell.setContent(notebook: notebookList[indexPath.row])
-            cell.selectionStyle = .none
-
-            return cell
-        }
-        return UITableViewCell.init()
-    }
-
-    func setMenu() {
-
-    }
-
-    private func showCreateNote() {
-        self.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
-    }
-
-    func showViewNote() {
-        self.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
-        
-        notesFeedDelegate?.currentNotebook = results[indexPath.row]
-
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = Bundle.main.loadNibNamed("PNNotebookListViewHeaderFooterCell", owner: self, options: nil)![0] as? UIView
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(allNotesTapped))
-        header?.addGestureRecognizer(tapRecognizer)
-        return header
-    }
-
-    func allNotesTapped() {
+    /**
+     This method sets the `currentNotebook` property of the notes feed view controller. This also dismiss this view controller instance.
+     */
+    @objc fileprivate func allNotesTapped() {
         notesFeedDelegate?.currentNotebook = nil
         dismiss(animated: true, completion: nil)
     }
+    
+    /**
+     This initiates the `PNCreateNotebookInteractor`.
+     */
+    fileprivate func initInteractors() {
+        createNotebookInteractor = PNCreateNotebookInteractor.init()
+    }
+    
 }
 
 extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
-    public func addButtonTapped() {
+    /**
+     This presents the `UIAlertController` interface for inputting the new `Notebook` name. This also contains the logic when the user saves the new `Notebook` or cancels it.
+     */
+    internal func addButtonTapped() {
         let alertController = UIAlertController(title: "New Notebook", message: "", preferredStyle: .alert)
         
         weak var weakSelf = self
@@ -170,5 +130,51 @@ extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSource {
+    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
+    internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 75
+    }
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
+        let notebookList = unwrappedRealm.objects(Notebook.self)
+        
+        return notebookList.count
+    }
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell {
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else {  return UITableViewCell.init() }
+            let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
+            cell.setContent(notebook: notebookList[indexPath.row])
+            cell.selectionStyle = .none
+            
+            return cell
+        }
+        return UITableViewCell.init()
+    }
+    
+    internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = Bundle.main.loadNibNamed("PNNotebookListViewHeaderCell", owner: self, options: nil)![0] as? UIView
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(allNotesTapped))
+        header?.addGestureRecognizer(tapRecognizer)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
+        
+        notesFeedDelegate?.currentNotebook = results[indexPath.row]
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -932,44 +932,44 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserAlreadyErrorObserver.swift",
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserErrorObserver.swift",
       "line": 12,
-      "symbol": "PNExistingUserAlreadyErrorObserver",
+      "symbol": "PNExistingUserErrorObserver",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserAlreadyErrorObserver.swift",
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserErrorObserver.swift",
       "line": 13,
-      "symbol": "PNExistingUserAlreadyErrorObserver.register",
+      "symbol": "PNExistingUserErrorObserver.register",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserAlreadyErrorObserver.swift",
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNExistingUserErrorObserver.swift",
       "line": 15,
-      "symbol": "PNExistingUserAlreadyErrorObserver.init(register:)",
+      "symbol": "PNExistingUserErrorObserver.init(register:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginCredentialsErrorObserver.swift",
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginErrorObserver.swift",
       "line": 12,
-      "symbol": "PNInvalidLoginCredentialsErrorObserver",
+      "symbol": "PNInvalidLoginErrorObserver",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginCredentialsErrorObserver.swift",
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginErrorObserver.swift",
       "line": 13,
-      "symbol": "PNInvalidLoginCredentialsErrorObserver.loginView",
+      "symbol": "PNInvalidLoginErrorObserver.loginView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginCredentialsErrorObserver.swift",
+      "file": "/Users/hanet/Documents/Installers/pocket-note/Pocket Note/Observers/PNInvalidLoginErrorObserver.swift",
       "line": 15,
-      "symbol": "PNInvalidLoginCredentialsErrorObserver.init(loginView:)",
+      "symbol": "PNInvalidLoginErrorObserver.init(loginView:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
