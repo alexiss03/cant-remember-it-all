@@ -15,7 +15,7 @@ import RealmSwift
 @testable import Memo
 
 protocol NotebookQuickSpecProtocol {
-    var controllerType: UIViewControllerType? {get set}
+    var controller: UIViewController? {get set}
     
     func notebookInstance() -> Notebook
     func loadController(note: Note?, notebook: Notebook?)
@@ -30,16 +30,16 @@ extension NotebookQuickSpecProtocol {
     }
     
     func loadController(note: Note? = nil, notebook: Notebook? = nil) {
-        if var notebookContainter = controllerType as? NotebookContainer {
+        if var notebookContainter = controller as? NotebookContainer {
             notebookContainter.notebook = notebook
         }
         
-        if var noteContainer = controllerType as? NoteContainer {
+        if var noteContainer = controller as? NoteContainer {
             noteContainer.note = note
         }
         
-        if let controllerType = controllerType as? UIViewController {
-            controllerType.loadViewProgrammatically()
+        if let controller = controller as? UIViewController {
+            controller.loadViewProgrammatically()
         }
     }
     
@@ -55,12 +55,12 @@ extension NotebookQuickSpecProtocol {
 }
 
 class CreateNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
-    var controllerType: UIViewControllerType?
+    var controller: UIViewController?
     
     override func spec() {
         var viewController: PNNotebooksListViewController? {
             didSet {
-                self.controllerType = viewController
+                self.controller = viewController
             }
         }
         var realm: Realm?

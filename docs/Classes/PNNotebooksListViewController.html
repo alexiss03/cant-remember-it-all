@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Memo Docs
         </a>
-         (29% documented)
+         (37% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -231,9 +231,6 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/PNSideMenuViewDelegate.html">PNSideMenuViewDelegate</a>
               </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols.html#/s:P4Memo20UIViewControllerType">UIViewControllerType</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -336,14 +333,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This <code><a href="../Classes/PNNotebooksListView.html">PNNotebooksListView</a></code> is set to be the superview of this view controller.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">baseView</span><span class="p">:</span> <span class="kt"><a href="../Classes/PNNotebooksListView.html">PNNotebooksListView</a></span><span class="p">?</span> <span class="o">=</span></code></pre>
 
                         </div>
                       </div>
@@ -363,14 +360,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This interactor is responsible for creating a notebook</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="k">var</span> <span class="nv">createNotebookInteractor</span><span class="p">:</span> <span class="kt"><a href="../Classes/PNCreateNotebookInteractor.html">PNCreateNotebookInteractor</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -390,14 +387,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This is the storage of the notification token of the notification block of the list of <code>Notes</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="k">var</span> <span class="nv">notificationToken</span><span class="p">:</span> <span class="kt">NotificationToken</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -417,14 +414,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This contains the delegate to the <code><a href="../Protocols/PNNotesFeedViewProtocol.html">PNNotesFeedViewProtocol</a></code>. This is to get a reference to the current notebook in the notes fed</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">notesFeedDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PNNotesFeedViewProtocol.html">PNNotesFeedViewProtocol</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -437,33 +434,6 @@
                     <a name="/s:FC4Memo29PNNotebooksListViewController11viewDidLoadFT_T_"></a>
                     <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC4Memo29PNNotebooksListViewController11viewDidLoadFT_T_">viewDidLoad()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75015initInteractorsFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/initInteractors()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75015initInteractorsFT_T_">initInteractors()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -596,63 +566,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75014showCreateNoteFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/showCreateNote()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75014showCreateNoteFT_T_">showCreateNote()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo29PNNotebooksListViewController12showViewNoteFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/showViewNote()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo29PNNotebooksListViewController12showViewNoteFT_T_">showViewNote()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo29PNNotebooksListViewController14allNotesTappedFT_T_"></a>
+                    <a name="/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75014allNotesTappedFT_T_"></a>
                     <a name="//apple_ref/swift/Method/allNotesTapped()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo29PNNotebooksListViewController14allNotesTappedFT_T_">allNotesTapped()</a>
+                    <a class="token" href="#/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75014allNotesTappedFT_T_">allNotesTapped()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -660,14 +576,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method sets the <code>currentNotebook</code> property of the notes feed view controller. This also dismiss this view controller instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">allNotesTapped</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75015initInteractorsFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/initInteractors()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Memo29PNNotebooksListViewControllerP33_7B955D1CF0F429A599F072D011BDE75015initInteractorsFT_T_">initInteractors()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This initiates the <code><a href="../Classes/PNCreateNotebookInteractor.html">PNCreateNotebookInteractor</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">initInteractors</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -691,14 +634,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This presents the <code>UIAlertController</code> interface for inputting the new <code><a href="../Classes/Notebook.html">Notebook</a></code> name. This also contains the logic when the user saves the new <code><a href="../Classes/Notebook.html">Notebook</a></code> or cancels it.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">PNNotebooksListViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">addButtonTapped</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>

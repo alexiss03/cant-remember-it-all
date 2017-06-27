@@ -521,6 +521,7 @@
 		007DEC7E1EFA395E00F2FC9A /* Delete Note */ = {
 			isa = PBXGroup;
 			children = (
+				007DEC801EFA398A00F2FC9A /* Operations */,
 				007DEC7F1EFA398300F2FC9A /* Interactors */,
 			);
 			name = "Delete Note";
@@ -530,7 +531,6 @@
 			isa = PBXGroup;
 			children = (
 				007DEC841EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift */,
-				007DEC801EFA398A00F2FC9A /* Operations */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -838,7 +838,7 @@
 			name = "Create Notebook";
 			sourceTree = "<group>";
 		};
-		00AE74711E8CDE200081C35C /* Create Note */ = {
+		00AE74711E8CDE200081C35C /* Edit/Create Note */ = {
 			isa = PBXGroup;
 			children = (
 				0054F8681EF7763200202E3B /* Interactors */,
@@ -846,7 +846,7 @@
 				00F611E31EB05FD4000160BA /* Nibs */,
 				00AE74731E8CE2C80081C35C /* Views */,
 			);
-			name = "Create Note";
+			name = "Edit/Create Note";
 			sourceTree = "<group>";
 		};
 		00AE74721E8CE1D40081C35C /* Nibs */ = {
@@ -934,7 +934,7 @@
 			isa = PBXGroup;
 			children = (
 				007DEC7E1EFA395E00F2FC9A /* Delete Note */,
-				00AE74711E8CDE200081C35C /* Create Note */,
+				00AE74711E8CDE200081C35C /* Edit/Create Note */,
 				00A66CCC1E89F96B00924C34 /* Notes Feed */,
 			);
 			name = Notes;

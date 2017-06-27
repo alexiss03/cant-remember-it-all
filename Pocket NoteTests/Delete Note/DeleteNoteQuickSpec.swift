@@ -15,13 +15,13 @@ import RealmSwift
 @testable import Memo
 
 class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
-    var controllerType: UIViewControllerType?
+    var controller: UIViewController?
     
     override func spec() {
         var realm: Realm?
         var viewController: PNNotesFeedViewController? {
             didSet {
-                self.controllerType = viewController
+                self.controller = viewController
             }
         }
         

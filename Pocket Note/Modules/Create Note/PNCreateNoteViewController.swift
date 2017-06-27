@@ -9,14 +9,6 @@
 import UIKit
 import RealmSwift
 
-protocol UIViewControllerType {
-    
-}
-
-extension UIViewController: UIViewControllerType {
-    
-}
-
 protocol NoteContainer {
     var note: Note? {get set}
 }
@@ -25,19 +17,32 @@ protocol NotebookContainer {
     var notebook: Notebook? {get set}
 }
 
+/**
+ The class `PNCreateNoteViewController` is the custom view controller of the Create Note and Update Note modules
+ */
 class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookContainer {
-    let baseView: PNCreateNoteView? = {
+   
+    /// A `PNCreateNoteView` that is the superview of a `PNCreateNoteViewController`.
+    private let baseView: PNCreateNoteView? = {
         if let view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView {
             return view
         }
         return nil
     }()
     
+    /// A `Note` instance that is to be updated. If this is nil, the a new note instance is to be created instead.
     var note: Note?
+    /// A `Notebook` instance that will contain the note to be created or already contains the note to be updated.
     var notebook: Notebook?
+    /// A `PNCreateNoteInteractor` instance that creates the new `Note` instance and stores it to the current `Realm`.
     var createNoteInteractor: PNCreateNoteInteractor?
     
-    override func viewDidLoad() {
+    /**
+     Overrides the superclass' implementation.
+     
+     Additionally, this method sets the baseView of this view controller and also calls the interactors initialization method.
+     */
+    internal  override func viewDidLoad() {
         super.viewDidLoad()
 
         if let unwrappedBaseView = baseView {
@@ -48,31 +53,51 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
         initInteractors()
     }
     
-    private func initInteractors() {
-        guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
-        
-        createNoteInteractor = PNCreateNoteInteractor.init(note: note, notebook: notebook, realm: unwrappedRealm)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+    /**
+     Overrides the superclass' implementation.
+     
+     Additionally, this method sets the content of the baseView.
+     */
+    internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         baseView?.setContent(note: note)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    /**
+     Overrides the superclass' implementation.
+     
+     Additionally, this sets the contentTextView to be the first responder of the baseView.
+     
+     - Parameter animated: A `Boolean` value indicating if the view  is to be animated after it appeared.
+     */
+    internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if note == nil {
             baseView?.contentTextView.becomeFirstResponder()
         }
     }
-
-    internal override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
+    /**
+     Overrides the superclass' implementation.
+     
+     Additionally, this method triggers the updating of the note or creating a new note instance.
+     */
     internal override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        guard let contentTextView = baseView?.contentTextView.text else {
+            print("Contet text view is nil")
+            return
+        }
         
-        createNoteInteractor?.createNote(content: baseView?.contentTextView.text)
+        createNoteInteractor?.createNote(content: contentTextView, note: note, notebook: notebook)
+    }
+    
+    /**
+     Initializes a `PNCreateNoteInteractor` instance.
+     */
+    private func initInteractors() {
+        guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
+        
+        createNoteInteractor = PNCreateNoteInteractor.init(realm: unwrappedRealm)
     }
 }

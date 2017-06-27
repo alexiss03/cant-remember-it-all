@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Memo Docs
         </a>
-         (29% documented)
+         (37% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -231,9 +231,6 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/PNSideMenuViewDelegate.html">PNSideMenuViewDelegate</a>
               </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols.html#/s:P4Memo20UIViewControllerType">UIViewControllerType</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -281,7 +278,13 @@
         <section class="section">
           <div class="section-content">
             <h1>PNCreateNoteView</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PNCreateNoteView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt"><a href="../Protocols/ContentViewContainer.html">ContentViewContainer</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>PNCreateNoteView</code> class is a custom <code>UIView</code> for the Create Note and Update Note modules.</p>
 
           </div>
         </section>
@@ -303,8 +306,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A <code>UITextView</code> that contains the content of the note to be updated. This is where the user edits the content of the note.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">contentTextView</span><span class="p">:</span> <span class="kt">UITextView</span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -322,8 +333,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Sets the content of the view according to a note.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setContent</span><span class="p">(</span><span class="nv">note</span><span class="p">:</span> <span class="kt"><a href="../Classes/Note.html">Note</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>note</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A note that contains the details to be displayed to the user on this view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

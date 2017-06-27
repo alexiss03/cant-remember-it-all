@@ -15,13 +15,13 @@ import RealmSwift
 @testable import Memo
 
 class ViewNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
-    var controllerType: UIViewControllerType?
+    var controller: UIViewController?
     
     override func spec() {
         var realm: Realm?
         var viewController: PNCreateNoteViewController? {
             didSet {
-                self.controllerType = viewController
+                self.controller = viewController
             }
         }
         
