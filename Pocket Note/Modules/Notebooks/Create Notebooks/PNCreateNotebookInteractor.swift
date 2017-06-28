@@ -11,7 +11,7 @@ import RealmSwift
 /**
  This class is responsible for the business logic of the Create Notebook module.
  */
-class PNCreateNotebookInteractor {
+final class PNCreateNotebookInteractor {
     /**
      This is the required initialization method.
      */

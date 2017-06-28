@@ -27,13 +27,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift"
-            timestampString = "520187536.832075"
+            filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
+            timestampString = "520328803.190178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "tableAddNotificationBlock()"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -43,61 +43,125 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift"
-            timestampString = "520187536.832075"
+            filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
+            timestampString = "520328803.190178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Memo.PNSearchNoteInteractor.search (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()"
+                  moduleName = "Memo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
+                  timestampString = "520325196.190433"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Memo.PNSearchNoteInteractor.(search (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
+                  moduleName = "Memo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
+                  timestampString = "520325196.191839"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
+            timestampString = "520328803.190178"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Memo.PNSearchNoteInteractor.(search (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
+                  moduleName = "Memo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
+                  timestampString = "520325208.072786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Memo.PNSearchNoteInteractor.(search (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
+                  moduleName = "Memo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
+                  timestampString = "520325208.075452"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "202">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
+            timestampString = "520328803.190178"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift"
-            timestampString = "520187536.832075"
+            filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
+            timestampString = "520328803.190178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notes Feed/PNNotesFeedViewController.swift"
-            timestampString = "520187536.832075"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Notebooks/Delete Notebook/PNDeleteNotebookObserver.swift"
-            timestampString = "520187304.894211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "did(finish:withErrors:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "tableAddNotificationBlock(noteFilter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

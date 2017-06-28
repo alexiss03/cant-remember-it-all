@@ -7,7 +7,7 @@
 //
 
 /**
- This is a delegate protocol for actions performed on `PNRegistrationView`.
+ The `PNRegistrationViewDelegate` protocol for actions performed on `PNRegistrationView`.
  */
 protocol PNRegistrationViewDelegate: class {
     func signUpButtonTapped()

@@ -7,7 +7,7 @@
 //
 
 /**
- This is a protocol for showing notes feed screen or the default launch page.
+ The `PNShowNotesFeedProtocol` protocol shows notes feed screen or the default launch page.
  */
 protocol PNShowNotesFeedProtocol: class {
     func showNotesFeed()

@@ -18,7 +18,7 @@ protocol PNNotebooksListViewDelegate: class {
 /**
  This is a custom subclass of `UIView`
  */
-class PNNotebooksListView: UIView {
+final class PNNotebooksListView: UIView {
     /// This is the delegate that handles the action from this view.
     weak var delegate: PNNotebooksListViewDelegate?
     /// This is the `UITableView` that contains the list of `Notebook`s.

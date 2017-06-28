@@ -37,7 +37,7 @@ class PNCreateNoteOperation: PSOperation {
         let note = Note()
         note.noteId = "\(Date().timeStampFromDate())"
         note.body = text
-        note.title = "This is a title."
+        note.title = text
         note.dateCreated = Date()
         note.dateUpdated = Date()
         note.notebook = notebook

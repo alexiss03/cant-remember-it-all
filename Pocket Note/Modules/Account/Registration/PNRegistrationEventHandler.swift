@@ -8,7 +8,7 @@
 //
 
 /**
- This protocol contains event handler's for the Registratiosn module.
+ The `PNRegistrationEventHandler` protocol contains event handler's for the Registratiosn module.
  */
 protocol PNRegistrationEventHandler {
     func handleRegistration(username: String, password: String)

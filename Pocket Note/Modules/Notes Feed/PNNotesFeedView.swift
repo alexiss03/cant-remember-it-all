@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PNNotesFeedViewDelegate: class {
-    func addNoteButton()
+    func addNoteButtonTapped()
 }
 
 class PNNotesFeedView: UIView {
@@ -19,8 +19,8 @@ class PNNotesFeedView: UIView {
     @IBOutlet weak var notesListTableView: UITableView!
     @IBOutlet weak var notesListCollectionView: UICollectionView!
 
-    @IBAction func addNoteButton(_ sender: Any) {
-        delegate?.addNoteButton()
+    @IBAction func addNoteButtonTapped(_ sender: Any) {
+        delegate?.addNoteButtonTapped()
     }
 
 }

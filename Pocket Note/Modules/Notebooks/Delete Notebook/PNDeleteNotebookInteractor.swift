@@ -8,11 +8,30 @@
 
 import RealmSwift
 
-final class PNDeleteNotebookInteractor {
-    public required init() { }
+/**
+ The `PNDeleteNotebookInteractor` struct contains the business logic for the Delete Notebook module.
+ */
+struct PNDeleteNotebookInteractor {
+    /// A `Realm` instance where the notebook is to be deleted.
+    var realm: Realm
     
-    public func delete(notebook notebookToDeleted: Notebook, realm: Realm, notesFeedViewControler: PNNotesFeedViewProtocol) {
-        let deleteNotebookObserver = PNDeleteNotebookObserver.init(notesFeedViewController: notesFeedViewControler)
+    /**
+     Initializes the instance.
+     
+     - Parameter realm: A `Realm` instance where the notebook is to be deleted.
+     */
+    public init(realm: Realm) {
+        self.realm = realm
+    }
+    
+    /**
+     Deletes the notebook, and sets the current notebook in notes feed to nil to update that view controller.
+     
+     - Parameter notebookToDeleted: A `Notebook` instance to be deleted.
+     - Parameter notesFeedViewController: A `PNNotesFeedViewProtocol` instance that contains the current notebook. This will be set to nil if the delete is successful.
+     */
+    public func delete(notebook notebookToDeleted: Notebook, notesFeedViewController: PNNotesFeedViewProtocol) {
+        let deleteNotebookObserver = PNDeleteNotebookObserver.init(notesFeedViewController: notesFeedViewController)
         let deleteNotebookOperation = PNDeleteNotebookOperation.init(notebook: notebookToDeleted, realm: realm)
         deleteNotebookOperation.add(observer: deleteNotebookObserver)
         

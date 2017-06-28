@@ -9,7 +9,7 @@
 import UIKit.UILabel
 
 /**
- This is a protocol for the `emailErrorLabel` and `passwordErrorLabel` elements.
+ The `PNRegistrationViewProtocol` protocol for the `emailErrorLabel` and `passwordErrorLabel` elements.
  */
 protocol PNRegistrationViewProtocol: class {
     var emailErrorLabel: UILabel! {get set}

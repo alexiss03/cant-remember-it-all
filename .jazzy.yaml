@@ -6,4 +6,4 @@ xcodebuild_arguments:
     - "Memo"
 min_acl: "private"
 author: "Mary Alexis Solis"
-theme: "fullwidth"
+theme: "apple"
