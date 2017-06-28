@@ -28,11 +28,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
-            timestampString = "520328803.190178"
+            timestampString = "520351690.001211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -44,11 +44,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
-            timestampString = "520328803.190178"
+            timestampString = "520351690.001211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
             landmarkType = "7">
             <Locations>
@@ -92,11 +92,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
-            timestampString = "520328803.190178"
+            timestampString = "520351690.001211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
             landmarkType = "7">
             <Locations>
@@ -104,30 +104,30 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Memo.PNSearchNoteInteractor.(search (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
+                  symbolName = "Memo.PNSearchNoteInteractor.(updateNoteList (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
                   moduleName = "Memo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
-                  timestampString = "520325208.072786"
+                  timestampString = "520367675.308476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
                   offsetFromSymbolStart = "68">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Memo.PNSearchNoteInteractor.(search (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
+                  symbolName = "Memo.PNSearchNoteInteractor.(updateNoteList (searchText : Swift.Optional&lt;Swift.String&gt;, currentNotebook : Swift.Optional&lt;Memo.Notebook&gt;, notebookFilterContainer : Memo.PNNotebookFilterContainer) -&gt; ()).(closure #1)"
                   moduleName = "Memo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
-                  timestampString = "520325208.075452"
+                  timestampString = "520367675.312115"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
                   offsetFromSymbolStart = "202">
                </Location>
             </Locations>
@@ -140,11 +140,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
-            timestampString = "520328803.190178"
+            timestampString = "520351690.001211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "updateNoteList(searchText:currentNotebook:notebookFilterContainer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -156,11 +156,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pocket Note/Modules/Search Note/PNSearchNoteInteractor.swift"
-            timestampString = "520328803.190178"
+            timestampString = "520351690.001211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "tableAddNotificationBlock(noteFilter:)"
             landmarkType = "7">
          </BreakpointContent>

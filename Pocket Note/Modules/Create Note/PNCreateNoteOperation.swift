@@ -9,13 +9,28 @@
 import PSOperations
 import RealmSwift
 
+/**
+ The `PNCreateNoteOperation` class adds a new note or updates the content of a note in a specified realm.
+ */
 class PNCreateNoteOperation: PSOperation {
-    var note: Note?
-    var notebook: Notebook?
-    weak var realm: Realm?
-    var text: String?
+    /// A `Note` instance to updated.
+    private var note: Note?
+    /// A `Notebook` instance that will be the notebook of the newly created note or already the notebook of the note to be updated.
+    private var notebook: Notebook?
+    /// A `Realm` instance where the new note is to be added.
+    private var realm: Realm
+    /// A 'String' value containing the new note of the note to be created or updated.
+    private var text: String?
     
-    required init(note: Note?, notebook: Notebook?, text: String?, realm: Realm?) {
+    /**
+     Initializes the instance.
+     
+     - Parameter note: A `Note` instance to updated.
+     - Parameter notebook: A `Notebook` instance that will be the notebook of the newly created note or already the notebook of the note to be updated.
+     - Parameter text: A 'String' value containing the new note of the note to be created or updated.
+     - Parameter realm: A `Realm` instance where the new note is to be added.
+    */
+    required init(note: Note?, notebook: Notebook?, text: String?, realm: Realm) {
         self.note = note
         self.notebook = notebook
         self.text = text
@@ -23,17 +38,29 @@ class PNCreateNoteOperation: PSOperation {
         super.init()
     }
     
+    /**
+     Executes the logic of this operation.
+     
+     This updates an existing note or creates a new note in a notebook.
+     */
     override func execute() {
-        guard let unwrappedText = text, unwrappedText.characters.count > 0, let unwrappedRealm = realm else { return }
+        guard let unwrappedText = text, unwrappedText.characters.count > 0 else {
+            return
+        }
         
-        if let unwrappedNote = note {
-            updateNote(text: unwrappedText, note: unwrappedNote, realm: unwrappedRealm)
+        if let _ = note {
+            updateNote(text: unwrappedText)
         } else {
-            createNewNoteInstance(text: unwrappedText, realm: unwrappedRealm)
+            createNewNoteInstance(text: unwrappedText)
         }
     }
     
-    private func createNewNoteInstance(text: String, realm: Realm) {
+    /**
+     Creates a new note instance given a text,
+     
+     - Parameter text: A `String` value representing the content of the new notebook.
+     */
+    private func createNewNoteInstance(text: String) {
         let note = Note()
         note.noteId = "\(Date().timeStampFromDate())"
         note.body = text
@@ -44,20 +71,30 @@ class PNCreateNoteOperation: PSOperation {
         
         DispatchQueue.main.async {
             do {
-                try realm.write {
-                    realm.add(note)
+                try self.realm.write {
+                    self.realm.add(note)
                 }
             } catch { }
         }
     }
     
-    private func updateNote(text: String, note: Note, realm: Realm) {
-       DispatchQueue.main.async {
+    /**
+     Updates the content note of an existing note.
+     
+     - Parameter text: A `String` value of the new content of the existing note.
+     */
+    private func updateNote(text: String) {
+        guard let unwrappedNote = note else {
+            print("Note is nil")
+            return
+        }
+        
+        DispatchQueue.main.async {
             do {
-                try realm.write {
-                    if note.body != text {
-                        note.body = text
-                        note.dateUpdated = Date()
+                try self.realm.write {
+                    if unwrappedNote.body != text {
+                        unwrappedNote.body = text
+                        unwrappedNote.dateUpdated = Date()
                     }
                 }
             } catch { }

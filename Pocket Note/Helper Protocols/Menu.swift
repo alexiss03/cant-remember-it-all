@@ -7,6 +7,9 @@
 //
 import UIKit
 
+/**
+ The `Menu` protocol contains the default implementation of setting the title button of the navigation.
+ */
 protocol Menu {
     func setMenu(title: String, target: Any?, action: Selector, navigationItem: UINavigationItem, navigationBar: UINavigationBar?)
 }

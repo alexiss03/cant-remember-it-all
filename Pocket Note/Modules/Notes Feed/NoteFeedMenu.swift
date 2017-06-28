@@ -7,11 +7,20 @@
 //
 import UIKit
 
+/**
+ The `NoteFeedMenu` class inherits the `Menu` protocol but provides a a default method of setting the title of the navigation bar as a button.
+ */
 protocol NoteFeedMenu: Menu {
     func setNotebookButton(editNotebookInteractor: PNNotesEditNotebookInteractor?, currentNotebook: Notebook?, navigationItem: UINavigationItem) 
 }
 
 extension NoteFeedMenu {
+    /**
+     Sets the navigation title as the notebook name and the options for editing the notebook.
+     - Parameter editNotebookInteractor: A  `PNNotesEditNotebookInteractor` instance for editing the notebook.
+     - Parameter currentNotebook: A `Notebook` instance that is currently loaded to the user.
+     - Parameter navigationItem: A `UINavigationItem` instance representing the navigation item of the current view controller.
+     */
     func setNotebookButton(editNotebookInteractor: PNNotesEditNotebookInteractor?, currentNotebook: Notebook?, navigationItem: UINavigationItem) {
         if currentNotebook != nil {
             let notebookIcon  = UIImage(named: "IconOption")!.withRenderingMode(.alwaysOriginal)

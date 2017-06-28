@@ -8,23 +8,20 @@
 
 import UIKit
 
+/**
+ The `PNNotesFeedTableViewCell` class representing a custom view for the tabie view cell in the Note List module.
+ */
 class PNNotesFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var markedIconImageView: UIImageView!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    /**
+     Sets the view's content given a note. 
+     
+     - Parameter note: A `Note` instance containing the content to be displayed.
+    */
     public func setContent(note: Note) {
         descriptionLabel.text = note.body
         titleLabel.text = note.body
@@ -34,17 +31,5 @@ class PNNotesFeedTableViewCell: UITableViewCell {
         } else {
             markedIconImageView.isHidden = true
         }
-    }
-}
-
-extension Date {
-    func displayString() -> String {
-        let dateFormatter = DateFormatter()
-        let date = self
-        dateFormatter.dateFormat = "MMMM dd, yyyy hh:mm a"
-        dateFormatter.amSymbol = "AM"
-        dateFormatter.pmSymbol = "PM"
-
-        return dateFormatter.string(from: date)
     }
 }

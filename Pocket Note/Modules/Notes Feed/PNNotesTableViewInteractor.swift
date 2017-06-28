@@ -9,11 +9,25 @@
 import UIKit
 import RealmSwift
 
-class PNNotesTableViewInteractor: NSObject, UITableViewDelegate, UITableViewDataSource {
-    private var notebookFeedViewController: PNNotesFeedViewControllerProtocol
-    private var notesFeedView: PNNotesFeedViewProtocol
-    private var presentationContext: UIViewController
+/**
+ The `PNNotesTableViewInteractor` class contains the business logic for hte table view in the notes list.
+ */
+class PNNotesTableViewInteractor: NSObject {
+    /// A `PNNotesFeedViewControllerProtocol` instance representing the controller for notes list.
+    fileprivate var notebookFeedViewController: PNNotesFeedViewControllerProtocol
+    /// A `PNNotesFeedViewProtocol` instance representing an object container for currentNotebook in notes feed.
+    fileprivate var notesFeedView: PNNotesFeedViewProtocol
+    /// A `UIViewController` instance representing the view controller where segues are to be performed.
+    fileprivate var presentationContext: UIViewController
     
+    /**
+     Initializes the instance.
+      
+     - Parameter presentationContext: A `UIViewController` instance representing the view controller where segues are to be performed.
+     - Parameter notesListTableView: A `UITableView` instance where the list of notes is displayed.
+     - Parameter notebookFeedViewController: A `PNNotesFeedViewControllerProtocol` instance representing the controller for notes list.
+     - Parameter notesFeedView: A `PNNotesFeedViewProtocol` instance representing an object container for currentNotebook in notes feed.
+     */
     public required init(presentationContext: UIViewController, notesListTableView: UITableView, notebookFeedViewController: PNNotesFeedViewControllerProtocol, notesFeedView: PNNotesFeedViewProtocol) {
         self.notebookFeedViewController = notebookFeedViewController
         self.notesFeedView = notesFeedView
@@ -27,13 +41,54 @@ class PNNotesTableViewInteractor: NSObject, UITableViewDelegate, UITableViewData
         let tableViewCellNibId = "PNNotesFeedTableViewCell"
         notesListTableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
     }
+
+    /**
+     Creates an edit action for the table view.
+     
+      - Parameter indexPath: A `IndexPath` instance receiving the row action.
+     */
+    fileprivate func editRowAction(indexPath: IndexPath) -> UITableViewRowAction {
+        weak var weakSelf = self
+        let editAction = UITableViewRowAction(style: .default, title: "Move", handler: { (_, _) in
+            print("Move tapped")
+            
+            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+            guard let strongSelf = weakSelf else { return }
+            
+            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFeedViewController.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+            strongSelf.notebookFeedViewController.openMoveNoteToANotebook(note: noteList[indexPath.row])
+        })
+        editAction.backgroundColor = PNConstants.blueColor
+
+        return editAction
+    }
     
-    // MARK: UITableViewDelegate Methods
+    /**
+     Creates an delete action for the table view.
+     
+     - Parameter indexPath: A `IndexPath` instance receiving the row action.
+     */
+    fileprivate func deleteRowAction(indexPath: IndexPath) -> UITableViewRowAction {
+        weak var weakSelf = self
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (_, _) in
+            guard let strongSelf = weakSelf else {
+                print("Weak self is nil")
+                return
+            }
+            strongSelf.notebookFeedViewController.deleteNoteInteractor?.deleteSelectedNote(indexPath: indexPath, filter: strongSelf.notebookFeedViewController.notebookFilter)
+        })
+        deleteAction.backgroundColor = PNConstants.redColor
+        return deleteAction
+    }
+}
+
+extension PNNotesTableViewInteractor: UITableViewDelegate {
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presentationContext.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
     }
-    
-    // MARK: UITableViewDataSource Methods
+}
+
+extension PNNotesTableViewInteractor: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
@@ -77,33 +132,5 @@ class PNNotesTableViewInteractor: NSObject, UITableViewDelegate, UITableViewData
         
         return [deleteAction, editAction]
     }
-    
-    private func editRowAction(indexPath: IndexPath) -> UITableViewRowAction {
-        weak var weakSelf = self
-        let editAction = UITableViewRowAction(style: .default, title: "Move", handler: { (_, _) in
-            print("Move tapped")
-            
-            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-            guard let strongSelf = weakSelf else { return }
-            
-            let noteList = unwrappedRealm.objects(Note.self).filter(strongSelf.notebookFeedViewController.notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
-            strongSelf.notebookFeedViewController.openMoveNoteToANotebook(note: noteList[indexPath.row])
-        })
-        editAction.backgroundColor = PNConstants.blueColor
 
-        return editAction
-    }
-    
-    private func deleteRowAction(indexPath: IndexPath) -> UITableViewRowAction {
-        weak var weakSelf = self
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (_, _) in
-            guard let strongSelf = weakSelf else {
-                print("Weak self is nil")
-                return
-            }
-            strongSelf.notebookFeedViewController.deleteNoteInteractor?.deleteSelectedNote(indexPath: indexPath, filter: strongSelf.notebookFeedViewController.notebookFilter)
-        })
-        deleteAction.backgroundColor = PNConstants.redColor
-        return deleteAction
-    }
 }

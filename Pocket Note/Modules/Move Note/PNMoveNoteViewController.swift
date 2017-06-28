@@ -9,7 +9,11 @@
 import UIKit
 import RealmSwift
 
-class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/**
+ The `PNMoveNoteViewController` class is the custom view controller for the Move Note module.
+ */
+class PNMoveNoteViewController: UIViewController {
+    /// A `PNNotebooksListView` instance serving as the superview of the controller.
     let baseView: PNNotebooksListView? = {
         if let view = Bundle.main.loadNibNamed("PNNotebooksListView", owner: self, options: nil)![0] as? PNNotebooksListView {
             return view
@@ -17,12 +21,25 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
         return nil
     }()
     
+    /// A `NotificationToken` instance indicating the notification observer for the list of notebooks.
     var notificationToken: NotificationToken?
+    /// A `Note` instance to be moved to a new `Notebook`.
     var note: Note?
     
-    override func viewDidLoad() {
+    /// A `PNMoveNoteInteractor` instance containing the moving of the note in a `Realm` instance.
+    var moveNoteInteractor: PNMoveNoteInteractor?
+    
+    internal  override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initView()
+        initInteractors()
+
+    }
+    
+    /**
+     Initializes the baseView.
+     */
+    private func initView() {
         if let unwrappedBaseView = baseView {
             unwrappedBaseView.frame = self.view.frame
             
@@ -38,6 +55,15 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    /**
+     Initializes the interactors
+     */
+    private func initInteractors() {
+        if let unwrappedRealm = PNSharedRealm.realmInstance() {
+            moveNoteInteractor = PNMoveNoteInteractor.init(realm: unwrappedRealm)
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -46,7 +72,19 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+        addTableNotificationBlock()
+    }
+    
+    /**
+     Adds the notificaton block for the tableView in baseView.
+     
+     This tableView displays the list of existing notebooks that can be chosen.
+     */
+    private func addTableNotificationBlock() {
+        guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
+            print("Realm is nil")
+            return
+        }
         let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
         
         if let unwrappedNotebookListTableView = baseView?.tableView {
@@ -57,19 +95,21 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+}
+
+extension PNMoveNoteViewController: UITableViewDelegate, UITableViewDataSource  {
+    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
         let notebookList = unwrappedRealm.objects(Notebook.self)
         
         return notebookList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell {
             guard let unwrappedRealm = PNSharedRealm.realmInstance() else {  return UITableViewCell.init() }
             let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
@@ -81,20 +121,13 @@ class PNMoveNoteViewController: UIViewController, UITableViewDelegate, UITableVi
         return UITableViewCell.init()
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-        let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
-        
-        do {
-            try? unwrappedRealm.write {
-                note?.notebook = notebookList[indexPath.row]
-                note?.dateUpdated = Date()
-            }
+
+        if let unwrappedNote = note {
+            moveNoteInteractor?.move(note: unwrappedNote, position: indexPath.row)
         }
-        
+     
         dismiss(animated: true, completion: nil)
     }
 }

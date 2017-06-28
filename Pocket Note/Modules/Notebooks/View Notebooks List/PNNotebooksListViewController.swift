@@ -58,6 +58,10 @@ final class PNNotebooksListViewController: UIViewController {
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        addTableNotificationBlock()
+    }
+    
+    private func addTableNotificationBlock() {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
         let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
         

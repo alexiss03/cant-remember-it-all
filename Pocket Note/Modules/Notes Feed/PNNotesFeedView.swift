@@ -8,17 +8,27 @@
 
 import UIKit
 
+/**
+ The `PNNotesFeedViewDelegate` protocol handles the action from `PNNotesFeedView`.
+ */
 protocol PNNotesFeedViewDelegate: class {
     func addNoteButtonTapped()
 }
 
+/**
+ The `PNNotesFeedView` class is custom view for the Notes List module.
+ */
 class PNNotesFeedView: UIView {
-    weak var delegate: PNNotesFeedViewDelegate?
+    /// A `PNNotesFeedViewDelegate` instance representing the object receiver of the delegate methods.
+    internal weak var delegate: PNNotesFeedViewDelegate?
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notesListTableView: UITableView!
     @IBOutlet weak var notesListCollectionView: UICollectionView!
 
+    /**
+     Triggers the addNoteButtonTapped delegate method.
+     */
     @IBAction func addNoteButtonTapped(_ sender: Any) {
         delegate?.addNoteButtonTapped()
     }

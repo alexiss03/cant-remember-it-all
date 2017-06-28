@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- The `ContentViewContainer` protocol exposes the content text view of `PNCreateNoteView`
+ The `ContentViewContainer` protocol exposes the content text view of `PNCreateNoteView`.
  */
 protocol ContentViewContainer {
     weak var contentTextView: UITextView! {get set}

@@ -98,7 +98,7 @@ class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNo
             deleteNotebookInteractor = PNDeleteNotebookInteractor.init(realm: unwrappedRealm)
         }
         
-        notesEditNotebookInteractor = PNNotesEditNotebookInteractor.init(presentationContext: self, navigationItem: navigationItem, navigationController: navigationController, deleteNotebookInteractor: deleteNotebookInteractor, notesFeedView: self, AlertAction: AlertAction, delegate: self, currentNotebookHolder: self)
+        notesEditNotebookInteractor = PNNotesEditNotebookInteractor.init(presentationContext: self, navigationItem: navigationItem, navigationController: navigationController, deleteNotebookInteractor: deleteNotebookInteractor, AlertAction: AlertAction, delegate: self, currentNotebookHolder: self)
         
         if let notesListTableView = baseView?.notesListTableView {
             notesFeedTableViewInteractor = PNNotesTableViewInteractor.init(presentationContext: self, notesListTableView: notesListTableView, notebookFeedViewController: self, notesFeedView: self)
