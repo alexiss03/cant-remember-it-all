@@ -95,7 +95,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
     /**
         This method checks if an input string is in the form of a valid email address.
      
-        - Parameter string: Input string to be checked for email format
+        - Parameter string: Input string to be checked for email format.
      */
     func validEmailFormat(string: String?) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

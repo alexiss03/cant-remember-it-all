@@ -108,7 +108,7 @@
                   moduleName = "Memo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
-                  timestampString = "520367675.308476"
+                  timestampString = "520390098.316963"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
@@ -123,7 +123,7 @@
                   moduleName = "Memo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Search%20Note/PNSearchNoteInteractor.swift"
-                  timestampString = "520367675.312115"
+                  timestampString = "520390098.319496"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
@@ -162,6 +162,22 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "tableAddNotificationBlock(noteFilter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket Note/Modules/Account/Login/PNInvalidLoginErrorObserver.swift"
+            timestampString = "520387584.384611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(loginView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

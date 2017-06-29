@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ The `Notebook` class represents a notebook. A notebook can be created, updated, and deleted. A notebook can contain any number of notebooks.
+ */
 class Notebook: Object {
     dynamic var name: String?
     dynamic var dateCreated: Date?

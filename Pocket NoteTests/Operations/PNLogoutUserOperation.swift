@@ -11,7 +11,7 @@ import PSOperations
 import RealmSwift
 
 /**
- The operation responsible for the Logout feature of the App.
+ The `PNLogoutUserOperation` class logouts the current logged in user from the `Realm` instance it is logged into.
  */
 class PNLogoutUserOperation: PSOperation {
     /// The view controller to be dismissed

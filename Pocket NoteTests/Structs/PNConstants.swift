@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ The `PNConstants` struct contains globally available constants
+ */
 struct PNConstants {
     static let blueColor = UIColor.init(rgb:0x30C6291)
     static let redColor = UIColor.init(rgb:0xDA291C)

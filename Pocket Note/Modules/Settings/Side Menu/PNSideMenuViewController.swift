@@ -9,8 +9,12 @@
 import UIKit
 import RealmSwift
 
-class PNSideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/**
+ The `PNSideMenuViewController` class is a custom view controller for the Side Menu module.
+ */
+class PNSideMenuViewController: UIViewController {
 
+    /// A `PNSideMenuView` instance representing the super view of this view controller.
     let baseView: PNSideMenuView? = {
         if let view = Bundle.main.loadNibNamed("PNSideMenuView", owner: self, options: nil)![0] as? PNSideMenuView {
             return view
@@ -18,9 +22,10 @@ class PNSideMenuViewController: UIViewController, UITableViewDelegate, UITableVi
         return nil
     }()
 
-    let menuItems = ["PASSCODE", "ARCHIVE"]
+    /// An array of `String` values displayed as the option for the Side Menu. This temporarily empty.
+    let menuItems: [String] = []
 
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
 
         if let unwrappedBaseView = self.baseView {
@@ -34,37 +39,41 @@ class PNSideMenuViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    internal override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
 
-    // MARK: UITableViewDelegate Methods
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension PNSideMenuViewController: UITableViewDelegate {
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
 
-    // MARK: UITableViewDataSource Methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+extension PNSideMenuViewController: UITableViewDataSource {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuItems.count
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let unwrappedCell = tableView.dequeueReusableCell(withIdentifier: "TableCell") else {
             print("No table cell is dequeued")
             return UITableViewCell()
         }
-
+        
         unwrappedCell.textLabel?.text = menuItems[indexPath.row]
         unwrappedCell.textLabel?.textColor = UIColor.white
         unwrappedCell.textLabel?.font = UIFont.init(name: "Lato", size: 17)
         unwrappedCell.backgroundColor = UIColor.clear
         return unwrappedCell
     }
-
 }
 
 extension PNSideMenuViewController: PNSideMenuViewDelegate {
-    func logoutButtonTapped() {
+    /**
+     Performs the logout operation when the log out button is tapped.
+     */
+    internal func logoutButtonTapped() {
         let logoutOperation = PNLogoutUserOperation.init(dismissingContext: self)
         PNOperationQueue.networkOperationQueue.addOperations([logoutOperation], waitUntilFinished: false)
     }

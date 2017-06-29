@@ -9,14 +9,24 @@
 import UIKit
 import RealmSwift
 
+/**
+ A `PNNotesFeedViewProtocol` protocol representing a container of the current notebook property.
+ */
 protocol PNNotesFeedViewProtocol: class {
     var currentNotebook: Notebook? { get set }
 }
 
+/**
+ A `PNNotebookFilterContainer` protocol representing a container of the notebook filter property.
+ */
 protocol PNNotebookFilterContainer: class {
     var notebookFilter: NSPredicate { get set }
 }
 
+
+/**
+ A `PNNotebookFilterContainer` protocol representing `PNNotesFeedViewController` properties and methods.
+ */
 protocol PNNotesFeedViewControllerProtocol {
     var notebookFilter: NSPredicate { get set }
     var navigationItem: UINavigationItem { get }
@@ -29,9 +39,13 @@ protocol PNNotesFeedViewControllerProtocol {
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Swift.Void)?)
 }
 
+/**
+ The `PNNotesFeedViewController` class is a custom view controller for the Notes List module.
+ */
 class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNotesFeedViewControllerProtocol, NoteFeedMenu, PNNotebookFilterContainer {
     var AlertAction = UIAlertAction.self
     
+    /// A `PNNotesFeedView` instance representing the super view of the current view controller.
     let baseView: PNNotesFeedView? = {
         if let view = Bundle.main.loadNibNamed("PNNotesFeedView", owner: self, options: nil)![0] as? PNNotesFeedView {
             return view
@@ -39,29 +53,38 @@ class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNo
         return nil
     }()
     
+    /// An option `Notebook` instance representing the current notebook shown to the user.
     var currentNotebook: Notebook? {
         didSet {
             self.searchNoteInteractor?.updateNoteList(searchText: self.searchText, currentNotebook: self.currentNotebook, notebookFilterContainer: self)
         }
     }
     
+    /// An optional `String` value representing the search text inputted by the user.
     var searchText: String? {
         didSet {
             self.searchNoteInteractor?.updateNoteList(searchText: self.searchText, currentNotebook: self.currentNotebook, notebookFilterContainer: self)
         }
     }
     
+    /// An `NSPredicate` instance representing the predicate filter affected by the value current notebook  and the search text.
     var notebookFilter: NSPredicate = {
         return NSPredicate.init(format: "dateCreated != nil")
     }()
     
+    /// A `NotificationToken` instance that holds the token for the notification block of the notes list.
     var notificationToken: NotificationToken?
     
-    var notesFeedTableViewInteractor: PNNotesTableViewInteractor?
-    var deleteNoteInteractor: PNDeleteNoteInteractor?
-    var deleteNotebookInteractor: PNDeleteNotebookInteractor?
-    var searchNoteInteractor: PNSearchNoteInteractor?
-    var notesEditNotebookInteractor: PNNotesEditNotebookInteractor?
+    /// A `PNNotesTableViewInteractor` instance for the table view logic of this view controller.
+    fileprivate var notesFeedTableViewInteractor: PNNotesTableViewInteractor?
+    /// A `PNDeleteNoteInteractor` instance for the delete note logic.
+    internal var deleteNoteInteractor: PNDeleteNoteInteractor?
+    /// A `PNDeleteNotebookInteractor` instance for the delete notebook logic.
+    internal var deleteNotebookInteractor: PNDeleteNotebookInteractor?
+    /// A `PNSearchNoteInteractor` instance for the search note list logic.
+    fileprivate var searchNoteInteractor: PNSearchNoteInteractor?
+    /// A `PNNotesEditNotebookInteractor` instance for the edit notebok logic.
+    fileprivate var notesEditNotebookInteractor: PNNotesEditNotebookInteractor?
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +115,9 @@ class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNo
         view.endEditing(true)
     }
     
+    /**
+     Initializes the logic interactors.
+     */
     private func initInteractors() {
         if let unwrappedRealm = PNSharedRealm.realmInstance() {
             deleteNoteInteractor = PNDeleteNoteInteractor.init(realm: unwrappedRealm)
@@ -109,6 +135,9 @@ class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNo
         }
     }
     
+    /**
+     Shows the list of notebooks view controller.
+     */
     @objc func openNotebooks() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedNotebookListViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNNotebooksListViewController") as? PNNotebooksListViewController else {
@@ -145,6 +174,9 @@ class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNo
 }
 
 extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
+    /**
+     Handles the add note button action.
+     */
     func addNoteButtonTapped() {
         performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
     }

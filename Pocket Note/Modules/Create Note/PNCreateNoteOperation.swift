@@ -19,7 +19,7 @@ class PNCreateNoteOperation: PSOperation {
     private var notebook: Notebook?
     /// A `Realm` instance where the new note is to be added.
     private var realm: Realm
-    /// A 'String' value containing the new note of the note to be created or updated.
+    /// A `String` value containing the new note of the note to be created or updated.
     private var text: String?
     
     /**
@@ -27,7 +27,7 @@ class PNCreateNoteOperation: PSOperation {
      
      - Parameter note: A `Note` instance to updated.
      - Parameter notebook: A `Notebook` instance that will be the notebook of the newly created note or already the notebook of the note to be updated.
-     - Parameter text: A 'String' value containing the new note of the note to be created or updated.
+     - Parameter text: A `String` value containing the new note of the note to be created or updated.
      - Parameter realm: A `Realm` instance where the new note is to be added.
     */
     required init(note: Note?, notebook: Notebook?, text: String?, realm: Realm) {
@@ -48,7 +48,7 @@ class PNCreateNoteOperation: PSOperation {
             return
         }
         
-        if let _ = note {
+        if note != nil {
             updateNote(text: unwrappedText)
         } else {
             createNewNoteInstance(text: unwrappedText)

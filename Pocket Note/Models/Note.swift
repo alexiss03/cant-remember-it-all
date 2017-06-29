@@ -10,6 +10,10 @@ import Foundation
 import RealmSwift
 import ProcedureKit
 
+/**
+ The `Note` class represents a note. A note can be created, updated, and be deleted.
+ A note also can belong to one note, but is not required. It can also be moved from one note to another.
+ */
 class Note: Object {
     dynamic var body: String?
     dynamic var title: String?
