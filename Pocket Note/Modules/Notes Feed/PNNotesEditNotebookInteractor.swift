@@ -24,8 +24,8 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
     private var AlertAction: UIAlertAction.Type
     /// A `UIPopoverPresentationControllerDelegate` instance conforming to the delegate.
     weak private var delegate: UIPopoverPresentationControllerDelegate?
-    /// A `PNNotesFeedViewProtocol` instance containing the currentNotebook of the notes feed view controller.
-    weak private var currentNotebookHolder: PNNotesFeedViewProtocol?
+    /// A `PNCurrentNotesContainer` instance containing the currentNotebook of the notes feed view controller.
+    weak private var currentNotebookHolder: PNCurrentNotesContainer?
     
     /**
      Initializes the instance.
@@ -36,9 +36,9 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
      - Parameter deleteNotebookInteractor: An optional `PNDeleteNotebookInteractor` instance containing the business logic for deleting a notebook.
      - Parameter AlertAction:  A `UIAlertAction.Type` instance used for mocking `UIAlertAction`.
      - Parameter delegate: A `UIPopoverPresentationControllerDelegate` instance conforming to the delegate.
-     - Parameter currentNotebookHolder:  A `PNNotesFeedViewProtocol` instance containing the currentNotebook of the notes feed view controller.
+     - Parameter currentNotebookHolder:  A `PNCurrentNotesContainer` instance containing the currentNotebook of the notes feed view controller.
      */
-    init(presentationContext: UIViewController, navigationItem: UINavigationItem, navigationController: UINavigationController?, deleteNotebookInteractor: PNDeleteNotebookInteractor?, AlertAction: UIAlertAction.Type, delegate: UIPopoverPresentationControllerDelegate?, currentNotebookHolder: PNNotesFeedViewProtocol) {
+    init(presentationContext: UIViewController, navigationItem: UINavigationItem, navigationController: UINavigationController?, deleteNotebookInteractor: PNDeleteNotebookInteractor?, AlertAction: UIAlertAction.Type, delegate: UIPopoverPresentationControllerDelegate?, currentNotebookHolder: PNCurrentNotesContainer) {
         self.presentationContext = presentationContext
         self.navigationItem = navigationItem
         self.navigationController = navigationController

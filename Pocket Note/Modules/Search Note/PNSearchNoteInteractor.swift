@@ -17,8 +17,8 @@ class PNSearchNoteInteractor: NoteFeedMenu {
     private var navigationItem: UINavigationItem
     /// A  `UINavigationBar` instance  where the update note button is located.
     private var navigationBar: UINavigationBar?
-    /// A `PNNotesFeedViewProtocol` instance  referring to a `PNNotesFeedViewController`.
-    private var notesFeedViewController: PNNotesFeedViewProtocol
+    /// A `PNCurrentNotesContainer` instance  referring to a `PNNotesFeedViewController`.
+    private var notesFeedViewController: PNCurrentNotesContainer
     /// A `UITableView` instance containing the list of notes is displayed.
     private var noteListTableView: UITableView
     /// A `PNNotesEditNotebookInteractor` editing a `Notebook` instance.
@@ -32,11 +32,11 @@ class PNSearchNoteInteractor: NoteFeedMenu {
      
      - Parameter navigationItem: A `UINavigationItem` instance  where the notebook name is displayed.
      - Parameter navigationBar: A  `UINavigationBar` instance  where the update note button is located.
-     - Parameter notesFeedViewController: A `PNNotesFeedViewProtocol` instance  referring to a `PNNotesFeedViewController`.
+     - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance  referring to a `PNNotesFeedViewController`.
      - Parameter noteListTableView: A `UITableView` instance containing the list of notes is displayed.
      - Parameter notesEditNotebookInteractor: A `PNNotesEditNotebookInteractor` editing a `Notebook` instance.
      */
-    init(navigationItem: UINavigationItem, navigationBar: UINavigationBar?, notesFeedViewController: PNNotesFeedViewProtocol, noteListTableView: UITableView, notesEditNotebookInteractor: PNNotesEditNotebookInteractor) {
+    init(navigationItem: UINavigationItem, navigationBar: UINavigationBar?, notesFeedViewController: PNCurrentNotesContainer, noteListTableView: UITableView, notesEditNotebookInteractor: PNNotesEditNotebookInteractor) {
         self.navigationItem = navigationItem
         self.navigationBar = navigationBar
         self.notesFeedViewController = notesFeedViewController

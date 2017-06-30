@@ -41,7 +41,7 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
             
             viewController?.loadViewProgrammatically()
-            viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 0, section: 0), filter: nil, realm: unwrappedRealm)
+            viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 0, section: 0), filter: nil)
             
             expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes-1))
         }
@@ -59,8 +59,8 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
             
             viewController?.loadViewProgrammatically()
-            viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 0, section: 0), filter: nil, realm: unwrappedRealm)
-            viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 1, section: 0), filter: nil, realm: unwrappedRealm)
+            viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 0, section: 0), filter: nil)
+            viewController?.deleteNoteInteractor?.deleteSelectedNote(indexPath: IndexPath.init(row: 1, section: 0), filter: nil)
             
             expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes-2))
         }

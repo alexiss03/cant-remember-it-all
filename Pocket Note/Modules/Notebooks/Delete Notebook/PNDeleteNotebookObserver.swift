@@ -12,15 +12,15 @@ import ProcedureKit
  The `PNDeleteNotebookObserver` class observes delete operation. This sets the current notebook of the note list view controller to nil.
  */
 class PNDeleteNotebookObserver: ProcedureObserver {
-    /// A `PNNotesFeedViewProtocol` instance containing a reference to the current notebook.
-    private var notesFeedViewController: PNNotesFeedViewProtocol
+    /// A `PNCurrentNotesContainer` instance containing a reference to the current notebook.
+    private var notesFeedViewController: PNCurrentNotesContainer
     
     /**
      Initializes the instance.
      
-     - Parameter notesFeedViewController: A `PNNotesFeedViewProtocol` instance containing a reference to the current notebook.
+     - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance containing a reference to the current notebook.
      */
-    required init(notesFeedViewController: PNNotesFeedViewProtocol) {
+    required init(notesFeedViewController: PNCurrentNotesContainer) {
         self.notesFeedViewController = notesFeedViewController
     }
     

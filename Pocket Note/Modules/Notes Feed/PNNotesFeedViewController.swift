@@ -10,9 +10,9 @@ import UIKit
 import RealmSwift
 
 /**
- A `PNNotesFeedViewProtocol` protocol representing a container of the current notebook property.
+ A `PNCurrentNotesContainer` protocol representing a container of the current notebook property.
  */
-protocol PNNotesFeedViewProtocol: class {
+protocol PNCurrentNotesContainer: class {
     var currentNotebook: Notebook? { get set }
 }
 
@@ -22,7 +22,6 @@ protocol PNNotesFeedViewProtocol: class {
 protocol PNNotebookFilterContainer: class {
     var notebookFilter: NSPredicate { get set }
 }
-
 
 /**
  A `PNNotebookFilterContainer` protocol representing `PNNotesFeedViewController` properties and methods.
@@ -42,7 +41,7 @@ protocol PNNotesFeedViewControllerProtocol {
 /**
  The `PNNotesFeedViewController` class is a custom view controller for the Notes List module.
  */
-class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNotesFeedViewControllerProtocol, NoteFeedMenu, PNNotebookFilterContainer {
+class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNotesFeedViewControllerProtocol, NoteFeedMenu, PNNotebookFilterContainer {
     var AlertAction = UIAlertAction.self
     
     /// A `PNNotesFeedView` instance representing the super view of the current view controller.
@@ -84,7 +83,7 @@ class PNNotesFeedViewController: UIViewController, PNNotesFeedViewProtocol, PNNo
     /// A `PNSearchNoteInteractor` instance for the search note list logic.
     fileprivate var searchNoteInteractor: PNSearchNoteInteractor?
     /// A `PNNotesEditNotebookInteractor` instance for the edit notebok logic.
-    fileprivate var notesEditNotebookInteractor: PNNotesEditNotebookInteractor?
+    internal var notesEditNotebookInteractor: PNNotesEditNotebookInteractor?
 
     internal override func viewDidLoad() {
         super.viewDidLoad()

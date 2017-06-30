@@ -28,7 +28,6 @@ class DeleteNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
         beforeEach {
             viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNNotesFeedViewController") as? PNNotesFeedViewController
             realm = PNSharedRealm.configureDefaultRealm()
-            UIApplication.shared.keyWindow?.rootViewController = viewController
         }
         
         it("delete a notebook") {
@@ -48,10 +47,9 @@ class DeleteNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
             
             viewController?.currentNotebook = notebook
             viewController?.AlertAction = MockAlertAction.self
-            self.loadController()
+            UIApplication.shared.keyWindow?.rootViewController = viewController
             
-            viewController?.showNotebookActions()
-            
+            viewController?.notesEditNotebookInteractor?.showNotebookActions(sender: UIButton.init())
             guard let alertController = viewController?.presentedViewController as? UIAlertController else {
                 print("Alert controller is nil")
                 return

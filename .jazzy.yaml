@@ -9,3 +9,9 @@ min_acl: "private"
 author: "Mary Alexis Solis"
 theme: "fullwidth"
 
+custom_categories:
+    - name: Models
+      children:
+        - Note
+        - Notebook
+

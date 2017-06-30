@@ -23,7 +23,7 @@ protocol NotebookContainer {
 class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookContainer {
    
     /// A `PNCreateNoteView` that is the superview of a `PNCreateNoteViewController`.
-    private let baseView: PNCreateNoteView? = {
+    internal let baseView: PNCreateNoteView? = {
         if let view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView {
             return view
         }
@@ -31,11 +31,11 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
     }()
     
     /// A `Note` instance that is to be updated. If this is nil, the a new note instance is to be created instead.
-    var note: Note?
+    internal  var note: Note?
     /// A `Notebook` instance that will contain the note to be created or already contains the note to be updated.
-    var notebook: Notebook?
+    internal var notebook: Notebook?
     /// A `PNCreateNoteInteractor` instance that creates the new `Note` instance and stores it to the current `Realm`.
-    var createNoteInteractor: PNCreateNoteInteractor?
+    private var createNoteInteractor: PNCreateNoteInteractor?
     
     /**
      Overrides the superclass' implementation.

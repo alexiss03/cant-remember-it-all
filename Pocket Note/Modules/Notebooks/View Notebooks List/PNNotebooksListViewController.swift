@@ -28,8 +28,8 @@ final class PNNotebooksListViewController: UIViewController {
     fileprivate var createNotebookInteractor: PNCreateNotebookInteractor?
     /// This is the storage of the notification token of the notification block of the list of `Notes`
     fileprivate var notificationToken: NotificationToken?
-    /// This contains the delegate to the `PNNotesFeedViewProtocol`. This is to get a reference to the current notebook in the notes fed
-    weak var notesFeedDelegate: PNNotesFeedViewProtocol?
+    /// This contains the delegate to the `PNCurrentNotesContainer`. This is to get a reference to the current notebook in the notes fed
+    weak var notesFeedDelegate: PNCurrentNotesContainer?
     
     internal override func viewDidLoad() {
         super.viewDidLoad()

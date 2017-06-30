@@ -15,8 +15,8 @@ import RealmSwift
 class PNNotesTableViewInteractor: NSObject {
     /// A `PNNotesFeedViewControllerProtocol` instance representing the controller for notes list.
     fileprivate var notebookFeedViewController: PNNotesFeedViewControllerProtocol
-    /// A `PNNotesFeedViewProtocol` instance representing an object container for currentNotebook in notes feed.
-    fileprivate var notesFeedView: PNNotesFeedViewProtocol
+    /// A `PNCurrentNotesContainer` instance representing an object container for currentNotebook in notes feed.
+    fileprivate var notesFeedView: PNCurrentNotesContainer
     /// A `UIViewController` instance representing the view controller where segues are to be performed.
     fileprivate var presentationContext: UIViewController
     
@@ -26,9 +26,9 @@ class PNNotesTableViewInteractor: NSObject {
      - Parameter presentationContext: A `UIViewController` instance representing the view controller where segues are to be performed.
      - Parameter notesListTableView: A `UITableView` instance where the list of notes is displayed.
      - Parameter notebookFeedViewController: A `PNNotesFeedViewControllerProtocol` instance representing the controller for notes list.
-     - Parameter notesFeedView: A `PNNotesFeedViewProtocol` instance representing an object container for currentNotebook in notes feed.
+     - Parameter notesFeedView: A `PNCurrentNotesContainer` instance representing an object container for currentNotebook in notes feed.
      */
-    public required init(presentationContext: UIViewController, notesListTableView: UITableView, notebookFeedViewController: PNNotesFeedViewControllerProtocol, notesFeedView: PNNotesFeedViewProtocol) {
+    public required init(presentationContext: UIViewController, notesListTableView: UITableView, notebookFeedViewController: PNNotesFeedViewControllerProtocol, notesFeedView: PNCurrentNotesContainer) {
         self.notebookFeedViewController = notebookFeedViewController
         self.notesFeedView = notesFeedView
         self.presentationContext = presentationContext

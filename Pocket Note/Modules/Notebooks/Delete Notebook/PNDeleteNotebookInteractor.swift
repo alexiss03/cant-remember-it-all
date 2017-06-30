@@ -28,9 +28,9 @@ struct PNDeleteNotebookInteractor {
      Deletes the notebook, and sets the current notebook in notes feed to nil to update that view controller.
      
      - Parameter notebookToDeleted: A `Notebook` instance to be deleted.
-     - Parameter notesFeedViewController: A `PNNotesFeedViewProtocol` instance that contains the current notebook. This will be set to nil if the delete is successful.
+     - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance that contains the current notebook. This will be set to nil if the delete is successful.
      */
-    public func delete(notebook notebookToDeleted: Notebook, notesFeedViewController: PNNotesFeedViewProtocol) {
+    public func delete(notebook notebookToDeleted: Notebook, notesFeedViewController: PNCurrentNotesContainer) {
         let deleteNotebookObserver = PNDeleteNotebookObserver.init(notesFeedViewController: notesFeedViewController)
         let deleteNotebookOperation = PNDeleteNotebookOperation.init(notebook: notebookToDeleted, realm: realm)
         deleteNotebookOperation.add(observer: deleteNotebookObserver)
