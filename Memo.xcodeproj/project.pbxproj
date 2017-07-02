@@ -26,6 +26,7 @@
 		0021551E1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021551D1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift */; };
 		00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE31E9B91F000DEBBF5 /* Note.swift */; };
 		00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE51E9B929800DEBBF5 /* Notebook.swift */; };
+		0034883E1F05F36E004432A4 /* EditNotenookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034883D1F05F36E004432A4 /* EditNotenookQuickSpec.swift */; };
 		00357E6B1EF644A000A4A5CC /* LogoutQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00357E691EF63F9900A4A5CC /* LogoutQuickSpec.swift */; };
 		003657881ED413E2002A78DA /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003657871ED413E2002A78DA /* ViewController+Extension.swift */; };
 		0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */; };
@@ -112,6 +113,7 @@
 		00D028271EC00351000E8B25 /* LoginQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D028261EC00351000E8B25 /* LoginQuickSpec.swift */; };
 		00D5F2B71EF2640500CBF81B /* PNNotebookListViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00D5F2B61EF2640500CBF81B /* PNNotebookListViewHeaderCell.xib */; };
 		00D5F2B91EF2676C00CBF81B /* PNMoveNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D5F2B81EF2676C00CBF81B /* PNMoveNoteViewController.swift */; };
+		00E0281E1F090CCD009622BD /* ViewNotesFeedQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E0281D1F090CCD009622BD /* ViewNotesFeedQuickSpec.swift */; };
 		00F611DD1EB05EE0000160BA /* PNSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */; };
 		00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */; };
 		00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */; };
@@ -158,6 +160,7 @@
 		00231BE31E9B91F000DEBBF5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
 		00231BE51E9B929800DEBBF5 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notebook.swift; path = Modules/Notebook.swift; sourceTree = "<group>"; };
 		00303F19CEAFFF9B741E3E51 /* Pods-MemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemoTests/Pods-MemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		0034883D1F05F36E004432A4 /* EditNotenookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNotenookQuickSpec.swift; path = "Edit Notebook/EditNotenookQuickSpec.swift"; sourceTree = "<group>"; };
 		00357E691EF63F9900A4A5CC /* LogoutQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoutQuickSpec.swift; path = Logout/LogoutQuickSpec.swift; sourceTree = "<group>"; };
 		003657871ED413E2002A78DA /* ViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Extension.swift"; path = "Extensions/ViewController+Extension.swift"; sourceTree = "<group>"; };
 		0036F5851EB81D1E00D19F75 /* PNNotebooksListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotebooksListViewController.swift; path = "Modules/Notebooks/View Notebooks List/PNNotebooksListViewController.swift"; sourceTree = "<group>"; };
@@ -251,6 +254,7 @@
 		00D028261EC00351000E8B25 /* LoginQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginQuickSpec.swift; path = Modules/Login/LoginQuickSpec.swift; sourceTree = "<group>"; };
 		00D5F2B61EF2640500CBF81B /* PNNotebookListViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNNotebookListViewHeaderCell.xib; path = "Modules/Notebooks/View Notebooks List/PNNotebookListViewHeaderCell.xib"; sourceTree = "<group>"; };
 		00D5F2B81EF2676C00CBF81B /* PNMoveNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNMoveNoteViewController.swift; path = "Modules/Move Note/PNMoveNoteViewController.swift"; sourceTree = "<group>"; };
+		00E0281D1F090CCD009622BD /* ViewNotesFeedQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewNotesFeedQuickSpec.swift; path = "View Notes Feed/ViewNotesFeedQuickSpec.swift"; sourceTree = "<group>"; };
 		00F611DC1EB05EE0000160BA /* PNSideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNSideMenuView.xib; path = "Modules/Settings/Side Menu/PNSideMenuView.xib"; sourceTree = "<group>"; };
 		00F611DF1EB05F7B000160BA /* PNSideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuView.swift; path = "Modules/Settings/Side Menu/PNSideMenuView.swift"; sourceTree = "<group>"; };
 		00F611E11EB05FC3000160BA /* PNSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSideMenuViewController.swift; path = "Modules/Settings/Side Menu/PNSideMenuViewController.swift"; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 				007DEC7A1EF9FB2000F2FC9A /* EditNoteQuickSpec.swift */,
 				00375B271EFB86B300CA3C11 /* DeleteNoteQuickSpec.swift */,
 				000BBC8C1EFCACD7008713A2 /* ViewNoteQuickSpec.swift */,
+				00E0281D1F090CCD009622BD /* ViewNotesFeedQuickSpec.swift */,
 			);
 			name = Notes;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 			children = (
 				005BE7311EFCDB05006BEE14 /* CreateNotebookQuickSpec.swift */,
 				00AB35621F013823008EA86C /* DeleteNotebookQuickSpec.swift */,
+				0034883D1F05F36E004432A4 /* EditNotenookQuickSpec.swift */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -1506,6 +1512,8 @@
 				00B0C8481EC193890061F5E8 /* RegistrationQuickSpec.swift in Sources */,
 				00357E6B1EF644A000A4A5CC /* LogoutQuickSpec.swift in Sources */,
 				007DEC7C1EF9FC5F00F2FC9A /* EditNoteQuickSpec.swift in Sources */,
+				0034883E1F05F36E004432A4 /* EditNotenookQuickSpec.swift in Sources */,
+				00E0281E1F090CCD009622BD /* ViewNotesFeedQuickSpec.swift in Sources */,
 				00CD5A8A1E9C78BE009F9569 /* NotebookQuickSpec.swift in Sources */,
 				003657881ED413E2002A78DA /* ViewController+Extension.swift in Sources */,
 				000BBC8D1EFCACD7008713A2 /* ViewNoteQuickSpec.swift in Sources */,

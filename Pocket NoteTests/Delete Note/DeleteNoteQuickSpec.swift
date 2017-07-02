@@ -35,6 +35,7 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 print("Realm is nil")
                 return
             }
+            
             let note = self.noteInstance()
             self.add(realm: unwrappedRealm, note: note)
             

@@ -45,6 +45,5 @@ class ViewNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 expect(viewController?.baseView?.contentTextView.text).toEventually(equal(""))
             }
         }
-
     }
 }

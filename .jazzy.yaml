@@ -10,7 +10,7 @@ author: "Mary Alexis Solis"
 theme: "fullwidth"
 
 custom_categories:
-    - name: Models
+    - name: Realm Models
       children:
         - Note
         - Notebook

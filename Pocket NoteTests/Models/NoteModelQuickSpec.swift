@@ -44,8 +44,8 @@ class NoteModelQuickSpec: QuickSpec {
                         }
                     } catch { }
 
-                    let newNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
-                    expect(newNote).notTo(equal(nil))
+                    let newNote = unwrappedRealm.objects(Note.self).filter("body = 'This is a body.'").first
+                    expect(newNote).notTo(beNil())
                 }
 
                 it("with a Notebook") {
@@ -54,10 +54,8 @@ class NoteModelQuickSpec: QuickSpec {
                     let notebook = Notebook()
                     notebook.name = "This is a notebook title."
                     notebook.dateCreated = Date()
-                    notebook.notebookId = "NOTEBOOK01"
 
                     let note = Note()
-                    note.noteId = "NOTE01"
                     note.body = "This is a body."
                     note.title = "This is a title."
                     note.dateCreated = Date()
@@ -69,9 +67,8 @@ class NoteModelQuickSpec: QuickSpec {
                         }
                     } catch { }
 
-                    let newNote = unwrappedRealm.objects(Note.self).filter("noteId = 'NOTE01'").first
-
-                    expect(newNote).notTo(equal(nil))
+                    let newNote = unwrappedRealm.objects(Note.self).filter("body = 'This is a body.'").first
+                    expect(newNote).notTo(beNil())
 
                 }
             }

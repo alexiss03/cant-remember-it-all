@@ -43,6 +43,7 @@ extension NoteQuickSpecProtocol {
         
         note.title = "This is a note"
         note.notebook = notebook
+        note.dateCreated = Date()
 
         return note
     }

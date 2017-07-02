@@ -8,7 +8,6 @@ target 'Memo' do
   # Pods for Pocket Note
   pod 'RealmSwift' 
   pod 'SwiftLint'
-  pod 'Swinject', '~> 2.1.0'
   pod 'SlideMenuControllerSwift'  
   pod 'PSOperations/Core', '~> 3.0' 
   pod 'ProcedureKit/All'

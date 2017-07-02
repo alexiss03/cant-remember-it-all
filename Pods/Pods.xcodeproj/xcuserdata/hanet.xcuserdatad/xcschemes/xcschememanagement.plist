@@ -54,25 +54,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Swinject.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0338CADF9705C87BDA4FCF27E1A3ED27</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>284D8F868619BCA2974AAAC8048DB341</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3039106861C217DFB70B49786893BD0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,22 +67,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39AC21189D2BB578F402062D4886915D</key>
+		<key>3BC6404E727A24A59EA8538973168F04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>415BA53289EC56AD619F4A5486A2C024</key>
+		<key>452252FF7E9C118742B34FC7708A631A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5EAD26FEFD7C04C3E2C7218C2145C13E</key>
+		<key>54B7FBD8239621021C0BCDCC45C3BB38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5EC24E26A21316F38CA76F65CEF63182</key>
+		<key>A480B96D05A6032D0C5D49F53729F38D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA0A4FFC4CB7651C3B41A8B42D8B62BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9C1CCCD4843D57878D292379E58F3A7</key>
+		<key>D2D88B54B8919EF22C53A97AAC213A7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DCD22EC06CDD7CD24F1161BE2A3B8CA3</key>
+		<key>DD7C8BF89FE8053D0A2A2D88BB49CF07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
