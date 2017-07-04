@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SlideMenuControllerSwift
 
 /**
  A `PNCurrentNotesContainer` protocol representing a container of the current notebook property.
@@ -55,14 +56,18 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
     /// An option `Notebook` instance representing the current notebook shown to the user.
     var currentNotebook: Notebook? {
         didSet {
-            self.searchNoteInteractor?.updateNoteList(searchText: self.searchText, currentNotebook: self.currentNotebook, notebookFilterContainer: self)
+            if let menuViewController = self.parent {
+                self.searchNoteInteractor?.updateNoteList(searchText: self.searchText, currentNotebook: self.currentNotebook, notebookFilterContainer: self, menuViewController: menuViewController)
+            }
         }
     }
     
     /// An optional `String` value representing the search text inputted by the user.
     var searchText: String? {
         didSet {
-            self.searchNoteInteractor?.updateNoteList(searchText: self.searchText, currentNotebook: self.currentNotebook, notebookFilterContainer: self)
+            if let menuViewController = self.parent {
+                self.searchNoteInteractor?.updateNoteList(searchText: self.searchText, currentNotebook: self.currentNotebook, notebookFilterContainer: self, menuViewController: menuViewController)
+            }
         }
     }
     
@@ -91,9 +96,13 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
         if let unwrappedBaseView = baseView {
             unwrappedBaseView.frame = self.view.frame
             view = unwrappedBaseView
-            setMenu(title: "MEMO", target: self, action: #selector(self.openNotebooks), navigationItem: self.navigationItem, navigationBar: self.navigationController?.navigationBar)
+            
             unwrappedBaseView.searchBar.delegate = self
             unwrappedBaseView.delegate = self
+            
+            if let slideController = self.parent {
+                setMenu(title: "MEMO", target: self, action: #selector(self.openNotebooks), viewController: self, slideController: slideController)
+            }
             
             initInteractors()
         }
@@ -101,6 +110,7 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
     
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    
     }
     
     internal override func viewDidAppear(_ animated: Bool) {

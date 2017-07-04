@@ -13,7 +13,6 @@ import RealmSwift
  The `PNSideMenuViewController` class is a custom view controller for the Side Menu module.
  */
 class PNSideMenuViewController: UIViewController {
-
     /// A `PNSideMenuView` instance representing the super view of this view controller.
     let baseView: PNSideMenuView? = {
         if let view = Bundle.main.loadNibNamed("PNSideMenuView", owner: self, options: nil)![0] as? PNSideMenuView {

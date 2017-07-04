@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 /**
  The `PNNotesEditNotebookInteractor` class contains the business logic for edit notebook's details and delete notebook.
@@ -19,7 +20,7 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
     /// An optional UINavigationController instance representing the current navigation controller of he current view controller presented.
     private var navigationController: UINavigationController?
     /// An optional `PNDeleteNotebookInteractor` instance containing the business logic for deleting a notebook.
-    private var deleteNotebookInteractor:PNDeleteNotebookInteractor?
+    private var deleteNotebookInteractor: PNDeleteNotebookInteractor?
     /// A `UIAlertAction.Type` instance used for mocking `UIAlertAction`.
     private var AlertAction: UIAlertAction.Type
     /// A `UIPopoverPresentationControllerDelegate` instance conforming to the delegate.
@@ -86,8 +87,8 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
                 try unwrappedRealm.write {
                     currentNotebook.name = firstTextField.text
                     
-                    if let currentNotebookName = currentNotebook.name {
-                        self.setMenu(title: currentNotebookName, target: self.currentNotebookHolder, action: #selector(PNNotesFeedViewController.openNotebooks), navigationItem: self.navigationItem, navigationBar: self.navigationController?.navigationBar)
+                    if let currentNotebookName = currentNotebook.name, let menuViewController = self.presentationContext.parent as? SlideMenuController {
+                        self.setMenu(title: currentNotebookName, target: self.currentNotebookHolder, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController: menuViewController)
                     }
                 }
             } catch { }
