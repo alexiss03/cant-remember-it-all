@@ -7,8 +7,9 @@
 //
 
 /**
- This is a protocol that handles event for the Login module.
+ This class is a delegate of the actions performed on `PNLoginView`.
  */
-protocol PNLoginViewEventHandler {
-    func handleLogin(username: String, password: String)
+protocol PNLoginViewVIPEREventHandler: class {
+    func loginButtonTapped(emailText: String?, passwordText: String?)
+    func signUpHereButtonTapped()
 }

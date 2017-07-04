@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		00005B651EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00005B641EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift */; };
 		000330C21EE801B4000A3830 /* PNLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C11EE801B4000A3830 /* PNLoginInteractor.swift */; };
-		000330C51EE816F9000A3830 /* PNLoginViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C41EE816F9000A3830 /* PNLoginViewDelegate.swift */; };
+		000330C51EE816F9000A3830 /* PNLoginViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C41EE816F9000A3830 /* PNLoginViewEventHandler.swift */; };
 		000330C71EE81745000A3830 /* PNLoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C61EE81745000A3830 /* PNLoginViewProtocol.swift */; };
-		000330C91EE81782000A3830 /* PNLoginViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C81EE81782000A3830 /* PNLoginViewEventHandler.swift */; };
+		000330C91EE81782000A3830 /* PNLoginViewEventHandlerr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000330C81EE81782000A3830 /* PNLoginViewEventHandlerr.swift */; };
 		0005DC0F1F03FAE500CE532D /* PNMoveNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0005DC0E1F03FAE500CE532D /* PNMoveNoteInteractor.swift */; };
 		000BBC8D1EFCACD7008713A2 /* ViewNoteQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000BBC8C1EFCACD7008713A2 /* ViewNoteQuickSpec.swift */; };
 		000BBC931EFCB067008713A2 /* PNCreateNotebookOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000BBC911EFCB063008713A2 /* PNCreateNotebookOperation.swift */; };
@@ -145,9 +145,9 @@
 /* Begin PBXFileReference section */
 		00005B641EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNFetchNoteOperation.swift; path = "Modules/Delete Note/PNFetchNoteOperation.swift"; sourceTree = "<group>"; };
 		000330C11EE801B4000A3830 /* PNLoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginInteractor.swift; path = Modules/Account/Login/PNLoginInteractor.swift; sourceTree = "<group>"; };
-		000330C41EE816F9000A3830 /* PNLoginViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewDelegate.swift; path = Modules/Account/Login/PNLoginViewDelegate.swift; sourceTree = "<group>"; };
+		000330C41EE816F9000A3830 /* PNLoginViewEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewEventHandler.swift; path = Modules/Account/Login/PNLoginViewEventHandler.swift; sourceTree = "<group>"; };
 		000330C61EE81745000A3830 /* PNLoginViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewProtocol.swift; path = Modules/Account/Login/PNLoginViewProtocol.swift; sourceTree = "<group>"; };
-		000330C81EE81782000A3830 /* PNLoginViewEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewEventHandler.swift; path = Modules/Account/Login/PNLoginViewEventHandler.swift; sourceTree = "<group>"; };
+		000330C81EE81782000A3830 /* PNLoginViewEventHandlerr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginViewEventHandlerr.swift; path = Modules/Account/Login/PNLoginViewEventHandlerr.swift; sourceTree = "<group>"; };
 		0005DC0E1F03FAE500CE532D /* PNMoveNoteInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNMoveNoteInteractor.swift; path = "Modules/Move Note/PNMoveNoteInteractor.swift"; sourceTree = "<group>"; };
 		000BBC8C1EFCACD7008713A2 /* ViewNoteQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewNoteQuickSpec.swift; path = "View Note/ViewNoteQuickSpec.swift"; sourceTree = "<group>"; };
 		000BBC911EFCB063008713A2 /* PNCreateNotebookOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNotebookOperation.swift; path = "Create Notebook/PNCreateNotebookOperation.swift"; sourceTree = "<group>"; };
@@ -313,9 +313,9 @@
 		000330C31EE806AA000A3830 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				000330C41EE816F9000A3830 /* PNLoginViewDelegate.swift */,
+				000330C41EE816F9000A3830 /* PNLoginViewEventHandler.swift */,
 				000330C61EE81745000A3830 /* PNLoginViewProtocol.swift */,
-				000330C81EE81782000A3830 /* PNLoginViewEventHandler.swift */,
+				000330C81EE81782000A3830 /* PNLoginViewEventHandlerr.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1451,7 +1451,7 @@
 				00AB356F1F015B63008EA86C /* PNDeleteNotebookInteractor.swift in Sources */,
 				009E5ABB1EB1B3B6001F4889 /* PNRegistrationViewController.swift in Sources */,
 				0060917D1EDD5CB40058068B /* PNExistingUserErrorObserver.swift in Sources */,
-				000330C91EE81782000A3830 /* PNLoginViewEventHandler.swift in Sources */,
+				000330C91EE81782000A3830 /* PNLoginViewEventHandlerr.swift in Sources */,
 				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
 				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
 				007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */,
@@ -1467,7 +1467,7 @@
 				00667E291EE7C6FA002504FF /* PNRegistrationInteractor.swift in Sources */,
 				009E5AB11EB1AEA2001F4889 /* PNLoginView.swift in Sources */,
 				0005DC0F1F03FAE500CE532D /* PNMoveNoteInteractor.swift in Sources */,
-				000330C51EE816F9000A3830 /* PNLoginViewDelegate.swift in Sources */,
+				000330C51EE816F9000A3830 /* PNLoginViewEventHandler.swift in Sources */,
 				0021551E1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift in Sources */,
 				00513C7E1EF0E1D800E658E2 /* PNConstants.swift in Sources */,
 				009E5AA81EB1A66F001F4889 /* PNNavigationBarProtocol.swift in Sources */,

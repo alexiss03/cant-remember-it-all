@@ -41,17 +41,18 @@ struct PNRegistrationInteractor {
      */
     fileprivate func createRegistrationOperationsChain(username: String, password: String) -> [PSOperation] {
 
-        let networkAvailabilityOperation = PNNetworkAvailabilityOperation.init()
-        let registerOperation = PNLoginUserOperation.init(username: username, password: password, isRegister: true, nextViewController: nextViewController)
-        
-        let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: presentationContext)
-        let existingUserAlreadErrorObserver = PNExistingUserErrorObserver.init(register: baseView)
-        
-        networkAvailabilityOperation.addObserver(noNetworkObserver)
-        registerOperation.addObserver(existingUserAlreadErrorObserver)
-        
-        registerOperation.addDependency(networkAvailabilityOperation)
-        return [networkAvailabilityOperation, registerOperation]
+//        let networkAvailabilityOperation = PNNetworkAvailabilityInteractor.init()
+//        let registerOperation = PNLoginUserOperation.init(username: username, password: password, isRegister: true, nextViewController: nextViewController)
+//        
+//        let noNetworkObserver = PNNoNetworkObserver.init(presentationContext: presentationContext)
+//        let existingUserAlreadErrorObserver = PNExistingUserErrorObserver.init(register: baseView)
+//        
+//        networkAvailabilityOperation.addObserver(noNetworkObserver)
+//        registerOperation.addObserver(existingUserAlreadErrorObserver)
+//        
+//        registerOperation.addDependency(networkAvailabilityOperation)
+//        return [networkAvailabilityOperation, registerOperation]
+        return []
     }
 
 }

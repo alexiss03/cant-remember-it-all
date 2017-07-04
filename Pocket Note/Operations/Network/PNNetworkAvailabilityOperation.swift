@@ -8,18 +8,21 @@
 
 import UIKit
 import PSOperations
+import ProcedureKit
 
 /** 
  This operation checks for the availability of the connection to a network
 */
-public class PNNetworkAvailabilityOperation: PSOperation, PSOperationQueueDelegate {
+public class PNNetworkAvailabilityInteractor: Procedure, PSOperationQueueDelegate {
     // This is the name of the operation
     public static let name = "Network Availability"
     
     /**
      This is the initialization method.
      */
-    public override init() { }
+    public override init() {
+        super.init()
+    }
     
     /**
      This is the execution of the business logic of the operation. If the device is connected to a network. If the device is connected, the operation finishes with no error. Else, if the finishes the operation with a no network error.
@@ -28,12 +31,12 @@ public class PNNetworkAvailabilityOperation: PSOperation, PSOperationQueueDelega
         if Reachability.isConnectedToNetwork() {
             self.finish()
         } else {
-            self.finishWithError(PNNetworkAvailabilityOperation.noNetworkError)
+            self.finish(withError: PNNetworkAvailabilityInteractor.noNetworkError)
         }
     }
 }
  
-extension PNNetworkAvailabilityOperation {
+extension PNNetworkAvailabilityInteractor {
     /** 
         Error if there is no network connection.
     */

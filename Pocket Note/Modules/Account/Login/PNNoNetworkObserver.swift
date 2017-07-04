@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import PSOperations
+import ProcedureKit
 
 /**
  The `PNNoNetworkObserver` class observes to the availabiltiy of the network. If no network is detected, it presents an alert controller to the specified presentation contextt.
  */
-struct PNNoNetworkObserver: OperationObserver {
+class PNNoNetworkPresenter: ProcedureObserver, VIPERPresenter {
     /// A `UIViewController` instance presenting a possible alert controller when no internet connection is detected.
     private var presentationContext: UIViewController
     
@@ -25,20 +25,15 @@ struct PNNoNetworkObserver: OperationObserver {
         self.presentationContext = presentationContext
     }
     
-    internal func operationDidStart(_ operation: PSOperation) { }
-    
-    internal func operationDidCancel(_ operation: PSOperation) { }
-    
-    internal func operation(_ operation: PSOperation, didProduceOperation newOperation: Foundation.Operation) { }
-
     /**
      Handles the errors thrown when an operation being observed has finished with an error.
      
      - Parameter operation: An `PSOperation` instance being observed.
      - Parameter errors: An array of `NSError` returned by an operation being observed while finishing.
      */
-    func operationDidFinish(_ operation: PSOperation, errors: [NSError]) {
-        if let error = errors.first, error.domain == "error.network.no.network" {
+    
+    func did(cancel procedure: Procedure, withErrors: [Error]) {
+        if let error = withErrors.first as NSError?, error.domain == "error.network.no.network" {
             let alertControlller = UIAlertController.init(title: "No Internet Connection", message: "Cannot proceed with this action. Please connect to a network to continue.", preferredStyle: .alert)
             let okButton = UIAlertAction.init(title: "Ok", style: .cancel) { (_) in
                 alertControlller.dismiss(animated: true, completion: nil)
@@ -47,5 +42,4 @@ struct PNNoNetworkObserver: OperationObserver {
             presentationContext.present(alertControlller, animated: true, completion: nil)
         }
     }
-    
 }

@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol PNLoginVIPERView {
+    func setEmailErrorLabel(errorMessage: String?)
+    func setPasswordEmailErrorLabel(errorMessage: String?)
+}
+
 /**
  This class is the custom class for `PNLoginView.xib`. It references the outlets for that nib file.
  */
-class PNLoginView: UIView, PNLoginViewProtocol {
-    // This is a weak reference to the `PNLoginViewDelegate`
-    weak var delegate: PNLoginViewDelegate?
+class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
+    // This is a weak reference to the `PNLoginViewEventHandler`
+    var eventHandler: PNLoginViewEventHandler?
     
     // This text field is where the user inputs the email to be logged in.
     @IBOutlet weak var emailTextField: UITextField!
@@ -31,7 +36,7 @@ class PNLoginView: UIView, PNLoginViewProtocol {
      - Parameter sender: This is the sender of the action, which is the log in button.
      */
     @IBAction func loginButtonTapped(_ sender: Any) {
-        delegate?.loginButtonTapped()
+        eventHandler?.loginButtonTapped(emailText: emailTextField.text, passwordText: passwordTextField.text)
     }
 
     /**
@@ -40,7 +45,7 @@ class PNLoginView: UIView, PNLoginViewProtocol {
      - Parameter sender: Sender of the action, which is the sign up button
      */
     @IBAction func signUpHereButtonTapped(_ sender: Any) {
-        delegate?.signUpHereButtonTapped()
+        //eventHandler?.signUpHereButtonTapped()
     }
     
     /**
@@ -53,4 +58,16 @@ class PNLoginView: UIView, PNLoginViewProtocol {
         passwordErrorLabel.text = ""
     }
     
+    
+    internal func setEmailErrorLabel(errorMessage: String?) {
+        DispatchQueue.main.async {
+            self.emailErrorLabel.text = errorMessage
+        }
+    }
+    
+    func setPasswordEmailErrorLabel(errorMessage: String?) {
+        DispatchQueue.main.async {
+            self.passwordErrorLabel.text = errorMessage
+        }
+    }
 }
