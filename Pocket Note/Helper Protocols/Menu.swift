@@ -23,5 +23,15 @@ extension Menu {
         navigationItem.titleView = pocketNoteButton
         navigationBar?.backgroundColor = UIColor.white
         navigationBar?.isTranslucent = false
+        
+        let menuIcon  = UIImage(named: "IconMenu")!.withRenderingMode(.alwaysOriginal)
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        menuButton.setBackgroundImage(menuIcon, for: .normal)
+        
+        let menuIconContainer = UIView(frame: menuButton.frame)
+        menuIconContainer.addSubview(menuButton)
+        
+        let menuNotificationButtonItem = UIBarButtonItem(customView: menuIconContainer)
+        navigationItem.leftBarButtonItem = menuNotificationButtonItem
     }
 }

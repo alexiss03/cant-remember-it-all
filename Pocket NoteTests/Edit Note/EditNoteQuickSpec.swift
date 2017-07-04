@@ -35,7 +35,7 @@ class EditNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 guard let unwrappedRealm = realm else { return }
     
                 let note = self.noteInstance()
-                self.add(realm: unwrappedRealm, note: note)
+                self.add(realm: unwrappedRealm, note: note, notebook: nil)
                 
                 let oldCount = unwrappedRealm.objects(Note.self).count
                 
@@ -52,7 +52,7 @@ class EditNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 guard let unwrappedRealm = realm else { return }
 
                 let note = self.noteInstance()
-                self.add(realm: unwrappedRealm, note: note)
+                self.add(realm: unwrappedRealm, note: note, notebook: nil)
                 
                 let oldCount = unwrappedRealm.objects(Note.self).count
                 

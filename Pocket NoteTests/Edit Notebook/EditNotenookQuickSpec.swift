@@ -25,12 +25,11 @@ class EditNotenookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
         var realm: Realm?
         
         beforeEach {
-            viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNNotesFeedViewController") as? PNNotesFeedViewController
+            viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNNotebooksListViewController") as? PNNotesFeedViewController
             realm = PNSharedRealm.configureDefaultRealm()
         }
         
-        it("delete a notebook") {
-
+        it("edit a notebook") {
             let notebook = self.notebookInstance()
             
             guard let unwrappedRealm = realm else {

@@ -28,6 +28,8 @@ extension NoteQuickSpecProtocol {
     func notebookInstance() -> Notebook {
         let notebook = Notebook()
         notebook.notebookId = "\(Date().timeStampFromDate())"
+        notebook.dateCreated = Date()
+        notebook.name = "Notebook"
         return notebook
     }
     
@@ -53,9 +55,7 @@ extension NoteQuickSpecProtocol {
             baseView.contentTextView.text = notes
         }
         
-        if let controller = controller as? UIViewController {
-            controller.viewWillDisappear(true)
-        }
+        controller?.viewWillDisappear(true)
     }
     
     func loadController(note: Note? = nil, notebook: Notebook? = nil) {
@@ -67,9 +67,17 @@ extension NoteQuickSpecProtocol {
             noteContainer.note = note
         }
         
-        if let controller = controller as? UIViewController {
-            controller.loadViewProgrammatically()
-        }
+        controller?.loadViewProgrammatically()
+    }
+    
+    func add(realm: Realm, note: Note? = nil) {
+        do {
+            try realm.write {
+                if let unwrappedNote = note {
+                    realm.add(unwrappedNote)
+                }
+            }
+        } catch { }
     }
     
     func add(realm: Realm, note: Note? = nil, notebook: Notebook? = nil) {
@@ -80,6 +88,21 @@ extension NoteQuickSpecProtocol {
                 }
 
                 if let unwrappedNote = note {
+                    realm.add(unwrappedNote)
+                }
+            }
+        } catch { }
+    }
+    
+    func add(realm: Realm, note: Note? = nil, withNotebook notebook: Notebook? = nil) {
+        do {
+            try realm.write {
+                if let unwrappedNotebook = notebook {
+                    realm.add(unwrappedNotebook)
+                }
+                
+                if let unwrappedNote = note {
+                    unwrappedNote.notebook = notebook
                     realm.add(unwrappedNote)
                 }
             }

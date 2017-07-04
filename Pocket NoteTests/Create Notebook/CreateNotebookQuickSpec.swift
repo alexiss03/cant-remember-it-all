@@ -26,6 +26,7 @@ extension NotebookQuickSpecProtocol {
     func notebookInstance() -> Notebook {
         let notebook = Notebook()
         notebook.notebookId = "\(Date().timeStampFromDate())"
+        notebook.dateCreated = Date()
         return notebook
     }
     
@@ -38,9 +39,7 @@ extension NotebookQuickSpecProtocol {
             noteContainer.note = note
         }
         
-        if let controller = controller as? UIViewController {
-            controller.loadViewProgrammatically()
-        }
+        controller?.loadViewProgrammatically()
     }
     
     func add(realm: Realm, notebook: Notebook? = nil) {
@@ -92,14 +91,14 @@ class CreateNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
                 }
                 
                 if let notebookNameTextField = alertController.textFields?.first {
-                    notebookNameTextField.text = "Notebook"
+                    notebookNameTextField.text = "Notebook Name"
                 }
                 
                 if let action = alertController.actions.first as? MockAlertAction, let unwrappedActionHandler = action.handler {
                     unwrappedActionHandler(action)
                 }
                 
-                let predicate = NSPredicate.init(format: "name == %@", "Notebook")
+                let predicate = NSPredicate.init(format: "name == %@", "Notebook Name")
                 expect(unwrappedRealm.objects(Notebook.self).count).toEventually(equal(oldNotebooksCount+1))
                 expect(unwrappedRealm.objects(Notebook.self).filter(predicate).count).toEventually(equal(1))
             }

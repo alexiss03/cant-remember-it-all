@@ -42,15 +42,45 @@ class ViewNotesFeedQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 notesList.append(self.noteInstance())
                 notesList.append(self.noteInstance())
                 notesList.append(self.noteInstance())
-                
+            
                 for note in notesList {
-                    self.add(realm: unwrappedRealm, note: note)
+                    self.add(realm: unwrappedRealm, note: note, notebook: nil)
                 }
+                
+                let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
                 
                 viewController?.currentNotebook = nil
                 self.loadController()
                 
-                expect(viewController?.baseView?.notesListTableView.numberOfRows(inSection: 0)).toEventually(equal(notesList.count), timeout: 5.0)
+                expect(viewController?.baseView?.notesListTableView.numberOfRows(inSection: 0)).toEventually(equal(oldCountAllNotes))
+            }
+        }
+        
+        describe("view notebook") {
+            it("with body") {
+                guard let unwrappedRealm = realm else {
+                    print("Realm is nil")
+                    return
+                }
+                
+                var notesList: [Note] = []
+                let notebook = self.notebookInstance()
+                notesList.append(self.noteInstance())
+                notesList.append(self.noteInstance())
+                notesList.append(self.noteInstance())
+                notesList.append(self.noteInstance())
+                notesList.append(self.noteInstance())
+                
+                for note in notesList {
+                    self.add(realm: unwrappedRealm, note: note, withNotebook: notebook)
+                }
+                
+                let oldCountAllNotes = unwrappedRealm.objects(Note.self).filter(NSPredicate.init(format: "notebook = %@", notebook)).count
+                
+                viewController?.loadViewProgrammatically()
+                viewController?.currentNotebook = notebook
+                
+                expect(viewController?.baseView?.notesListTableView.numberOfRows(inSection: 0)).toEventually(equal(oldCountAllNotes))
             }
         }
     }

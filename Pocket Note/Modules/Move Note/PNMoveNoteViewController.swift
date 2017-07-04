@@ -97,7 +97,7 @@ class PNMoveNoteViewController: UIViewController {
     }
 }
 
-extension PNMoveNoteViewController: UITableViewDelegate, UITableViewDataSource  {
+extension PNMoveNoteViewController: UITableViewDelegate, UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }

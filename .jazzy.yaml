@@ -14,4 +14,49 @@ custom_categories:
       children:
         - Note
         - Notebook
-
+    - name: View Controllers
+      children: 
+        - PNCreateNoteViewController
+        - PNLoginViewController
+        - PNMoveNoteViewController
+        - PNNotebooksListViewController
+        - PNNotesFeedViewController
+        - PNRegistrationViewController
+        - PNSideMenuViewController
+    - name: Custom Views
+      children:
+        - PNCreateNoteView
+        - PNLoginView
+        - PNNotebooksListView
+        - PNNotesFeedView
+        - PNRegistrationView
+        - PNSideMenuView
+        - PNNotebooksListTableViewCell
+        - PNNotesFeedTableViewCell
+    - name: Interactors
+      children:
+        - PNCreateNotebookInteractor
+        - PNNotesEditNotebookInteractor
+        - PNNotesTableViewInteractor
+        - PNCreateNoteInteractor
+        - PNDeleteNotebookInteractor
+        - PNLoginInteractor
+        - PNRegistrationInteractor
+        - PNDeleteNoteInteractor
+        - PNSearchNoteInteractor
+    - name: Observers
+      children:
+        - PNDeleteNotebookObserver
+        - PNExistingUserErrorObserver
+        - PNInvalidLoginErrorObserver
+        - PNNoNetworkObserver
+    - name: Operations 
+      children:
+        - PNCreateNoteOperation
+        - PNCreateNotebookOperation
+        - PNDeleteNoteOperation
+        - PNDeleteNotebookOperation
+        - PNFetchNoteOperation
+        - PNLoginUserOperation
+        - PNLogoutUserOperation
+        - PNNetworkAvailabilityOperation
