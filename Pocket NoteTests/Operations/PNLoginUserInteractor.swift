@@ -43,7 +43,7 @@ class PNLoginUserInteractor: Procedure, InputProcedure, VIPERInteractor {
             if let user = user {
                 _ = PNSharedRealm.configureRealm(user: user)
 
-                print("Realm user Logged In: \(user)")
+                print("Realm user   Logged In: \(user)")
                 weakSelf?.finish()
             } else if let error = error {
                 print("Realm error \(error)")

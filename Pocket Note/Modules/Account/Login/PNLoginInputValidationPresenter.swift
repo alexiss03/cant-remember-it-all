@@ -9,7 +9,9 @@
 import UIKit
 import ProcedureKit
 
-struct PNLoginInputValidationPresenter: ProcedureObserver, VIPERPresenter {
+protocol PNLoginInputValidationVIPERPresenter { }
+
+struct PNLoginInputValidationPresenter: ProcedureObserver, PNLoginInputValidationVIPERPresenter, VIPERPresenter {
     var loginView: PNLoginVIPERView
     
     init(loginView: PNLoginVIPERView) {

@@ -10,6 +10,36 @@
 /**
  The `PNRegistrationEventHandler` protocol contains event handler's for the Registratiosn module.
  */
-protocol PNRegistrationEventHandler {
-    func handleRegistration(username: String, password: String)
+protocol PNRegistrationVIPEREventHandler {
+    func signUp(emailText: String?, passwordText: String?)
+}
+
+class PNRegistrationEventHandler: PNRegistrationVIPEREventHandler {
+    var registrationView: PNRegistrationVIPERView
+    var registrationRouter: PNRegistrationVIPERRouter
+    
+    required init(registrationView: PNRegistrationVIPERView, registrationRouter: PNRegistrationVIPERRouter) {
+        self.registrationView = registrationView
+        self.registrationRouter = registrationRouter
+    }
+    
+    func signUp(emailText: String?, passwordText: String?) {
+        // User Input Validation
+        let registrationInputValidationInteractor = PNRegistrationInputValidationInteractor.init(emailText: emailText, passwordText: passwordText)
+        let registrationInputValidationPresenter = PNRegistrationInputValidationPresenter.init(registrationView: registrationView)
+        registrationInputValidationInteractor.add(observer: registrationInputValidationPresenter)
+
+        // No Network
+        let networkAvailabilityInteractor = PNNetworkAvailabilityInteractor.init()
+        let noNetworkPresenter = PNNoNetworkPresenter.init(presentationContext: registrationRouter)
+        networkAvailabilityInteractor.add(observer: noNetworkPresenter)
+
+        // Login to Realm
+        let registrationUserInteractor = PNRegistrationUserInteractor.init()
+        let registrationUserPresenter = PNRegistrationUserPresenter.init(registrationView: registrationView, registrationRouter: registrationRouter)
+        registrationUserInteractor.add(observer: registrationUserPresenter)
+        registrationUserInteractor.injectResult(from: registrationInputValidationInteractor)
+
+        PNOperationQueue.realmOperationQueue.add(operations: [registrationInputValidationInteractor, networkAvailabilityInteractor, registrationUserInteractor])
+    }
 }

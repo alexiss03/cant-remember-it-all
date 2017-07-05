@@ -33,7 +33,7 @@ struct PNLoginUserPresenter: VIPERPresenter, ProcedureObserver {
     
     func did(cancel procedure: Procedure, withErrors: [Error]) {
         if let error = withErrors.first as NSError?, error.domain == "io.realm.sync", error.code ==  611 {
-            loginView.setEmailErrorLabel(errorMessage: "Invalid login credentials or user does not exists.")
+            loginView.setEmailErrorLabel(errorMessage: "Invalid login credentials.")
         }
     }
     

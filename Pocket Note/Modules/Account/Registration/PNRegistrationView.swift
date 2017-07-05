@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol PNRegistrationVIPERView {
+    func setEmailErrorLabel(errorMessage: String)
+    func setPasswordErrorLabel(errorMessage: String)
+}
+
 /**
  This class represents the Registration User Interface backbone.
  */
-class PNRegistrationView: UIView, PNRegistrationViewProtocol {
+class PNRegistrationView: UIView, PNRegistrationVIPERView {
     /// This is a weak reference to the delegate for `PNRegistrationViewDelegate`.
-    weak var delegate: PNRegistrationViewDelegate?
+    var eventHandler: PNRegistrationVIPEREventHandler?
 
     /// This is the text field where the user inputs the email to be registered.
     @IBOutlet weak var emailTextField: UITextField!
@@ -29,7 +34,19 @@ class PNRegistrationView: UIView, PNRegistrationViewProtocol {
         - Paramter sender: The sender of the action which is the sign up button
     */
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        delegate?.signUpButtonTapped()
+        eventHandler?.signUp(emailText: self.emailTextField.text, passwordText: self.passwordTextField.text)
+    }
+    
+    func setPasswordErrorLabel(errorMessage: String) {
+        DispatchQueue.main.async {
+            self.passwordErrorLabel.text = errorMessage
+        }
+    }
+    
+    func setEmailErrorLabel(errorMessage: String) {
+        DispatchQueue.main.async {
+            self.emailErrorLabel.text = errorMessage
+        }
     }
 
 }

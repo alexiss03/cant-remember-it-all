@@ -4,36 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Account/Login/PNLoginViewEventHandler.swift"
-            timestampString = "520907027.902036"
+            filePath = "Pocket Note/Modules/Account/Registration/PNRegistrationInputValidationInteractor.swift"
+            timestampString = "520933572.22438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "signUpHereButtonTapped()"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "execute()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -43,24 +25,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Account/Login/PNLoginView.swift"
-            timestampString = "520907096.361875"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "loginButtonTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Account/Login/PNLoginInputValidationInteractor.swift"
-            timestampString = "520910383.665737"
+            filePath = "Pocket Note/Modules/Account/Registration/PNRegistrationInputValidationInteractor.swift"
+            timestampString = "520933583.047678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -75,14 +41,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Settings/Side Menu/PNSideMenuViewController.swift"
-            timestampString = "520908875.537108"
+            filePath = "Pocket Note/Modules/Account/Registration/PNRegistrationInputValidationPresenter.swift"
+            timestampString = "520933960.051869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "baseView"
-            landmarkType = "24">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "did(cancel:withErrors:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket Note/Modules/Account/Registration/PNRegistrationInputValidationPresenter.swift"
+            timestampString = "520933995.722192"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "did(cancel:withErrors:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

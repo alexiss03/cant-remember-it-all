@@ -12,15 +12,14 @@ import UIKit
  This class is a delegate of the actions performed on `PNLoginView`.
  */
 protocol PNLoginViewVIPEREventHandler: class {
-    func loginButtonTapped(emailText: String?, passwordText: String?)
-    func signUpHereButtonTapped()
+    func login(emailText: String?, passwordText: String?)
+    func goToSignUp()
 }
 
 class PNLoginViewEventHandler: PNLoginViewVIPEREventHandler, VIPEREventHandler {
     /**
      This method is the protocol implementation of a delegate method that is called whenever the login button is tapped. This is responsible for checking the validity of the user input to the login form. If valid, this creates an instance to a chain of operations for login. Otherwise, this method outputs error messages to the respective views.
      */
-    //var loginValidationInteractor: PNLoginInputValidationInteractor
     var loginView: PNLoginVIPERView
     var loginRouter: PNLoginVIPERRouter
     
@@ -29,11 +28,11 @@ class PNLoginViewEventHandler: PNLoginViewVIPEREventHandler, VIPEREventHandler {
         self.loginRouter = loginRouter
     }
     
-    final internal func loginButtonTapped(emailText: String?, passwordText: String?) {
+    final internal func login(emailText: String?, passwordText: String?) {
         // Login validation
-        let loginValidationInteractor = PNLoginInputValidationInteractor.init(emailText: emailText, passwordText: passwordText)
+        let loginInputValidationInteractor = PNLoginInputValidationInteractor.init(emailText: emailText, passwordText: passwordText)
         let loginInputValidationPresenter = PNLoginInputValidationPresenter.init(loginView: loginView)
-        loginValidationInteractor.add(observer: loginInputValidationPresenter)
+        loginInputValidationInteractor.add(observer: loginInputValidationPresenter)
         
         // No Network
         let networkAvailabilityInteractor = PNNetworkAvailabilityInteractor.init()
@@ -42,17 +41,17 @@ class PNLoginViewEventHandler: PNLoginViewVIPEREventHandler, VIPEREventHandler {
         
         // Login to Realm
         let loginUserInteractor = PNLoginUserInteractor.init()
-        let invalidLoginPresenter = PNLoginUserPresenter.init(loginView: loginView, loginRouter: loginRouter)
-        loginValidationInteractor.add(observer: invalidLoginPresenter)
-        loginUserInteractor.injectResult(from: loginValidationInteractor)
+        let loginUserPresenter = PNLoginUserPresenter.init(loginView: loginView, loginRouter: loginRouter)
+        loginInputValidationInteractor.add(observer: loginUserPresenter)
+        loginUserInteractor.injectResult(from: loginInputValidationInteractor)
         
-        PNOperationQueue.realmOperationQueue.add(operations: [networkAvailabilityInteractor, loginValidationInteractor, loginUserInteractor])
+        PNOperationQueue.realmOperationQueue.add(operations: [networkAvailabilityInteractor, loginInputValidationInteractor, loginUserInteractor])
     }
     
     /**
      This method is a protocol implementation of the delegate method that is called whenever the user taps the sign up button.
      */
-    final internal func signUpHereButtonTapped() {
+    final internal func goToSignUp() {
         self.loginRouter.routeToRegistration()
     }
 }

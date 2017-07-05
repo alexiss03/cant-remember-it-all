@@ -36,7 +36,7 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
      - Parameter sender: This is the sender of the action, which is the log in button.
      */
     @IBAction func loginButtonTapped(_ sender: Any) {
-        eventHandler?.loginButtonTapped(emailText: emailTextField.text, passwordText: passwordTextField.text)
+        eventHandler?.login(emailText: emailTextField.text, passwordText: passwordTextField.text)
     }
 
     /**
@@ -45,7 +45,7 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
      - Parameter sender: Sender of the action, which is the sign up button
      */
     @IBAction func signUpHereButtonTapped(_ sender: Any) {
-        eventHandler?.signUpHereButtonTapped()
+        eventHandler?.goToSignUp()
     }
     
     /**
