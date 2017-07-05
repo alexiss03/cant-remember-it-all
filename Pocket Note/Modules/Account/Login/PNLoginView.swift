@@ -10,7 +10,7 @@ import UIKit
 
 protocol PNLoginVIPERView {
     func setEmailErrorLabel(errorMessage: String?)
-    func setPasswordEmailErrorLabel(errorMessage: String?)
+    func setPasswordErrorLabel(errorMessage: String?)
 }
 
 /**
@@ -45,19 +45,20 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
      - Parameter sender: Sender of the action, which is the sign up button
      */
     @IBAction func signUpHereButtonTapped(_ sender: Any) {
-        //eventHandler?.signUpHereButtonTapped()
+        eventHandler?.signUpHereButtonTapped()
     }
     
     /**
      This method is responsible for resetting the view's input values, for the purpose of reusing.
      */
     public func prepareForReuse() {
-        emailTextField.text = ""
-        passwordTextField.text = ""
-        emailErrorLabel.text = ""
-        passwordErrorLabel.text = ""
+        DispatchQueue.main.async {
+            self.emailTextField.text = ""
+            self.passwordTextField.text = ""
+            self.emailErrorLabel.text = ""
+            self.passwordErrorLabel.text = ""
+        }
     }
-    
     
     internal func setEmailErrorLabel(errorMessage: String?) {
         DispatchQueue.main.async {
@@ -65,9 +66,10 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
         }
     }
     
-    func setPasswordEmailErrorLabel(errorMessage: String?) {
+    func setPasswordErrorLabel(errorMessage: String?) {
         DispatchQueue.main.async {
             self.passwordErrorLabel.text = errorMessage
         }
     }
+
 }

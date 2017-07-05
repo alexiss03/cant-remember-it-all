@@ -14,14 +14,14 @@ import ProcedureKit
  */
 class PNNoNetworkPresenter: ProcedureObserver, VIPERPresenter {
     /// A `UIViewController` instance presenting a possible alert controller when no internet connection is detected.
-    private var presentationContext: UIViewController
+    private var presentationContext: VIPERRouter
     
     /**
      Initializes the instance. 
      
      - Parameter presentationContext: A `UIViewController` instance presenting a possible alert controller when no internet connection is detected.
      */
-    init(presentationContext: UIViewController) {
+    init(presentationContext: VIPERRouter) {
         self.presentationContext = presentationContext
     }
     
@@ -39,7 +39,7 @@ class PNNoNetworkPresenter: ProcedureObserver, VIPERPresenter {
                 alertControlller.dismiss(animated: true, completion: nil)
             }
             alertControlller.addAction(okButton)
-            presentationContext.present(alertControlller, animated: true, completion: nil)
+            presentationContext.routeAlertController(alert: alertControlller)
         }
     }
 }

@@ -18,12 +18,11 @@ import PSOperations
 class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, PNRegistrationViewDelegate {
     
     /// This is the main view of the registration page.
-    let baseView: PNRegistrationView? = {
-        if let view = Bundle.main.loadNibNamed("PNRegistrationView", owner: self, options: nil)![0] as? PNRegistrationView {
-            return view
+    var baseView: PNRegistrationView? {
+        get {
+            return view as? PNRegistrationView
         }
-        return nil
-    }()
+    }
     
     /// This is the event handler for the Registration module.
     var registrationEventHandler: PNRegistrationEventHandler?

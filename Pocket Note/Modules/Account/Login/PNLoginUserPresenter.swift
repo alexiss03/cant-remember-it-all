@@ -13,17 +13,22 @@ import ProcedureKit
 /**
  The`PNInvalidLoginErrorObserver` struct observes the errors returned by login operations.
  */
-struct PNInvalidLoginErrorPresenter: ProcedureObserver {
+
+protocol PNLoginUserVIPERPresenter: VIPERPresenter { }
+
+struct PNLoginUserPresenter: VIPERPresenter, ProcedureObserver {
     /// A `PNLoginViewProtocol` containing the emailErrorLabel where the error message can be displayed.
     private var loginView: PNLoginVIPERView
+    private var loginRouter: PNLoginVIPERRouter
     
     /**
      Initializes the instance.
      
      - Parameter loginView: A `PNLoginViewProtocol` containing the emailErrorLabel where the error message can be displayed.
      */
-    init(loginView: PNLoginVIPERView) {
+    init(loginView: PNLoginVIPERView, loginRouter: PNLoginVIPERRouter) {
         self.loginView = loginView
+        self.loginRouter = loginRouter
     }
     
     func did(cancel procedure: Procedure, withErrors: [Error]) {
@@ -33,21 +38,8 @@ struct PNInvalidLoginErrorPresenter: ProcedureObserver {
     }
     
     func did(finish procedure: Procedure, withErrors: [Error]) {
-    }
-    
-//    internal func operationDidStart(_ operation: PSOperation) { }
-//    
-//    internal func operationDidCancel(_ operation: PSOperation) { }
-//    
-//    internal func operation(_ operation: PSOperation, didProduceOperation newOperation: Foundation.Operation) { }
-//    
-    /**
-     Handles the login error by an operation being observed.
-     
-     - Parameter operation: A `PSOperation` instance being observed.
-     - Parameter errors: An array of `NSError` returned by an operation being observed while finishing.
-     */
-    internal func operationDidFinish(_ operation: PSOperation, errors: [NSError]) {
-        
+        if withErrors.count == 0 {
+            loginRouter.routeToNotesFeed()
+        }
     }
 }

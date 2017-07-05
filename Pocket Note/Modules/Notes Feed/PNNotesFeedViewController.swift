@@ -93,6 +93,11 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    internal override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if let unwrappedBaseView = baseView {
             unwrappedBaseView.frame = self.view.frame
             view = unwrappedBaseView
@@ -106,11 +111,6 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
             
             initInteractors()
         }
-    }
-    
-    internal override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    
     }
     
     internal override func viewDidAppear(_ animated: Bool) {
