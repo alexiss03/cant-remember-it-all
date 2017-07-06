@@ -1,13 +1,16 @@
 module: "Memo"
-skip_undocumented: true
+author: "Mary Alexis Solis"
+github_url: https://github.com/alexiss03/cant-remember-it-all.git
+
 xcodebuild_arguments: 
     - "-workspace"
     - "Pocket Note.xcworkspace"
     - "-scheme"
     - "Memo"
 min_acl: "private"
-author: "Mary Alexis Solis"
+skip_undocumented: true
 theme: "fullwidth"
+clean: true
 
 custom_categories:
     - name: Realm Models

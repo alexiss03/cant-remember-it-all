@@ -49,28 +49,24 @@ class RegistrationQuickSpec: QuickSpec {
         describe("registration") {
             describe("email input") {
                 it("empty") {
-                    vc?.baseView?.emailTextField.text = ""
                     vc?.baseView?.eventHandler?.signUp(emailText: "", passwordText: "123456")
                     expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
                 }
 
                 describe("invalid format") {
                     it("no @") {
-                        vc?.baseView?.emailTextField.text = "aa"
                         vc?.baseView?.eventHandler?.signUp(emailText: "aa", passwordText: "123456")
                         expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
 
                     }
 
                     it("no .") {
-                        vc?.baseView?.emailTextField.text = "a@a"
                         vc?.baseView?.eventHandler?.signUp(emailText: "a@a", passwordText: "123456")
                         expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
                     }
                 }
 
                 it("valid format") {
-                    vc?.baseView?.emailTextField.text = "a@a.com"
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "123456")
                     expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
                 }
@@ -78,32 +74,27 @@ class RegistrationQuickSpec: QuickSpec {
 
             describe("password input") {
                 it("empty") {
-                    vc?.baseView?.passwordTextField.text = ""
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "")
                     expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
                 }
 
                 it("too short min 6") {
-                    vc?.baseView?.passwordTextField.text = "1234"
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "1234")
                     expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
                 }
 
                 it("too long max 30") {
-                    vc?.baseView?.passwordTextField.text = "1234567890123456789012345678901"
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "1234567890123456789012345678901")
                     expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
                 }
 
                 describe("valid") {
                     it("6 characters") {
-                        vc?.baseView?.passwordTextField.text = "123456"
                         vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "123456")
                         expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
                     }
 
                     it("30 characters") {
-                        vc?.baseView?.passwordTextField.text = "123456789012345678901234567890"
                         vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "123456789012345678901234567890")
                         expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
                     }

@@ -18,7 +18,7 @@ protocol PNLoginVIPERRouter: VIPERRouter {
 }
 
 /**
- This class is the view controller for the Login module.
+ The `PNLoginViewController` is the view controller for the Login module.
  */
 class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginVIPERRouter {
 

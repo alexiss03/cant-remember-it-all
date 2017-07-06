@@ -61,7 +61,7 @@ class LoginQuickSpec: QuickSpec {
                     
                     it("no .") {
                         vc?.baseView?.eventHandler?.login(emailText: "a@a", passwordText: "123456")
-                        expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
+                        expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
                     }
                 }
                 
@@ -102,8 +102,8 @@ class LoginQuickSpec: QuickSpec {
             
             describe("account") {
                 it("valid email and password") {
-                    vc?.baseView?.emailTextField.text = "admin@memo.com"
-                    vc?.baseView?.passwordTextField.text = "password"
+                    vc?.baseView?.emailTextField.text = "user@domain.com"
+                    vc?.baseView?.passwordTextField.text = "123456"
                     vc?.baseView?.eventHandler?.login(emailText: "admin@memo.com", passwordText: "password")
                     
                     guard let unwrappedVC = vc else {
@@ -114,15 +114,6 @@ class LoginQuickSpec: QuickSpec {
                     expect(unwrappedVC.isBeingPresented).to(equal(false))
                     expect(unwrappedVC.baseView?.emailErrorLabel.text).to(equal(""))
                 }
-    
-            }
-            
-            it("no internet connection") {
-
-            }
-            
-            it("slow internet connection") {
-                
             }
 
         }
