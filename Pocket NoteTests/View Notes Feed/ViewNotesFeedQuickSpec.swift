@@ -10,6 +10,7 @@ import Nimble
 
 import UIKit
 import RealmSwift
+import SlideMenuControllerSwift
 
 @testable import Memo
 
@@ -25,7 +26,21 @@ class ViewNotesFeedQuickSpec: QuickSpec, NoteQuickSpecProtocol {
         }
         
         beforeEach {
-            viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNNotesFeedViewController") as? PNNotesFeedViewController
+            let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
+                print("Notes Feed View Controller is nil")
+                return
+            }
+            
+            let sideMenuViewController = PNSideMenuViewController.init()
+            let slideMenuController = SlideMenuController(mainViewController: unwrappedMainViewController, leftMenuViewController: sideMenuViewController)
+            SlideMenuOptions.contentViewScale = 1
+            SlideMenuOptions.hideStatusBar = false
+            SlideMenuOptions.contentViewDrag = true
+            
+            viewController = unwrappedMainViewController.childViewControllers.first as? PNNotesFeedViewController
+            UIApplication.shared.keyWindow?.rootViewController = slideMenuController
+ 
             realm = PNSharedRealm.realmInstance()
         }
         
@@ -76,7 +91,7 @@ class ViewNotesFeedQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 }
                 
                 let oldCountAllNotes = unwrappedRealm.objects(Note.self).filter(NSPredicate.init(format: "notebook = %@", notebook)).count
-                
+ 
                 viewController?.loadViewProgrammatically()
                 viewController?.currentNotebook = notebook
                 

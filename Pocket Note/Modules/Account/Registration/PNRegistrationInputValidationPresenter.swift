@@ -19,6 +19,7 @@ struct PNRegistrationInputValidationPresenter: ProcedureObserver, VIPERPresenter
     }
     
     internal func did(cancel procedure: Procedure, withErrors: [Error]) {
+        
         for error in withErrors {
             let error = error as NSError
             

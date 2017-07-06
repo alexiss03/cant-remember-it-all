@@ -10,7 +10,6 @@ import UIKit
 import ProcedureKit
 import RealmSwift
 
-
 class PNRegistrationUserInteractor: Procedure, InputProcedure, VIPERInteractor {
     public static let name = "Login User"
     
