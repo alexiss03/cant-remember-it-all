@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Memo Docs
         </a>
-         (69% documented)
+         (61% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -129,12 +129,6 @@
                 <a class="nav-group-task-link" href="../Structs/PNDeleteNotebookInteractor.html">PNDeleteNotebookInteractor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PNLoginInteractor.html">PNLoginInteractor</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PNRegistrationInteractor.html">PNRegistrationInteractor</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/PNDeleteNoteInteractor.html">PNDeleteNoteInteractor</a>
               </li>
               <li class="nav-group-task">
@@ -147,15 +141,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/PNDeleteNotebookObserver.html">PNDeleteNotebookObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PNExistingUserErrorObserver.html">PNExistingUserErrorObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PNInvalidLoginErrorObserver.html">PNInvalidLoginErrorObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PNNoNetworkObserver.html">PNNoNetworkObserver</a>
               </li>
             </ul>
           </li>
@@ -178,13 +163,21 @@
                 <a class="nav-group-task-link" href="../Classes/PNFetchNoteOperation.html">PNFetchNoteOperation</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/PNLoginUserOperation.html">PNLoginUserOperation</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/PNLogoutUserOperation.html">PNLogoutUserOperation</a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/PNNetworkAvailabilityOperation.html">PNNetworkAvailabilityOperation</a>
+                <a class="nav-group-task-link" href="../Classes/PNLoginUserInteractor.html">PNLoginUserInteractor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PNNetworkAvailabilityInteractor.html">PNNetworkAvailabilityInteractor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PNNoNetworkPresenter.html">PNNoNetworkPresenter</a>
               </li>
             </ul>
           </li>
@@ -212,13 +205,10 @@
                 <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo23PNCurrentNotesContainer">PNCurrentNotesContainer</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo19PNLoginViewDelegate">PNLoginViewDelegate</a>
+                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo25PNLoginUserVIPERPresenter">PNLoginUserVIPERPresenter</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo23PNLoginViewEventHandler">PNLoginViewEventHandler</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo19PNLoginViewProtocol">PNLoginViewProtocol</a>
+                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo28PNLoginViewVIPEREventHandler">PNLoginViewVIPEREventHandler</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo25PNNotebookFilterContainer">PNNotebookFilterContainer</a>
@@ -233,16 +223,7 @@
                 <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo23PNNotesFeedViewDelegate">PNNotesFeedViewDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo26PNRegistrationEventHandler">PNRegistrationEventHandler</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo26PNRegistrationViewDelegate">PNRegistrationViewDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo26PNRegistrationViewProtocol">PNRegistrationViewProtocol</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo23PNShowNotesFeedProtocol">PNShowNotesFeedProtocol</a>
+                <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo31PNRegistrationVIPEREventHandler">PNRegistrationVIPEREventHandler</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other Protocols.html#/s:P4Memo22PNSideMenuViewDelegate">PNSideMenuViewDelegate</a>
@@ -278,7 +259,7 @@
             <h1>PNLoginViewController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PNLoginViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">PNNavigationBarProtocol</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PNLoginViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">PNNavigationBarProtocol</span><span class="p">,</span> <span class="kt">PNLoginVIPERRouter</span></code></pre>
 
                 </div>
               </div>
@@ -321,33 +302,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD15loginInteractorGSqPS_23PNLoginViewEventHandler__"></a>
-                    <a name="//apple_ref/swift/Property/loginInteractor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD15loginInteractorGSqPS_23PNLoginViewEventHandler__">loginInteractor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This instance property holds the login interactor that serves as an event handler.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="k">var</span> <span class="nv">loginInteractor</span><span class="p">:</span> <span class="kt"><a href="../Other Protocols.html#/s:P4Memo23PNLoginViewEventHandler">PNLoginViewEventHandler</a></span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:FC4Memo21PNLoginViewController11viewDidLoadFT_T_"></a>
                     <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC4Memo21PNLoginViewController11viewDidLoadFT_T_">viewDidLoad()</a>
@@ -366,33 +320,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">internal</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD21initializeInteractorsFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/initializeInteractors()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD21initializeInteractorsFT_T_">initializeInteractors()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This method is responsible for initializing interactors such as the <code><a href="../Structs/PNLoginInteractor.html">PNLoginInteractor</a></code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">initializeInteractors</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -426,64 +353,6 @@
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD16validEmailFormatFT6stringGSqSS__Sb"></a>
-                    <a name="//apple_ref/swift/Method/validEmailFormat(string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD16validEmailFormatFT6stringGSqSS__Sb">validEmailFormat(string:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This method that returns a boolean value for checking a string valid email format.</p>
-
-<ul>
-<li>Paramter string: String to be validated for email format</li>
-</ul>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">validEmailFormat</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD16showRegistrationFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/showRegistration()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo21PNLoginViewControllerP33_98384C814665E4C141856FF17159E0BD16showRegistrationFT_T_">showRegistration()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This method calls a perform segue to the Registration page.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">showRegistration</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -491,67 +360,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC4Memo21PNLoginViewController17loginButtonTappedFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/loginButtonTapped()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo21PNLoginViewController17loginButtonTappedFT_T_">loginButtonTapped()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This method is the protocol implementation of a delegate method that is called whenever the login button is tapped. This is responsible for checking the validity of the user input to the login form. If valid, this creates an instance to a chain of operations for login. Otherwise, this method outputs error messages to the respective views.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">internal</span> <span class="kd">func</span> <span class="nf">loginButtonTapped</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo21PNLoginViewController22signUpHereButtonTappedFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/signUpHereButtonTapped()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo21PNLoginViewController22signUpHereButtonTappedFT_T_">signUpHereButtonTapped()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This method is a protocol implementation of the delegate method that is called whenever the user taps the sign up button.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">internal</span> <span class="kd">func</span> <span class="nf">signUpHereButtonTapped</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC4Memo21PNLoginViewController13showNotesFeedFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/showNotesFeed()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Memo21PNLoginViewController13showNotesFeedFT_T_">showNotesFeed()</a>
+                    <a name="/s:FC4Memo21PNLoginViewController16routeToNotesFeedFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/routeToNotesFeed()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Memo21PNLoginViewController16routeToNotesFeedFT_T_">routeToNotesFeed()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -566,7 +377,34 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">internal</span> <span class="kd">func</span> <span class="nf">showNotesFeed</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">internal</span> <span class="kd">func</span> <span class="nf">routeToNotesFeed</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Memo21PNLoginViewController19routeToRegistrationFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/routeToRegistration()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Memo21PNLoginViewController19routeToRegistrationFT_T_">routeToRegistration()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method calls a perform segue to the Registration page.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">internal</span> <span class="kd">func</span> <span class="nf">routeToRegistration</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -581,7 +419,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Mary Alexis Solis</a>. All rights reserved. (Last updated: 2017-07-04)</p>
+      <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Mary Alexis Solis</a>. All rights reserved. (Last updated: 2017-07-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
