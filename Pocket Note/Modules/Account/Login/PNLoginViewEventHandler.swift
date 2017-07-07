@@ -9,29 +9,42 @@
 import UIKit
 
 /**
- This class is a delegate of the actions performed on `PNLoginView`.
+ The `PNLoginVIPEREventHandler` protocol subclasses the VIPEREventHandler. 
+ 
+ An object conforming to this protocol handles the event from the view.
  */
-protocol PNLoginViewVIPEREventHandler: class {
+protocol PNLoginVIPEREventHandler: VIPEREventHandler {
     func login(emailText: String?, passwordText: String?)
     func goToSignUp()
 }
 
-class PNLoginViewEventHandler: PNLoginViewVIPEREventHandler, VIPEREventHandler {
-    /**
-     This method is the protocol implementation of a delegate method that is called whenever the login button is tapped. This is responsible for checking the validity of the user input to the login form. If valid, this creates an instance to a chain of operations for login. Otherwise, this method outputs error messages to the respective views.
-     */
+class PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
+    /// A `PNLoginVIPERView` conforming object that represents the VIPER VIEW for Login module.
     var loginView: PNLoginVIPERView
+    /// A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.
     var loginRouter: PNLoginVIPERRouter
     
+    /**
+     Initializes the instance.
+     
+     - Parameter loginView: A `PNLoginVIPERView` conforming object that represents the VIPER VIEW for Login module.
+     - Parameter loginRouter: A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.
+    */
     required init(loginView: PNLoginVIPERView, loginRouter: PNLoginVIPERRouter) {
         self.loginView = loginView
         self.loginRouter = loginRouter
     }
     
-    final internal func login(emailText: String?, passwordText: String?) {
+    /**
+     Handles event when the user taps the login button.
+     
+     - Parameter emailText: An optional string value for the text input in the email text field by the user.
+     - Parameter passwordText: An optionla string value for the text input in the password text field by the user.
+     */
+    internal func login(emailText: String?, passwordText: String?) {
         // Login validation
-        let loginInputValidationInteractor = PNLoginInputValidationInteractor.init(emailText: emailText, passwordText: passwordText)
-        let loginInputValidationPresenter = PNLoginInputValidationPresenter.init(loginView: loginView)
+        let loginInputValidationInteractor = PNLoginInputInteractor.init(emailText: emailText, passwordText: passwordText)
+        let loginInputValidationPresenter = PNLoginInputPresenter.init(loginView: loginView)
         loginInputValidationInteractor.add(observer: loginInputValidationPresenter)
         
         // No Network

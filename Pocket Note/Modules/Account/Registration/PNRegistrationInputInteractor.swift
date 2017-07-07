@@ -1,5 +1,5 @@
 //
-//  PNRegistrationInputValidationInteractor.swift
+//  PNRegistrationInputInteractor.swift
 //  Memo
 //
 //  Created by Hanet on 7/5/17.
@@ -11,9 +11,9 @@ import ProcedureKit
 
 public let PNRegistrationInputValidationErrorDomain: String = "error.registration.input.validation"
 
-protocol PNRegistrationInputValidationVIPERInteractor: class { }
+protocol PNRegistrationInputVIPERInteractor: class { }
 
-final class PNRegistrationInputValidationInteractor: Procedure, OutputProcedure, PNRegistrationInputValidationVIPERInteractor, VIPERInteractor {
+final class PNRegistrationInputInteractor: Procedure, OutputProcedure, PNRegistrationInputVIPERInteractor, VIPERInteractor {
     /**
      This method that returns a boolean value for checking a string valid email format.
      

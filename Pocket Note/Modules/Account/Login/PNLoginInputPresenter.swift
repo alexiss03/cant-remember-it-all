@@ -1,5 +1,5 @@
 //
-//  PNLoginInputValidationPresenter.swift
+//  PNLoginInputPresenter.swift
 //  Memo
 //
 //  Created by Hanet on 7/5/17.
@@ -9,15 +9,29 @@
 import UIKit
 import ProcedureKit
 
+/**
+ The `PNLoginInputValidationVIPERPresenter` representing the VIPER PRESENTER for  `PNLoginInputInteractor` VIPER INTERACTOR.
+ */
 protocol PNLoginInputValidationVIPERPresenter { }
 
-struct PNLoginInputValidationPresenter: ProcedureObserver, PNLoginInputValidationVIPERPresenter, VIPERPresenter {
+/**
+ The `PNLoginInputPresenter` struct conforms to LOGIN INPUT VIPER PRESENTER.
+ */
+struct PNLoginInputPresenter: ProcedureObserver, PNLoginInputValidationVIPERPresenter, VIPERPresenter {
     var loginView: PNLoginVIPERView
     
+    /**
+     Initializes the instance.
+     
+     - Parameter loginView: A `PNLoginVIPERView` conforming objet for the VIPER VIEW
+     */
     init(loginView: PNLoginVIPERView) {
         self.loginView = loginView
     }
     
+    /**
+     Displays the errors in LOGIN VIPER VIEW.
+     */
     internal func did(cancel procedure: Procedure, withErrors: [Error]) {
         for error in withErrors {
             let error = error as NSError
@@ -41,6 +55,9 @@ struct PNLoginInputValidationPresenter: ProcedureObserver, PNLoginInputValidatio
         }
     }
     
+    /**
+     Resets the LOGIN VIPER VIEW if there is no input error.
+     */
     internal func did(finish procedure: Procedure, withErrors errors: [Error]) {
         loginView.setEmailErrorLabel(errorMessage: "")
         loginView.setPasswordErrorLabel(errorMessage: "")

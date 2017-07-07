@@ -1,5 +1,5 @@
 //
-//  PNRegistrationInputValidationPresenter.swift
+//  PNRegistrationInputPresenter.swift
 //  Memo
 //
 //  Created by Hanet on 7/5/17.
@@ -9,9 +9,9 @@
 import UIKit
 import ProcedureKit
 
-protocol PNRegistrationInputValidationVIPERPresenter { }
+protocol PNRegistrationInputVIPERPresenter: VIPERPresenter { }
 
-struct PNRegistrationInputValidationPresenter: ProcedureObserver, VIPERPresenter {
+struct PNRegistrationInputPresenter: ProcedureObserver, PNRegistrationInputVIPERPresenter {
     var registrationView: PNRegistrationVIPERView
     
     init(registrationView: PNRegistrationVIPERView) {

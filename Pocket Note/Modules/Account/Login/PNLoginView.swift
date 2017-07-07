@@ -7,8 +7,10 @@
 //
 
 import UIKit
-
-protocol PNLoginVIPERView {
+/**
+ The `PNLoginVIPERView` protocol is a VIEW VIPER protocol that allows modification in the view's UI.
+ */
+public protocol PNLoginVIPERView {
     func setEmailErrorLabel(errorMessage: String?)
     func setPasswordErrorLabel(errorMessage: String?)
 }
@@ -17,7 +19,7 @@ protocol PNLoginVIPERView {
  This class is the custom class for `PNLoginView.xib`. It references the outlets for that nib file.
  */
 class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
-    // This is a weak reference to the `PNLoginViewEventHandler`
+    // A `PNLoginViewEventHandler` conforming object that handles all the actions from this view.
     var eventHandler: PNLoginViewEventHandler?
     
     // This text field is where the user inputs the email to be logged in.
@@ -60,13 +62,24 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
         }
     }
     
+    /**
+     Sets the text of the email error label.
+     
+     - Parameter errorMessage: A string value that is displayed to the view.
+     */
     internal func setEmailErrorLabel(errorMessage: String?) {
         DispatchQueue.main.async {
             self.emailErrorLabel.text = errorMessage
         }
     }
     
-    func setPasswordErrorLabel(errorMessage: String?) {
+    
+    /**
+     Sets the text of the password error label.
+     
+     - Parameter errorMessage: A string value that is displayed to the view.
+     */
+    internal func setPasswordErrorLabel(errorMessage: String?) {
         DispatchQueue.main.async {
             self.passwordErrorLabel.text = errorMessage
         }

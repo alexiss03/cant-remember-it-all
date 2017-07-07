@@ -25,8 +25,8 @@ class PNRegistrationEventHandler: PNRegistrationVIPEREventHandler {
     
     func signUp(emailText: String?, passwordText: String?) {
         // User Input Validation
-        let registrationInputValidationInteractor = PNRegistrationInputValidationInteractor.init(emailText: emailText, passwordText: passwordText)
-        let registrationInputValidationPresenter = PNRegistrationInputValidationPresenter.init(registrationView: registrationView)
+        let registrationInputValidationInteractor = PNRegistrationInputInteractor.init(emailText: emailText, passwordText: passwordText)
+        let registrationInputValidationPresenter = PNRegistrationInputPresenter.init(registrationView: registrationView)
         registrationInputValidationInteractor.add(observer: registrationInputValidationPresenter)
 
         // No Network

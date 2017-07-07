@@ -11,14 +11,17 @@ import PSOperations
 import ProcedureKit
 
 /**
- The`PNInvalidLoginErrorObserver` struct observes the errors returned by login operations.
+ The `PNLoginUserVIPERPresenter` representing the VIPER PRESENTER for the `PNLoginUserInteractor` VIPER INTERACTOR.
  */
-
 protocol PNLoginUserVIPERPresenter: VIPERPresenter { }
 
+/**
+ The `PNLoginUserPresenter` struct conform to the LOGIN VIPER PRESENTER.
+ */
 struct PNLoginUserPresenter: VIPERPresenter, ProcedureObserver {
-    /// A `PNLoginViewProtocol` containing the emailErrorLabel where the error message can be displayed.
+    /// A `PNLoginVIPERView` conforming object for the VIPER VIEW.
     private var loginView: PNLoginVIPERView
+    /// A `PNLoginVIPERRouter` confroming object for the VIPER ROUTER.
     private var loginRouter: PNLoginVIPERRouter
     
     /**

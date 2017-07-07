@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Cuckoo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Nimble.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,7 +62,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>021DA628183613A2FD1EE49A610413B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0338CADF9705C87BDA4FCF27E1A3ED27</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>14BB3F3BC88E9AA7ED6B91A22DB1C510</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>29C9D98C9869BD4E7A9D01CAD9325E12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,37 +87,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3BC6404E727A24A59EA8538973168F04</key>
+		<key>3C127B91DEECF5B3B138562A047A9E28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>452252FF7E9C118742B34FC7708A631A</key>
+		<key>4D275F856FD25D5D35D348FFDD8B1242</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54B7FBD8239621021C0BCDCC45C3BB38</key>
+		<key>5D3CCBB11605A11B984552C6B8449CA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A480B96D05A6032D0C5D49F53729F38D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AA0A4FFC4CB7651C3B41A8B42D8B62BA</key>
+		<key>79CEE62989F95C8026D9434F2E165395</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B4F9C1AA3A1FCA2D9B50C84003F62949</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D2D88B54B8919EF22C53A97AAC213A7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

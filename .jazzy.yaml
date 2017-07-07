@@ -7,9 +7,9 @@ xcodebuild_arguments:
     - "Pocket Note.xcworkspace"
     - "-scheme"
     - "Memo"
-min_acl: "private"
+min_acl: private
 skip_undocumented: true
-theme: "fullwidth"
+theme: fullwidth
 clean: true
 
 custom_categories:

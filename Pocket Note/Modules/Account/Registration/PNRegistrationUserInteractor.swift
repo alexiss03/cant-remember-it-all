@@ -10,7 +10,9 @@ import UIKit
 import ProcedureKit
 import RealmSwift
 
-class PNRegistrationUserInteractor: Procedure, InputProcedure, VIPERInteractor {
+protocol PNRegistrationUserVIPERInteractor: VIPERInteractor { }
+
+class PNRegistrationUserInteractor: Procedure, InputProcedure, PNRegistrationUserVIPERInteractor {
     public static let name = "Login User"
     
     internal var input: Pending<(String, String)> = .pending

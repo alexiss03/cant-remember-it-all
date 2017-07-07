@@ -18,7 +18,6 @@ import Foundation
 @testable import Memo
 
 class LogoutQuickSpec: QuickSpec {
-    
     override func spec() {
         var vc: PNSideMenuViewController? = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNSideMenuViewController") as? PNSideMenuViewController
         var realm: Realm?

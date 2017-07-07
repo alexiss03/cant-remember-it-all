@@ -12,6 +12,9 @@ import Nimble
 import RealmSwift
 import UIKit
 
+import Cuckoo
+
+@testable import Cuckoo
 @testable import Memo
 
 class LoginQuickSpec: QuickSpec {
@@ -31,38 +34,26 @@ class LoginQuickSpec: QuickSpec {
                     realm?.deleteAll()
                 }
                 
-                let account = Account()
-                account.accountId = "ACCOUNT01"
-                account.username = "user@domain.com"
-                account.firstName = "This is a first name"
-                account.lastName = "This is a last name"
-                account.password = "123456"
-                
-                try unwrappedRealm.write {
-                    unwrappedRealm.add(account)
-                }
             } catch { }
             
         }
         
         describe("login") {
-            describe("email input") {
-                it("empty") {
+            it("email input") {
                     vc?.baseView?.eventHandler?.login(emailText: "", passwordText: "123456")
                     expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
+            }
+        
+            describe("invalid format") {
+                it("no @") {
+                    vc?.baseView?.eventHandler?.login(emailText: "aa", passwordText: "123456")
+                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
+                    
                 }
                 
-                describe("invalid format") {
-                    it("no @") {
-                        vc?.baseView?.eventHandler?.login(emailText: "aa", passwordText: "123456")
-                        expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
-                        
-                    }
-                    
-                    it("no .") {
-                        vc?.baseView?.eventHandler?.login(emailText: "a@a", passwordText: "123456")
-                        expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
-                    }
+                it("no .") {
+                    vc?.baseView?.eventHandler?.login(emailText: "a@a", passwordText: "123456")
+                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
                 }
                 
                 it("valid format") {
@@ -70,7 +61,7 @@ class LoginQuickSpec: QuickSpec {
                     expect(vc?.baseView?.emailErrorLabel.text).to(equal(""))
                 }
             }
-            
+        
             describe("password input") {
                 it("empty") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "")
@@ -99,7 +90,7 @@ class LoginQuickSpec: QuickSpec {
                     }
                 }
             }
-            
+        
             describe("account") {
                 it("valid email and password") {
                     vc?.baseView?.emailTextField.text = "user@domain.com"

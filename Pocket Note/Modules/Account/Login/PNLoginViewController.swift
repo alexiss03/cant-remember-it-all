@@ -18,10 +18,9 @@ protocol PNLoginVIPERRouter: VIPERRouter {
 }
 
 /**
- The `PNLoginViewController` is the view controller for the Login module.
+ The `PNLoginViewController` is the view controller for the Login module, and also the VIPER ROUTER for the Login module.
  */
 class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginVIPERRouter {
-
     var eventHandler: PNLoginViewEventHandler?
     
     /// This instance property is the superview of the current controller.
@@ -45,11 +44,11 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
         if let unwrappedBaseView = self.baseView {
             unwrappedBaseView.frame = self.view.frame
             self.view = unwrappedBaseView
-            assembleInteractors()
+            assembleEventHandlers()
         }
     }
     
-    private func assembleInteractors() {
+    private func assembleEventHandlers() {
         if let unwrappedBaseView = baseView {
             let loginEventHandler = PNLoginViewEventHandler.init(loginView: unwrappedBaseView, loginRouter: self)
             baseView?.eventHandler = loginEventHandler

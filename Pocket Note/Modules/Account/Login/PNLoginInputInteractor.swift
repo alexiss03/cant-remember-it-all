@@ -1,5 +1,5 @@
 //
-//  PNLoginInputValidationInteractor.swift
+//  PNLoginInputInteractor.swift
 //  Memo
 //
 //  Created by Hanet on 7/5/17.
@@ -9,11 +9,16 @@
 import UIKit
 import ProcedureKit
 
+/// The `PNLoginInputValidationErrorDomain` is the error domain for the input login from the user.
 public let PNLoginInputValidationErrorDomain: String = "error.login.input.validation"
 
-protocol PNLoginInputValidationVIPERInteractor: class { }
+/// The `PNLoginInputVIPERInteractor` represents the VIPER INTERACTOR.
+protocol PNLoginInputVIPERInteractor: VIPERInteractor { }
 
-final class PNLoginInputValidationInteractor: Procedure, OutputProcedure, PNLoginInputValidationVIPERInteractor, VIPERInteractor {
+/**
+ The `PNLoginInputInteractor` conforms to login VIPER INTERACTOR
+ */
+final class PNLoginInputInteractor: Procedure, OutputProcedure, PNLoginInputVIPERInteractor, VIPERInteractor {
     /**
      This method that returns a boolean value for checking a string valid email format.
      
@@ -28,10 +33,12 @@ final class PNLoginInputValidationInteractor: Procedure, OutputProcedure, PNLogi
         }
     }
     
+    /// An optional string value representing the username from the event handler.
     private var username: String?
+    /// A optional string value representing the password from the event handler.
     private var password: String?
     
-    private var isValidInput = true
+    /// A tuple (String, String) value that is the output of this interactor.
     internal var output: Pending<ProcedureResult<(String, String)>> = .pending
     
     required init(emailText username: String?, passwordText password: String?) {
@@ -64,6 +71,11 @@ final class PNLoginInputValidationInteractor: Procedure, OutputProcedure, PNLogi
         finish(withResult: .success((unwrappedUsername, unwrappedPassword)))
     }
     
+    /**
+     Validates the username format.
+     
+     - Returns: An error value if the username is invalid. If valid, returns nil.
+     */
     private func validaUserName() -> Error? {
         if username  == "" {
             let emptyEmailError = NSError.init(domain: PNLoginInputValidationErrorDomain, code: 0000, userInfo: nil)
@@ -75,6 +87,11 @@ final class PNLoginInputValidationInteractor: Procedure, OutputProcedure, PNLogi
         return nil
     }
     
+    /**
+     Validates the password format.
+     
+     - Returns: An error value if the password is invalid. If invalid, returns nil.
+     */
     private func validatePassword() -> Error? {
         if password == "" {
             let emptyPasswordError = NSError.init(domain: PNLoginInputValidationErrorDomain, code: 0002, userInfo: nil)
