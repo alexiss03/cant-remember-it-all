@@ -87,7 +87,7 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
                 try unwrappedRealm.write {
                     currentNotebook.name = firstTextField.text
                     
-                    if let currentNotebookName = currentNotebook.name, let menuViewController = self.presentationContext.parent as? SlideMenuController {
+                    if let currentNotebookName = currentNotebook.name, let menuViewController = self.presentationContext.navigationController?.parent as? SlideMenuController {
                         self.setMenu(title: currentNotebookName, target: self.currentNotebookHolder, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController: menuViewController)
                     }
                 }

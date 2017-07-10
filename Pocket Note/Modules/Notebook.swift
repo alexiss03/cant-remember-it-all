@@ -15,6 +15,7 @@ import RealmSwift
 class Notebook: Object {
     dynamic var name: String?
     dynamic var dateCreated: Date?
+    dynamic var dateUpdated: Date?
     dynamic var notebookId: String?
     let notes = LinkingObjects(fromType: Note.self, property: "notebook")
 

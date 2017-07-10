@@ -45,6 +45,7 @@ final class PNNotebooksListViewController: UIViewController {
             let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
             let tableViewCellNibId = "PNNotebooksListTableViewCell"
             unwrappedBaseView.tableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
+            unwrappedBaseView.tableView.register(UINib.init(nibName: "PNNotebookListViewHeaderCell", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "PNNotebookListViewHeaderCell")
             
             initInteractors()
         }
@@ -53,17 +54,16 @@ final class PNNotebooksListViewController: UIViewController {
     internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        addTableNotificationBlock()
     }
     
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        addTableNotificationBlock()
     }
     
     private func addTableNotificationBlock() {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
+        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
         
         if let unwrappedNotebookListTableView = baseView?.tableView {
             notificationToken = results.addNotificationBlock(unwrappedNotebookListTableView.applyChanges)
@@ -139,16 +139,16 @@ extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
 
 extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 50
     }
     
     internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 75
+        return 50
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
-        let notebookList = unwrappedRealm.objects(Notebook.self)
+        let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
         
         return notebookList.count
     }
@@ -156,7 +156,7 @@ extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSo
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell {
             guard let unwrappedRealm = PNSharedRealm.realmInstance() else {  return UITableViewCell.init() }
-            let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
+            let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
             cell.setContent(notebook: notebookList[indexPath.row])
             cell.selectionStyle = .none
             
@@ -166,17 +166,19 @@ extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSo
     }
     
     internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = Bundle.main.loadNibNamed("PNNotebookListViewHeaderCell", owner: self, options: nil)![0] as? UIView
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(allNotesTapped))
-        header?.addGestureRecognizer(tapRecognizer)
-        return header
+        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PNNotebookListViewHeaderCell") {
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(allNotesTapped))
+            header.addGestureRecognizer(tapRecognizer)
+            return header
+        }
+        return UIView.init()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
+        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
         
         notesFeedDelegate?.currentNotebook = results[indexPath.row]
         dismiss(animated: true, completion: nil)

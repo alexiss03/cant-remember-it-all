@@ -34,10 +34,8 @@ final class PNNotebooksListTableViewCell: UITableViewCell {
         notebookNameLabel.text = notebook.name
         if notebook.notes.count == 1 {
             noteBookItemCount.text = "\(notebook.notes.count) note"
-        } else if notebook.notes.count > 1 {
-            noteBookItemCount.text = "\(notebook.notes.count) notes"
         } else {
-            noteBookItemCount.text = ""
+            noteBookItemCount.text = "\(notebook.notes.count) notes"
         }
     }
     

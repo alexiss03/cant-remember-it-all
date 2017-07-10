@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,39 +17,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="0PQ-MW-Nzt" customClass="PNNotebooksListTableViewCell" customModule="Memo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="39" id="0PQ-MW-Nzt" customClass="PNNotebooksListTableViewCell" customModule="Memo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000001192092896" contentMode="center" tableViewCell="0PQ-MW-Nzt" id="hcU-Ii-IyD">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ds1-tO-VkH">
-                        <rect key="frame" x="13" y="72" width="349" height="1"/>
+                        <rect key="frame" x="13" y="47" width="349" height="1"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="oea-a2-beJ"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notebook Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZI-yQ-Omn">
-                        <rect key="frame" x="28" y="23" width="109" height="18"/>
+                        <rect key="frame" x="8" y="8" width="109" height="18"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-RY-QKp">
-                        <rect key="frame" x="28" y="41" width="39" height="14"/>
+                        <rect key="frame" x="8" y="26" width="39" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NZI-yQ-Omn" firstAttribute="leading" secondItem="hcU-Ii-IyD" secondAttribute="leadingMargin" constant="20" id="LfG-tY-o5W"/>
+                    <constraint firstItem="NZI-yQ-Omn" firstAttribute="leading" secondItem="hcU-Ii-IyD" secondAttribute="leadingMargin" id="LfG-tY-o5W"/>
                     <constraint firstItem="ds1-tO-VkH" firstAttribute="leading" secondItem="hcU-Ii-IyD" secondAttribute="leadingMargin" constant="5" id="TtX-y3-uOZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ds1-tO-VkH" secondAttribute="trailing" constant="5" id="c4N-rC-8bf"/>
                     <constraint firstItem="5s4-RY-QKp" firstAttribute="top" secondItem="NZI-yQ-Omn" secondAttribute="bottom" id="c6C-Yv-GIV"/>
-                    <constraint firstItem="NZI-yQ-Omn" firstAttribute="top" secondItem="hcU-Ii-IyD" secondAttribute="topMargin" constant="15" id="s1F-QS-q3e"/>
+                    <constraint firstItem="NZI-yQ-Omn" firstAttribute="top" secondItem="hcU-Ii-IyD" secondAttribute="topMargin" id="s1F-QS-q3e"/>
                     <constraint firstItem="5s4-RY-QKp" firstAttribute="leading" secondItem="NZI-yQ-Omn" secondAttribute="leading" id="uSO-n3-9Cx"/>
                     <constraint firstItem="ds1-tO-VkH" firstAttribute="centerX" secondItem="hcU-Ii-IyD" secondAttribute="centerX" id="zZX-FG-i6k"/>
                 </constraints>
@@ -60,7 +61,7 @@
                 <outlet property="noteBookItemCount" destination="5s4-RY-QKp" id="rNu-8J-CA2"/>
                 <outlet property="notebookNameLabel" destination="NZI-yQ-Omn" id="MOH-Bp-Y6d"/>
             </connections>
-            <point key="canvasLocation" x="163.5" y="-25.5"/>
+            <point key="canvasLocation" x="163.5" y="-14.5"/>
         </tableViewCell>
     </objects>
 </document>

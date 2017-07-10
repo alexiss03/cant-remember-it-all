@@ -39,6 +39,7 @@ final class PNCreateNotebookOperation: Procedure {
         notebook.notebookId = "\(Date().timeStampFromDate())"
         notebook.name = notebookName
         notebook.dateCreated = Date()
+        notebook.dateUpdated = Date()
         
         weak var weakSelf = self
         DispatchQueue.main.async {
