@@ -50,7 +50,7 @@ class RegistrationQuickSpec: QuickSpec {
             describe("email input") {
                 it("empty") {
                     vc?.baseView?.eventHandler?.signUp(emailText: "", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
+                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
                 }
 
                 describe("invalid format") {

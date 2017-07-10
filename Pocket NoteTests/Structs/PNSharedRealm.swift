@@ -12,14 +12,14 @@ import RealmSwift
  The `PNSharedRealm` struct contains the globally shared Realm options.
  */
 struct PNSharedRealm {
-    static let syncHost = "54.245.131.159"
-    static let authenticationServerURL = URL(string:"http://54.245.131.159:9080/")!
+    static let syncHost = "maryalexissolis.com"
+    static let authenticationServerURL = URL(string:"https://maryalexissolis.com:9443/")!
     
     static let syncRealmPath = "memo"
     static let defaultListName = "My Tasks"
     static let defaultListID = "80EB1620-165B-4600-A1B1-D97032FDD9A0"
     
-    static let syncServerURL = URL(string: "realm://\(syncHost):9080/~/\(syncRealmPath)")
+    static let syncServerURL = URL(string: "realms://\(syncHost):9443/~/\(syncRealmPath)")
     
     /**
      Configures the `Realm` instance to be used.

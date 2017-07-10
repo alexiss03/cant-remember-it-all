@@ -1,5 +1,4 @@
 PODS:
-  - Cuckoo (0.9.2)
   - Nimble (7.0.1)
   - ProcedureKit/All (4.1.0):
     - ProcedureKit/Cloud
@@ -23,7 +22,6 @@ PODS:
   - SwiftLint (0.17.0)
 
 DEPENDENCIES:
-  - Cuckoo
   - Nimble
   - ProcedureKit/All
   - PSOperations/Core (~> 3.0)
@@ -33,7 +31,6 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC CHECKSUMS:
-  Cuckoo: 66c84083a91164744f96817d3ed61c183021f754
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   ProcedureKit: 622afbb72878fdcb82cf7cff29cad5d5d762c746
   PSOperations: 6bc00aac233d9d19b60caced190e6cb8fbcb1dcd
@@ -43,6 +40,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
 
-PODFILE CHECKSUM: ef76dd02fbed182fc3bfc025c53ceceb68fa2832
+PODFILE CHECKSUM: 01ee67e11705a324ad7ed2efc5d359f5009dce8a
 
 COCOAPODS: 1.1.1

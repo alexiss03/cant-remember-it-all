@@ -84,7 +84,6 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Cuckoo/Cuckoo.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PSOperations/PSOperations.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ProcedureKit/ProcedureKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
@@ -92,7 +91,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Cuckoo/Cuckoo.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PSOperations/PSOperations.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ProcedureKit/ProcedureKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"

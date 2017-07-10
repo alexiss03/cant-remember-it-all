@@ -12,9 +12,6 @@ import Nimble
 import RealmSwift
 import UIKit
 
-import Cuckoo
-
-@testable import Cuckoo
 @testable import Memo
 
 class LoginQuickSpec: QuickSpec {
@@ -41,7 +38,7 @@ class LoginQuickSpec: QuickSpec {
         describe("login") {
             it("email input") {
                     vc?.baseView?.eventHandler?.login(emailText: "", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
+                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
             }
         
             describe("invalid format") {
@@ -65,17 +62,17 @@ class LoginQuickSpec: QuickSpec {
             describe("password input") {
                 it("empty") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
+                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
                 }
                 
                 it("too short min 6") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
+                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
                 }
                 
                 it("too long max 30") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234567890123456789012345678901")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
+                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
                 }
                 
                 describe("valid") {
@@ -93,9 +90,7 @@ class LoginQuickSpec: QuickSpec {
         
             describe("account") {
                 it("valid email and password") {
-                    vc?.baseView?.emailTextField.text = "user@domain.com"
-                    vc?.baseView?.passwordTextField.text = "123456"
-                    vc?.baseView?.eventHandler?.login(emailText: "admin@memo.com", passwordText: "password")
+                    vc?.baseView?.eventHandler?.login(emailText: "user@domain.com", passwordText: "123456")
                     
                     guard let unwrappedVC = vc else {
                         print("View Controller is nil")

@@ -10,14 +10,14 @@ import UIKit
 import ProcedureKit
 
 /**
- The `PNLoginInputValidationVIPERPresenter` representing the VIPER PRESENTER for  `PNLoginInputInteractor` VIPER INTERACTOR.
+ The `PNLoginInputVIPERPresenter` representing the VIPER PRESENTER for  `PNLoginInputInteractor` VIPER INTERACTOR.
  */
-protocol PNLoginInputValidationVIPERPresenter { }
+protocol PNLoginInputVIPERPresenter { }
 
 /**
  The `PNLoginInputPresenter` struct conforms to LOGIN INPUT VIPER PRESENTER.
  */
-struct PNLoginInputPresenter: ProcedureObserver, PNLoginInputValidationVIPERPresenter, VIPERPresenter {
+struct PNLoginInputPresenter: ProcedureObserver, PNLoginInputVIPERPresenter, VIPERPresenter {
     var loginView: PNLoginVIPERView
     
     /**

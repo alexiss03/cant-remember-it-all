@@ -55,7 +55,7 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
         // Login to Realm
         let loginUserInteractor = PNLoginUserInteractor.init()
         let loginUserPresenter = PNLoginUserPresenter.init(loginView: loginView, loginRouter: loginRouter)
-        loginInputValidationInteractor.add(observer: loginUserPresenter)
+        loginUserInteractor.add(observer: loginUserPresenter)
         loginUserInteractor.injectResult(from: loginInputValidationInteractor)
         
         PNOperationQueue.realmOperationQueue.add(operations: [networkAvailabilityInteractor, loginInputValidationInteractor, loginUserInteractor])
