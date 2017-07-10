@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Italic.ttf">
+            <string>Lato-Italic</string>
+        </array>
         <array key="Lato-Medium.ttf">
             <string>Lato-Medium</string>
         </array>
@@ -106,23 +109,11 @@
                         <constraint firstAttribute="height" constant="210" id="AOf-5c-YJL"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-iJ-xDE">
-                    <rect key="frame" x="112" y="447" width="152" height="27"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="No account? ">
-                                <attributes>
-                                    <color key="NSColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="13" name="Ubuntu-Light"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content="Sign up here">
-                                <attributes>
-                                    <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="13" name="Ubuntu-Light"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-iJ-xDE">
+                    <rect key="frame" x="109" y="447" width="158" height="30"/>
+                    <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="15"/>
+                    <state key="normal" title="No account? Sign up here">
+                        <color key="titleColor" red="0.031372549020000001" green="0.50588235290000005" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="signUpHereButtonTapped:" destination="z6b-FA-GGm" eventType="touchUpInside" id="WTm-Wd-rvy"/>
