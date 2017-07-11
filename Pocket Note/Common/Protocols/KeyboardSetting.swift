@@ -11,6 +11,7 @@ import UIKit
 protocol KeyboardSetting: class {
     func addDoneButton(view: UIView, inputView: UITextView)
     func addDoneButton(view: UIView, inputView: UITextField)
+    func addDoneButton(view: UIView, inputView: UISearchBar)
 }
 
 extension KeyboardSetting {

@@ -54,6 +54,7 @@
 		005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */; };
 		006091781EDD4A2C0058068B /* PNLoginUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006091771EDD4A2C0058068B /* PNLoginUserInteractor.swift */; };
 		00660CF91F149212008F4CF8 /* KeyboardSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CF81F149212008F4CF8 /* KeyboardSetting.swift */; };
+		00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */; };
 		00667E2E1EE7CCFE002504FF /* PNRegistrationEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00667E2D1EE7CCFE002504FF /* PNRegistrationEventHandler.swift */; };
 		007356CC1F0476DD0025E517 /* PNNoNetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007356CA1F0476DD0025E517 /* PNNoNetworkObserver.swift */; };
 		007356CD1F0476DD0025E517 /* PNLoginUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007356CB1F0476DD0025E517 /* PNLoginUserPresenter.swift */; };
@@ -195,6 +196,7 @@
 		005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNOperationQueue.swift; path = Structs/PNOperationQueue.swift; sourceTree = "<group>"; };
 		006091771EDD4A2C0058068B /* PNLoginUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserInteractor.swift; path = "Pocket NoteTests/Operations/PNLoginUserInteractor.swift"; sourceTree = SOURCE_ROOT; };
 		00660CF81F149212008F4CF8 /* KeyboardSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardSetting.swift; path = "Pocket Note/Common/Protocols/KeyboardSetting.swift"; sourceTree = SOURCE_ROOT; };
+		00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewKeyboardObserver.swift; path = "Pocket Note/Common/Observers/TextViewKeyboardObserver.swift"; sourceTree = SOURCE_ROOT; };
 		00667E2D1EE7CCFE002504FF /* PNRegistrationEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationEventHandler.swift; path = Modules/Account/Registration/PNRegistrationEventHandler.swift; sourceTree = "<group>"; };
 		007356CA1F0476DD0025E517 /* PNNoNetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNoNetworkObserver.swift; path = Modules/Account/Login/PNNoNetworkObserver.swift; sourceTree = "<group>"; };
 		007356CB1F0476DD0025E517 /* PNLoginUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserPresenter.swift; path = Modules/Account/Login/PNLoginUserPresenter.swift; sourceTree = "<group>"; };
@@ -618,6 +620,14 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		00660CFB1F14978E008F4CF8 /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */,
+			);
+			name = Observers;
+			sourceTree = "<group>";
+		};
 		007356CE1F0476EF0025E517 /* Logout */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +647,7 @@
 		007356D01F0477720025E517 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				00660CFB1F14978E008F4CF8 /* Observers */,
 				00660CF71F1491DA008F4CF8 /* Protocols */,
 				0055CA141F0C649700C3E208 /* VIPER  */,
 				0054AC3D1ECA7D6700F5BE96 /* Network */,
@@ -1521,6 +1532,7 @@
 				002155181EF79BAD00DF1F3D /* PNCreateNoteOperation.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
 				00499DC41F02861600E8E5F7 /* PNNotesEditNotebookInteractor.swift in Sources */,
+				00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */,
 				000BBC961EFCB1C7008713A2 /* PNCreateNotebookInteractor.swift in Sources */,
 				0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */,
 				0021551B1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift in Sources */,

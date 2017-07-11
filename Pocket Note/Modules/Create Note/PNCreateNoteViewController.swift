@@ -36,6 +36,7 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
     internal var notebook: Notebook?
     /// A `PNCreateNoteInteractor` instance that creates the new `Note` instance and stores it to the current `Realm`.
     private var createNoteInteractor: PNCreateNoteInteractor?
+    private var textViewKeyboardObserver: TextViewKeyboardObserver?
     
     /**
      Overrides the superclass' implementation.
@@ -61,6 +62,7 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         baseView?.setContent(note: note)
+        textViewKeyboardObserver?.startObserving()
     }
     
     /**
@@ -99,5 +101,8 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
         guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
         
         createNoteInteractor = PNCreateNoteInteractor.init(realm: unwrappedRealm)
+        if let unwrappedContentView = baseView?.contentTextView {
+            textViewKeyboardObserver = TextViewKeyboardObserver.init(notesTextView: unwrappedContentView)
+        }
     }
 }
