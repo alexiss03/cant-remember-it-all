@@ -18,7 +18,7 @@ protocol ContentViewContainer {
 /**
  The `PNCreateNoteView` class is a custom `UIView` for the Create Note and Update Note modules.
  */
-class PNCreateNoteView: UIView, ContentViewContainer {
+class PNCreateNoteView: UIView, ContentViewContainer, KeyboardSetting {
     /// A `UITextView` that contains the content of the note to be updated. This is where the user edits the content of the note.
     @IBOutlet weak var contentTextView: UITextView!
     
@@ -29,5 +29,6 @@ class PNCreateNoteView: UIView, ContentViewContainer {
      */
     public func setContent(note: Note?) {
         contentTextView.text = note?.body
+        addDoneButton(view: self, inputView: contentTextView)
     }
 }

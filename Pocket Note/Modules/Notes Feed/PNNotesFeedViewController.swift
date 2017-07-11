@@ -98,6 +98,7 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
             
             unwrappedBaseView.searchBar.delegate = self
             unwrappedBaseView.delegate = self
+            unwrappedBaseView.setContent()
             
             if let slideController = self.parent {
                 setMenu(title: "MEMO", target: self, action: #selector(self.openNotebooks), viewController: self, slideController: slideController)

@@ -53,6 +53,7 @@
 		005BE7331EFCDB09006BEE14 /* CreateNotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BE7311EFCDB05006BEE14 /* CreateNotebookQuickSpec.swift */; };
 		005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */; };
 		006091781EDD4A2C0058068B /* PNLoginUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006091771EDD4A2C0058068B /* PNLoginUserInteractor.swift */; };
+		00660CF91F149212008F4CF8 /* KeyboardSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CF81F149212008F4CF8 /* KeyboardSetting.swift */; };
 		00667E2E1EE7CCFE002504FF /* PNRegistrationEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00667E2D1EE7CCFE002504FF /* PNRegistrationEventHandler.swift */; };
 		007356CC1F0476DD0025E517 /* PNNoNetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007356CA1F0476DD0025E517 /* PNNoNetworkObserver.swift */; };
 		007356CD1F0476DD0025E517 /* PNLoginUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007356CB1F0476DD0025E517 /* PNLoginUserPresenter.swift */; };
@@ -193,6 +194,7 @@
 		005BE7311EFCDB05006BEE14 /* CreateNotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNotebookQuickSpec.swift; path = "Create Notebook/CreateNotebookQuickSpec.swift"; sourceTree = "<group>"; };
 		005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNOperationQueue.swift; path = Structs/PNOperationQueue.swift; sourceTree = "<group>"; };
 		006091771EDD4A2C0058068B /* PNLoginUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserInteractor.swift; path = "Pocket NoteTests/Operations/PNLoginUserInteractor.swift"; sourceTree = SOURCE_ROOT; };
+		00660CF81F149212008F4CF8 /* KeyboardSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardSetting.swift; path = "Pocket Note/Common/Protocols/KeyboardSetting.swift"; sourceTree = SOURCE_ROOT; };
 		00667E2D1EE7CCFE002504FF /* PNRegistrationEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationEventHandler.swift; path = Modules/Account/Registration/PNRegistrationEventHandler.swift; sourceTree = "<group>"; };
 		007356CA1F0476DD0025E517 /* PNNoNetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNoNetworkObserver.swift; path = Modules/Account/Login/PNNoNetworkObserver.swift; sourceTree = "<group>"; };
 		007356CB1F0476DD0025E517 /* PNLoginUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserPresenter.swift; path = Modules/Account/Login/PNLoginUserPresenter.swift; sourceTree = "<group>"; };
@@ -585,7 +587,7 @@
 			name = Presenters;
 			sourceTree = "<group>";
 		};
-		0055CA141F0C649700C3E208 /* VIPER Protocols */ = {
+		0055CA141F0C649700C3E208 /* VIPER  */ = {
 			isa = PBXGroup;
 			children = (
 				0055CA151F0C64D300C3E208 /* VIPERView.swift */,
@@ -594,7 +596,7 @@
 				0055CA1B1F0C655E00C3E208 /* VIPERPresenter.swift */,
 				0055CA1D1F0C657B00C3E208 /* VIPERRouter.swift */,
 			);
-			name = "VIPER Protocols";
+			name = "VIPER ";
 			sourceTree = "<group>";
 		};
 		005BE7301EFCD74D006BEE14 /* Notebooks */ = {
@@ -606,6 +608,14 @@
 				0040FB1D1F09C6F100E7561C /* ViewNotebookListQuickSpec.swift */,
 			);
 			name = Notebooks;
+			sourceTree = "<group>";
+		};
+		00660CF71F1491DA008F4CF8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				00660CF81F149212008F4CF8 /* KeyboardSetting.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		007356CE1F0476EF0025E517 /* Logout */ = {
@@ -627,7 +637,8 @@
 		007356D01F0477720025E517 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0055CA141F0C649700C3E208 /* VIPER Protocols */,
+				00660CF71F1491DA008F4CF8 /* Protocols */,
+				0055CA141F0C649700C3E208 /* VIPER  */,
 				0054AC3D1ECA7D6700F5BE96 /* Network */,
 			);
 			name = Common;
@@ -1531,6 +1542,7 @@
 				000BBC931EFCB067008713A2 /* PNCreateNotebookOperation.swift in Sources */,
 				009E5AA21EB18E40001F4889 /* PNPasscodeView.swift in Sources */,
 				00A66CD91E8A03B200924C34 /* PNNotesFeedTableViewCell.swift in Sources */,
+				00660CF91F149212008F4CF8 /* KeyboardSetting.swift in Sources */,
 				00D5F2B91EF2676C00CBF81B /* PNMoveNoteViewController.swift in Sources */,
 				0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */,
 				00513C7C1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift in Sources */,
