@@ -6,7 +6,7 @@ This is a personal project with the primary purpose to play around different tec
 Test-Driven Development
 -----------------------
 
-I implemented this app with this mantra on my mind. I used **Quick** as the BDD(*Behavior-Driven Development*) framework, and `Nimble` for the matcher. 
+I implemented this app with this mantra on my mind. I used **Quick** as the BDD(*Behavior-Driven Development*) framework, and **Nimble** for the matcher. 
 
 
 Linting
@@ -18,7 +18,7 @@ To follow a specific style guide, I used the linter **SwiftLint** while disablin
 Local Database and Remote Integration
 -------------------------------------
 
-To speed up the development, I tried this service instead of the dichotomous traditional CoreData and back-end web service. So far, it has catered all the requirements I needed for the database and remote integration.
+To speed up the development, I tried **Realm** service instead of the dichotomous traditional CoreData and back-end web service. So far, it has catered all the requirements I needed for the database and remote integration.
 
 
 Documentation
