@@ -99,7 +99,7 @@ class PNMoveNoteViewController: UIViewController {
 
 extension PNMoveNoteViewController: UITableViewDelegate, UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 50
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
