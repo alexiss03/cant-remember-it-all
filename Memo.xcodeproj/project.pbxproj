@@ -18,9 +18,8 @@
 		001CEF4A1F0243E800E500BF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CEF491F0243E800E500BF /* Date.swift */; };
 		001CEF4C1F02442F00E500BF /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CEF4B1F02442F00E500BF /* UITableView.swift */; };
 		001CEF4F1F0246E700E500BF /* NoteFeedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CEF4E1F0246E700E500BF /* NoteFeedMenu.swift */; };
-		002155181EF79BAD00DF1F3D /* PNCreateNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002155171EF79BAD00DF1F3D /* PNCreateNoteOperation.swift */; };
-		0021551B1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021551A1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift */; };
-		0021551E1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021551D1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift */; };
+		002155181EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */; };
+		0021551E1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */; };
 		00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE31E9B91F000DEBBF5 /* Note.swift */; };
 		00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE51E9B929800DEBBF5 /* Notebook.swift */; };
 		0033085A1F0A01E800FC10FE /* MoveNoteQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003308581F0A01E300FC10FE /* MoveNoteQuickSpec.swift */; };
@@ -52,6 +51,7 @@
 		0055CA221F0C6E1400C3E208 /* PNLoginInputPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CA211F0C6E1400C3E208 /* PNLoginInputPresenter.swift */; };
 		005BE7331EFCDB09006BEE14 /* CreateNotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005BE7311EFCDB05006BEE14 /* CreateNotebookQuickSpec.swift */; };
 		005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */; };
+		00606B171F16F3080055BBAE /* PNCreateNoteEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00606B161F16F3080055BBAE /* PNCreateNoteEventHandler.swift */; };
 		006091781EDD4A2C0058068B /* PNLoginUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006091771EDD4A2C0058068B /* PNLoginUserInteractor.swift */; };
 		00660CF91F149212008F4CF8 /* KeyboardSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CF81F149212008F4CF8 /* KeyboardSetting.swift */; };
 		00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */; };
@@ -159,9 +159,8 @@
 		001CEF491F0243E800E500BF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = "Helper Protocols/Date.swift"; sourceTree = "<group>"; };
 		001CEF4B1F02442F00E500BF /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = "Helper Protocols/UITableView.swift"; sourceTree = "<group>"; };
 		001CEF4E1F0246E700E500BF /* NoteFeedMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteFeedMenu.swift; path = "Modules/Notes Feed/NoteFeedMenu.swift"; sourceTree = "<group>"; };
-		002155171EF79BAD00DF1F3D /* PNCreateNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteOperation.swift; path = "Modules/Create Note/PNCreateNoteOperation.swift"; sourceTree = "<group>"; };
-		0021551A1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteInteractor.swift; path = "Modules/Create Note/PNCreateNoteInteractor.swift"; sourceTree = "<group>"; };
-		0021551D1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNewNoteContentCondition.swift; path = "Modules/Create Note/PNNewNoteContentCondition.swift"; sourceTree = "<group>"; };
+		002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteInteractor.swift; path = "Modules/Create Note/PNCreateNoteInteractor.swift"; sourceTree = "<group>"; };
+		0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteInputInteractor.swift; path = "Modules/Create Note/PNCreateNoteInputInteractor.swift"; sourceTree = "<group>"; };
 		00231BE31E9B91F000DEBBF5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
 		00231BE51E9B929800DEBBF5 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notebook.swift; path = Modules/Notebook.swift; sourceTree = "<group>"; };
 		00303F19CEAFFF9B741E3E51 /* Pods-MemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemoTests/Pods-MemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		0055CA211F0C6E1400C3E208 /* PNLoginInputPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginInputPresenter.swift; path = Modules/Account/Login/PNLoginInputPresenter.swift; sourceTree = "<group>"; };
 		005BE7311EFCDB05006BEE14 /* CreateNotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNotebookQuickSpec.swift; path = "Create Notebook/CreateNotebookQuickSpec.swift"; sourceTree = "<group>"; };
 		005E7DFD1EE0EDA5009C564A /* PNOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNOperationQueue.swift; path = Structs/PNOperationQueue.swift; sourceTree = "<group>"; };
+		00606B161F16F3080055BBAE /* PNCreateNoteEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteEventHandler.swift; path = "Modules/Create Note/PNCreateNoteEventHandler.swift"; sourceTree = "<group>"; };
 		006091771EDD4A2C0058068B /* PNLoginUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserInteractor.swift; path = "Pocket NoteTests/Operations/PNLoginUserInteractor.swift"; sourceTree = SOURCE_ROOT; };
 		00660CF81F149212008F4CF8 /* KeyboardSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardSetting.swift; path = "Pocket Note/Common/Protocols/KeyboardSetting.swift"; sourceTree = SOURCE_ROOT; };
 		00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewKeyboardObserver.swift; path = "Pocket Note/Common/Observers/TextViewKeyboardObserver.swift"; sourceTree = SOURCE_ROOT; };
@@ -405,20 +405,20 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		002155191EF79DD500DF1F3D /* Operations */ = {
+		002155191EF79DD500DF1F3D /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				002155171EF79BAD00DF1F3D /* PNCreateNoteOperation.swift */,
+				002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */,
+				0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */,
 			);
-			name = Operations;
+			name = Interactors;
 			sourceTree = "<group>";
 		};
-		0021551C1EF7AE7100DF1F3D /* Conditions */ = {
+		0021551C1EF7AE7100DF1F3D /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				0021551D1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift */,
 			);
-			name = Conditions;
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 		0021551F1EF7B9BA00DF1F3D /* Notes */ = {
@@ -572,14 +572,6 @@
 			path = "../Pocket Note";
 			sourceTree = "<group>";
 		};
-		0054F8681EF7763200202E3B /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				0021551A1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift */,
-			);
-			name = Interactors;
-			sourceTree = "<group>";
-		};
 		0055CA131F0C5DE000C3E208 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +602,22 @@
 				0040FB1D1F09C6F100E7561C /* ViewNotebookListQuickSpec.swift */,
 			);
 			name = Notebooks;
+			sourceTree = "<group>";
+		};
+		00606B141F16F2B80055BBAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		00606B151F16F2E90055BBAE /* Event Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				00606B161F16F3080055BBAE /* PNCreateNoteEventHandler.swift */,
+			);
+			name = "Event Handlers";
 			sourceTree = "<group>";
 		};
 		00660CF71F1491DA008F4CF8 /* Protocols */ = {
@@ -779,12 +787,12 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		009E5AA51EB18E83001F4889 /* View Controllers */ = {
+		009E5AA51EB18E83001F4889 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
 				00AE74AE1E8CECC00081C35C /* PNCreateNoteViewController.swift */,
 			);
-			name = "View Controllers";
+			name = Routers;
 			sourceTree = "<group>";
 		};
 		009E5AA61EB1A5E2001F4889 /* Protocols */ = {
@@ -956,12 +964,10 @@
 		00AE74711E8CDE200081C35C /* Edit/Create Note */ = {
 			isa = PBXGroup;
 			children = (
-				002155191EF79DD500DF1F3D /* Operations */,
-				0021551C1EF7AE7100DF1F3D /* Conditions */,
-				0054F8681EF7763200202E3B /* Interactors */,
-				009E5AA51EB18E83001F4889 /* View Controllers */,
-				00F611E31EB05FD4000160BA /* Nibs */,
 				00AE74731E8CE2C80081C35C /* Views */,
+				002155191EF79DD500DF1F3D /* Interactors */,
+				0021551C1EF7AE7100DF1F3D /* Presenters */,
+				009E5AA51EB18E83001F4889 /* Routers */,
 			);
 			name = "Edit/Create Note";
 			sourceTree = "<group>";
@@ -979,7 +985,9 @@
 		00AE74731E8CE2C80081C35C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00AE74B01E8CECE90081C35C /* PNCreateNoteView.swift */,
+				00606B151F16F2E90055BBAE /* Event Handlers */,
+				00606B141F16F2B80055BBAE /* Views */,
+				00F611E31EB05FD4000160BA /* Nibs */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1514,7 +1522,7 @@
 				0005DC0F1F03FAE500CE532D /* PNMoveNoteInteractor.swift in Sources */,
 				000330C51EE816F9000A3830 /* PNLoginViewEventHandler.swift in Sources */,
 				0055CA221F0C6E1400C3E208 /* PNLoginInputPresenter.swift in Sources */,
-				0021551E1EF7AFB900DF1F3D /* PNNewNoteContentCondition.swift in Sources */,
+				0021551E1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift in Sources */,
 				00513C7E1EF0E1D800E658E2 /* PNConstants.swift in Sources */,
 				0055CA161F0C64D300C3E208 /* VIPERView.swift in Sources */,
 				009E5AA81EB1A66F001F4889 /* PNNavigationBarProtocol.swift in Sources */,
@@ -1527,15 +1535,15 @@
 				001CEF451F023B2300E500BF /* PNNotesTableViewInteractor.swift in Sources */,
 				001CEF4C1F02442F00E500BF /* UITableView.swift in Sources */,
 				006091781EDD4A2C0058068B /* PNLoginUserInteractor.swift in Sources */,
+				00606B171F16F3080055BBAE /* PNCreateNoteEventHandler.swift in Sources */,
 				009C037F1EDEA42300A3FE56 /* PNLogoutUserOperation.swift in Sources */,
 				001CEF4F1F0246E700E500BF /* NoteFeedMenu.swift in Sources */,
-				002155181EF79BAD00DF1F3D /* PNCreateNoteOperation.swift in Sources */,
+				002155181EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
 				00499DC41F02861600E8E5F7 /* PNNotesEditNotebookInteractor.swift in Sources */,
 				00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */,
 				000BBC961EFCB1C7008713A2 /* PNCreateNotebookInteractor.swift in Sources */,
 				0036F58E1EB81E0C00D19F75 /* PNNotebooksListView.swift in Sources */,
-				0021551B1EF79F8300DF1F3D /* PNCreateNoteInteractor.swift in Sources */,
 				00005B651EFA5A7500B9EAD2 /* PNFetchNoteOperation.swift in Sources */,
 				007DEC851EFA3A0300F2FC9A /* PNDeleteNoteInteractor.swift in Sources */,
 				0037DD061F0CC8610035ACED /* PNRegistrationInputInteractor.swift in Sources */,

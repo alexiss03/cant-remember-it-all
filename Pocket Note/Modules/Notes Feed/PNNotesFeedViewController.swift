@@ -201,10 +201,21 @@ extension PNNotesFeedViewController: UISearchBarDelegate {
     public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if baseView?.searchBar == searchBar {
             self.searchText = searchBar.text
+            searchBar.showsCancelButton = true
+        }
+    }
+    
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if baseView?.searchBar == searchBar {
+            searchBar.showsCancelButton = false
         }
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
 }

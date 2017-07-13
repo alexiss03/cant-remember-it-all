@@ -6,4 +6,4 @@
 //  Copyright © 2017 Mary Alexis Solis. All rights reserved.
 //
 
-protocol VIPEREventHandler: class { }
+protocol VIPEREventHandler { }

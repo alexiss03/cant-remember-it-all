@@ -18,7 +18,7 @@ protocol PNNotesFeedViewDelegate: class {
 /**
  The `PNNotesFeedView` class is custom view for the Notes List module.
  */
-class PNNotesFeedView: UIView, KeyboardSetting {
+class PNNotesFeedView: UIView {
     /// A `PNNotesFeedViewDelegate` instance representing the object receiver of the delegate methods.
     internal weak var delegate: PNNotesFeedViewDelegate?
 
@@ -33,8 +33,6 @@ class PNNotesFeedView: UIView, KeyboardSetting {
         delegate?.addNoteButtonTapped()
     }
     
-    func setContent() {
-        addDoneButton(view: self, inputView: searchBar)
-    }
+    func setContent() { }
 
 }

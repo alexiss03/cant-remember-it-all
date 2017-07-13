@@ -8,20 +8,14 @@
 
 import UIKit
 import RealmSwift
+import ProcedureKit
 
-protocol NoteContainer {
-    var note: Note? {get set}
-}
+protocol PNCreateNoteRouter: VIPERRouter { }
 
-protocol NotebookContainer {
-    var notebook: Notebook? {get set}
-}
-
-/**
+/** 
  The class `PNCreateNoteViewController` is the custom view controller of the Create Note and Update Note modules
  */
-class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookContainer {
-   
+class PNCreateNoteViewController: UIViewController {
     /// A `PNCreateNoteView` that is the superview of a `PNCreateNoteViewController`.
     internal let baseView: PNCreateNoteView? = {
         if let view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView {
@@ -36,7 +30,7 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
     internal var notebook: Notebook?
     /// A `PNCreateNoteInteractor` instance that creates the new `Note` instance and stores it to the current `Realm`.
     private var createNoteInteractor: PNCreateNoteInteractor?
-    private var textViewKeyboardObserver: TextViewKeyboardObserver?
+    private var eventHandler: PNCreateNoteVIPEREventHandler?
     
     /**
      Overrides the superclass' implementation.
@@ -51,7 +45,13 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
             view = unwrappedBaseView
         }
         
-        initInteractors()
+        initEventHandlers()
+    }
+    
+    private func initEventHandlers() {
+        if let unwrappedRealm = PNSharedRealm.configureDefaultRealm() {
+            eventHandler = PNCreateNoteEventHandler.init(note: note, notebook: notebook, realm: unwrappedRealm)
+        }
     }
     
     /**
@@ -61,21 +61,21 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
      */
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        baseView?.setContent(note: note)
-        textViewKeyboardObserver?.startObserving()
+        customizeView()
     }
     
-    /**
-     Overrides the superclass' implementation.
-     
-     Additionally, this sets the contentTextView to be the first responder of the baseView.
-     
-     - Parameter animated: A `Boolean` value indicating if the view  is to be animated after it appeared.
-     */
-    internal override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    private func customizeView() {
+        guard let unwrappedBaseView = baseView else {
+            print("Base view is nil")
+            return
+        }
+        
+        if let contentText = note?.body {
+            unwrappedBaseView.setContentTextView(content: contentText)
+        }
+        
         if note == nil {
-            baseView?.contentTextView.becomeFirstResponder()
+            unwrappedBaseView.setContentTextViewAsFirstResponder()
         }
     }
     
@@ -86,23 +86,12 @@ class PNCreateNoteViewController: UIViewController, NoteContainer, NotebookConta
      */
     internal override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        guard let contentTextView = baseView?.contentTextView.text else {
-            print("Contet text view is nil")
-            return
-        }
-        
-        createNoteInteractor?.createNote(content: contentTextView, note: note, notebook: notebook)
+        eventHandler?.saveNote(content: baseView?.getContentText())
     }
-    
-    /**
-     Initializes a `PNCreateNoteInteractor` instance.
-     */
-    private func initInteractors() {
-        guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else { return }
-        
-        createNoteInteractor = PNCreateNoteInteractor.init(realm: unwrappedRealm)
-        if let unwrappedContentView = baseView?.contentTextView {
-            textViewKeyboardObserver = TextViewKeyboardObserver.init(notesTextView: unwrappedContentView)
-        }
+}
+
+extension PNCreateNoteViewController: VIPERRouter {
+    func routeAlertController(alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
     }
 }

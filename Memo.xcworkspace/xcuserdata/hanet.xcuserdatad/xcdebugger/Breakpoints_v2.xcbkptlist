@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Create Note/PNCreateNoteViewController.swift"
-            timestampString = "519613025.401853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "initInteractors()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pocket Note/Modules/Create Note/PNCreateNoteOperation.swift"
             timestampString = "519613187.89643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "updateNote(text:note:realm:)"
+            landmarkName = "execute()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -79,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "createNewNoteInstance(text:realm:)"
+            landmarkName = "init(note:notebook:text:realm:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

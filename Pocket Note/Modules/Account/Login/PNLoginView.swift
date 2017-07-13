@@ -10,7 +10,7 @@ import UIKit
 /**
  The `PNLoginVIPERView` protocol is a VIEW VIPER protocol that allows modification in the view's UI.
  */
-public protocol PNLoginVIPERView {
+protocol PNLoginVIPERView: VIPERView {
     func setEmailErrorLabel(errorMessage: String?)
     func setPasswordErrorLabel(errorMessage: String?)
 }
@@ -18,26 +18,26 @@ public protocol PNLoginVIPERView {
 /**
  This class is the custom class for `PNLoginView.xib`. It references the outlets for that nib file.
  */
-class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
+class PNLoginView: UIView, PNLoginVIPERView {
     // A `PNLoginViewEventHandler` conforming object that handles all the actions from this view.
     var eventHandler: PNLoginViewEventHandler?
     
     // This text field is where the user inputs the email to be logged in.
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     // This text field is where the user input the password of the account to be logged in.
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     // This label shows the email-related errors
-    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet private weak var emailErrorLabel: UILabel!
     // This label shows password-related errors
-    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet private weak var passwordErrorLabel: UILabel!
 
     /**
      This method is the action receiver of the touch inside the log in button.
      
      - Parameter sender: This is the sender of the action, which is the log in button.
      */
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    @IBAction private func loginButtonTapped(_ sender: Any) {
         eventHandler?.login(emailText: emailTextField.text, passwordText: passwordTextField.text)
     }
 
@@ -46,14 +46,14 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
      
      - Parameter sender: Sender of the action, which is the sign up button
      */
-    @IBAction func signUpHereButtonTapped(_ sender: Any) {
+    @IBAction private func signUpHereButtonTapped(_ sender: Any) {
         eventHandler?.goToSignUp()
     }
     
     /**
      This method is responsible for resetting the view's input values, for the purpose of reusing.
      */
-    public func prepareForReuse() {
+    internal func prepareForReuse() {
         DispatchQueue.main.async {
             self.emailTextField.text = ""
             self.passwordTextField.text = ""
@@ -72,8 +72,7 @@ class PNLoginView: UIView, PNLoginVIPERView, VIPERView {
             self.emailErrorLabel.text = errorMessage
         }
     }
-    
-    
+
     /**
      Sets the text of the password error label.
      

@@ -18,7 +18,7 @@ protocol PNLoginVIPEREventHandler: VIPEREventHandler {
     func goToSignUp()
 }
 
-class PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
+struct PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
     /// A `PNLoginVIPERView` conforming object that represents the VIPER VIEW for Login module.
     var loginView: PNLoginVIPERView
     /// A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.
@@ -30,7 +30,7 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
      - Parameter loginView: A `PNLoginVIPERView` conforming object that represents the VIPER VIEW for Login module.
      - Parameter loginRouter: A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.
     */
-    required init(loginView: PNLoginVIPERView, loginRouter: PNLoginVIPERRouter) {
+    init(loginView: PNLoginVIPERView, loginRouter: PNLoginVIPERRouter) {
         self.loginView = loginView
         self.loginRouter = loginRouter
     }
@@ -64,7 +64,7 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
     /**
      This method is a protocol implementation of the delegate method that is called whenever the user taps the sign up button.
      */
-    final internal func goToSignUp() {
+    internal func goToSignUp() {
         self.loginRouter.routeToRegistration()
     }
 }
