@@ -33,13 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "pocket@2x.png",
+      "filename" : "pen.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "pocket@3x.png",
+      "filename" : "pen@2x-1.png",
       "scale" : "3x"
     },
     {

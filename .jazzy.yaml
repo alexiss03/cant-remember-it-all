@@ -4,7 +4,7 @@ github_url: https://github.com/alexiss03/cant-remember-it-all.git
 
 xcodebuild_arguments: 
     - "-workspace"
-    - "Pocket Note.xcworkspace"
+    - "Memo.xcworkspace"
     - "-scheme"
     - "Memo"
 min_acl: private

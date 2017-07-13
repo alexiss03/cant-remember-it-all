@@ -17,15 +17,13 @@ import RealmSwift
 protocol NoteQuickSpecProtocol {
     var controller: UIViewController? {get set}
     
-    func notebookInstance() -> Notebook
-    func noteInstance(notebook: Notebook?, body: String?) -> Note
-    
-    func updateNotes(notes: String, baseView: UIView?)
+    func notebook() -> Notebook
+    func note(notebook: Notebook?, body: String?) -> Note
     func add(realm: Realm, note: Note?, notebook: Notebook?)
 }
 
 extension NoteQuickSpecProtocol {
-    func notebookInstance() -> Notebook {
+    func notebook() -> Notebook {
         let notebook = Notebook()
         notebook.notebookId = "\(Date().timeStampFromDate())"
         notebook.dateCreated = Date()
@@ -33,7 +31,7 @@ extension NoteQuickSpecProtocol {
         return notebook
     }
     
-    func noteInstance(notebook: Notebook? = nil, body: String? = nil) -> Note {
+    func note(notebook: Notebook? = nil, body: String? = nil) -> Note {
         let note = Note()
         note.noteId = "\(Date().timeStampFromDate())"
         
@@ -48,26 +46,6 @@ extension NoteQuickSpecProtocol {
         note.dateCreated = Date()
 
         return note
-    }
-    
-    func updateNotes(notes: String, baseView: UIView?) {
-        if let baseView = baseView as? ContentViewContainer {
-            baseView.contentTextView.text = notes
-        }
-        
-        controller?.viewWillDisappear(true)
-    }
-    
-    func loadController(note: Note? = nil, notebook: Notebook? = nil) {
-        if var notebookContainter = controller as? NotebookContainer {
-            notebookContainter.notebook = notebook
-        }
-        
-        if var noteContainer = controller as? NoteContainer {
-            noteContainer.note = note
-        }
-        
-        controller?.loadViewProgrammatically()
     }
     
     func add(realm: Realm, note: Note? = nil) {
@@ -113,16 +91,28 @@ extension NoteQuickSpecProtocol {
 class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
     var controller: UIViewController?
     
-    override func spec() {
-        var viewController: PNCreateNoteViewController? {
-            didSet {
-                self.controller = viewController
-            }
+    class MockPNCreateNoteViewController: PNCreateNoteViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView
         }
-        var realm: Realm?
+
+        internal func set(notebook: Notebook?) {
+            self.notebook = notebook
+        }
         
+        internal func viewWillDisappear(content: String) {
+            baseView?.setContentTextView(content: content)
+            super.viewWillDisappear(true)
+        }
+    }
+     
+    override func spec() {
+        var viewController = MockPNCreateNoteViewController()
+        var realm: Realm?
+
         beforeEach {
-            viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNCreateNoteViewController") as? PNCreateNoteViewController
+            viewController = MockPNCreateNoteViewController()
             realm = PNSharedRealm.configureDefaultRealm()
         }
         
@@ -130,20 +120,20 @@ class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             it("with wrong input") {
                 guard let unwrappedRealm = realm else { return }
                 
-                viewController?.loadViewProgrammatically()
+                viewController.loadViewProgrammatically()
                 let oldCount = unwrappedRealm.objects(Note.self).count
                 
-                viewController?.viewWillDisappear(true)
-                
+                viewController.viewWillDisappear(true)
+
                 expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount))
             }
             
             it("without a notebook") {
                 guard let unwrappedRealm = realm else { return }
                 
-                viewController?.loadViewProgrammatically()
+                viewController.loadViewProgrammatically()
                 let oldCount = unwrappedRealm.objects(Note.self).count
-                self.updateNotes(notes: "This is a note", baseView: viewController?.baseView)
+                viewController.viewWillDisappear(content: "This is a note.")
                 
                 expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCount+1))
             }
@@ -151,15 +141,17 @@ class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             it("with a notebook") {
                 guard let unwrappedRealm = realm else { return }
 
-                let notebook = self.notebookInstance()
+                let notebook = self.notebook()
                 self.add(realm: unwrappedRealm, notebook: notebook)
                 
                 let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
                 let predicate = NSPredicate.init(format: "notebook == %@", notebook)
                 let oldCountNotesForNotebook = unwrappedRealm.objects(Note.self).filter(predicate).count
                 
-                self.loadController(notebook: notebook)
-                self.updateNotes(notes: "This is a note", baseView: viewController?.baseView)
+                viewController.set(notebook: notebook)
+                viewController.loadViewProgrammatically()
+                
+                viewController.viewWillDisappear(content: "This is a note")
                 
                 expect(unwrappedRealm.objects(Note.self).count).toEventually(equal(oldCountAllNotes+1))
                 expect(unwrappedRealm.objects(Note.self).filter(predicate).count).toEventually(equal(oldCountNotesForNotebook+1))

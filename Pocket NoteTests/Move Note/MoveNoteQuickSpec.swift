@@ -36,9 +36,9 @@ class MoveNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 return
             }
             
-            let note = self.noteInstance()
-            let oldNotebook = self.notebookInstance()
-            let newNotebook = self.notebookInstance()
+            let note = self.note()
+            let oldNotebook = self.notebook()
+            let newNotebook = self.notebook()
             self.add(realm: unwrappedRealm, note: note, withNotebook: oldNotebook)
             self.add(realm: unwrappedRealm, notebook: newNotebook)
             

@@ -9,44 +9,60 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Create Note/PNCreateNoteOperation.swift"
-            timestampString = "519613187.89643"
+            filePath = "Pocket Note/Modules/Create Note/PNCreateNoteViewController.swift"
+            timestampString = "521623806.820139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "execute()"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "viewWillDisappear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket Note/Modules/Create Note/PNCreateNoteViewController.swift"
+            timestampString = "521624098.653672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "initEventHandlers()"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Memo.PNCreateNoteOperation.(updateNote in _1502AD2C0804F69CDBFED0F3FB5958C5) (text : Swift.String, note : Memo.Note, realm : RealmSwift.Realm) -&gt; ()"
+                  symbolName = "Memo.PNCreateNoteViewController.(initEventHandlers in _C02C795B2A04373C0ADA30022254EF95) () -&gt; ()"
                   moduleName = "Memo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Create%20Note/PNCreateNoteOperation.swift"
-                  timestampString = "519619411.952524"
+                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Create%20Note/PNCreateNoteViewController.swift"
+                  timestampString = "521624303.641315"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Memo.PNCreateNoteOperation.((updateNote in _1502AD2C0804F69CDBFED0F3FB5958C5) (text : Swift.String, note : Memo.Note, realm : RealmSwift.Realm) -&gt; ()).(closure #1)"
+                  symbolName = "Memo.PNCreateNoteViewController.(initEventHandlers in _C02C795B2A04373C0ADA30022254EF95) () -&gt; ()"
                   moduleName = "Memo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Create%20Note/PNCreateNoteOperation.swift"
-                  timestampString = "519619411.953984"
+                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20Note/Modules/Create%20Note/PNCreateNoteViewController.swift"
+                  timestampString = "521624303.642931"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -54,161 +70,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pocket Note/Modules/Create Note/PNCreateNoteOperation.swift"
-            timestampString = "519613190.534404"
+            filePath = "Pocket Note/Modules/Create Note/PNCreateNoteViewController.swift"
+            timestampString = "521624189.760126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "init(note:notebook:text:realm:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519619861.777307"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "NoteQuickSpecProtocol"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519619861.777307"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "add(realm:note:withNotebook:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519619861.777307"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "add(realm:note:withNotebook:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoTests.CreateNoteQuickSpec.(spec () -&gt; ()).(closure #3).(closure #1)"
-                  moduleName = "MemoTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20NoteTests/Create%20Note/CreateNoteQuickSpec.swift"
-                  timestampString = "519618156.810708"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "1596">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoTests.CreateNoteQuickSpec.(spec () -&gt; ()).(closure #3).(closure #1).(implicit closure #1)"
-                  moduleName = "MemoTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hanet/Documents/Installers/pocket-note/Pocket%20NoteTests/Create%20Note/CreateNoteQuickSpec.swift"
-                  timestampString = "519618156.812987"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519619861.777307"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "add(realm:note:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519619861.777307"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "noteInstance(notebook:body:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519614796.23612"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "notebookInstance()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pocket NoteTests/Create Note/CreateNoteQuickSpec.swift"
-            timestampString = "519614327.858807"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "NoteQuickSpecProtocol"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

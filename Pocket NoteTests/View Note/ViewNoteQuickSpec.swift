@@ -17,32 +17,37 @@ import RealmSwift
 class ViewNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
     var controller: UIViewController?
     
-    override func spec() {
-        var realm: Realm?
-        var viewController: PNCreateNoteViewController? {
-            didSet {
-                self.controller = viewController
-            }
+    class MockPNCreateNoteViewController: PNCreateNoteViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView
         }
         
+        func set(note: Note?) {
+            self.note = note
+        }
+    }
+    
+    override func spec() {
+        var viewController = MockPNCreateNoteViewController()
+        
         beforeEach {
-            viewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNCreateNoteViewController") as? PNCreateNoteViewController
-            realm = PNSharedRealm.configureDefaultRealm()
+            viewController = MockPNCreateNoteViewController()
         }
         
         describe("view a note") {
             it("with body") {
-                let note = self.noteInstance()
-                self.loadController(note: note)
-                
-                expect(viewController?.baseView?.contentTextView.text).toEventually(equal(note.body))
+                let note = self.note()
+                viewController.set(note: note)
+                viewController.loadViewProgrammatically()
+                expect(viewController.baseView?.getContentText()).toEventually(equal(note.body))
             }
             
             it("with empty string body") {
-                let note = self.noteInstance(body: "")
-                self.loadController(note: note)
-                
-                expect(viewController?.baseView?.contentTextView.text).toEventually(equal(""))
+                let note = self.note(body: "")
+                viewController.set(note: note)
+                viewController.loadViewProgrammatically()
+                expect(viewController.baseView?.getContentText()).toEventually(equal(""))
             }
         }
     }

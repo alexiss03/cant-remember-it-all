@@ -36,7 +36,7 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 return
             }
             
-            let note = self.noteInstance()
+            let note = self.note()
             self.add(realm: unwrappedRealm, note: note)
             
             let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
@@ -52,8 +52,8 @@ class DeleteNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 print("Realm is nil")
                 return
             }
-            let note = self.noteInstance()
-            let secondNote = self.noteInstance()
+            let note = self.note()
+            let secondNote = self.note()
             self.add(realm: unwrappedRealm, note: note)
             self.add(realm: unwrappedRealm, note: secondNote)
             

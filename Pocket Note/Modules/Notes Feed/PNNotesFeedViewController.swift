@@ -157,20 +157,6 @@ class PNNotesFeedViewController: UIViewController, PNCurrentNotesContainer, PNNo
         present(unwrappedNotebookListViewController, animated: true, completion: nil)
     }
     
-    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? PNCreateNoteViewController {
-            guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-        
-            let noteList = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
-            destinationViewController.notebook = currentNotebook
-            
-            if let selectedIndexPath = baseView?.notesListTableView.indexPathForSelectedRow {
-                destinationViewController.note =  noteList[selectedIndexPath.row]
-                baseView?.notesListTableView.deselectRow(at: selectedIndexPath, animated: true)
-            }
-        }
-    }
-    
     internal func openMoveNoteToANotebook(note: Note) {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedMoveNoteViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNMoveNoteViewController") as? PNMoveNoteViewController else {
@@ -187,7 +173,17 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
      Handles the add note button action.
      */
     func addNoteButtonTapped() {
-        performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
+        let createNoteViewController = PNCreateNoteViewController()
+        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
+        
+        let noteList = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+        createNoteViewController.notebook = currentNotebook
+        
+        if let selectedIndexPath = baseView?.notesListTableView.indexPathForSelectedRow {
+            createNoteViewController.note =  noteList[selectedIndexPath.row]
+            baseView?.notesListTableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+        navigationController?.pushViewController(createNoteViewController, animated: true)
     }
 }
 

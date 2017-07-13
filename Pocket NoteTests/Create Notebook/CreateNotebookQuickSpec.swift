@@ -17,29 +17,17 @@ import RealmSwift
 protocol NotebookQuickSpecProtocol {
     var controller: UIViewController? {get set}
     
-    func notebookInstance() -> Notebook
-    func loadController(note: Note?, notebook: Notebook?)
+    func notebook() -> Notebook
+    //func loadController(note: Note?, notebook: Notebook?)
     func add(realm: Realm, notebook: Notebook?)
 }
 
 extension NotebookQuickSpecProtocol {
-    func notebookInstance() -> Notebook {
+    func notebook() -> Notebook {
         let notebook = Notebook()
         notebook.notebookId = "\(Date().timeStampFromDate())"
         notebook.dateCreated = Date()
         return notebook
-    }
-    
-    func loadController(note: Note? = nil, notebook: Notebook? = nil) {
-        if var notebookContainter = controller as? NotebookContainer {
-            notebookContainter.notebook = notebook
-        }
-        
-        if var noteContainer = controller as? NoteContainer {
-            noteContainer.note = note
-        }
-        
-        controller?.loadViewProgrammatically()
     }
     
     func add(realm: Realm, notebook: Notebook? = nil) {
@@ -82,7 +70,7 @@ class CreateNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
                 
                 let oldNotebooksCount = unwrappedRealm.objects(Notebook.self).count
                 
-                self.loadController()
+                viewController?.loadViewProgrammatically()
                 viewController?.addButtonTapped()
                 
                 guard let alertController = viewController?.presentedViewController as? UIAlertController else {
@@ -114,8 +102,7 @@ class CreateNotebookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
             }
             
             let oldNotebooksCount = unwrappedRealm.objects(Notebook.self).count
-            
-            self.loadController()
+            viewController?.loadViewProgrammatically()
             viewController?.addButtonTapped()
             
             guard let alertController = viewController?.presentedViewController as? UIAlertController else {

@@ -40,7 +40,7 @@ class SearchNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 var notesList: [Note] = []
                 
                 for _ in 0 ..< 5 {
-                    let note =  self.noteInstance()
+                    let note =  self.note()
                     note.body = "This is a note title for search."
                     notesList.append(note)
                     self.add(realm: unwrappedRealm, note: note, notebook: nil)
@@ -49,7 +49,7 @@ class SearchNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 let oldCountAllNotes = unwrappedRealm.objects(Note.self).filter(NSPredicate.init(format: "body LIKE 'This is a note title for search.'")).count
                 
                 viewController?.currentNotebook = nil
-                self.loadController()
+                viewController?.loadViewProgrammatically()
                 
                 expect(viewController?.baseView?.notesListTableView.numberOfRows(inSection: 0)).toEventually(equal(oldCountAllNotes))
             }

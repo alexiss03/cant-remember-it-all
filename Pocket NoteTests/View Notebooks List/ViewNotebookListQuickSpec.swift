@@ -36,18 +36,18 @@ class ViewNotebookListQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
             }
             
             var notebooksList: [Notebook] = []
-            notebooksList.append(self.notebookInstance())
-            notebooksList.append(self.notebookInstance())
-            notebooksList.append(self.notebookInstance())
-            notebooksList.append(self.notebookInstance())
-            notebooksList.append(self.notebookInstance())
+            notebooksList.append(self.notebook())
+            notebooksList.append(self.notebook())
+            notebooksList.append(self.notebook())
+            notebooksList.append(self.notebook())
+            notebooksList.append(self.notebook())
             
             for notebook in notebooksList {
                 self.add(realm: unwrappedRealm, notebook: notebook)
             }
             
             let oldNotebooksCount = unwrappedRealm.objects(Notebook.self).count
-            self.loadController()
+            viewController?.loadViewProgrammatically()
             
             expect(viewController?.baseView?.tableView.numberOfRows(inSection: 0)).toEventually(equal(oldNotebooksCount))
         }
@@ -59,8 +59,8 @@ class ViewNotebookListQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
             }
             
             let oldNotebooksCount = unwrappedRealm.objects(Notebook.self).count
-            self.loadController()
-            
+            viewController?.loadViewProgrammatically()
+
             expect(viewController?.baseView?.tableView.numberOfRows(inSection: 0)).toEventually(equal(oldNotebooksCount))
         }
     }

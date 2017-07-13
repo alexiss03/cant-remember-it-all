@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dYb-Kc-lyk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dYb-Kc-lyk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="868" y="551"/>
         </scene>
-        <!--Create Note View Controller-->
+        <!--View Controller-->
         <scene sceneID="3ka-mq-vwj">
             <objects>
-                <viewController storyboardIdentifier="PNCreateNoteViewController" id="Uds-Ab-FRa" customClass="PNCreateNoteViewController" customModule="Memo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PNCreateNoteViewController" id="Uds-Ab-FRa" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Oi-CU-sJq"/>
                         <viewControllerLayoutGuide type="bottom" id="aBa-kc-t5R"/>
@@ -74,7 +74,7 @@
             <objects>
                 <navigationController id="dYb-Kc-lyk" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wcj-wj-Iaa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wcj-wj-Iaa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -146,7 +146,7 @@
         <scene sceneID="PcN-8m-g7t">
             <objects>
                 <navigationController storyboardIdentifier="MainNavigationController" id="lS0-7O-R0l" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cgP-UR-kUb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cgP-UR-kUb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -18,12 +18,15 @@ class RegistrationQuickSpec: QuickSpec {
     override func spec() {
         var vc: PNRegistrationViewController? = PNRegistrationViewController()
         var realm: Realm?
+        var baseView: PNRegistrationVIPERView?
 
         beforeEach {
             vc = PNRegistrationViewController()
             UIApplication.shared.keyWindow?.rootViewController = vc
+            
+            baseView = vc?.baseView
             vc?.loadViewProgrammatically()
-
+            
             do {
                 realm = try Realm()
 
@@ -50,53 +53,53 @@ class RegistrationQuickSpec: QuickSpec {
             describe("email input") {
                 it("empty") {
                     vc?.baseView?.eventHandler?.signUp(emailText: "", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
                 }
 
                 describe("invalid format") {
                     it("no @") {
                         vc?.baseView?.eventHandler?.signUp(emailText: "aa", passwordText: "123456")
-                        expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
+                        expect(baseView?.getEmailErrorText()).toEventually(equal(""))
 
                     }
 
                     it("no .") {
                         vc?.baseView?.eventHandler?.signUp(emailText: "a@a", passwordText: "123456")
-                        expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
+                        expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
                     }
                 }
 
                 it("valid format") {
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toEventually(equal(""))
+                    expect(baseView?.getEmailErrorText()).toEventually(equal(""))
                 }
             }
 
             describe("password input") {
                 it("empty") {
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
 
                 it("too short min 6") {
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "1234")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
 
                 it("too long max 30") {
                     vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "1234567890123456789012345678901")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
 
                 describe("valid") {
                     it("6 characters") {
                         vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "123456")
-                        expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
+                        expect(baseView?.getPasswordErrorText()).toEventually(equal(""))
                     }
 
                     it("30 characters") {
                         vc?.baseView?.eventHandler?.signUp(emailText: "a@a.com", passwordText: "123456789012345678901234567890")
-                        expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
+                        expect(baseView?.getPasswordErrorText()).toEventually(equal(""))
                     }
                 }
             }
@@ -106,13 +109,9 @@ class RegistrationQuickSpec: QuickSpec {
                     guard let unwrappedRealm = realm else { return }
 
                     let beforeSignUpAccountCount = unwrappedRealm.objects(Account.self).count
-
-                    vc?.baseView?.emailTextField.text = "user@domain.com"
-                    vc?.baseView?.passwordTextField.text = "123456"
                     vc?.baseView?.eventHandler?.signUp(emailText: "user@domain.com", passwordText: "123456")
 
                     let afterSignUpAccountCount = unwrappedRealm.objects(Account.self).count
-
                     expect(afterSignUpAccountCount).toEventually(equal(beforeSignUpAccountCount))
                 }
             }

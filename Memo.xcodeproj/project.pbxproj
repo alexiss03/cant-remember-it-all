@@ -408,8 +408,8 @@
 		002155191EF79DD500DF1F3D /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */,
 				0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */,
+				002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";

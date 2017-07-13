@@ -52,11 +52,11 @@ class ViewNotesFeedQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 }
                 
                 var notesList: [Note] = []
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
+                notesList.append(self.note())
+                notesList.append(self.note())
+                notesList.append(self.note())
+                notesList.append(self.note())
+                notesList.append(self.note())
             
                 for note in notesList {
                     self.add(realm: unwrappedRealm, note: note, notebook: nil)
@@ -65,7 +65,7 @@ class ViewNotesFeedQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 let oldCountAllNotes = unwrappedRealm.objects(Note.self).count
                 
                 viewController?.currentNotebook = nil
-                self.loadController()
+                viewController?.loadViewProgrammatically()
                 
                 expect(viewController?.baseView?.notesListTableView.numberOfRows(inSection: 0)).toEventually(equal(oldCountAllNotes))
             }
@@ -79,12 +79,12 @@ class ViewNotesFeedQuickSpec: QuickSpec, NoteQuickSpecProtocol {
                 }
                 
                 var notesList: [Note] = []
-                let notebook = self.notebookInstance()
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
-                notesList.append(self.noteInstance())
+                let notebook = self.notebook()
+                notesList.append(self.note())
+                notesList.append(self.note())
+                notesList.append(self.note())
+                notesList.append(self.note())
+                notesList.append(self.note())
                 
                 for note in notesList {
                     self.add(realm: unwrappedRealm, note: note, withNotebook: notebook)

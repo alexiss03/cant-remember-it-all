@@ -32,15 +32,17 @@ class PNCreateNoteInputInteractor: Procedure, OutputProcedure {
     }
     
     internal override func execute() {
-        if let unwrappedContent = content, unwrappedContent.characters.count > 0 {
-            finish(withResult: .success(unwrappedContent))
-        } else if let unwrappedNote = note, unwrappedNote.body != content {
-            let error = NSError.init(domain: PNCreateNoteErrorDomain, code: 0000, userInfo: nil)
-            finish(withError: error)
-        } else {
-            let error = NSError.init(domain: PNCreateNoteErrorDomain, code: 0001, userInfo: nil)
-            finish(withError: error)
+        DispatchQueue.main.async {
+            if let unwrappedNote = self.note, unwrappedNote.body == self.content {
+                let error = NSError.init(domain: PNCreateNoteErrorDomain, code: 0000, userInfo: nil)
+                self.cancel(withError: error)
+            } else if let unwrappedContent = self.content, unwrappedContent.characters.count > 0 {
+                self.finish(withResult: .success(unwrappedContent))
+            } else {
+                let error = NSError.init(domain: PNCreateNoteErrorDomain, code: 0001, userInfo: nil)
+                self.cancel(withError: error)
+            }
+
         }
     }
-    
 }

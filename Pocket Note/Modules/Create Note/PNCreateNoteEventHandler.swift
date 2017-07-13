@@ -13,7 +13,7 @@ protocol PNCreateNoteVIPEREventHandler: VIPEREventHandler {
     func saveNote(content: String?)
 }
 
-struct PNCreateNoteEventHandler: PNCreateNoteVIPEREventHandler {
+class PNCreateNoteEventHandler: PNCreateNoteVIPEREventHandler {
     private var note: Note?
     private var notebook: Notebook?
     private var realm: Realm

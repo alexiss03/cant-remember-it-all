@@ -56,7 +56,7 @@ class PNCreateNoteInteractor: Procedure, InputProcedure, PNCreateNoteVIPERIntera
             updateExistingNote(text: unwrappedText, note: unwrappedNote)
             self.finish()
         } else {
-            createNewNoteInstance(text: unwrappedText)
+            createNewnote(text: unwrappedText)
             self.finish()
         }
     }
@@ -66,7 +66,7 @@ class PNCreateNoteInteractor: Procedure, InputProcedure, PNCreateNoteVIPERIntera
      
      - Parameter text: A `String` value representing the content of the new notebook.
      */
-    private func createNewNoteInstance(text: String) {
+    private func createNewnote(text: String) {
         let note = Note()
         let uuid = UUID().uuidString
         note.noteId = "\(uuid)\(Date().timeStampFromDate())"

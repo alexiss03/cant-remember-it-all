@@ -30,7 +30,7 @@ class EditNotenookQuickSpec: QuickSpec, NotebookQuickSpecProtocol {
         }
         
         it("edit a notebook") {
-            let notebook = self.notebookInstance()
+            let notebook = self.notebook()
             
             guard let unwrappedRealm = realm else {
                 print("Realm is nil")
