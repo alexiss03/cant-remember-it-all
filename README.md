@@ -26,4 +26,12 @@ Documentation
 
 For the documentation, I used **Jazzy** to provide a easy-build neat interface. Here is the [full documentation](http://www.maryalexissolis.com/cant-remember-it-all/docs) for this project.
 
+Installation
+------------
+After cloning the project, install the pod dependencies.
+```
+pod install
+```
+Then, build and run the project.
+
 *If you have any questions or clarifications, please feel free to contact me or file an issue.*
