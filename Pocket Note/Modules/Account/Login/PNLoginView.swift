@@ -13,6 +13,10 @@ import UIKit
 protocol PNLoginVIPERView: VIPERView {
     func setEmailErrorLabel(errorMessage: String?)
     func setPasswordErrorLabel(errorMessage: String?)
+    func getEmailText() -> String?
+    func getPasswordText() -> String?
+    func getEmailErrorText() -> String?
+    func getPasswordErrorText() -> String?
 }
 
 /**
@@ -82,6 +86,22 @@ class PNLoginView: UIView, PNLoginVIPERView {
         DispatchQueue.main.async {
             self.passwordErrorLabel.text = errorMessage
         }
+    }
+    
+    internal func getEmailText() -> String? {
+        return emailTextField.text
+    }
+    
+    internal func getPasswordText() -> String? {
+        return passwordTextField.text
+    }
+    
+    internal func getEmailErrorText() -> String? {
+        return emailErrorLabel.text
+    }
+    
+    internal func getPasswordErrorText() -> String? {
+        return passwordErrorLabel.text
     }
 
 }

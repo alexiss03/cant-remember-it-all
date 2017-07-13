@@ -17,10 +17,12 @@ import UIKit
 class LoginQuickSpec: QuickSpec {
     override func spec() {
         var vc: PNLoginViewController? = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNLoginViewController") as? PNLoginViewController
+        var baseView: PNLoginVIPERView?
         var realm: Realm?
         
         beforeEach {
             vc = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNLoginViewController") as? PNLoginViewController
+            baseView = vc?.baseView
             vc?.loadViewProgrammatically()
             
             do {
@@ -38,52 +40,52 @@ class LoginQuickSpec: QuickSpec {
         describe("login") {
             it("email input") {
                     vc?.baseView?.eventHandler?.login(emailText: "", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
             }
         
             describe("invalid format") {
                 it("no @") {
                     vc?.baseView?.eventHandler?.login(emailText: "aa", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
                     
                 }
                 
                 it("no .") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
                 }
                 
                 it("valid format") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456")
-                    expect(vc?.baseView?.emailErrorLabel.text).to(equal(""))
+                    expect(baseView?.getEmailErrorText()).to(equal(""))
                 }
             }
         
             describe("password input") {
                 it("empty") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
                 
                 it("too short min 6") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
                 
                 it("too long max 30") {
                     vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234567890123456789012345678901")
-                    expect(vc?.baseView?.passwordErrorLabel.text).toNotEventually(equal(""))
+                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
                 
                 describe("valid") {
                     it("6 characters") {
                         vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456")
-                        expect(vc?.baseView?.passwordErrorLabel.text).to(equal(""))
+                        expect(baseView?.getPasswordErrorText()).to(equal(""))
                     }
                     
                     it("30 characters") {
                         vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456789012345678901234567890")
-                        expect(vc?.baseView?.passwordErrorLabel.text).toEventually(equal(""))
+                        expect(baseView?.getPasswordErrorText()).toEventually(equal(""))
                     }
                 }
             }
@@ -98,7 +100,7 @@ class LoginQuickSpec: QuickSpec {
                     }
                     
                     expect(unwrappedVC.isBeingPresented).to(equal(false))
-                    expect(unwrappedVC.baseView?.emailErrorLabel.text).to(equal(""))
+                    expect(baseView?.getEmailErrorText()).to(equal(""))
                 }
             }
 
