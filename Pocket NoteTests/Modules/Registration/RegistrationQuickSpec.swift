@@ -15,13 +15,21 @@ import RealmSwift
 @testable import Memo
 
 class RegistrationQuickSpec: QuickSpec {
+    
+    class MockPNRegistrationViewController: PNRegistrationViewController {
+        override func viewDidLoad() {
+            baseView = Bundle.main.loadNibNamed("PNRegistrationView", owner: self, options: nil)![0] as? PNRegistrationView
+            super.viewDidLoad()
+        }
+    }
+    
     override func spec() {
-        var vc: PNRegistrationViewController? = PNRegistrationViewController()
+        var vc: MockPNRegistrationViewController? = MockPNRegistrationViewController()
         var realm: Realm?
         var baseView: PNRegistrationVIPERView?
 
         beforeEach {
-            vc = PNRegistrationViewController()
+            vc = MockPNRegistrationViewController()
             UIApplication.shared.keyWindow?.rootViewController = vc
             
             baseView = vc?.baseView

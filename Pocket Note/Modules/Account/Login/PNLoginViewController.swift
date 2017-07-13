@@ -21,10 +21,10 @@ protocol PNLoginVIPERRouter: VIPERRouter {
  The `PNLoginViewController` is the view controller for the Login module, and also the VIPER ROUTER for the Login module.
  */
 class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginVIPERRouter {
-    var eventHandler: PNLoginViewEventHandler?
+    private var eventHandler: PNLoginViewEventHandler?
     
     /// This instance property is the superview of the current controller.
-    let baseView: PNLoginView? = {
+    internal var baseView: PNLoginView? = {
         if let view = Bundle.main.loadNibNamed("PNLoginView", owner: self, options: nil)![0] as? PNLoginView {
             return view
         }

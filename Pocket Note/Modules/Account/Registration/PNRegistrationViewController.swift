@@ -21,11 +21,7 @@ protocol PNRegistrationVIPERRouter: VIPERRouter {
 class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, PNRegistrationVIPERRouter {
     
     /// This is the main view of the registration page.
-    var baseView: PNRegistrationView? {
-        get {
-            return view as? PNRegistrationView
-        }
-    }
+    var baseView: PNRegistrationView?
     
     /// This is the event handler for the Registration module.
     var registrationEventHandler: PNRegistrationEventHandler?
@@ -35,6 +31,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        baseView = view as? PNRegistrationView
     }
     
     override func viewWillAppear(_ animated: Bool) {

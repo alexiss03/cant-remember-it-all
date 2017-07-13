@@ -15,15 +15,20 @@ import UIKit
 @testable import Memo
 
 class LoginQuickSpec: QuickSpec {
+    class MockPNLoginViewController: PNLoginViewController {
+        override func viewDidLoad() {
+            baseView = Bundle.main.loadNibNamed("PNLoginView", owner: self, options: nil)![0] as? PNLoginView
+            super.viewDidLoad()
+        }
+    }
+    
     override func spec() {
-        var vc: PNLoginViewController? = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNLoginViewController") as? PNLoginViewController
-        var baseView: PNLoginVIPERView?
+        var vc = MockPNLoginViewController()
         var realm: Realm?
         
         beforeEach {
-            vc = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "PNLoginViewController") as? PNLoginViewController
-            baseView = vc?.baseView
-            vc?.loadViewProgrammatically()
+            vc = MockPNLoginViewController()
+            vc.loadViewProgrammatically()
             
             do {
                 realm = try Realm()
@@ -39,68 +44,62 @@ class LoginQuickSpec: QuickSpec {
         
         describe("login") {
             it("email input") {
-                    vc?.baseView?.eventHandler?.login(emailText: "", passwordText: "123456")
-                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
+                vc.baseView?.eventHandler?.login(emailText: "", passwordText: "123456")
+                expect(vc.baseView?.getEmailErrorText()).toNotEventually(equal(""))
             }
         
             describe("invalid format") {
                 it("no @") {
-                    vc?.baseView?.eventHandler?.login(emailText: "aa", passwordText: "123456")
-                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "aa", passwordText: "123456")
+                    expect(vc.baseView?.getEmailErrorText()).toNotEventually(equal(""))
                     
                 }
                 
                 it("no .") {
-                    vc?.baseView?.eventHandler?.login(emailText: "a@a", passwordText: "123456")
-                    expect(baseView?.getEmailErrorText()).toNotEventually(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "a@a", passwordText: "123456")
+                    expect(vc.baseView?.getEmailErrorText()).toNotEventually(equal(""))
                 }
                 
                 it("valid format") {
-                    vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456")
-                    expect(baseView?.getEmailErrorText()).to(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456")
+                    expect(vc.baseView?.getEmailErrorText()).to(equal(""))
                 }
             }
         
             describe("password input") {
                 it("empty") {
-                    vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "")
-                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "")
+                    expect(vc.baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
                 
                 it("too short min 6") {
-                    vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234")
-                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234")
+                    expect(vc.baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
                 
                 it("too long max 30") {
-                    vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234567890123456789012345678901")
-                    expect(baseView?.getPasswordErrorText()).toNotEventually(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "1234567890123456789012345678901")
+                    expect(vc.baseView?.getPasswordErrorText()).toNotEventually(equal(""))
                 }
                 
                 describe("valid") {
                     it("6 characters") {
-                        vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456")
-                        expect(baseView?.getPasswordErrorText()).to(equal(""))
+                        vc.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456")
+                        expect(vc.baseView?.getPasswordErrorText()).to(equal(""))
                     }
                     
                     it("30 characters") {
-                        vc?.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456789012345678901234567890")
-                        expect(baseView?.getPasswordErrorText()).toEventually(equal(""))
+                        vc.baseView?.eventHandler?.login(emailText: "a@a.com", passwordText: "123456789012345678901234567890")
+                        expect(vc.baseView?.getPasswordErrorText()).toEventually(equal(""))
                     }
                 }
             }
         
             describe("account") {
                 it("valid email and password") {
-                    vc?.baseView?.eventHandler?.login(emailText: "user@domain.com", passwordText: "123456")
-                    
-                    guard let unwrappedVC = vc else {
-                        print("View Controller is nil")
-                        return
-                    }
-                    
-                    expect(unwrappedVC.isBeingPresented).to(equal(false))
-                    expect(baseView?.getEmailErrorText()).to(equal(""))
+                    vc.baseView?.eventHandler?.login(emailText: "user@domain.com", passwordText: "123456")
+                    expect(vc.isBeingPresented).to(equal(false))
+                    expect(vc.baseView?.getEmailErrorText()).to(equal(""))
                 }
             }
 
