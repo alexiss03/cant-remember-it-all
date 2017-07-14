@@ -17,18 +17,12 @@ protocol PNCreateNoteRouter: VIPERRouter { }
  */
 class PNCreateNoteViewController: UIViewController {
     /// A `PNCreateNoteView` that is the superview of a `PNCreateNoteViewController`.
-    internal var baseView: PNCreateNoteView? {
-        get {
-            return view as? PNCreateNoteView
-        }
-    }
+    internal var baseView: PNCreateNoteView?
     
     /// A `Note` instance that is to be updated. If this is nil, the a new note instance is to be created instead.
     internal  var note: Note?
     /// A `Notebook` instance that will contain the note to be created or already contains the note to be updated.
     internal var notebook: Notebook?
-    /// A `PNCreateNoteInteractor` instance that creates the new `Note` instance and stores it to the current `Realm`.
-    private var createNoteInteractor: PNCreateNoteInteractor?
     private var eventHandler: PNCreateNoteVIPEREventHandler?
     
     /**
@@ -39,6 +33,7 @@ class PNCreateNoteViewController: UIViewController {
     internal  override func viewDidLoad() {
         super.viewDidLoad()
         
+        baseView = view as? PNCreateNoteView
         initEventHandlers()
     }
     

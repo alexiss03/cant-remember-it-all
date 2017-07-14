@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import DZNEmptyDataSet
 
 /**
  The `PNNotesTableViewInteractor` class contains the business logic for hte table view in the notes list.
@@ -16,9 +17,10 @@ class PNNotesTableViewInteractor: NSObject {
     /// A `PNNotesFeedViewControllerProtocol` instance representing the controller for notes list.
     fileprivate var notebookFeedViewController: PNNotesFeedViewControllerProtocol
     /// A `PNCurrentNotesContainer` instance representing an object container for currentNotebook in notes feed.
-    fileprivate var notesFeedView: PNCurrentNotesContainer
+    fileprivate var notesFeedView: PNCurrentNotesContainer?
     /// A `UIViewController` instance representing the view controller where segues are to be performed.
-    fileprivate var presentationContext: UIViewController
+    fileprivate weak var presentationContext: PNNotesFeedViewController?
+    fileprivate var notesListTableView: UITableView
     
     /**
      Initializes the instance.
@@ -28,14 +30,16 @@ class PNNotesTableViewInteractor: NSObject {
      - Parameter notebookFeedViewController: A `PNNotesFeedViewControllerProtocol` instance representing the controller for notes list.
      - Parameter notesFeedView: A `PNCurrentNotesContainer` instance representing an object container for currentNotebook in notes feed.
      */
-    public required init(presentationContext: UIViewController, notesListTableView: UITableView, notebookFeedViewController: PNNotesFeedViewControllerProtocol, notesFeedView: PNCurrentNotesContainer) {
+    public required init(presentationContext: PNNotesFeedViewController, notesListTableView: UITableView, notebookFeedViewController: PNNotesFeedViewControllerProtocol, notesFeedView: PNCurrentNotesContainer) {
         self.notebookFeedViewController = notebookFeedViewController
         self.notesFeedView = notesFeedView
         self.presentationContext = presentationContext
+        self.notesListTableView = notesListTableView
         super.init()
         
         notesListTableView.delegate = self
         notesListTableView.dataSource = self
+        notesListTableView.emptyDataSetSource = self
         
         let tableViewCellNib = UINib.init(nibName: "PNNotesFeedTableViewCell", bundle: Bundle.main)
         let tableViewCellNibId = "PNNotesFeedTableViewCell"
@@ -84,7 +88,7 @@ class PNNotesTableViewInteractor: NSObject {
 
 extension PNNotesTableViewInteractor: UITableViewDelegate {
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presentationContext.performSegue(withIdentifier: "TO_CREATE_NOTE", sender: self)
+        presentationContext?.pushToCreateNote()
     }
 }
 
@@ -133,4 +137,27 @@ extension PNNotesTableViewInteractor: UITableViewDataSource {
         return [deleteAction, editAction]
     }
 
+}
+
+extension PNNotesTableViewInteractor: DZNEmptyDataSetSource {
+    public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        if scrollView == notesListTableView, notesFeedView?.currentNotebook == nil {
+            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato", size: 20.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
+            return NSAttributedString.init(string: "No Notes Yet", attributes: attributes)
+        } else {
+            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato", size: 20.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
+            return NSAttributedString.init(string: "No Notes In This Notebook", attributes: attributes)
+        }
+    }
+    
+    public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        if scrollView == notesListTableView, notesFeedView?.currentNotebook == nil {
+            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato-Light", size: 16.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
+            return NSAttributedString.init(string: "Start adding notes that you can sync across your iOS devices.", attributes: attributes)
+        } else {
+            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato-Light", size: 16.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
+            return NSAttributedString.init(string: "Start adding notes in this notebook that you can sync across your iOS devices.", attributes: attributes)
+
+        }
+    }
 }

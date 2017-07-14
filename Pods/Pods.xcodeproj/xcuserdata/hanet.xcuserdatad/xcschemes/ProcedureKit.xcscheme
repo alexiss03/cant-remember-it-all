@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '452252FF7E9C118742B34FC7708A631A'
+               BlueprintIdentifier = '3079D1A2276254F2F2CEF94CA2E065DA'
                BlueprintName = 'ProcedureKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ProcedureKit.framework'>

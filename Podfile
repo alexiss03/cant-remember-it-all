@@ -11,6 +11,7 @@ target 'Memo' do
   pod 'SlideMenuControllerSwift'  
   pod 'PSOperations/Core', '~> 3.0' 
   pod 'ProcedureKit/All'
+  pod 'DZNEmptyDataSet'
   #pod 'Cuckoo'
   
   def testing_pods

@@ -21,10 +21,6 @@ final class TextViewKeyboardObserver {
         NotificationCenter.default.addObserver(self, selector: #selector(TextViewKeyboardObserver.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TextViewKeyboardObserver.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
@@ -48,5 +44,9 @@ final class TextViewKeyboardObserver {
             self.notesTextView.contentInset = contentInsets
             self.notesTextView.scrollIndicatorInsets = contentInsets
         })
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

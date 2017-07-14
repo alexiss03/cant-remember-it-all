@@ -172,7 +172,11 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
     /**
      Handles the add note button action.
      */
-    func addNoteButtonTapped() {
+    internal func addNoteButtonTapped() {
+        pushToCreateNote()
+    }
+    
+    internal func pushToCreateNote() {
         let createNoteViewController = PNCreateNoteViewController()
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
         
@@ -222,3 +226,5 @@ extension PNNotesFeedViewController: UIPopoverPresentationControllerDelegate {
         popoverPresentationController.sourceRect = (self.navigationController?.navigationBar.frame)!
     }
 }
+
+

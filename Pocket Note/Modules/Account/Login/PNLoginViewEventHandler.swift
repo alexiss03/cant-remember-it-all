@@ -18,7 +18,7 @@ protocol PNLoginVIPEREventHandler: VIPEREventHandler {
     func goToSignUp()
 }
 
-struct PNLoginViewEventHandler: PNLoginVIPEREventHandler, VIPEREventHandler {
+class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
     /// A `PNLoginVIPERView` conforming object that represents the VIPER VIEW for Login module.
     var loginView: PNLoginVIPERView
     /// A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.

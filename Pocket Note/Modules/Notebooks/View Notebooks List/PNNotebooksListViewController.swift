@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import DZNEmptyDataSet
 
 /**
  This is the custom `UIViewController` for the Notebook List module.
@@ -41,6 +42,7 @@ final class PNNotebooksListViewController: UIViewController {
             self.view = unwrappedBaseView
             self.baseView?.tableView.delegate = self
             self.baseView?.tableView.dataSource = self
+            self.baseView?.tableView.emptyDataSetSource = self
             
             let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
             let tableViewCellNibId = "PNNotebooksListTableViewCell"
@@ -95,7 +97,7 @@ final class PNNotebooksListViewController: UIViewController {
     
 }
 
-extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
+extension PNNotebooksListViewController: PNNotebooksListViewDelegate, PNNotebookListViewHeaderCellEventHandler {
     /**
      This presents the `UIAlertController` interface for inputting the new `Notebook` name. This also contains the logic when the user saves the new `Notebook` or cancels it.
      */
@@ -137,7 +139,7 @@ extension PNNotebooksListViewController: PNNotebooksListViewDelegate {
     }
 }
 
-extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSource {
+extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
@@ -166,9 +168,10 @@ extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSo
     }
     
     internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PNNotebookListViewHeaderCell") {
+        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PNNotebookListViewHeaderCell")  as? PNNotebookListViewHeaderCell {
             let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(allNotesTapped))
             header.addGestureRecognizer(tapRecognizer)
+            header.eventHandler = self
             return header
         }
         return UIView.init()
@@ -182,5 +185,23 @@ extension PNNotebooksListViewController:  UITableViewDelegate, UITableViewDataSo
         
         notesFeedDelegate?.currentNotebook = results[indexPath.row]
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PNNotebooksListViewController: DZNEmptyDataSetSource {
+    public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        if scrollView == baseView?.tableView {
+            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato", size: 20.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
+            return NSAttributedString.init(string: "No Notebook Yet", attributes: attributes)
+        }
+        return NSAttributedString.init(string: "")
+    }
+    
+    public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        if scrollView == baseView?.tableView {
+            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato-Light", size: 16.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
+            return NSAttributedString.init(string: "Create notebooks to start organizing your notes.", attributes: attributes)
+        }
+        return NSAttributedString.init(string: "")
     }
 }

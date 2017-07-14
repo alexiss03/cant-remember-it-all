@@ -20,10 +20,14 @@ protocol PNCreateNoteVIPERView: VIPERView {
 class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
     /// A `UITextView` that contains the content of the note to be updated. This is where the user edits the content of the note.
     @IBOutlet private weak var contentTextView: UITextView!
+    private var textViewKeyboardObserver: TextViewKeyboardObserver?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         addDoneButton(view: self, inputView: contentTextView)
+        
+        textViewKeyboardObserver = TextViewKeyboardObserver.init(notesTextView: contentTextView)
+        textViewKeyboardObserver?.startObserving()
     }
     
     /**

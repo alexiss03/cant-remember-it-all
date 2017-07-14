@@ -1,16 +1,17 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - Nimble (7.0.1)
-  - ProcedureKit/All (4.1.0):
+  - ProcedureKit/All (4.2.0):
     - ProcedureKit/Cloud
     - ProcedureKit/Location
     - ProcedureKit/Network
-  - ProcedureKit/Cloud (4.1.0):
+  - ProcedureKit/Cloud (4.2.0):
     - ProcedureKit/Standard
-  - ProcedureKit/Location (4.1.0):
+  - ProcedureKit/Location (4.2.0):
     - ProcedureKit/Standard
-  - ProcedureKit/Network (4.1.0):
+  - ProcedureKit/Network (4.2.0):
     - ProcedureKit/Standard
-  - ProcedureKit/Standard (4.1.0)
+  - ProcedureKit/Standard (4.2.0)
   - PSOperations/Core (3.0.0)
   - Quick (1.1.0)
   - Realm (2.8.3):
@@ -22,6 +23,7 @@ PODS:
   - SwiftLint (0.17.0)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - Nimble
   - ProcedureKit/All
   - PSOperations/Core (~> 3.0)
@@ -31,8 +33,9 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
-  ProcedureKit: 622afbb72878fdcb82cf7cff29cad5d5d762c746
+  ProcedureKit: e330016846614b3b65d1f1cee2ebc7c5ecb83b5f
   PSOperations: 6bc00aac233d9d19b60caced190e6cb8fbcb1dcd
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
@@ -40,6 +43,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
 
-PODFILE CHECKSUM: 01ee67e11705a324ad7ed2efc5d359f5009dce8a
+PODFILE CHECKSUM: ce2707dee8ce64feda57c7cafe2bbd2ef1c59218
 
 COCOAPODS: 1.1.1
