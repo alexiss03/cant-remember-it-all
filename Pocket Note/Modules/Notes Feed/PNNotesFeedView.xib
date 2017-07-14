@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgY-V7-irl">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgY-V7-irl">
                     <rect key="frame" x="285" y="577" width="70" height="70"/>
                     <color key="backgroundColor" red="0.65490196078431373" green="0.11372549019607843" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -32,7 +32,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="42"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <state key="normal" title="+">
+                    <state key="normal" image="IconPen">
                         <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -58,6 +58,7 @@
                 <constraint firstAttribute="trailing" secondItem="4Go-gI-nLC" secondAttribute="trailing" id="atG-Va-PmJ"/>
             </constraints>
             <connections>
+                <outlet property="addNoteButton" destination="kgY-V7-irl" id="h2h-wq-WGX"/>
                 <outlet property="notesListTableView" destination="XTc-Ya-LTM" id="WOU-3V-OwR"/>
                 <outlet property="searchBar" destination="4Go-gI-nLC" id="Asx-M1-CQ9"/>
             </connections>
@@ -65,4 +66,7 @@
         </view>
         <searchDisplayController id="Cjz-68-49X"/>
     </objects>
+    <resources>
+        <image name="IconPen" width="32" height="32"/>
+    </resources>
 </document>

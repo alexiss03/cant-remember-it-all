@@ -146,7 +146,7 @@ extension PNNotesTableViewInteractor: DZNEmptyDataSetSource {
             return NSAttributedString.init(string: "No Notes Yet", attributes: attributes)
         } else {
             let attributes = [NSFontAttributeName: UIFont.init(name: "Lato", size: 20.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
-            return NSAttributedString.init(string: "No Notes In This Notebook", attributes: attributes)
+            return NSAttributedString.init(string: "Empty Notebook", attributes: attributes)
         }
     }
     
