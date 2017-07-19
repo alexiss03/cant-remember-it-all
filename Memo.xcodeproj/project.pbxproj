@@ -18,6 +18,8 @@
 		001CEF4A1F0243E800E500BF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CEF491F0243E800E500BF /* Date.swift */; };
 		001CEF4C1F02442F00E500BF /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CEF4B1F02442F00E500BF /* UITableView.swift */; };
 		001CEF4F1F0246E700E500BF /* NoteFeedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CEF4E1F0246E700E500BF /* NoteFeedMenu.swift */; };
+		00212EFC1F1F481A00BB549D /* PNMoveNoteTableViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00212EFB1F1F481A00BB549D /* PNMoveNoteTableViewInteractor.swift */; };
+		00212F011F1F4E8200BB549D /* PNMoveNoteTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00212F001F1F4E8200BB549D /* PNMoveNoteTableViewPresenter.swift */; };
 		002155181EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */; };
 		0021551E1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */; };
 		00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE31E9B91F000DEBBF5 /* Note.swift */; };
@@ -162,6 +164,8 @@
 		001CEF491F0243E800E500BF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = "Helper Protocols/Date.swift"; sourceTree = "<group>"; };
 		001CEF4B1F02442F00E500BF /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = "Helper Protocols/UITableView.swift"; sourceTree = "<group>"; };
 		001CEF4E1F0246E700E500BF /* NoteFeedMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteFeedMenu.swift; path = "Modules/Notes Feed/NoteFeedMenu.swift"; sourceTree = "<group>"; };
+		00212EFB1F1F481A00BB549D /* PNMoveNoteTableViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNMoveNoteTableViewInteractor.swift; path = "Modules/Move Note/PNMoveNoteTableViewInteractor.swift"; sourceTree = "<group>"; };
+		00212F001F1F4E8200BB549D /* PNMoveNoteTableViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNMoveNoteTableViewPresenter.swift; path = "Modules/Move Note/PNMoveNoteTableViewPresenter.swift"; sourceTree = "<group>"; };
 		002155171EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteInteractor.swift; path = "Modules/Create Note/PNCreateNoteInteractor.swift"; sourceTree = "<group>"; };
 		0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteInputInteractor.swift; path = "Modules/Create Note/PNCreateNoteInputInteractor.swift"; sourceTree = "<group>"; };
 		00231BE31E9B91F000DEBBF5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		001CEF421F02355300E500BF /* Move Note */ = {
 			isa = PBXGroup;
 			children = (
+				00212EFD1F1F4E4400BB549D /* Presenters */,
 				0005DC0D1F03F64B00CE532D /* Controllers */,
 				001CEF431F02385000E500BF /* Interactors */,
 			);
@@ -372,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				0005DC0E1F03FAE500CE532D /* PNMoveNoteInteractor.swift */,
+				00212EFB1F1F481A00BB549D /* PNMoveNoteTableViewInteractor.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -409,6 +415,14 @@
 				00A66CD01E89FBA900924C34 /* PNNotesFeedViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		00212EFD1F1F4E4400BB549D /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				00212F001F1F4E8200BB549D /* PNMoveNoteTableViewPresenter.swift */,
+			);
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 		002155191EF79DD500DF1F3D /* Interactors */ = {
@@ -458,13 +472,6 @@
 				00499DC31F02861600E8E5F7 /* PNNotesEditNotebookInteractor.swift */,
 			);
 			name = Interactors;
-			sourceTree = "<group>";
-		};
-		003536F41EF907DF002B70CD /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Operations;
 			sourceTree = "<group>";
 		};
 		003657861ED41365002A78DA /* Extensions */ = {
@@ -923,7 +930,6 @@
 			children = (
 				00AE32A41F1F00AA00068471 /* Presenters */,
 				001CEF4D1F0246CD00E500BF /* Extensions */,
-				003536F41EF907DF002B70CD /* Operations */,
 				003536F31EF907D6002B70CD /* Interactors */,
 				001D03461EB03D5200B627D2 /* View Controllers */,
 				001D03451EB03D4000B627D2 /* Views */,
@@ -1543,8 +1549,10 @@
 				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
 				007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */,
 				005E7DFE1EE0EDA5009C564A /* PNOperationQueue.swift in Sources */,
+				00212F011F1F4E8200BB549D /* PNMoveNoteTableViewPresenter.swift in Sources */,
 				00AB356C1F015A70008EA86C /* PNDeleteNotebookOperation.swift in Sources */,
 				009E5AA41EB18E76001F4889 /* PNPasscodeViewController.swift in Sources */,
+				00212EFC1F1F481A00BB549D /* PNMoveNoteTableViewInteractor.swift in Sources */,
 				008D3A811ED6AC2D003B51DE /* Reachability.swift in Sources */,
 				00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */,
 				0037DD081F0CC9680035ACED /* PNRegistrationInputPresenter.swift in Sources */,

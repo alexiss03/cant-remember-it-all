@@ -11,7 +11,7 @@ import RealmSwift
 /**
  The `PNDeleteNoteInteractor` contains the business logic of the Delete Note module.
  */
-class PNDeleteNoteInteractor {
+struct PNDeleteNoteInteractor {
     /// A `Realm` instance where the note is to be deleted.
     private var realm: Realm
     
@@ -20,7 +20,7 @@ class PNDeleteNoteInteractor {
      
      - Parameter realm: A `Realm` instance where the note is to be deleted.
      */
-    required init(realm: Realm) {
+    init(realm: Realm) {
         self.realm = realm
     }
     

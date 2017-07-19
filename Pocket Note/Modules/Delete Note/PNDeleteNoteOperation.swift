@@ -38,16 +38,10 @@ class PNDeleteNoteOperation: Procedure, InputProcedure {
             return
         }
         
-        weak var weakSelf = self
-        DispatchQueue.main.async {
-            guard let strongSelf = weakSelf else {
-                print("Weak self is nil")
-                return
-            }
-            
+        DispatchQueue.main.async { [weak self] in
             do {
-                try strongSelf.realm.write {
-                    strongSelf.realm.delete(unwrappedNoteToBeDeleted)
+                try self?.realm.write {
+                    self?.realm.delete(unwrappedNoteToBeDeleted)
                 }
             } catch { }
         }

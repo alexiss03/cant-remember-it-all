@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
 import DZNEmptyDataSet
-import CoreData
 
 /**
  The `PNNotesTableViewInteractor` class contains the business logic for hte table view in the notes list.
@@ -17,8 +15,6 @@ import CoreData
 class PNNotesTableViewInteractor: NSObject {
     
     fileprivate var currentNotebook: Notebook?
-    /// A `UIViewController` instance representing the view controller where segues are to be performed.
-    fileprivate weak var presentationContext: PNNotesFeedViewController?
     
     fileprivate var notesListTableView: UITableView
     fileprivate var deleteNoteInteractor: PNDeleteNoteInteractor
@@ -28,10 +24,9 @@ class PNNotesTableViewInteractor: NSObject {
     /**
      Initializes the instance.
      */
-    public required init(presentationContext: PNNotesFeedViewController, notesListTableView: UITableView, currentNotebook: Notebook?, deleteNoteInteractor: PNDeleteNoteInteractor, notebookFilter: NSPredicate, notesTableViewPresenter: PNNotesTableViewPresenter) {
-        self.currentNotebook = currentNotebook
-        self.presentationContext = presentationContext
+    internal init(notesListTableView: UITableView, currentNotebook: Notebook?, deleteNoteInteractor: PNDeleteNoteInteractor, notebookFilter: NSPredicate, notesTableViewPresenter: PNNotesTableViewPresenter) {
         self.notesListTableView = notesListTableView
+        self.currentNotebook = currentNotebook
         self.deleteNoteInteractor = deleteNoteInteractor
         self.notebookFilter = notebookFilter
         self.notesTableViewPresenter = notesTableViewPresenter
@@ -83,7 +78,7 @@ class PNNotesTableViewInteractor: NSObject {
 
 extension PNNotesTableViewInteractor: UITableViewDelegate {
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presentationContext?.pushToCreateNote()
+        notesTableViewPresenter.pushToCreateNote()
     }
 }
 

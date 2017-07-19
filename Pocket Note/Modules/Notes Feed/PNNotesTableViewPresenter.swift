@@ -8,6 +8,7 @@
 
 protocol PNNotesTableViewPresenterOutput {
     func openMoveNoteToANotebook(note: Note)
+    func pushToCreateNote()
 }
 
 struct PNNotesTableViewPresenter {
@@ -19,5 +20,9 @@ struct PNNotesTableViewPresenter {
     
     internal func openMoveNoteToANotebook(note: Note) {
         presenterOutput.openMoveNoteToANotebook(note: note)
+    }
+    
+    internal func pushToCreateNote() {
+        presenterOutput.pushToCreateNote()
     }
 }

@@ -14,7 +14,7 @@ import SlideMenuControllerSwift
  The `PNNotesFeedViewController` class is a custom view controller for the Notes List module.
  */
 class PNNotesFeedViewController: UIViewController, NoteFeedMenu {
-    var AlertAction = UIAlertAction.self
+    public var AlertAction = UIAlertAction.self
     
     /// A `PNNotesFeedView` instance representing the super view of the current view controller.
     fileprivate let baseView: PNNotesFeedView? = {
@@ -112,7 +112,7 @@ class PNNotesFeedViewController: UIViewController, NoteFeedMenu {
         
         if let notesListTableView = baseView?.notesListTableView, let unwrappedDeleteInteractor = deleteNoteInteractor {
             let notesTableViewPresenter = PNNotesTableViewPresenter.init(presenterOutput: self)
-            notesFeedTableViewInteractor = PNNotesTableViewInteractor.init(presentationContext: self, notesListTableView: notesListTableView, currentNotebook: currentNotebook, deleteNoteInteractor: unwrappedDeleteInteractor, notebookFilter: notebookFilter, notesTableViewPresenter: notesTableViewPresenter)
+            notesFeedTableViewInteractor = PNNotesTableViewInteractor.init(notesListTableView: notesListTableView, currentNotebook: currentNotebook, deleteNoteInteractor: unwrappedDeleteInteractor, notebookFilter: notebookFilter, notesTableViewPresenter: notesTableViewPresenter)
         }
         
         if let notesListTableView = baseView?.notesListTableView, let unwrappedNotesEditNotebookInteractor = notesEditNotebookInteractor, let unwrappedParentViewController = parent {
@@ -146,15 +146,6 @@ extension PNNotesFeedViewController: PNNotesTableViewPresenterOutput {
         unwrappedMoveNoteViewController.note = note
         present(unwrappedMoveNoteViewController, animated: true, completion: nil)
     }
-}
-
-extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
-    /**
-     Handles the add note button action.
-     */
-    internal func addNoteButtonTapped() {
-        pushToCreateNote()
-    }
     
     internal func pushToCreateNote() {
         let createNoteViewController = PNCreateNoteViewController()
@@ -168,6 +159,15 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
             baseView?.notesListTableView.deselectRow(at: selectedIndexPath, animated: true)
         }
         navigationController?.pushViewController(createNoteViewController, animated: true)
+    }
+}
+
+extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
+    /**
+     Handles the add note button action.
+     */
+    internal func addNoteButtonTapped() {
+        pushToCreateNote()
     }
 }
 

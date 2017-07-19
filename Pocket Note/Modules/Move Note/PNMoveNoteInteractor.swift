@@ -29,7 +29,7 @@ struct PNMoveNoteInteractor {
      - Parameter note: A `Note` instance to be moved.
      - Parameter position: Position of the notebook in the list where the note is to be moved to.
     */
-    public func move(note: Note, position: Int) {
+    internal func move(note: Note, position: Int) {
         let notebookList = realm.objects(Notebook.self).sorted(byKeyPath: "dateCreated", ascending: true)
         
         do {
