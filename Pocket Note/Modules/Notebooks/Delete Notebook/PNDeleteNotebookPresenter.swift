@@ -1,5 +1,5 @@
 //
-//  PNDeleteNotebookObserver.swift
+//  PNDeleteNotebookPresenter.swift
 //  Memo
 //
 //  Created by Hanet on 6/27/17.
@@ -8,20 +8,23 @@
 
 import ProcedureKit
 
+protocol PNDeleteNotebookPresenterOutput {
+    func update(currentNotebook: Notebook?)
+}
+
 /**
- The `PNDeleteNotebookObserver` class observes delete operation. This sets the current notebook of the note list view controller to nil.
+ The `PNDeleteNotebookPresenter` class observes delete operation. This sets the current notebook of the note list view controller to nil.
  */
-class PNDeleteNotebookObserver: ProcedureObserver {
-    /// A `PNCurrentNotesContainer` instance containing a reference to the current notebook.
-    private var notesFeedViewController: PNCurrentNotesContainer
+class PNDeleteNotebookPresenter: ProcedureObserver {
+    private var presenterOutput: PNDeleteNotebookPresenterOutput
     
     /**
      Initializes the instance.
      
      - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance containing a reference to the current notebook.
      */
-    required init(notesFeedViewController: PNCurrentNotesContainer) {
-        self.notesFeedViewController = notesFeedViewController
+    required init(presenterOutput: PNDeleteNotebookPresenterOutput) {
+        self.presenterOutput = presenterOutput
     }
     
     /**
@@ -31,6 +34,6 @@ class PNDeleteNotebookObserver: ProcedureObserver {
      - Parameter withErrors: An array of `Error`s returned by a procedure while finishing.
      */
     func did(finish procedure: Procedure, withErrors: [Error]) {
-        notesFeedViewController.currentNotebook = nil
+        presenterOutput.update(currentNotebook: nil)
     }
 }

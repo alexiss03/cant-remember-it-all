@@ -92,7 +92,9 @@
 		00AB35631F013823008EA86C /* DeleteNotebookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB35621F013823008EA86C /* DeleteNotebookQuickSpec.swift */; };
 		00AB356C1F015A70008EA86C /* PNDeleteNotebookOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB356A1F015A6C008EA86C /* PNDeleteNotebookOperation.swift */; };
 		00AB356F1F015B63008EA86C /* PNDeleteNotebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB356D1F015AD2008EA86C /* PNDeleteNotebookInteractor.swift */; };
-		00AB35721F016C8D008EA86C /* PNDeleteNotebookObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB35701F016B69008EA86C /* PNDeleteNotebookObserver.swift */; };
+		00AB35721F016C8D008EA86C /* PNDeleteNotebookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB35701F016B69008EA86C /* PNDeleteNotebookPresenter.swift */; };
+		00AE32A61F1F00C100068471 /* PNNotesTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE32A51F1F00C100068471 /* PNNotesTableViewPresenter.swift */; };
+		00AE32A91F1F010900068471 /* PNSearchNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AE32A81F1F010900068471 /* PNSearchNotePresenter.swift */; };
 		00AE74751E8CE30A0081C35C /* PNCreateNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */; };
 		00AE749C1E8CE8A50081C35C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */; };
 		00AE749D1E8CE8A50081C35C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */; };
@@ -242,7 +244,9 @@
 		00AB35621F013823008EA86C /* DeleteNotebookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteNotebookQuickSpec.swift; path = "Delete Notebook/DeleteNotebookQuickSpec.swift"; sourceTree = "<group>"; };
 		00AB356A1F015A6C008EA86C /* PNDeleteNotebookOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookOperation.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookOperation.swift"; sourceTree = "<group>"; };
 		00AB356D1F015AD2008EA86C /* PNDeleteNotebookInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookInteractor.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookInteractor.swift"; sourceTree = "<group>"; };
-		00AB35701F016B69008EA86C /* PNDeleteNotebookObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookObserver.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookObserver.swift"; sourceTree = "<group>"; };
+		00AB35701F016B69008EA86C /* PNDeleteNotebookPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNDeleteNotebookPresenter.swift; path = "Modules/Notebooks/Delete Notebook/PNDeleteNotebookPresenter.swift"; sourceTree = "<group>"; };
+		00AE32A51F1F00C100068471 /* PNNotesTableViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNotesTableViewPresenter.swift; path = "Modules/Notes Feed/PNNotesTableViewPresenter.swift"; sourceTree = "<group>"; };
+		00AE32A81F1F010900068471 /* PNSearchNotePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNSearchNotePresenter.swift; path = "Modules/Search Note/PNSearchNotePresenter.swift"; sourceTree = "<group>"; };
 		00AE74741E8CE30A0081C35C /* PNCreateNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNCreateNoteView.xib; path = "Modules/Create Note/PNCreateNoteView.xib"; sourceTree = "<group>"; };
 		00AE748A1E8CE4C10081C35C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Resources/Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
 		00AE748B1E8CE4C10081C35C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Resources/Lato/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -552,17 +556,18 @@
 		00499DBF1F027CFB00E8E5F7 /* Search Note */ = {
 			isa = PBXGroup;
 			children = (
-				00499DC01F027D0900E8E5F7 /* Interactor */,
+				00AE32A71F1F00F600068471 /* Presenters */,
+				00499DC01F027D0900E8E5F7 /* Interactors */,
 			);
 			name = "Search Note";
 			sourceTree = "<group>";
 		};
-		00499DC01F027D0900E8E5F7 /* Interactor */ = {
+		00499DC01F027D0900E8E5F7 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
 				00499DC11F027D3400E8E5F7 /* PNSearchNoteInteractor.swift */,
 			);
-			name = Interactor;
+			name = Interactors;
 			sourceTree = "<group>";
 		};
 		0054AC3D1ECA7D6700F5BE96 /* Network */ = {
@@ -916,6 +921,7 @@
 		00A66CCC1E89F96B00924C34 /* Notes Feed */ = {
 			isa = PBXGroup;
 			children = (
+				00AE32A41F1F00AA00068471 /* Presenters */,
 				001CEF4D1F0246CD00E500BF /* Extensions */,
 				003536F41EF907DF002B70CD /* Operations */,
 				003536F31EF907D6002B70CD /* Interactors */,
@@ -929,8 +935,8 @@
 		00AB35641F014AC5008EA86C /* Delete Notebook */ = {
 			isa = PBXGroup;
 			children = (
+				00AE32AA1F1F024B00068471 /* Presenters */,
 				00AB35691F0159F4008EA86C /* Interactors */,
-				00AB35651F014AD3008EA86C /* Operations */,
 			);
 			name = "Delete Notebook";
 			sourceTree = "<group>";
@@ -939,7 +945,6 @@
 			isa = PBXGroup;
 			children = (
 				00AB356A1F015A6C008EA86C /* PNDeleteNotebookOperation.swift */,
-				00AB35701F016B69008EA86C /* PNDeleteNotebookObserver.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -947,6 +952,7 @@
 		00AB35691F0159F4008EA86C /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				00AB35651F014AD3008EA86C /* Operations */,
 				00AB356D1F015AD2008EA86C /* PNDeleteNotebookInteractor.swift */,
 			);
 			name = Interactors;
@@ -962,6 +968,30 @@
 				0036F5891EB81D7400D19F75 /* View Controllers */,
 			);
 			name = "Create Notebook";
+			sourceTree = "<group>";
+		};
+		00AE32A41F1F00AA00068471 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				00AE32A51F1F00C100068471 /* PNNotesTableViewPresenter.swift */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		00AE32A71F1F00F600068471 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				00AE32A81F1F010900068471 /* PNSearchNotePresenter.swift */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		00AE32AA1F1F024B00068471 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				00AB35701F016B69008EA86C /* PNDeleteNotebookPresenter.swift */,
+			);
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 		00AE74711E8CDE200081C35C /* Edit/Create Note */ = {
@@ -1542,6 +1572,7 @@
 				009C037F1EDEA42300A3FE56 /* PNLogoutUserOperation.swift in Sources */,
 				001CEF4F1F0246E700E500BF /* NoteFeedMenu.swift in Sources */,
 				002155181EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift in Sources */,
+				00AE32A91F1F010900068471 /* PNSearchNotePresenter.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
 				00499DC41F02861600E8E5F7 /* PNNotesEditNotebookInteractor.swift in Sources */,
 				00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */,
@@ -1561,6 +1592,7 @@
 				00AE74AF1E8CECC00081C35C /* PNCreateNoteViewController.swift in Sources */,
 				00F611E21EB05FC3000160BA /* PNSideMenuViewController.swift in Sources */,
 				00606B191F1770470055BBAE /* PNNotebookListViewHeaderCell.swift in Sources */,
+				00AE32A61F1F00C100068471 /* PNNotesTableViewPresenter.swift in Sources */,
 				00F611E01EB05F7B000160BA /* PNSideMenuView.swift in Sources */,
 				007356CC1F0476DD0025E517 /* PNNoNetworkObserver.swift in Sources */,
 				000BBC931EFCB067008713A2 /* PNCreateNotebookOperation.swift in Sources */,
@@ -1570,7 +1602,7 @@
 				00D5F2B91EF2676C00CBF81B /* PNMoveNoteViewController.swift in Sources */,
 				0036F5871EB81D1E00D19F75 /* PNNotebooksListViewController.swift in Sources */,
 				00513C7C1EF0D8AD00E658E2 /* PNNotebooksListTableViewCell.swift in Sources */,
-				00AB35721F016C8D008EA86C /* PNDeleteNotebookObserver.swift in Sources */,
+				00AB35721F016C8D008EA86C /* PNDeleteNotebookPresenter.swift in Sources */,
 				008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

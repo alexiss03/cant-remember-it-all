@@ -12,7 +12,6 @@ protocol PNNotebookListViewHeaderCellEventHandler: VIPEREventHandler {
     func addButtonTapped()
 }
 
-
 class PNNotebookListViewHeaderCell: UITableViewHeaderFooterView {
     weak var eventHandler: PNNotebookListViewHeaderCellEventHandler?
     

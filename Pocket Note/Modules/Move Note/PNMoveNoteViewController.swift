@@ -44,7 +44,6 @@ class PNMoveNoteViewController: UIViewController {
             unwrappedBaseView.frame = self.view.frame
             
             self.view = unwrappedBaseView
-            self.baseView?.addButton.isHidden = true
             self.baseView?.tableView.delegate = self
             self.baseView?.tableView.dataSource = self
             

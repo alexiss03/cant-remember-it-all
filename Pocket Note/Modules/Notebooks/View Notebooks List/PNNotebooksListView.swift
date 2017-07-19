@@ -23,8 +23,6 @@ final class PNNotebooksListView: UIView {
     weak var delegate: PNNotebooksListViewDelegate?
     /// This is the `UITableView` that contains the list of `Notebook`s.
     @IBOutlet weak var tableView: UITableView!
-    ///This is the `UIButton` that is triggered when adding a new `Notebook`.
-    @IBOutlet weak var addButton: UIButton!
 
     /**
      This is the action method when the add `Notebook` button is tapped.

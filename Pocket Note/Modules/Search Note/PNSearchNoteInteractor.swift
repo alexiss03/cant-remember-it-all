@@ -17,12 +17,16 @@ class PNSearchNoteInteractor: NoteFeedMenu {
     private var navigationItem: UINavigationItem
     /// A  `UINavigationBar` instance  where the update note button is located.
     private var navigationBar: UINavigationBar?
-    /// A `PNCurrentNotesContainer` instance  referring to a `PNNotesFeedViewController`.
-    private var notesFeedViewController: PNCurrentNotesContainer
+
+    private var currentNotebook: Notebook?
     /// A `UITableView` instance containing the list of notes is displayed.
     private var noteListTableView: UITableView
     /// A `PNNotesEditNotebookInteractor` editing a `Notebook` instance.
     private var notesEditNotebookInteractor: PNNotesEditNotebookInteractor
+    
+    private var searchNotePresenter: PNSearchNotePresenter
+    private var presentationContext: UIViewController
+    private var menuPresentationContext: UIViewController
     
     /// A `NotificationToken` instance holding the listener to the changes to the current note list.
     var notificationToken: NotificationToken?
@@ -36,12 +40,15 @@ class PNSearchNoteInteractor: NoteFeedMenu {
      - Parameter noteListTableView: A `UITableView` instance containing the list of notes is displayed.
      - Parameter notesEditNotebookInteractor: A `PNNotesEditNotebookInteractor` editing a `Notebook` instance.
      */
-    init(navigationItem: UINavigationItem, navigationBar: UINavigationBar?, notesFeedViewController: PNCurrentNotesContainer, noteListTableView: UITableView, notesEditNotebookInteractor: PNNotesEditNotebookInteractor) {
+    init(navigationItem: UINavigationItem, navigationBar: UINavigationBar?, currentNotebook: Notebook?, noteListTableView: UITableView, notesEditNotebookInteractor: PNNotesEditNotebookInteractor, searchNotePresenter: PNSearchNotePresenter, presentationContext: UIViewController, menuPresentationContext: UIViewController) {
         self.navigationItem = navigationItem
         self.navigationBar = navigationBar
-        self.notesFeedViewController = notesFeedViewController
+        self.currentNotebook = currentNotebook
         self.noteListTableView = noteListTableView
         self.notesEditNotebookInteractor = notesEditNotebookInteractor
+        self.searchNotePresenter = searchNotePresenter
+        self.presentationContext = presentationContext
+        self.menuPresentationContext = menuPresentationContext
     }
     
     /**
@@ -52,31 +59,36 @@ class PNSearchNoteInteractor: NoteFeedMenu {
      - Parameter currentNotebook: A `Notebook` instance currently loaded in the screen.
      - Parameter notebookFilterContainer: A `PNNotebookFilterContainer` instance that cotains the filter predicate.
      */
-    internal func updateNoteList(searchText: String?, currentNotebook: Notebook?, notebookFilterContainer: PNNotebookFilterContainer, menuViewController: UIViewController) {
+    internal func updateNoteList(searchText: String?, currentNotebook: Notebook?, notebookFilter: NSPredicate, menuViewController: UIViewController) {
         DispatchQueue.main.async {
-            guard let unwrappedViewController = self.notesFeedViewController as? UIViewController else {
-                print("Notes feed view controller is not a view controller")
-                return
-            }
-            
+        
             if let unwrappedSearchText = searchText, let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name {
-                notebookFilterContainer.notebookFilter = NSPredicate.init(format: "notebook == %@ && (body CONTAINS[c] %@ || title CONTAINS[c] %@)", unwrappedCurrentNotebook, unwrappedSearchText, unwrappedSearchText)
-                self.setMenu(title: notebookName, target: self.notesFeedViewController, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: unwrappedViewController, slideController: menuViewController)
+                let notebookFilter = NSPredicate.init(format: "notebook == %@ && (body CONTAINS[c] %@ || title CONTAINS[c] %@)", unwrappedCurrentNotebook, unwrappedSearchText, unwrappedSearchText)
+                self.searchNotePresenter.update(notebookFilter: notebookFilter)
+                
+                self.setMenu(title: notebookName, target: self.presentationContext, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController: self.menuPresentationContext)
+                
             } else if let unwrappedSearchText = searchText, currentNotebook == nil {
-                notebookFilterContainer.notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
-                self.setMenu(title: "MEMO", target: self.notesFeedViewController, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: unwrappedViewController, slideController: menuViewController)
+                let notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
+                self.searchNotePresenter.update(notebookFilter: notebookFilter)
+                
+                self.setMenu(title: "MEMO", target: self.presentationContext, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController:  self.menuPresentationContext)
             } else if let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name, searchText == nil {
-                notebookFilterContainer.notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
-                self.setMenu(title: notebookName, target: self.notesFeedViewController, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: unwrappedViewController, slideController: menuViewController)
+                let notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
+                self.searchNotePresenter.update(notebookFilter: notebookFilter)
+                
+                self.setMenu(title: notebookName, target: self.presentationContext, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController:  self.menuPresentationContext)
             } else {
-                notebookFilterContainer.notebookFilter = NSPredicate.init(format: "dateCreated != nil")
-                self.setMenu(title: "MEMO", target: self.notesFeedViewController, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: unwrappedViewController, slideController: menuViewController)
+                let notebookFilter = NSPredicate.init(format: "dateCreated != nil")
+                self.searchNotePresenter.update(notebookFilter: notebookFilter)
+                
+                self.setMenu(title: "MEMO", target: self.presentationContext, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController:  self.menuPresentationContext)
             }
             
             self.notificationToken?.stop()
             
             self.setNotebookButton(editNotebookInteractor: self.notesEditNotebookInteractor, currentNotebook: currentNotebook, navigationItem: self.navigationItem)
-            self.tableAddNotificationBlock(noteFilter: notebookFilterContainer.notebookFilter)
+            self.tableAddNotificationBlock(noteFilter: notebookFilter)
             
         }
     }

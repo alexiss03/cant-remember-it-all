@@ -10,6 +10,10 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
+protocol PNNotebooksListViewControllerOutput {
+    func update(currentNotebook: Notebook?)
+}
+
 /**
  This is the custom `UIViewController` for the Notebook List module.
  */
@@ -30,7 +34,9 @@ final class PNNotebooksListViewController: UIViewController {
     /// This is the storage of the notification token of the notification block of the list of `Notes`
     fileprivate var notificationToken: NotificationToken?
     /// This contains the delegate to the `PNCurrentNotesContainer`. This is to get a reference to the current notebook in the notes fed
-    weak var notesFeedDelegate: PNCurrentNotesContainer?
+    //weak var notesFeedDelegate: PNCurrentNotesContainer?
+    
+    internal var output: PNNotebooksListViewControllerOutput?
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +90,7 @@ final class PNNotebooksListViewController: UIViewController {
      This method sets the `currentNotebook` property of the notes feed view controller. This also dismiss this view controller instance.
      */
     @objc fileprivate func allNotesTapped() {
-        notesFeedDelegate?.currentNotebook = nil
+        createNotebookInteractor?.setNotebook(newNotebook: nil)
         dismiss(animated: true, completion: nil)
     }
     
@@ -92,7 +98,8 @@ final class PNNotebooksListViewController: UIViewController {
      This initiates the `PNCreateNotebookInteractor`.
      */
     fileprivate func initInteractors() {
-        createNotebookInteractor = PNCreateNotebookInteractor.init()
+        let createNotebookPresenter = PNCreateNotebookPresenter.init(presenterOutput: self)
+        createNotebookInteractor = PNCreateNotebookInteractor.init(createNotebookPresenter: createNotebookPresenter)
     }
     
 }
@@ -182,8 +189,8 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
         
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
         let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
-        
-        notesFeedDelegate?.currentNotebook = results[indexPath.row]
+
+        createNotebookInteractor?.setNotebook(newNotebook: results[indexPath.row])
         dismiss(animated: true, completion: nil)
     }
 }
@@ -203,5 +210,11 @@ extension PNNotebooksListViewController: DZNEmptyDataSetSource {
             return NSAttributedString.init(string: "Create notebooks to start organizing your notes.", attributes: attributes)
         }
         return NSAttributedString.init(string: "")
+    }
+}
+
+extension PNNotebooksListViewController: PNCreateNotebookPresenterOutput {
+    func update(currentNotebook: Notebook?) {
+        output?.update(currentNotebook: currentNotebook)
     }
 }

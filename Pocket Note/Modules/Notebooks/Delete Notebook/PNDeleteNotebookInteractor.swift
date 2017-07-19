@@ -13,15 +13,17 @@ import RealmSwift
  */
 struct PNDeleteNotebookInteractor {
     /// A `Realm` instance where the notebook is to be deleted.
-    var realm: Realm
+    private var realm: Realm
+    private var deleteNotebookPresenter: PNDeleteNotebookPresenter
     
     /**
      Initializes the instance.
      
      - Parameter realm: A `Realm` instance where the notebook is to be deleted.
      */
-    public init(realm: Realm) {
+    public init(realm: Realm, deleteNotebookPresenter: PNDeleteNotebookPresenter) {
         self.realm = realm
+        self.deleteNotebookPresenter = deleteNotebookPresenter
     }
     
     /**
@@ -30,10 +32,9 @@ struct PNDeleteNotebookInteractor {
      - Parameter notebookToDeleted: A `Notebook` instance to be deleted.
      - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance that contains the current notebook. This will be set to nil if the delete is successful.
      */
-    public func delete(notebook notebookToDeleted: Notebook, notesFeedViewController: PNCurrentNotesContainer) {
-        let deleteNotebookObserver = PNDeleteNotebookObserver.init(notesFeedViewController: notesFeedViewController)
+    public func delete(notebook notebookToDeleted: Notebook) {
         let deleteNotebookOperation = PNDeleteNotebookOperation.init(notebook: notebookToDeleted, realm: realm)
-        deleteNotebookOperation.add(observer: deleteNotebookObserver)
+        deleteNotebookOperation.add(observer: deleteNotebookPresenter)
         
         PNOperationQueue.realmOperationQueue.add(operation: deleteNotebookOperation)
         

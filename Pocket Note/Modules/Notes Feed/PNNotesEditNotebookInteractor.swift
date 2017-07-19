@@ -26,7 +26,7 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
     /// A `UIPopoverPresentationControllerDelegate` instance conforming to the delegate.
     weak private var delegate: UIPopoverPresentationControllerDelegate?
     /// A `PNCurrentNotesContainer` instance containing the currentNotebook of the notes feed view controller.
-    weak private var currentNotebookHolder: PNCurrentNotesContainer?
+    weak private var currentNotebook: Notebook?
     
     /**
      Initializes the instance.
@@ -39,14 +39,14 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
      - Parameter delegate: A `UIPopoverPresentationControllerDelegate` instance conforming to the delegate.
      - Parameter currentNotebookHolder:  A `PNCurrentNotesContainer` instance containing the currentNotebook of the notes feed view controller.
      */
-    init(presentationContext: UIViewController, navigationItem: UINavigationItem, navigationController: UINavigationController?, deleteNotebookInteractor: PNDeleteNotebookInteractor?, AlertAction: UIAlertAction.Type, delegate: UIPopoverPresentationControllerDelegate?, currentNotebookHolder: PNCurrentNotesContainer) {
+    init(presentationContext: UIViewController, navigationItem: UINavigationItem, navigationController: UINavigationController?, deleteNotebookInteractor: PNDeleteNotebookInteractor?, AlertAction: UIAlertAction.Type, delegate: UIPopoverPresentationControllerDelegate?, currentNotebook: Notebook?) {
         self.presentationContext = presentationContext
         self.navigationItem = navigationItem
         self.navigationController = navigationController
         self.deleteNotebookInteractor = deleteNotebookInteractor
         self.AlertAction = AlertAction
         self.delegate = delegate
-        self.currentNotebookHolder = currentNotebookHolder
+        self.currentNotebook = currentNotebook
     }
     
     /**
@@ -88,7 +88,7 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
                     currentNotebook.name = firstTextField.text
                     
                     if let currentNotebookName = currentNotebook.name, let menuViewController = self.presentationContext.navigationController?.parent as? SlideMenuController {
-                        self.setMenu(title: currentNotebookName, target: self.currentNotebookHolder, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController: menuViewController)
+                        self.setMenu(title: currentNotebookName, target: self.currentNotebook, action: #selector(PNNotesFeedViewController.openNotebooks), viewController: self.presentationContext, slideController: menuViewController)
                     }
                 }
             } catch { }
@@ -106,14 +106,14 @@ class PNNotesEditNotebookInteractor: NoteFeedMenu {
         alertController.popoverPresentationController?.delegate = delegate
         
         let editNotebookAction = AlertAction.init(title: "Edit Notebook", style: .default, handler: { _ -> Void in
-            if let currentNotebook = self.currentNotebookHolder?.currentNotebook {
+            if let currentNotebook = self.currentNotebook {
                 self.editNotebookPopUp(currentNotebook: currentNotebook)
             }
         })
         
         let deleteNotebookAction = AlertAction.init(title: "Delete Notebook", style: .default, handler: { (_ : UIAlertAction!) -> Void in
-            if let currentNotebook = self.currentNotebookHolder?.currentNotebook, let unwrappedCurrentNotebookHolder = self.currentNotebookHolder {
-                self.deleteNotebookInteractor?.delete(notebook: currentNotebook, notesFeedViewController: unwrappedCurrentNotebookHolder)
+            if let unwrappedCurrentNotebook = self.currentNotebook {
+                self.deleteNotebookInteractor?.delete(notebook: unwrappedCurrentNotebook)
             }
         })
         
