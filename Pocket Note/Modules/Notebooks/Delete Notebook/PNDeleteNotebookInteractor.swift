@@ -8,22 +8,31 @@
 
 import RealmSwift
 
+protocol PNDeleteNotebookInteractorInterface {
+    func delete(notebook notebookToDeleted: Notebook)
+}
+
+protocol PNDeleteNotebookInteractorOutput {
+    func setMenuToDefault()
+    func update(notes: Results<Note>)
+}
+
 /**
  The `PNDeleteNotebookInteractor` struct contains the business logic for the Delete Notebook module.
  */
-struct PNDeleteNotebookInteractor {
+class PNDeleteNotebookInteractor: PNDeleteNotebookInteractorInterface {
+    internal var output: PNDeleteNotebookInteractorOutput?
+    
     /// A `Realm` instance where the notebook is to be deleted.
     private var realm: Realm
-    private var deleteNotebookPresenter: PNDeleteNotebookPresenter
     
     /**
      Initializes the instance.
      
      - Parameter realm: A `Realm` instance where the notebook is to be deleted.
      */
-    public init(realm: Realm, deleteNotebookPresenter: PNDeleteNotebookPresenter) {
+    public init(realm: Realm) {
         self.realm = realm
-        self.deleteNotebookPresenter = deleteNotebookPresenter
     }
     
     /**
@@ -32,11 +41,13 @@ struct PNDeleteNotebookInteractor {
      - Parameter notebookToDeleted: A `Notebook` instance to be deleted.
      - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance that contains the current notebook. This will be set to nil if the delete is successful.
      */
-    public func delete(notebook notebookToDeleted: Notebook) {
+    internal func delete(notebook notebookToDeleted: Notebook) {
         let deleteNotebookOperation = PNDeleteNotebookOperation.init(notebook: notebookToDeleted, realm: realm)
-        deleteNotebookOperation.add(observer: deleteNotebookPresenter)
-        
         PNOperationQueue.realmOperationQueue.add(operation: deleteNotebookOperation)
         
+        let notebookFilter = NSPredicate.init(format: "dateCreated != nil")
+        let notes = realm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
+        output?.update(notes: notes)
+        output?.setMenuToDefault()
     }
 }

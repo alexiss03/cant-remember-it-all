@@ -29,22 +29,20 @@ final class PNNotebooksListViewController: UIViewController {
         return nil
     }()
     
-    /// This interactor is responsible for creating a notebook
-    fileprivate var createNotebookInteractor: PNCreateNotebookInteractor?
-    /// This is the storage of the notification token of the notification block of the list of `Notes`
+    fileprivate var eventHandler: PNNotebooksListViewEventHandler?
     fileprivate var notificationToken: NotificationToken?
-    /// This contains the delegate to the `PNCurrentNotesContainer`. This is to get a reference to the current notebook in the notes fed
-    //weak var notesFeedDelegate: PNCurrentNotesContainer?
-    
     internal var output: PNNotebooksListViewControllerOutput?
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpView()
+    }
+    
+    private func setUpView() {
         if let unwrappedBaseView = baseView {
             unwrappedBaseView.frame = self.view.frame
-            unwrappedBaseView.delegate = self
-
+            
             self.view = unwrappedBaseView
             self.baseView?.tableView.delegate = self
             self.baseView?.tableView.dataSource = self
@@ -90,7 +88,7 @@ final class PNNotebooksListViewController: UIViewController {
      This method sets the `currentNotebook` property of the notes feed view controller. This also dismiss this view controller instance.
      */
     @objc fileprivate func allNotesTapped() {
-        createNotebookInteractor?.setNotebook(newNotebook: nil)
+        output?.update(currentNotebook: nil)
         dismiss(animated: true, completion: nil)
     }
     
@@ -98,51 +96,20 @@ final class PNNotebooksListViewController: UIViewController {
      This initiates the `PNCreateNotebookInteractor`.
      */
     fileprivate func initInteractors() {
-        let createNotebookPresenter = PNCreateNotebookPresenter.init(presenterOutput: self)
-        createNotebookInteractor = PNCreateNotebookInteractor.init(createNotebookPresenter: createNotebookPresenter)
+        var createNotebookInteractor = PNCreateNotebookInteractor.init()
+        let notebooksListPresenter = PNNotebooksListPresenter.init(createNotebookInteractor: createNotebookInteractor, output: self)
+        createNotebookInteractor.output = notebooksListPresenter
+        eventHandler = notebooksListPresenter
     }
     
 }
 
-extension PNNotebooksListViewController: PNNotebooksListViewDelegate, PNNotebookListViewHeaderCellEventHandler {
+extension PNNotebooksListViewController: PNNotebookListViewHeaderCellEventHandler {
     /**
      This presents the `UIAlertController` interface for inputting the new `Notebook` name. This also contains the logic when the user saves the new `Notebook` or cancels it.
      */
     internal func addButtonTapped() {
-        let alertController = UIAlertController(title: "New Notebook", message: "", preferredStyle: .alert)
-        
-        weak var weakSelf = self
-        let saveAction = AlertAction.init(title: "Save", style: .default, handler: { _ -> Void in
-            guard let strongSelf = weakSelf else {
-                print("Weak self is nil")
-                return
-            }
-            
-            let firstTextField = alertController.textFields![0] as UITextField
-            guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else {
-                print("Realm is nil")
-                return
-            }
-            
-            guard let unwrappedNotebookName = firstTextField.text else {
-                print("Notebook name is nil")
-                return
-            }
-            
-            strongSelf.createNotebookInteractor?.create(notebookName: unwrappedNotebookName, realm: unwrappedRealm)
-        })
-        
-        let cancelAction = AlertAction.init(title: "Cancel", style: .default, handler: { (_ : UIAlertAction!) -> Void in
-        })
-        
-        alertController.addTextField { (textField: UITextField!) -> Void in
-            textField.placeholder = "Notebook Name"
-        }
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
+        eventHandler?.handleCreateNote()
     }
 }
 
@@ -189,8 +156,8 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
         
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
         let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
-
-        createNotebookInteractor?.setNotebook(newNotebook: results[indexPath.row])
+        
+        output?.update(currentNotebook: results[indexPath.row])
         dismiss(animated: true, completion: nil)
     }
 }
@@ -213,8 +180,12 @@ extension PNNotebooksListViewController: DZNEmptyDataSetSource {
     }
 }
 
-extension PNNotebooksListViewController: PNCreateNotebookPresenterOutput {
-    func update(currentNotebook: Notebook?) {
-        output?.update(currentNotebook: currentNotebook)
+extension PNNotebooksListViewController: PNNotebooksListPresenterOutput {
+    func presentAlertController(alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
+    }
+
+    func setNotebook(newNotebook: Notebook?) {
+        output?.update(currentNotebook: newNotebook)
     }
 }
