@@ -17,7 +17,7 @@ protocol PNNotebooksListViewControllerOutput {
 /**
  This is the custom `UIViewController` for the Notebook List module.
  */
-final class PNNotebooksListViewController: UIViewController {
+class PNNotebooksListViewController: UIViewController {
     /// This property contains the alert action to be used. This is for mocking.
     var AlertAction = UIAlertAction.self
     
@@ -33,38 +33,55 @@ final class PNNotebooksListViewController: UIViewController {
     fileprivate var notificationToken: NotificationToken?
     internal var output: PNNotebooksListViewControllerOutput?
     
+    fileprivate var notebooks: Results<Notebook>? = {
+        guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
+            return nil
+        }
+        
+        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
+        return results
+    }()
+    
     internal override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpView()
+        initEventHandler()
     }
     
-    private func setUpView() {
-        if let unwrappedBaseView = baseView {
-            unwrappedBaseView.frame = self.view.frame
-            
-            self.view = unwrappedBaseView
-            self.baseView?.tableView.delegate = self
-            self.baseView?.tableView.dataSource = self
-            self.baseView?.tableView.emptyDataSetSource = self
-            
-            let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
-            let tableViewCellNibId = "PNNotebooksListTableViewCell"
-            unwrappedBaseView.tableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
-            unwrappedBaseView.tableView.register(UINib.init(nibName: "PNNotebookListViewHeaderCell", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "PNNotebookListViewHeaderCell")
-            
-            initInteractors()
+    fileprivate func setUpView() {
+        guard let unwrappedBaseView = baseView else {
+            print("Base view is nil")
+            return
         }
+        
+        unwrappedBaseView.frame = self.view.frame
+        
+        self.view = unwrappedBaseView
+        self.baseView?.tableView.delegate = self
+        self.baseView?.tableView.dataSource = self
+        self.baseView?.tableView.emptyDataSetSource = self
+        
+        let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
+        let tableViewCellNibId = "PNNotebooksListTableViewCell"
+        unwrappedBaseView.tableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
+        unwrappedBaseView.tableView.register(UINib.init(nibName: "PNNotebookListViewHeaderCell", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "PNNotebookListViewHeaderCell")
+    }
+    
+    /**
+     This initiates the `PNCreateNotebookInteractor`.
+     */
+    fileprivate func initEventHandler() {
+        var createNotebookInteractor = PNCreateNotebookInteractor.init()
+        let notebooksListPresenter = PNNotebooksListPresenter.init(createNotebookInteractor: createNotebookInteractor, output: self)
+        createNotebookInteractor.output = notebooksListPresenter
+        eventHandler = notebooksListPresenter
     }
     
     internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         addTableNotificationBlock()
-    }
-    
-    internal override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     private func addTableNotificationBlock() {
@@ -76,6 +93,10 @@ final class PNNotebooksListViewController: UIViewController {
         }
     }
     
+    internal override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     internal override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
@@ -83,25 +104,6 @@ final class PNNotebooksListViewController: UIViewController {
     internal override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    /**
-     This method sets the `currentNotebook` property of the notes feed view controller. This also dismiss this view controller instance.
-     */
-    @objc fileprivate func allNotesTapped() {
-        output?.update(currentNotebook: nil)
-        dismiss(animated: true, completion: nil)
-    }
-    
-    /**
-     This initiates the `PNCreateNotebookInteractor`.
-     */
-    fileprivate func initInteractors() {
-        var createNotebookInteractor = PNCreateNotebookInteractor.init()
-        let notebooksListPresenter = PNNotebooksListPresenter.init(createNotebookInteractor: createNotebookInteractor, output: self)
-        createNotebookInteractor.output = notebooksListPresenter
-        eventHandler = notebooksListPresenter
-    }
-    
 }
 
 extension PNNotebooksListViewController: PNNotebookListViewHeaderCellEventHandler {
@@ -110,6 +112,14 @@ extension PNNotebooksListViewController: PNNotebookListViewHeaderCellEventHandle
      */
     internal func addButtonTapped() {
         eventHandler?.handleCreateNote()
+    }
+    
+    /**
+     This method sets the `currentNotebook` property of the notes feed view controller. This also dismiss this view controller instance.
+     */
+    @objc fileprivate func allNotesTapped() {
+        output?.update(currentNotebook: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -130,10 +140,8 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell {
-            guard let unwrappedRealm = PNSharedRealm.realmInstance() else {  return UITableViewCell.init() }
-            let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
-            cell.setContent(notebook: notebookList[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell, let unwrappedNotebook =  notebooks?[indexPath.row] {
+            cell.setContent(notebook: unwrappedNotebook)
             cell.selectionStyle = .none
             
             return cell
@@ -151,41 +159,38 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
         return UIView.init()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return }
-        let results = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
-        
-        output?.update(currentNotebook: results[indexPath.row])
+        if let unwrappedNotebook =  notebooks?[indexPath.row] {
+            output?.update(currentNotebook: unwrappedNotebook)
+        }
         dismiss(animated: true, completion: nil)
     }
 }
 
 extension PNNotebooksListViewController: DZNEmptyDataSetSource {
-    public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    internal func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         if scrollView == baseView?.tableView {
-            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato", size: 20.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
-            return NSAttributedString.init(string: "No Notebook Yet", attributes: attributes)
+            return PNFormattedString.formattedString(text: "No Notebook Yet", fontName: "Lato", fontSize: 20.0)
         }
         return NSAttributedString.init(string: "")
     }
     
-    public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    internal func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         if scrollView == baseView?.tableView {
-            let attributes = [NSFontAttributeName: UIFont.init(name: "Lato-Light", size: 16.0) as Any, NSForegroundColorAttributeName: UIColor.lightGray] as [String: Any]
-            return NSAttributedString.init(string: "Create notebooks to start organizing your notes.", attributes: attributes)
+            return PNFormattedString.formattedString(text: "Create notebooks to start organizing your notes", fontName: "Lato-Light", fontSize: 16.0)
         }
         return NSAttributedString.init(string: "")
     }
 }
 
 extension PNNotebooksListViewController: PNNotebooksListPresenterOutput {
-    func presentAlertController(alert: UIAlertController) {
+    internal func presentAlertController(alert: UIAlertController) {
         present(alert, animated: true, completion: nil)
     }
 
-    func setNotebook(newNotebook: Notebook?) {
+    internal func setNotebook(newNotebook: Notebook?) {
         output?.update(currentNotebook: newNotebook)
     }
 }

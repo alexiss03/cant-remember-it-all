@@ -14,21 +14,21 @@ import RealmSwift
  */
 class PNSideMenuViewController: UIViewController {
     /// A `PNSideMenuView` instance representing the super view of this view controller.
-    var baseView: PNSideMenuView? {
+    fileprivate var baseView: PNSideMenuView? {
         get {
             return view as? PNSideMenuView
         }
     }
     
     /// An array of `String` values displayed as the option for the Side Menu. This temporarily empty.
-    let menuItems: [String] = []
+    fileprivate let menuItems: [String] = []
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let unwrappedBaseView = self.baseView {
             unwrappedBaseView.frame = self.view.frame
