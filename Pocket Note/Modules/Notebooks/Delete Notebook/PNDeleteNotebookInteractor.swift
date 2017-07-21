@@ -31,7 +31,7 @@ class PNDeleteNotebookInteractor: PNDeleteNotebookInteractorInterface {
      
      - Parameter realm: A `Realm` instance where the notebook is to be deleted.
      */
-    public init(realm: Realm) {
+    internal init(realm: Realm) {
         self.realm = realm
     }
     
