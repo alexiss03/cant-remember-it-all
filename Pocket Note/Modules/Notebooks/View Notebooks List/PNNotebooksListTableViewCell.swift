@@ -30,7 +30,7 @@ final class PNNotebooksListTableViewCell: UITableViewCell {
      
     - Parameter notebook: This is the `Notebook` instance that contains the details to be displayed.
      */
-    internal func setContent(notebook: Notebook) {
+    func setContent(notebook: Notebook) {
         notebookNameLabel.text = notebook.name
         if notebook.notes.count == 1 {
             noteBookItemCount.text = "\(notebook.notes.count) note"

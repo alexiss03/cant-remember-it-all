@@ -17,7 +17,7 @@ final class TextViewKeyboardObserver {
         self.bottomOffset = bottomOffset
     }
     
-    internal func startObserving() {
+    func startObserving() {
         NotificationCenter.default.addObserver(self, selector: #selector(TextViewKeyboardObserver.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TextViewKeyboardObserver.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }

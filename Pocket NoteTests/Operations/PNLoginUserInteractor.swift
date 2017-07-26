@@ -18,7 +18,7 @@ protocol PNLoginUserVIPERInteractor: VIPERInteractor { }
 class PNLoginUserInteractor: Procedure, InputProcedure, PNLoginUserVIPERInteractor {
     public static let name = "Login User"
 
-    internal var input: Pending<(String, String)> = .pending
+    var input: Pending<(String, String)> = .pending
 
     /**
      This is where the operation execution happens. The user is either logged in or registered depending on the value of `isRegister`. If successful, this calls the `showNotesFeed` method of the `nextViewController` and also finishes the operation. Otherwise, the operation is finished with an error.

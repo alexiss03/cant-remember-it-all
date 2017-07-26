@@ -20,7 +20,7 @@ class PNMoveNoteViewPresenter: PNMoveNoteViewEventHandler {
         self.moveNoteInteractor = moveNoteInteractor
     }
     
-    internal func handleMove(note: Note, toNotebook newNotebook: Notebook) {
+    func handleMove(note: Note, toNotebook newNotebook: Notebook) {
         moveNoteInteractor.move(note: note, toNotebook: newNotebook)
     }
 }
@@ -40,7 +40,7 @@ class PNMoveNoteViewController: UIViewController {
     /// A `NotificationToken` instance indicating the notification observer for the list of notebooks.
     fileprivate var notificationToken: NotificationToken?
     /// A `Note` instance to be moved to a new `Notebook`.
-    internal var note: Note?
+    var note: Note?
     
     fileprivate var notebooks: Results<Notebook>? = {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
@@ -53,7 +53,7 @@ class PNMoveNoteViewController: UIViewController {
 
     fileprivate var eventHandler: PNMoveNoteViewEventHandler?
     
-    internal  override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
@@ -95,12 +95,12 @@ class PNMoveNoteViewController: UIViewController {
         eventHandler = moveNotePresenter
     }
     
-    internal override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
     
-    internal override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         addTableNotificationBlock()
@@ -119,18 +119,18 @@ class PNMoveNoteViewController: UIViewController {
 }
 
 extension PNMoveNoteViewController: UITableViewDelegate, UITableViewDataSource {
-    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
         let notebookList = unwrappedRealm.objects(Notebook.self)
         
         return notebookList.count
     }
     
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell, let unwrappedNotebooks = notebooks {
             cell.setContent(notebook: unwrappedNotebooks[indexPath.row])
             cell.selectionStyle = .none
@@ -140,7 +140,7 @@ extension PNMoveNoteViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell.init()
     }
     
-    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let unwrappedNote = note, let unwrappedNotebooks = notebooks {

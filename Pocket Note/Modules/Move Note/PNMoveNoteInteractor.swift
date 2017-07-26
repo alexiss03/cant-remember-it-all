@@ -22,7 +22,7 @@ struct PNMoveNoteInteractor: PNMoveNoteInteractorInterface {
      
      - Parameter realm: A `Realm` instance where the note is to be moved.
      */
-    internal init(realm: Realm) {
+    init(realm: Realm) {
         self.realm = realm
     }
     
@@ -32,7 +32,7 @@ struct PNMoveNoteInteractor: PNMoveNoteInteractorInterface {
      - Parameter note: A `Note` instance to be moved.
      - Parameter position: Position of the notebook in the list where the note is to be moved to.
     */
-    internal func move(note: Note, toNotebook newNotebook: Notebook) {
+    func move(note: Note, toNotebook newNotebook: Notebook) {
         do {
             try? realm.write {
                 note.notebook = newNotebook

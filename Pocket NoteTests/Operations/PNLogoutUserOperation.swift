@@ -30,7 +30,7 @@ class PNLogoutUserOperation: PSOperation {
     /**
      This method logs out the current SyncUser and dimisses the dismissingContext, if any.
     */
-    internal override func execute() {
+    override func execute() {
         SyncUser.current?.logOut()
         
         weak var weakSelf = self

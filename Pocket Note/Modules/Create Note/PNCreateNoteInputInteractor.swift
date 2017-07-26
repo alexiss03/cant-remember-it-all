@@ -18,7 +18,7 @@ class PNCreateNoteInputInteractor: Procedure, OutputProcedure {
     /// A `String` value indicating the content of the new note.
     private var content: String?
     private var note: Note?
-    internal var output: Pending<ProcedureResult<String>> = .pending
+    var output: Pending<ProcedureResult<String>> = .pending
     
     /**
      Initializes the instance.
@@ -31,7 +31,7 @@ class PNCreateNoteInputInteractor: Procedure, OutputProcedure {
         super.init()
     }
     
-    internal override func execute() {
+    override func execute() {
         DispatchQueue.main.async {
             if let unwrappedNote = self.note, unwrappedNote.body == self.content {
                 let error = NSError.init(domain: PNCreateNoteErrorDomain, code: 0000, userInfo: nil)

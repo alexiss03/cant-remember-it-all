@@ -57,7 +57,7 @@ class PNLoginView: UIView, PNLoginVIPERView {
     /**
      This method is responsible for resetting the view's input values, for the purpose of reusing.
      */
-    internal func prepareForReuse() {
+    func prepareForReuse() {
         DispatchQueue.main.async {
             self.emailTextField.text = ""
             self.passwordTextField.text = ""
@@ -71,7 +71,7 @@ class PNLoginView: UIView, PNLoginVIPERView {
      
      - Parameter errorMessage: A string value that is displayed to the view.
      */
-    internal func setEmailErrorLabel(errorMessage: String?) {
+    func setEmailErrorLabel(errorMessage: String?) {
         DispatchQueue.main.async {
             self.emailErrorLabel.text = errorMessage
         }
@@ -82,25 +82,25 @@ class PNLoginView: UIView, PNLoginVIPERView {
      
      - Parameter errorMessage: A string value that is displayed to the view.
      */
-    internal func setPasswordErrorLabel(errorMessage: String?) {
+    func setPasswordErrorLabel(errorMessage: String?) {
         DispatchQueue.main.async {
             self.passwordErrorLabel.text = errorMessage
         }
     }
     
-    internal func getEmailText() -> String? {
+    func getEmailText() -> String? {
         return emailTextField.text
     }
     
-    internal func getPasswordText() -> String? {
+    func getPasswordText() -> String? {
         return passwordTextField.text
     }
     
-    internal func getEmailErrorText() -> String? {
+    func getEmailErrorText() -> String? {
         return emailErrorLabel.text
     }
     
-    internal func getPasswordErrorText() -> String? {
+    func getPasswordErrorText() -> String? {
         return passwordErrorLabel.text
     }
 

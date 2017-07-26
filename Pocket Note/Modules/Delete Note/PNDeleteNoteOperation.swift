@@ -16,7 +16,7 @@ class PNDeleteNoteOperation: Procedure {
     /// A `Realm` where the note is to be deleted.
     private var selectedNote: Note
     /// A `Pending<Note>` that contains the note to be deleted.
-    internal var input: Pending<Note> = .pending
+    var input: Pending<Note> = .pending
     
     /**
      Initializes the instance.

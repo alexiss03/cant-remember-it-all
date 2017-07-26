@@ -24,7 +24,7 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
     private var eventHandler: PNLoginViewEventHandler?
     
     /// This instance property is the superview of the current controller.
-    internal var baseView: PNLoginView? = {
+    var baseView: PNLoginView? = {
         if let view = Bundle.main.loadNibNamed("PNLoginView", owner: self, options: nil)![0] as? PNLoginView {
             return view
         }
@@ -34,7 +34,7 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
     /** 
      This method overrides the superclass' implementation of `viewDidLoad()` to set the `baseView` and setting the baseView delegate.
     */
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         if !SyncUser.all.isEmpty {
@@ -58,7 +58,7 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
     /** 
      This method overrides the superclass' implementation of `viewWillAppear()` set the navigation bar's visibility and resetting the `baseView` to reusing
     */
-    internal override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         hideNavigationBar(viewController: self)
@@ -71,7 +71,7 @@ extension PNLoginViewController {
      This method directs this view controller to the event's feed page.
      */
     
-    final internal func routeToNotesFeed() {
+    final func routeToNotesFeed() {
         DispatchQueue.main.async {
             let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
@@ -90,7 +90,7 @@ extension PNLoginViewController {
         }
     }
     
-    final internal func routeAlertController(alert: UIAlertController) {
+    final func routeAlertController(alert: UIAlertController) {
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
@@ -98,7 +98,7 @@ extension PNLoginViewController {
     /**
      This method calls a perform segue to the Registration page.
      */
-    final internal func routeToRegistration() {
+    final func routeToRegistration() {
         let registrationController = PNRegistrationViewController()
         self.navigationController?.pushViewController(registrationController, animated: true)
     }

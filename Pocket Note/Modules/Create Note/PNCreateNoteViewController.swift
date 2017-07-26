@@ -17,12 +17,12 @@ protocol PNCreateNoteRouter: VIPERRouter { }
  */
 class PNCreateNoteViewController: UIViewController {
     /// A `PNCreateNoteView` that is the superview of a `PNCreateNoteViewController`.
-    internal var baseView: PNCreateNoteView?
+    var baseView: PNCreateNoteView?
     
     /// A `Note` instance that is to be updated. If this is nil, the a new note instance is to be created instead.
-    internal  var note: Note?
+     var note: Note?
     /// A `Notebook` instance that will contain the note to be created or already contains the note to be updated.
-    internal var notebook: Notebook?
+    var notebook: Notebook?
     private var eventHandler: PNCreateNoteVIPEREventHandler?
     
     /**
@@ -30,7 +30,7 @@ class PNCreateNoteViewController: UIViewController {
      
      Additionally, this method sets the baseView of this view controller and also calls the interactors initialization method.
      */
-    internal  override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
         
         baseView = view as? PNCreateNoteView
@@ -48,7 +48,7 @@ class PNCreateNoteViewController: UIViewController {
      
      Additionally, this method sets the content of the baseView.
      */
-    internal override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let unwrappedBaseView = baseView, let contentText = note?.body {
@@ -56,7 +56,7 @@ class PNCreateNoteViewController: UIViewController {
         }
     }
     
-    internal override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if let unwrappedBaseView = baseView, note == nil {
@@ -69,7 +69,7 @@ class PNCreateNoteViewController: UIViewController {
      
      Additionally, this method triggers the updating of the note or creating a new note instance.
      */
-    internal override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.saveNote(content: baseView?.getContentText())
     }

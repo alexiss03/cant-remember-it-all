@@ -32,7 +32,7 @@ final class PNRegistrationInputInteractor: Procedure, OutputProcedure, PNRegistr
     private var password: String?
     
     private var isValidInput = true
-    internal var output: Pending<ProcedureResult<(String, String)>> = .pending
+    var output: Pending<ProcedureResult<(String, String)>> = .pending
     
     required init(emailText username: String?, passwordText password: String?) {
         self.username = username
@@ -40,7 +40,7 @@ final class PNRegistrationInputInteractor: Procedure, OutputProcedure, PNRegistr
         super.init()
     }
     
-    internal override func execute() {
+    override func execute() {
         var errors: [Error] = []
         
         if let usernameError = validaUserName() {

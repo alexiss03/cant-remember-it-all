@@ -39,11 +39,11 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
         contentTextView.text = content
     }
     
-    internal func setContentTextViewAsFirstResponder() {
+    func setContentTextViewAsFirstResponder() {
         contentTextView.becomeFirstResponder()
     }
     
-    internal func getContentText() -> String? {
+    func getContentText() -> String? {
         return contentTextView?.text
     }
 }

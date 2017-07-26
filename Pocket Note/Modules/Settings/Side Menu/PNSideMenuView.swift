@@ -20,7 +20,7 @@ protocol PNSideMenuViewDelegate: class {
  */
 class PNSideMenuView: UIView {
     /// A `PNSideMenuViewDelegate`instance receiving the actions declared in `PNSideMenuViewDelegate`.
-    internal weak var delegate: PNSideMenuViewDelegate?
+    weak var delegate: PNSideMenuViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func logoutButtonTapped(_ sender: Any) {

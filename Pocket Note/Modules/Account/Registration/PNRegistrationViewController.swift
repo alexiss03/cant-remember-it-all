@@ -66,7 +66,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
 }
 
 extension PNRegistrationViewController {
-    final internal func routeToNotesFeed() {
+    final func routeToNotesFeed() {
         DispatchQueue.main.async {
             let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {

@@ -41,31 +41,31 @@ class PNRegistrationView: UIView, PNRegistrationVIPERView {
         eventHandler?.signUp(emailText: self.emailTextField.text, passwordText: self.passwordTextField.text)
     }
     
-    internal func setPasswordErrorLabel(errorMessage: String) {
+    func setPasswordErrorLabel(errorMessage: String) {
         DispatchQueue.main.async {
             self.passwordErrorLabel.text = errorMessage
         }
     }
     
-    internal func setEmailErrorLabel(errorMessage: String) {
+    func setEmailErrorLabel(errorMessage: String) {
         DispatchQueue.main.async {
             self.emailErrorLabel.text = errorMessage
         }
     }
     
-    internal func getEmailText() -> String? {
+    func getEmailText() -> String? {
         return emailTextField.text
     }
     
-    internal func getPasswordText() -> String? {
+    func getPasswordText() -> String? {
         return passwordTextField.text
     }
     
-    internal func getEmailErrorText() -> String? {
+    func getEmailErrorText() -> String? {
         return emailErrorLabel.text
     }
     
-    internal func getPasswordErrorText() -> String? {
+    func getPasswordErrorText() -> String? {
         return passwordErrorLabel.text
     }
 

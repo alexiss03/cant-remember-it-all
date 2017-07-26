@@ -39,7 +39,7 @@ final class PNLoginInputInteractor: Procedure, OutputProcedure, PNLoginInputVIPE
     private var password: String?
     
     /// A tuple (String, String) value that is the output of this interactor.
-    internal var output: Pending<ProcedureResult<(String, String)>> = .pending
+    var output: Pending<ProcedureResult<(String, String)>> = .pending
     
     required init(emailText username: String?, passwordText password: String?) {
         self.username = username

@@ -18,7 +18,7 @@ struct PNRegistrationInputPresenter: ProcedureObserver, PNRegistrationInputVIPER
         self.registrationView = registrationView
     }
     
-    internal func did(cancel procedure: Procedure, withErrors: [Error]) {
+    func did(cancel procedure: Procedure, withErrors: [Error]) {
         
         for error in withErrors {
             let error = error as NSError
@@ -42,7 +42,7 @@ struct PNRegistrationInputPresenter: ProcedureObserver, PNRegistrationInputVIPER
         }
     }
     
-    internal func did(finish procedure: Procedure, withErrors errors: [Error]) {
+    func did(finish procedure: Procedure, withErrors errors: [Error]) {
         registrationView.setEmailErrorLabel(errorMessage: "")
         registrationView.setPasswordErrorLabel(errorMessage: "")
     }

@@ -20,7 +20,7 @@ protocol PNNotesFeedViewDelegate: class {
  */
 class PNNotesFeedView: UIView {
     /// A `PNNotesFeedViewDelegate` instance representing the object receiver of the delegate methods.
-    internal weak var delegate: PNNotesFeedViewDelegate?
+    weak var delegate: PNNotesFeedViewDelegate?
 
     @IBOutlet weak var addNoteButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -36,7 +36,7 @@ class PNNotesFeedView: UIView {
     
     func setContent() { }
     
-    override internal func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
         
         addNoteButton.contentMode = .center

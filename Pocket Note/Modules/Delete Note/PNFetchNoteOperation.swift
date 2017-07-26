@@ -21,7 +21,7 @@ class PNFetchNoteOperation: Procedure, OutputProcedure {
     /// A 'NSPredicate' that filters the list of notes from the specified realm
     private var filter: NSPredicate?
     /// A `Pending<ProcedureResult<Note>>` that outputs the fetched note to the next operation in queue.
-    internal var output: Pending<ProcedureResult<Note>> = .pending
+    var output: Pending<ProcedureResult<Note>> = .pending
     
     /**
      Initializes the instance.

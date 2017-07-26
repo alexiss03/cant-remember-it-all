@@ -41,7 +41,7 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
      - Parameter emailText: An optional string value for the text input in the email text field by the user.
      - Parameter passwordText: An optionla string value for the text input in the password text field by the user.
      */
-    internal func login(emailText: String?, passwordText: String?) {
+    func login(emailText: String?, passwordText: String?) {
         // Login validation
         let loginInputValidationInteractor = PNLoginInputInteractor.init(emailText: emailText, passwordText: passwordText)
         let loginInputValidationPresenter = PNLoginInputPresenter.init(loginView: loginView)
@@ -64,7 +64,7 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
     /**
      This method is a protocol implementation of the delegate method that is called whenever the user taps the sign up button.
      */
-    internal func goToSignUp() {
+    func goToSignUp() {
         self.loginRouter.routeToRegistration()
     }
 }

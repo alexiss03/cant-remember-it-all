@@ -23,12 +23,12 @@ class PNSideMenuViewController: UIViewController {
     /// An array of `String` values displayed as the option for the Side Menu. This temporarily empty.
     fileprivate let menuItems: [String] = []
 
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    internal override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let unwrappedBaseView = self.baseView {
             unwrappedBaseView.frame = self.view.frame
@@ -41,23 +41,23 @@ class PNSideMenuViewController: UIViewController {
         }
     }
 
-    internal override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
 
 extension PNSideMenuViewController: UITableViewDelegate {
-    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension PNSideMenuViewController: UITableViewDataSource {
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let unwrappedCell = tableView.dequeueReusableCell(withIdentifier: "TableCell") else {
             print("No table cell is dequeued")
             return UITableViewCell()
@@ -75,7 +75,7 @@ extension PNSideMenuViewController: PNSideMenuViewDelegate {
     /**
      Performs the logout operation when the log out button is tapped.
      */
-    internal func logoutButtonTapped() {
+    func logoutButtonTapped() {
         let logoutOperation = PNLogoutUserOperation.init(dismissingContext: self)
         PNOperationQueue.networkOperationQueue.addOperations([logoutOperation], waitUntilFinished: false)
     }

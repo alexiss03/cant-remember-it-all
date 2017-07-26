@@ -97,11 +97,11 @@ class CreateNoteQuickSpec: QuickSpec, NoteQuickSpecProtocol {
             view = Bundle.main.loadNibNamed("PNCreateNoteView", owner: self, options: nil)![0] as? PNCreateNoteView
         }
 
-        internal func set(notebook: Notebook?) {
+        func set(notebook: Notebook?) {
             self.notebook = notebook
         }
         
-        internal func viewWillDisappear(content: String) {
+        func viewWillDisappear(content: String) {
             baseView?.setContentTextView(content: content)
             super.viewWillDisappear(true)
         }

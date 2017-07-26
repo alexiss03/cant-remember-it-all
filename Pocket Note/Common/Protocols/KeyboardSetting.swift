@@ -15,7 +15,7 @@ protocol KeyboardSetting: class {
 }
 
 extension KeyboardSetting {
-    internal func addDoneButton(view: UIView, inputView: UITextView) {
+    func addDoneButton(view: UIView, inputView: UITextView) {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
         let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
@@ -26,7 +26,7 @@ extension KeyboardSetting {
         inputView.inputAccessoryView = keyboardToolbar
     }
     
-    internal func addDoneButton(view: UIView, inputView: UITextField) {
+    func addDoneButton(view: UIView, inputView: UITextField) {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
         let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
@@ -37,7 +37,7 @@ extension KeyboardSetting {
         inputView.inputAccessoryView = keyboardToolbar
     }
     
-    internal func addDoneButton(view: UIView, inputView: UISearchBar) {
+    func addDoneButton(view: UIView, inputView: UISearchBar) {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
         let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,

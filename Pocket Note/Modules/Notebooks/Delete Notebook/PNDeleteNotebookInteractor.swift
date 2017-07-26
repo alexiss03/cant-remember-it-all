@@ -21,7 +21,7 @@ protocol PNDeleteNotebookInteractorOutput {
  The `PNDeleteNotebookInteractor` struct contains the business logic for the Delete Notebook module.
  */
 class PNDeleteNotebookInteractor: PNDeleteNotebookInteractorInterface {
-    internal var output: PNDeleteNotebookInteractorOutput?
+    var output: PNDeleteNotebookInteractorOutput?
     
     /// A `Realm` instance where the notebook is to be deleted.
     private var realm: Realm
@@ -31,7 +31,7 @@ class PNDeleteNotebookInteractor: PNDeleteNotebookInteractorInterface {
      
      - Parameter realm: A `Realm` instance where the notebook is to be deleted.
      */
-    internal init(realm: Realm) {
+    init(realm: Realm) {
         self.realm = realm
     }
     
@@ -41,7 +41,7 @@ class PNDeleteNotebookInteractor: PNDeleteNotebookInteractorInterface {
      - Parameter notebookToDeleted: A `Notebook` instance to be deleted.
      - Parameter notesFeedViewController: A `PNCurrentNotesContainer` instance that contains the current notebook. This will be set to nil if the delete is successful.
      */
-    internal func delete(notebook notebookToDeleted: Notebook) {
+    func delete(notebook notebookToDeleted: Notebook) {
         let deleteNotebookOperation = PNDeleteNotebookOperation.init(notebook: notebookToDeleted, realm: realm)
         PNOperationQueue.realmOperationQueue.add(operation: deleteNotebookOperation)
         

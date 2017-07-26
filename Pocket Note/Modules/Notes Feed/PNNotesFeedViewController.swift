@@ -41,7 +41,7 @@ class PNNotesFeedViewController: UIViewController {
         return results
     }()
 
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
@@ -96,11 +96,11 @@ class PNNotesFeedViewController: UIViewController {
         eventHandler = notesFeedViewPresenter
     }
     
-    internal override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    internal override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         tableUpdateNotificationBlock()
@@ -112,14 +112,14 @@ class PNNotesFeedViewController: UIViewController {
         }
     }
     
-    internal override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(true)
     }
 }
 
 extension PNNotesFeedViewController: NoteFeedMenu {
-    @objc internal func showNotebookActions(sender: UIButton) {
+    @objc func showNotebookActions(sender: UIButton) {
         let alertController = UIAlertController(title: "Notebook Settings", message: "", preferredStyle: .actionSheet)
         alertController.popoverPresentationController?.delegate = self
         
@@ -144,7 +144,7 @@ extension PNNotesFeedViewController: NoteFeedMenu {
         present(alertController, animated: true, completion: nil)
     }
     
-    internal func editNotebookPopUp(currentNotebook: Notebook) {
+    func editNotebookPopUp(currentNotebook: Notebook) {
         let alertController = UIAlertController(title: "Edit Notebook", message: "", preferredStyle: .alert)
         
         let saveAction = saveNotebookAction(alertController: alertController, currentNotebook: currentNotebook)
@@ -160,7 +160,7 @@ extension PNNotesFeedViewController: NoteFeedMenu {
         present(alertController, animated: true, completion: nil)
     }
     
-    internal func saveNotebookAction(alertController: UIAlertController, currentNotebook: Notebook) -> UIAlertAction {
+    func saveNotebookAction(alertController: UIAlertController, currentNotebook: Notebook) -> UIAlertAction {
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { [weak self]_ -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
             
@@ -175,11 +175,11 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
     /**
      Handles the add note button action.
      */
-    internal func addNoteButtonTapped() {
+    func addNoteButtonTapped() {
         pushCreateNoteView()
     }
     
-    internal func openMoveNoteToANotebook(note: Note) {
+    func openMoveNoteToANotebook(note: Note) {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedMoveNoteViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNMoveNoteViewController") as? PNMoveNoteViewController else {
             print("Move Note Controller is nil")
@@ -198,14 +198,14 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
 }
 
 extension PNNotesFeedViewController: UISearchBarDelegate {
-    internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if baseView?.searchBar == searchBar {
             self.eventHandler?.handleSearch(text: searchBar.text, currentNotebook: self.currentNotebook)
             self.notificationToken?.stop()
         }
     }
     
-    internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if baseView?.searchBar == searchBar {
 
             self.eventHandler?.handleSearch(text: searchBar.text, currentNotebook: self.currentNotebook)
@@ -214,30 +214,30 @@ extension PNNotesFeedViewController: UISearchBarDelegate {
         }
     }
     
-    internal func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if baseView?.searchBar == searchBar {
             searchBar.showsCancelButton = false
         }
     }
     
-    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
     
-    internal func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
 }
 
 extension PNNotesFeedViewController: UIPopoverPresentationControllerDelegate {
-    internal func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.sourceView = self.navigationController?.navigationBar
         popoverPresentationController.sourceRect = (self.navigationController?.navigationBar.frame)!
     }
 }
 
 extension PNNotesFeedViewController: PNDeleteNotebookPresenterOutput, PNNotebooksListViewControllerOutput {
-    internal func update(currentNotebook: Notebook?) {
+    func update(currentNotebook: Notebook?) {
         self.currentNotebook = currentNotebook
         eventHandler?.handleSearch(text: baseView?.searchBar.text, currentNotebook: currentNotebook)
         
@@ -245,7 +245,7 @@ extension PNNotesFeedViewController: PNDeleteNotebookPresenterOutput, PNNotebook
 }
 
 extension PNNotesFeedViewController: UITableViewDelegate {
-    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if tableView == baseView?.notesListTableView {
@@ -262,14 +262,14 @@ extension PNNotesFeedViewController: UITableViewDelegate {
 }
 
 extension PNNotesFeedViewController: UITableViewDataSource {
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let unwrappedNotes = notes else {
             return 0
         }
         return unwrappedNotes.count
     }
     
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotesFeedTableViewCell") as? PNNotesFeedTableViewCell {
             cell.setContent(note: (notes?[indexPath.row])!)
             cell.selectionStyle = .none
@@ -280,11 +280,11 @@ extension PNNotesFeedViewController: UITableViewDataSource {
         return UITableViewCell.init()
     }
     
-    internal func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
         
         } else if editingStyle == .insert {
@@ -292,7 +292,7 @@ extension PNNotesFeedViewController: UITableViewDataSource {
         }
     }
     
-    internal func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = editRowAction(indexPath: indexPath)
         let deleteAction = deleteRowAction(indexPath: indexPath)
         
@@ -323,7 +323,7 @@ extension PNNotesFeedViewController: UITableViewDataSource {
 }
 
 extension PNNotesFeedViewController: DZNEmptyDataSetSource {
-    internal func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         if scrollView == baseView?.notesListTableView, baseView?.searchBar.text?.characters.count != 0 {
             return PNFormattedString.formattedString(text: "No Notes Found", fontName: "Lato", fontSize: 20.0)
         } else if scrollView == baseView?.notesListTableView, currentNotebook == nil {
@@ -333,7 +333,7 @@ extension PNNotesFeedViewController: DZNEmptyDataSetSource {
         }
     }
     
-    internal func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         if scrollView == baseView?.notesListTableView, baseView?.searchBar.text?.characters.count != 0 {
             return PNFormattedString.formattedString(text: "No notes match your search.", fontName: "Lato-Light", fontSize: 16.0)
         } else if scrollView == baseView?.notesListTableView, currentNotebook == nil {
@@ -345,13 +345,13 @@ extension PNNotesFeedViewController: DZNEmptyDataSetSource {
 }
 
 extension PNNotesFeedViewController: PNNotesFeedViewPresenterOutput {
-    internal func update(notes: Results<Note>) {
+    func update(notes: Results<Note>) {
         self.notes = notes
         
         tableUpdateNotificationBlock()
     }
     
-    internal func setMenu(title: String?) {
+    func setMenu(title: String?) {
         guard let slideController = self.parent else {
             return
         }
@@ -365,7 +365,7 @@ extension PNNotesFeedViewController: PNNotesFeedViewPresenterOutput {
         }
     }
     
-    @objc internal func openNotebooks() {
+    @objc func openNotebooks() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         guard let unwrappedNotebookListViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNNotebooksListViewController") as? PNNotebooksListViewController else {
             print("Notebook List View Controller is nil")

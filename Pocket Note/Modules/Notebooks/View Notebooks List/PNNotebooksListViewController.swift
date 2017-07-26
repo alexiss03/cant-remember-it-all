@@ -31,7 +31,7 @@ class PNNotebooksListViewController: UIViewController {
     
     fileprivate var eventHandler: PNNotebooksListViewEventHandler?
     fileprivate var notificationToken: NotificationToken?
-    internal var output: PNNotebooksListViewControllerOutput?
+    var output: PNNotebooksListViewControllerOutput?
     
     fileprivate var notebooks: Results<Notebook>? = {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
@@ -42,7 +42,7 @@ class PNNotebooksListViewController: UIViewController {
         return results
     }()
     
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpView()
@@ -78,7 +78,7 @@ class PNNotebooksListViewController: UIViewController {
         eventHandler = notebooksListPresenter
     }
     
-    internal override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         addTableNotificationBlock()
@@ -93,15 +93,15 @@ class PNNotebooksListViewController: UIViewController {
         }
     }
     
-    internal override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    internal override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
     
-    internal override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
@@ -110,7 +110,7 @@ extension PNNotebooksListViewController: PNNotebookListViewHeaderCellEventHandle
     /**
      This presents the `UIAlertController` interface for inputting the new `Notebook` name. This also contains the logic when the user saves the new `Notebook` or cancels it.
      */
-    internal func addButtonTapped() {
+    func addButtonTapped() {
         eventHandler?.handleCreateNote()
     }
     
@@ -124,22 +124,22 @@ extension PNNotebooksListViewController: PNNotebookListViewHeaderCellEventHandle
 }
 
 extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSource {
-    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else { return 0 }
         let notebookList = unwrappedRealm.objects(Notebook.self).sorted(byKeyPath: "dateUpdated", ascending: false)
         
         return notebookList.count
     }
     
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PNNotebooksListTableViewCell") as? PNNotebooksListTableViewCell, let unwrappedNotebook =  notebooks?[indexPath.row] {
             cell.setContent(notebook: unwrappedNotebook)
             cell.selectionStyle = .none
@@ -149,7 +149,7 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
         return UITableViewCell.init()
     }
     
-    internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "PNNotebookListViewHeaderCell")  as? PNNotebookListViewHeaderCell {
             let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(allNotesTapped))
             header.addGestureRecognizer(tapRecognizer)
@@ -159,7 +159,7 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
         return UIView.init()
     }
     
-    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let unwrappedNotebook =  notebooks?[indexPath.row] {
@@ -170,14 +170,14 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
 }
 
 extension PNNotebooksListViewController: DZNEmptyDataSetSource {
-    internal func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         if scrollView == baseView?.tableView {
             return PNFormattedString.formattedString(text: "No Notebook Yet", fontName: "Lato", fontSize: 20.0)
         }
         return NSAttributedString.init(string: "")
     }
     
-    internal func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         if scrollView == baseView?.tableView {
             return PNFormattedString.formattedString(text: "Create notebooks to start organizing your notes", fontName: "Lato-Light", fontSize: 16.0)
         }
@@ -186,11 +186,11 @@ extension PNNotebooksListViewController: DZNEmptyDataSetSource {
 }
 
 extension PNNotebooksListViewController: PNNotebooksListPresenterOutput {
-    internal func presentAlertController(alert: UIAlertController) {
+    func presentAlertController(alert: UIAlertController) {
         present(alert, animated: true, completion: nil)
     }
 
-    internal func setNotebook(newNotebook: Notebook?) {
+    func setNotebook(newNotebook: Notebook?) {
         output?.update(currentNotebook: newNotebook)
     }
 }

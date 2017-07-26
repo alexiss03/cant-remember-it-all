@@ -23,7 +23,7 @@ class PNCreateNoteInteractor: Procedure, InputProcedure, PNCreateNoteVIPERIntera
     private var notebook: Notebook?
     /// A `Realm` instance where the new note is to be added.
     private var realm: Realm
-    internal var input: Pending<String> = .pending
+    var input: Pending<String> = .pending
     
     /**
      Initializes the instance.

@@ -15,7 +15,7 @@ protocol PNRegistrationUserVIPERInteractor: VIPERInteractor { }
 class PNRegistrationUserInteractor: Procedure, InputProcedure, PNRegistrationUserVIPERInteractor {
     public static let name = "Login User"
     
-    internal var input: Pending<(String, String)> = .pending
+    var input: Pending<(String, String)> = .pending
     
     /**
      This is the instance initialization method.

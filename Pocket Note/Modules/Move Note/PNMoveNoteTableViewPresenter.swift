@@ -11,11 +11,11 @@ import UIKit
 struct PNMoveNoteTableViewPresenter {
     private let presentationContext: UIViewController
     
-    internal init(presentationContext: UIViewController) {
+    init(presentationContext: UIViewController) {
         self.presentationContext = presentationContext
     }
     
-    internal func dismiss() {
+    func dismiss() {
         presentationContext.dismiss(animated: true, completion: nil)
     }
 }

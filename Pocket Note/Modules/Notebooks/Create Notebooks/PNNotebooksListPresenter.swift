@@ -28,7 +28,7 @@ struct PNNotebooksListPresenter: PNCreateNotebookInteractorOutput, PNNotebooksLi
         self.output = output
     }
     
-    internal func handleCreateNote() {
+    func handleCreateNote() {
         let alertController = UIAlertController(title: "New Notebook", message: "", preferredStyle: .alert)
         
         let saveAction = UIAlertAction.init(title: "Save", style: .default) { (_) in

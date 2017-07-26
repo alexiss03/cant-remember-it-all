@@ -22,7 +22,7 @@ protocol PNEditNotebookInteractorOutput {
  The `PNEditNotebookInteractor` class contains the business logic for edit notebook's details and delete notebook.
  */
 class PNEditNotebookInteractor: PNEditNotebookInteractorInterface {
-    internal var output: PNEditNotebookInteractorOutput?
+    var output: PNEditNotebookInteractorOutput?
     
     private var realm: Realm
     
@@ -30,7 +30,7 @@ class PNEditNotebookInteractor: PNEditNotebookInteractorInterface {
         self.realm = realm
     }
     
-    internal func saveNotebook(newName: String?, notebook: Notebook) {
+    func saveNotebook(newName: String?, notebook: Notebook) {
 
         do {
             try realm.write {

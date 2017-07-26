@@ -21,9 +21,9 @@ protocol PNSearchNoteInteractorInterface {
  The `PNSearchNoteInteractor` contains the business logic for Search module.
 */
 class PNSearchNoteInteractor: PNSearchNoteInteractorInterface {
-    internal var output: PNSearchNoteInteractorOutput?
+    var output: PNSearchNoteInteractorOutput?
     
-    internal func search(text: String?, currentNotebook: Notebook?) {
+    func search(text: String?, currentNotebook: Notebook?) {
         DispatchQueue.main.async {
             guard let unwrappedRealm = PNSharedRealm.configureDefaultRealm() else {
                 return
