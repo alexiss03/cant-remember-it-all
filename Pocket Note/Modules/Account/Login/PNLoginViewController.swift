@@ -17,35 +17,24 @@ protocol PNLoginVIPERRouter: VIPERRouter {
     func routeToRegistration()
 }
 
+protocol PNLoginViewControllerDelegate: class {
+    func didTapRegistration()
+}
+
 /**
  The `PNLoginViewController` is the view controller for the Login module, and also the VIPER ROUTER for the Login module.
  */
 class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginVIPERRouter {
-    private var eventHandler: PNLoginViewEventHandler?
-    
     /// This instance property is the superview of the current controller.
-    var baseView: PNLoginView? = {
-        if let view = Bundle.main.loadNibNamed("PNLoginView", owner: self, options: nil)![0] as? PNLoginView {
-            return view
-        }
-        return nil
-    }()
-
-    /** 
-     This method overrides the superclass' implementation of `viewDidLoad()` to set the `baseView` and setting the baseView delegate.
-    */
+    var baseView: PNLoginView?
+    private var eventHandler: PNLoginViewEventHandler?
+    weak var delegate: PNLoginViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !SyncUser.all.isEmpty {
-            routeToNotesFeed()
-        }
-        
-        if let unwrappedBaseView = self.baseView {
-            unwrappedBaseView.frame = self.view.frame
-            self.view = unwrappedBaseView
-            assembleEventHandlers()
-        }
+        self.baseView = view as? PNLoginView
+        assembleEventHandlers()
     }
     
     private func assembleEventHandlers() {
@@ -61,6 +50,10 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let unwrappedBaseView = self.baseView {
+            unwrappedBaseView.frame = self.view.frame
+            self.view = unwrappedBaseView
+        }
         hideNavigationBar(viewController: self)
         baseView?.prepareForReuse()
     }
@@ -99,7 +92,6 @@ extension PNLoginViewController {
      This method calls a perform segue to the Registration page.
      */
     final func routeToRegistration() {
-        let registrationController = PNRegistrationViewController()
-        self.navigationController?.pushViewController(registrationController, animated: true)
+        delegate?.didTapRegistration()
     }
 }

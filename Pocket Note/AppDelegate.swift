@@ -11,13 +11,27 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    var applicationCoordinator: ApplicationCoordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-       _ =  PNSharedRealm.configureDefaultRealm()
+        _ =  PNSharedRealm.configureDefaultRealm()
+        
         navigationBarCustomization()
+        makeCoordinator()
         return true
+    }
+    
+    private func makeCoordinator() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else {
+            print("Window is nil")
+            return
+        }
+
+        applicationCoordinator = ApplicationCoordinator.init(window: window, services: Services.init())
+        applicationCoordinator?.start()
     }
     
     private func navigationBarCustomization() {
@@ -50,3 +64,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
 }
+
+

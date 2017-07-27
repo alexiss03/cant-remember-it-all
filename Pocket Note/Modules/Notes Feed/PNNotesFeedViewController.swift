@@ -19,13 +19,7 @@ protocol PNNotesFeedViewPresenterOutput {
 class PNNotesFeedViewController: UIViewController {
     public var AlertAction = UIAlertAction.self
     
-    fileprivate let baseView: PNNotesFeedView? = {
-        if let view = Bundle.main.loadNibNamed("PNNotesFeedView", owner: self, options: nil)![0] as? PNNotesFeedView {
-            return view
-        }
-        return nil
-    }()
-    
+    fileprivate var baseView: PNNotesFeedView?
     fileprivate var currentNotebook: Notebook?
     
     fileprivate var notificationToken: NotificationToken?
@@ -49,27 +43,26 @@ class PNNotesFeedViewController: UIViewController {
     }
     
     fileprivate func setUpView() {
-        guard let unwrappedBaseView = baseView else {
+        baseView = view as? PNNotesFeedView
+        
+        guard let baseView = baseView else {
             print("Base view is nil")
             return
         }
         
-        unwrappedBaseView.frame = self.view.frame
-        view = unwrappedBaseView
+        baseView.searchBar.delegate = self
+        baseView.delegate = self
+        baseView.setContent()
         
-        unwrappedBaseView.searchBar.delegate = self
-        unwrappedBaseView.delegate = self
-        unwrappedBaseView.setContent()
-        
-        unwrappedBaseView.notesListTableView.delegate = self
-        unwrappedBaseView.notesListTableView.dataSource = self
-        unwrappedBaseView.notesListTableView.rowHeight = UITableViewAutomaticDimension
-        unwrappedBaseView.notesListTableView.estimatedRowHeight = 75
-        unwrappedBaseView.notesListTableView.emptyDataSetSource = self
+        baseView.notesListTableView.delegate = self
+        baseView.notesListTableView.dataSource = self
+        baseView.notesListTableView.rowHeight = UITableViewAutomaticDimension
+        baseView.notesListTableView.estimatedRowHeight = 75
+        baseView.notesListTableView.emptyDataSetSource = self
         
         let tableViewCellNib = UINib.init(nibName: "PNNotesFeedTableViewCell", bundle: Bundle.main)
         let tableViewCellNibId = "PNNotesFeedTableViewCell"
-        unwrappedBaseView.notesListTableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
+        baseView.notesListTableView.register(tableViewCellNib, forCellReuseIdentifier: tableViewCellNibId)
         
         setMenu(title: "MENU")
     }

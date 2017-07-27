@@ -9,35 +9,36 @@
 import UIKit
 import RealmSwift
 
+protocol PNSideMenuViewControllerDelegate: class {
+    func didTapLogout()
+}
 /**
  The `PNSideMenuViewController` class is a custom view controller for the Side Menu module.
  */
 class PNSideMenuViewController: UIViewController {
     /// A `PNSideMenuView` instance representing the super view of this view controller.
-    fileprivate var baseView: PNSideMenuView? {
-        get {
-            return view as? PNSideMenuView
-        }
-    }
+    fileprivate var baseView: PNSideMenuView?
     
     /// An array of `String` values displayed as the option for the Side Menu. This temporarily empty.
     fileprivate let menuItems: [String] = []
+    weak var delegate: PNSideMenuViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        baseView = view as? PNSideMenuView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let unwrappedBaseView = self.baseView {
-            unwrappedBaseView.frame = self.view.frame
-            self.view = unwrappedBaseView
+        if let baseView = self.baseView {
+            baseView.frame = self.view.frame
+            self.view = baseView
             
-            unwrappedBaseView.delegate = self
-            unwrappedBaseView.tableView.delegate = self
-            unwrappedBaseView.tableView.dataSource = self
-            unwrappedBaseView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
+            baseView.delegate = self
+            baseView.tableView.delegate = self
+            baseView.tableView.dataSource = self
+            baseView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
         }
     }
 
@@ -76,7 +77,8 @@ extension PNSideMenuViewController: PNSideMenuViewDelegate {
      Performs the logout operation when the log out button is tapped.
      */
     func logoutButtonTapped() {
-        let logoutOperation = PNLogoutUserOperation.init(dismissingContext: self)
+        let logoutOperation = PNLogoutUserOperation.init()
         PNOperationQueue.networkOperationQueue.addOperations([logoutOperation], waitUntilFinished: false)
+        delegate?.didTapLogout()
     }
 }

@@ -68,6 +68,9 @@
 		007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DEC861EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift */; };
 		008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */; };
 		008D3A811ED6AC2D003B51DE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A801ED6AC2D003B51DE /* Reachability.swift */; };
+		0092D4001F29C33F000562A5 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092D3FF1F29C33F000562A5 /* ApplicationCoordinator.swift */; };
+		0092D4071F29C6F0000562A5 /* RootViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092D4061F29C6F0000562A5 /* RootViewCoordinator.swift */; };
+		0092D4091F29D1B4000562A5 /* NotesFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092D4081F29D1B4000562A5 /* NotesFeedCoordinator.swift */; };
 		009C037F1EDEA42300A3FE56 /* PNLogoutUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009C037E1EDEA42300A3FE56 /* PNLogoutUserOperation.swift */; };
 		009E5A9C1EB1865E001F4889 /* PNPasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */; };
 		009E5AA21EB18E40001F4889 /* PNPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */; };
@@ -216,6 +219,9 @@
 		00821E8C1ECD431100177780 /* Pocket Note.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pocket Note.entitlements"; sourceTree = "<group>"; };
 		008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNetworkAvailabilityOperation.swift; path = Operations/Network/PNNetworkAvailabilityOperation.swift; sourceTree = "<group>"; };
 		008D3A801ED6AC2D003B51DE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Helpers/Reachability.swift; sourceTree = "<group>"; };
+		0092D3FF1F29C33F000562A5 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationCoordinator.swift; path = "Pocket Note/Coordinators/ApplicationCoordinator.swift"; sourceTree = SOURCE_ROOT; };
+		0092D4061F29C6F0000562A5 /* RootViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewCoordinator.swift; sourceTree = "<group>"; };
+		0092D4081F29D1B4000562A5 /* NotesFeedCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesFeedCoordinator.swift; path = "Pocket Note/Coordinators/NotesFeedCoordinator.swift"; sourceTree = SOURCE_ROOT; };
 		009C037E1EDEA42300A3FE56 /* PNLogoutUserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLogoutUserOperation.swift; path = "Pocket NoteTests/Operations/PNLogoutUserOperation.swift"; sourceTree = SOURCE_ROOT; };
 		009E5A9B1EB1865E001F4889 /* PNPasscodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNPasscodeView.xib; path = Modules/Account/Passcode/PNPasscodeView.xib; sourceTree = "<group>"; };
 		009E5AA11EB18E40001F4889 /* PNPasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNPasscodeView.swift; path = Modules/Account/Passcode/PNPasscodeView.swift; sourceTree = "<group>"; };
@@ -741,6 +747,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		0092D3FE1F29C136000562A5 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0092D3FF1F29C33F000562A5 /* ApplicationCoordinator.swift */,
+				0092D4061F29C6F0000562A5 /* RootViewCoordinator.swift */,
+				0092D4081F29D1B4000562A5 /* NotesFeedCoordinator.swift */,
+			);
+			name = Coordinators;
+			path = "Pocket NoteTests";
+			sourceTree = SOURCE_ROOT;
+		};
 		009E5A941EB18602001F4889 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,6 +908,7 @@
 				00AE74761E8CE4650081C35C /* Resources */,
 				007356D01F0477720025E517 /* Common */,
 				008D3A781ED66D50003B51DE /* Structs */,
+				0092D3FE1F29C136000562A5 /* Coordinators */,
 				00A66CCB1E89F95C00924C34 /* Modules */,
 				00A66C9D1E89F95200924C34 /* AppDelegate.swift */,
 				00A66CA41E89F95200924C34 /* Assets.xcassets */,
@@ -1546,6 +1564,7 @@
 				009E5ABB1EB1B3B6001F4889 /* PNRegistrationViewController.swift in Sources */,
 				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
 				0037DD0A1F0CCB060035ACED /* PNRegistrationUserInteractor.swift in Sources */,
+				0092D4001F29C33F000562A5 /* ApplicationCoordinator.swift in Sources */,
 				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
 				0049C2C31F209425007F60B2 /* PNConstants.swift in Sources */,
 				0049C2C61F209425007F60B2 /* PNSharedRealm.swift in Sources */,
@@ -1559,6 +1578,7 @@
 				0049C2C51F209425007F60B2 /* PNOperationQueue.swift in Sources */,
 				00A66CD11E89FBA900924C34 /* PNNotesFeedViewController.swift in Sources */,
 				0037DD081F0CC9680035ACED /* PNRegistrationInputPresenter.swift in Sources */,
+				0092D4071F29C6F0000562A5 /* RootViewCoordinator.swift in Sources */,
 				0055CA1E1F0C657B00C3E208 /* VIPERRouter.swift in Sources */,
 				00A66CD71E8A002F00924C34 /* PNNotesFeedView.swift in Sources */,
 				009E5AB31EB1AF34001F4889 /* PNLoginViewController.swift in Sources */,
@@ -1576,6 +1596,7 @@
 				001CEF4A1F0243E800E500BF /* Date.swift in Sources */,
 				0049C2BC1F206A8E007F60B2 /* PNNotebooksListPresenter.swift in Sources */,
 				001CEF4C1F02442F00E500BF /* UITableView.swift in Sources */,
+				0092D4091F29D1B4000562A5 /* NotesFeedCoordinator.swift in Sources */,
 				006091781EDD4A2C0058068B /* PNLoginUserInteractor.swift in Sources */,
 				00606B171F16F3080055BBAE /* PNCreateNoteEventHandler.swift in Sources */,
 				009C037F1EDEA42300A3FE56 /* PNLogoutUserOperation.swift in Sources */,

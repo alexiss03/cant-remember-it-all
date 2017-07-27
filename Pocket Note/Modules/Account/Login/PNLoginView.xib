@@ -23,7 +23,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNLoginViewController" customModule="Memo" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="z6b-FA-GGm" id="Ic6-Dx-CN5"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="z6b-FA-GGm" customClass="PNLoginView" customModule="Memo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
