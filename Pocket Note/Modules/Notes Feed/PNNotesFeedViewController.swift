@@ -16,7 +16,12 @@ protocol PNNotesFeedViewPresenterOutput {
     func setMenu(title: String?)
 }
 
-class PNNotesFeedViewController: UIViewController {
+protocol PNNotesFeedViewControllerDelegate: class {
+    func didTapCreateNote(notebook: Notebook?)
+    func didTapNotebooksList()
+}
+
+class PNNotesFeedViewController: UIViewController, PNNavigationBarProtocol {
     public var AlertAction = UIAlertAction.self
     
     fileprivate var baseView: PNNotesFeedView?
@@ -24,6 +29,8 @@ class PNNotesFeedViewController: UIViewController {
     
     fileprivate var notificationToken: NotificationToken?
     fileprivate var eventHandler: PNNotesFeedViewEventHandler?
+    
+    weak var delegate: PNNotesFeedViewControllerDelegate?
     
     fileprivate var notes: Results<Note>? = {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
@@ -91,6 +98,8 @@ class PNNotesFeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        showNavigationBar(viewController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -162,6 +171,11 @@ extension PNNotesFeedViewController: NoteFeedMenu {
         })
         return saveAction
     }
+    
+    func update(currentNotebook: Notebook?) {
+        self.currentNotebook = currentNotebook
+        eventHandler?.handleSearch(text: baseView?.searchBar.text, currentNotebook: currentNotebook)
+    }
 }
 
 extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
@@ -169,7 +183,7 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
      Handles the add note button action.
      */
     func addNoteButtonTapped() {
-        pushCreateNoteView()
+        delegate?.didTapCreateNote(notebook: currentNotebook)
     }
     
     func openMoveNoteToANotebook(note: Note) {
@@ -180,13 +194,6 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
         }
         unwrappedMoveNoteViewController.note = note
         present(unwrappedMoveNoteViewController, animated: true, completion: nil)
-    }
-    
-    fileprivate func pushCreateNoteView() {
-        let createNoteViewController = PNCreateNoteViewController()
-        createNoteViewController.notebook = currentNotebook
-
-        navigationController?.pushViewController(createNoteViewController, animated: true)
     }
 }
 
@@ -226,14 +233,6 @@ extension PNNotesFeedViewController: UIPopoverPresentationControllerDelegate {
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.sourceView = self.navigationController?.navigationBar
         popoverPresentationController.sourceRect = (self.navigationController?.navigationBar.frame)!
-    }
-}
-
-extension PNNotesFeedViewController: PNDeleteNotebookPresenterOutput, PNNotebooksListViewControllerOutput {
-    func update(currentNotebook: Notebook?) {
-        self.currentNotebook = currentNotebook
-        eventHandler?.handleSearch(text: baseView?.searchBar.text, currentNotebook: currentNotebook)
-        
     }
 }
 
@@ -359,12 +358,6 @@ extension PNNotesFeedViewController: PNNotesFeedViewPresenterOutput {
     }
     
     @objc func openNotebooks() {
-        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        guard let unwrappedNotebookListViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNNotebooksListViewController") as? PNNotebooksListViewController else {
-            print("Notebook List View Controller is nil")
-            return
-        }
-        unwrappedNotebookListViewController.output = self
-        present(unwrappedNotebookListViewController, animated: true, completion: nil)
+        delegate?.didTapNotebooksList()
     }
 }

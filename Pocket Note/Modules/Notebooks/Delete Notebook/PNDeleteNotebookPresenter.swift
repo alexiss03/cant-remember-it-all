@@ -8,10 +8,6 @@
 
 import ProcedureKit
 
-protocol PNDeleteNotebookPresenterOutput {
-    func update(currentNotebook: Notebook?)
-}
-
 struct PNDeleteNotebookPresenter {
     private let deleteInteractor: PNDeleteNotebookInteractorInterface
     

@@ -19,6 +19,7 @@ protocol PNLoginVIPERRouter: VIPERRouter {
 
 protocol PNLoginViewControllerDelegate: class {
     func didTapRegistration()
+    func loginSuccessful()
 }
 
 /**
@@ -64,34 +65,18 @@ extension PNLoginViewController {
      This method directs this view controller to the event's feed page.
      */
     
-    final func routeToNotesFeed() {
-        DispatchQueue.main.async {
-            let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-            guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
-                print("Notes Feed View Controller is nil")
-                return
-            }
-            
-            let sideMenuViewController = PNSideMenuViewController.init()
-            
-            let slideMenuController = SlideMenuController(mainViewController: unwrappedMainViewController, leftMenuViewController: sideMenuViewController)
-            SlideMenuOptions.contentViewScale = 1
-            SlideMenuOptions.hideStatusBar = false
-            SlideMenuOptions.contentViewDrag = true
-            
-            self.present(slideMenuController, animated: true, completion: nil)
-        }
+    func routeToNotesFeed() {
+        delegate?.loginSuccessful()
+        dismiss(animated: true, completion: nil)
     }
     
-    final func routeAlertController(alert: UIAlertController) {
+    func routeAlertController(alert: UIAlertController) {
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    /**
-     This method calls a perform segue to the Registration page.
-     */
-    final func routeToRegistration() {
+
+    func routeToRegistration() {
         delegate?.didTapRegistration()
     }
 }

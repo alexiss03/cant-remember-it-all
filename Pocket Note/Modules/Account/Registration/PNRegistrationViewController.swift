@@ -15,6 +15,10 @@ import PSOperations
 protocol PNRegistrationVIPERRouter: VIPERRouter {
     func routeToNotesFeed()
 }
+
+protocol PNRegistrationViewControllerDelegate: class {
+    func successfulRegistration()
+}
 /**
     The view controller class responsible for the Registration module.
  */
@@ -29,6 +33,8 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
     /**
      This method overrides `viewDidLoad()` to initialize the `baseView` and set the navigation bar visibility.
      */
+    
+    weak var delegate: PNRegistrationViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         baseView = view as? PNRegistrationView
@@ -67,22 +73,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
 
 extension PNRegistrationViewController {
     final func routeToNotesFeed() {
-        DispatchQueue.main.async {
-            let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-            guard let unwrappedMainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController else {
-                print("Notes Feed View Controller is nil")
-                return
-            }
-            
-            let sideMenuViewController = PNSideMenuViewController.init()
-            
-            let slideMenuController = SlideMenuController(mainViewController: unwrappedMainViewController, leftMenuViewController: sideMenuViewController)
-            SlideMenuOptions.contentViewScale = 1
-            SlideMenuOptions.hideStatusBar = false
-            SlideMenuOptions.contentViewDrag = true
-            
-            self.present(slideMenuController, animated: true, completion: nil)
-        }
+        delegate?.successfulRegistration()
     }
     
     final func routeAlertController(alert: UIAlertController) {

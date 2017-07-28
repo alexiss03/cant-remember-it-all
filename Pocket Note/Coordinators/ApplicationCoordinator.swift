@@ -29,22 +29,22 @@ extension Coordinator {
     }
 }
 
-public class ApplicationCoordinator: Coordinator {
+class ApplicationCoordinator: Coordinator {
     var childCoordinators: [Coordinator]
     let window: UIWindow
     let services: Services
     
-    public var rootViewController: UIViewController {
+    var rootViewController: UIViewController {
         return self.navigationController
     }
     
     fileprivate lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
-        navigationController.isNavigationBarHidden = true
+        navigationController.navigationBar.isHidden = true
         return navigationController
     }()
     
-    public init(window: UIWindow, services: Services) {
+    init(window: UIWindow, services: Services) {
         self.window = window
         self.services = services
         
@@ -53,7 +53,7 @@ public class ApplicationCoordinator: Coordinator {
         self.window.makeKeyAndVisible()
     }
     
-    public func start() {
+    func start() {
         if !SyncUser.all.isEmpty {
             showNotesFeedViewController()
         } else {
@@ -64,15 +64,21 @@ public class ApplicationCoordinator: Coordinator {
     fileprivate func showLoginViewController() {
         let loginViewController = PNLoginViewController()
         loginViewController.delegate = self
-        navigationController.setViewControllers([loginViewController], animated: true)
+        
+        DispatchQueue.main.async {
+            self.navigationController.setViewControllers([loginViewController], animated: true)
+        }
     }
     
-    private func showNotesFeedViewController() {
-        let notesFeedCoordinator = NotesFeedCoordinator.init(with: services)
+    fileprivate func showNotesFeedViewController() {
+        let notesFeedCoordinator = NotesFeedCoordinator.init(with: services, navigationController: navigationController)
         notesFeedCoordinator.delegate = self
         notesFeedCoordinator.start()
         addChildCoordinator(notesFeedCoordinator)
-        self.navigationController.setViewControllers([notesFeedCoordinator.rootViewController], animated: true)
+        
+        DispatchQueue.main.async {
+            self.navigationController.setViewControllers([notesFeedCoordinator.rootViewController], animated: true)
+        }
     }
 }
 
@@ -81,9 +87,25 @@ extension ApplicationCoordinator: PNLoginViewControllerDelegate {
         showRegistrationViewController()
     }
     
+    func loginSuccessful() {
+        navigationController.navigationBar.isHidden = true
+        showNotesFeedViewController()
+    }
+    
     private func showRegistrationViewController() {
         let registrationViewController = PNRegistrationViewController()
-        navigationController.pushViewController(registrationViewController, animated: true)
+        registrationViewController.delegate = self
+        
+        DispatchQueue.main.async {
+            self.navigationController.pushViewController(registrationViewController, animated: true)
+        }
+    }
+}
+
+extension ApplicationCoordinator: PNRegistrationViewControllerDelegate {
+    func successfulRegistration() {
+        navigationController.navigationBar.isHidden = true
+        showNotesFeedViewController()
     }
 }
 

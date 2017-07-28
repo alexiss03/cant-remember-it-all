@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
-protocol PNNotebooksListViewControllerOutput {
+protocol PNNotebooksListViewControllerDelegate {
     func update(currentNotebook: Notebook?)
 }
 
@@ -22,16 +22,11 @@ class PNNotebooksListViewController: UIViewController {
     var AlertAction = UIAlertAction.self
     
     /// This `PNNotebooksListView` is set to be the superview of this view controller.
-    let baseView: PNNotebooksListView? = {
-        if let view = Bundle.main.loadNibNamed("PNNotebooksListView", owner: self, options: nil)![0] as? PNNotebooksListView {
-            return view
-        }
-        return nil
-    }()
+    var baseView: PNNotebooksListView?
     
     fileprivate var eventHandler: PNNotebooksListViewEventHandler?
     fileprivate var notificationToken: NotificationToken?
-    var output: PNNotebooksListViewControllerOutput?
+    var delegate: PNNotebooksListViewControllerDelegate?
     
     fileprivate var notebooks: Results<Notebook>? = {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else {
@@ -50,6 +45,8 @@ class PNNotebooksListViewController: UIViewController {
     }
     
     fileprivate func setUpView() {
+        baseView = view as? PNNotebooksListView
+        
         guard let unwrappedBaseView = baseView else {
             print("Base view is nil")
             return
@@ -92,9 +89,14 @@ class PNNotebooksListViewController: UIViewController {
             notificationToken = results.addNotificationBlock(unwrappedNotebookListTableView.applyChanges)
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if let unwrappedBaseView = self.baseView {
+            unwrappedBaseView.frame = self.view.frame
+            self.view = unwrappedBaseView
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -118,7 +120,7 @@ extension PNNotebooksListViewController: PNNotebookListViewHeaderCellEventHandle
      This method sets the `currentNotebook` property of the notes feed view controller. This also dismiss this view controller instance.
      */
     @objc fileprivate func allNotesTapped() {
-        output?.update(currentNotebook: nil)
+        delegate?.update(currentNotebook: nil)
         dismiss(animated: true, completion: nil)
     }
 }
@@ -163,7 +165,7 @@ extension PNNotebooksListViewController: UITableViewDelegate, UITableViewDataSou
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let unwrappedNotebook =  notebooks?[indexPath.row] {
-            output?.update(currentNotebook: unwrappedNotebook)
+            delegate?.update(currentNotebook: unwrappedNotebook)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -191,6 +193,6 @@ extension PNNotebooksListViewController: PNNotebooksListPresenterOutput {
     }
 
     func setNotebook(newNotebook: Notebook?) {
-        output?.update(currentNotebook: newNotebook)
+        delegate?.update(currentNotebook: newNotebook)
     }
 }

@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var applicationCoordinator: ApplicationCoordinator?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions
-                     launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         _ =  PNSharedRealm.configureDefaultRealm()
         
@@ -64,5 +63,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
 }
-
-

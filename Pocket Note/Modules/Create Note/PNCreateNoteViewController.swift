@@ -15,7 +15,7 @@ protocol PNCreateNoteRouter: VIPERRouter { }
 /** 
  The class `PNCreateNoteViewController` is the custom view controller of the Create Note and Update Note modules
  */
-class PNCreateNoteViewController: UIViewController {
+class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     /// A `PNCreateNoteView` that is the superview of a `PNCreateNoteViewController`.
     var baseView: PNCreateNoteView?
     
@@ -54,6 +54,8 @@ class PNCreateNoteViewController: UIViewController {
         if let unwrappedBaseView = baseView, let contentText = note?.body {
             unwrappedBaseView.setContentTextView(content: contentText)
         }
+        
+        //showNavigationBar(viewController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
