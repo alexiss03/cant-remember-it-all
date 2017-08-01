@@ -30,12 +30,7 @@ class PNMoveNoteViewPresenter: PNMoveNoteViewEventHandler {
  */
 class PNMoveNoteViewController: UIViewController {
     /// A `PNNotebooksListView` instance serving as the superview of the controller.
-    fileprivate let baseView: PNNotebooksListView? = {
-        if let view = Bundle.main.loadNibNamed("PNNotebooksListView", owner: self, options: nil)![0] as? PNNotebooksListView {
-            return view
-        }
-        return nil
-    }()
+    fileprivate var baseView: PNNotebooksListView?
     
     /// A `NotificationToken` instance indicating the notification observer for the list of notebooks.
     fileprivate var notificationToken: NotificationToken?
@@ -64,15 +59,15 @@ class PNMoveNoteViewController: UIViewController {
      Initializes the baseView.
      */
     fileprivate func setUpView() {
-        guard let unwrappedBaseView = baseView else {
+        baseView = view as? PNNotebooksListView
+        guard let baseView = baseView else {
             print("Base view is nil")
             return
         }
         
-        unwrappedBaseView.frame = self.view.frame
-        self.view = unwrappedBaseView
+        baseView.frame = self.view.frame
         
-        let tableView = unwrappedBaseView.tableView
+        let tableView = baseView.tableView
         tableView?.delegate = self
         tableView?.dataSource = self
 

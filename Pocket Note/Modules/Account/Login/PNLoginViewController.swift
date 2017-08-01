@@ -14,12 +14,15 @@ import ProcedureKit
 
 protocol PNLoginVIPERRouter: VIPERRouter {
     func routeToNotesFeed()
+    func showAlertController(_ alertController: UIAlertController)
     func routeToRegistration()
+    func dismiss()
 }
 
 protocol PNLoginViewControllerDelegate: class {
     func didTapRegistration()
     func loginSuccessful()
+    func loginDismiss()
 }
 
 /**
@@ -40,7 +43,7 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
     
     private func assembleEventHandlers() {
         if let unwrappedBaseView = baseView {
-            let loginEventHandler = PNLoginViewEventHandler.init(loginView: unwrappedBaseView, loginRouter: self)
+            let loginEventHandler = PNLoginViewEventHandler.init(loginView: unwrappedBaseView, loginRouter: self, presentationContext: self)
             baseView?.eventHandler = loginEventHandler
         }
     }
@@ -71,12 +74,30 @@ extension PNLoginViewController {
     }
     
     func routeAlertController(alert: UIAlertController) {
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Weak self is nil")
+                return
+            }
+            strongSelf.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func showAlertController(_ alertController: UIAlertController) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Weak self is nil")
+                return
+            }
+            strongSelf.present(alertController, animated: true, completion: nil)
         }
     }
 
     func routeToRegistration() {
         delegate?.didTapRegistration()
+    }
+    
+    func dismiss() {
+        delegate?.loginDismiss()
     }
 }

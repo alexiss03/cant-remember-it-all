@@ -36,7 +36,8 @@ final class PNCreateNotebookOperation: Procedure {
      */
     public override func execute() {
         let notebook = Notebook()
-        notebook.notebookId = "\(Date().timeStampFromDate())"
+        let uuid = UUID().uuidString
+        notebook.notebookId  = "\(uuid)\(Date().timeStampFromDate())"
         notebook.name = notebookName
         notebook.dateCreated = Date()
         notebook.dateUpdated = Date()

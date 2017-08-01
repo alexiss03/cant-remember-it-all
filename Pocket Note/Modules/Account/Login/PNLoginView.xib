@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,11 +124,24 @@
                         <action selector="signUpHereButtonTapped:" destination="z6b-FA-GGm" eventType="touchUpInside" id="WTm-Wd-rvy"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbO-mM-FAZ">
+                    <rect key="frame" x="20" y="25" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="GbO-mM-FAZ" secondAttribute="height" multiplier="1:1" id="g01-Rn-o0e"/>
+                        <constraint firstAttribute="width" constant="25" id="g2k-Je-iqo"/>
+                    </constraints>
+                    <state key="normal" image="IconClose"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="z6b-FA-GGm" eventType="touchUpInside" id="6VL-9F-VoV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="GbO-mM-FAZ" firstAttribute="leading" secondItem="z6b-FA-GGm" secondAttribute="leading" constant="20" id="6LL-gw-q9z"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="centerY" secondItem="z6b-FA-GGm" secondAttribute="centerY" id="YSk-WD-ofC"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="centerX" secondItem="z6b-FA-GGm" secondAttribute="centerX" id="eMt-R0-2ON"/>
+                <constraint firstItem="GbO-mM-FAZ" firstAttribute="top" secondItem="z6b-FA-GGm" secondAttribute="top" constant="25" id="hME-mJ-Cc5"/>
                 <constraint firstItem="Ciy-iJ-xDE" firstAttribute="centerX" secondItem="cSb-W0-z3j" secondAttribute="centerX" id="rF8-1T-SbI"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="width" secondItem="z6b-FA-GGm" secondAttribute="width" multiplier="0.8" id="tOP-f5-SNr"/>
                 <constraint firstItem="Ciy-iJ-xDE" firstAttribute="top" secondItem="cSb-W0-z3j" secondAttribute="bottom" constant="8" id="uxc-ra-2rI"/>
@@ -141,4 +155,7 @@
             <point key="canvasLocation" x="65.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="IconClose" width="512" height="512"/>
+    </resources>
 </document>

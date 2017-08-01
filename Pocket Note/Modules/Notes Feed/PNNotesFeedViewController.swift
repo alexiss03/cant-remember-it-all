@@ -187,13 +187,9 @@ extension PNNotesFeedViewController: PNNotesFeedViewDelegate {
     }
     
     func openMoveNoteToANotebook(note: Note) {
-        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        guard let unwrappedMoveNoteViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNMoveNoteViewController") as? PNMoveNoteViewController else {
-            print("Move Note Controller is nil")
-            return
-        }
-        unwrappedMoveNoteViewController.note = note
-        present(unwrappedMoveNoteViewController, animated: true, completion: nil)
+        let moveNoteViewController = PNMoveNoteViewController()
+        moveNoteViewController.note = note
+        present(moveNoteViewController, animated: true, completion: nil)
     }
 }
 

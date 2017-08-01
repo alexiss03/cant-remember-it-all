@@ -54,19 +54,35 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        if !SyncUser.all.isEmpty {
-            showNotesFeedViewController()
-        } else {
-            showLoginViewController()
-        }
+        
+        showNotesFeedViewController()
     }
     
-    fileprivate func showLoginViewController() {
+    fileprivate func presentLoginViewController() {
         let loginViewController = PNLoginViewController()
         loginViewController.delegate = self
         
-        DispatchQueue.main.async {
-            self.navigationController.setViewControllers([loginViewController], animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Weak self is nil")
+                return
+            }
+
+            strongSelf.navigationController.setViewControllers([loginViewController], animated: true)
+        }
+    }
+    
+    fileprivate func rootAsLoginViewController() {
+        let loginViewController = PNLoginViewController()
+        loginViewController.delegate = self
+        
+        DispatchQueue.main.async {[weak self] in
+            guard let strongSelf = self else {
+                print("Weak self is nil")
+                return
+            }
+            
+            strongSelf.navigationController.setViewControllers([loginViewController], animated: true)
         }
     }
     
@@ -76,8 +92,13 @@ class ApplicationCoordinator: Coordinator {
         notesFeedCoordinator.start()
         addChildCoordinator(notesFeedCoordinator)
         
-        DispatchQueue.main.async {
-            self.navigationController.setViewControllers([notesFeedCoordinator.rootViewController], animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Weak self is nil")
+                return
+            }
+            
+            strongSelf.navigationController.setViewControllers([notesFeedCoordinator.rootViewController], animated: true)
         }
     }
 }
@@ -90,6 +111,10 @@ extension ApplicationCoordinator: PNLoginViewControllerDelegate {
     func loginSuccessful() {
         navigationController.navigationBar.isHidden = true
         showNotesFeedViewController()
+    }
+    
+    func loginDismiss() {
+       showNotesFeedViewController() 
     }
     
     private func showRegistrationViewController() {
@@ -111,7 +136,12 @@ extension ApplicationCoordinator: PNRegistrationViewControllerDelegate {
 
 extension ApplicationCoordinator: NotesFeedCoordinatorDelegate {
     func notesFeedCoordinatorDidLogout(notesFeedCoordinator: NotesFeedCoordinator) {
-        showLoginViewController()
+        rootAsLoginViewController()
+        removeChildCoordinator(notesFeedCoordinator)
+    }
+    
+    func notesFeedCoordinatorDidShowIntegrateAccount(notesFeedCoordinator: NotesFeedCoordinator) {
+        presentLoginViewController()
         removeChildCoordinator(notesFeedCoordinator)
     }
 }

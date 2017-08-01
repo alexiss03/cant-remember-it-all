@@ -23,7 +23,19 @@ class PNSideMenuView: UIView {
     weak var delegate: PNSideMenuViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var logoutButton: UIButton!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    
     @IBAction func logoutButtonTapped(_ sender: Any) {
         delegate?.logoutButtonTapped()
+    }
+    
+    func hideLogoutButton() {
+        logoutButton.isHidden = true
+    }
+    
+    func setUsername(_ username: String) {
+        usernameLabel.isHidden = false
+        usernameLabel.text = username
     }
 }

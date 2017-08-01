@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import PSOperations
 import ProcedureKit
+import RealmSwift
 
 /**
  The `PNLoginUserVIPERPresenter` representing the VIPER PRESENTER for the `PNLoginUserInteractor` VIPER INTERACTOR.
@@ -41,8 +41,28 @@ struct PNLoginUserPresenter: VIPERPresenter, ProcedureObserver {
     }
     
     func did(finish procedure: Procedure, withErrors: [Error]) {
+    }
+}
+
+struct PNLoginMigrateDataPresenter: VIPERPresenter, ProcedureObserver {
+    /// A `PNLoginVIPERRouter` confroming object for the VIPER ROUTER.
+    private var loginRouter: PNLoginVIPERRouter
+    
+    /**
+     Initializes the instance.
+     
+     - Parameter loginView: A `PNLoginViewProtocol` containing the emailErrorLabel where the error message can be displayed.
+     */
+    init(loginRouter: PNLoginVIPERRouter) {
+        self.loginRouter = loginRouter
+    }
+    
+    func did(cancel procedure: Procedure, withErrors: [Error]) { }
+    
+    func did(finish procedure: Procedure, withErrors: [Error]) {
         if withErrors.count == 0 {
             loginRouter.routeToNotesFeed()
         }
     }
+    
 }

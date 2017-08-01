@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol PNSideMenuViewControllerDelegate: class {
     func didTapLogout()
+    func didTapIntegrateAccount()
 }
 /**
  The `PNSideMenuViewController` class is a custom view controller for the Side Menu module.
@@ -20,7 +21,7 @@ class PNSideMenuViewController: UIViewController {
     fileprivate var baseView: PNSideMenuView?
     
     /// An array of `String` values displayed as the option for the Side Menu. This temporarily empty.
-    fileprivate let menuItems: [String] = []
+    fileprivate var menuItems: [String] = []
     weak var delegate: PNSideMenuViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -31,14 +32,32 @@ class PNSideMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let baseView = self.baseView {
-            baseView.frame = self.view.frame
-            self.view = baseView
-            
-            baseView.delegate = self
-            baseView.tableView.delegate = self
-            baseView.tableView.dataSource = self
-            baseView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
+        
+        guard let baseView = self.baseView  else {
+            print("Base view is nil")
+            return
+        }
+        
+        baseView.frame = self.view.frame
+        self.view = baseView
+        
+        baseView.delegate = self
+        baseView.tableView.delegate = self
+        baseView.tableView.dataSource = self
+        baseView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
+  
+        guard let realm = PNSharedRealm.realmInstance() else {
+            print("Realm is nil")
+            return
+        }
+        
+        if let account = realm.objects(Account.self).first, let username = account.username {
+            baseView.setUsername(username)
+        }
+        
+        if SyncUser.current == nil {
+            menuItems = ["INTEGRATE EXISTING ACCOUNT"]
+            baseView.hideLogoutButton()
         }
     }
 
@@ -50,6 +69,9 @@ class PNSideMenuViewController: UIViewController {
 extension PNSideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0, indexPath.row == 0 {
+            delegate?.didTapIntegrateAccount()
+        }
     }
 }
 
@@ -66,7 +88,7 @@ extension PNSideMenuViewController: UITableViewDataSource {
         
         unwrappedCell.textLabel?.text = menuItems[indexPath.row]
         unwrappedCell.textLabel?.textColor = UIColor.white
-        unwrappedCell.textLabel?.font = UIFont.init(name: "Lato", size: 17)
+        unwrappedCell.textLabel?.font = UIFont.init(name: "Lato", size: 15)
         unwrappedCell.backgroundColor = UIColor.clear
         return unwrappedCell
     }

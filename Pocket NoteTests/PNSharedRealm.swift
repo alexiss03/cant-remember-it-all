@@ -87,4 +87,9 @@ struct PNSharedRealm {
         
         return realm
     }
+    
+    static func unattachedRemoteRealm() {
+        //Realm.Configuration.defaultConfiguration.fileURL =
+        
+    }
 }

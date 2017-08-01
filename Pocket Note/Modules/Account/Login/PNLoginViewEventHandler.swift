@@ -16,6 +16,7 @@ import UIKit
 protocol PNLoginVIPEREventHandler: VIPEREventHandler {
     func login(emailText: String?, passwordText: String?)
     func goToSignUp()
+    func dimiss()
 }
 
 class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
@@ -23,6 +24,7 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
     var loginView: PNLoginVIPERView
     /// A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.
     var loginRouter: PNLoginVIPERRouter
+    var presentationContext: UIViewController
     
     /**
      Initializes the instance.
@@ -30,9 +32,10 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
      - Parameter loginView: A `PNLoginVIPERView` conforming object that represents the VIPER VIEW for Login module.
      - Parameter loginRouter: A `PNLoginVIPERRouter` conforming object that represents the VIPER ROUTER for Login module.
     */
-    init(loginView: PNLoginVIPERView, loginRouter: PNLoginVIPERRouter) {
+    init(loginView: PNLoginVIPERView, loginRouter: PNLoginVIPERRouter, presentationContext: UIViewController) {
         self.loginView = loginView
         self.loginRouter = loginRouter
+        self.presentationContext = presentationContext
     }
     
     /**
@@ -55,10 +58,17 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
         // Login to Realm
         let loginUserInteractor = PNLoginUserInteractor.init()
         let loginUserPresenter = PNLoginUserPresenter.init(loginView: loginView, loginRouter: loginRouter)
-        loginUserInteractor.add(observer: loginUserPresenter)
-        loginUserInteractor.injectResult(from: loginInputValidationInteractor)
         
-        PNOperationQueue.realmOperationQueue.add(operations: [networkAvailabilityInteractor, loginInputValidationInteractor, loginUserInteractor])
+        // Migrate local data to Realm
+        let loginMigrateDataInteractor = PNLoginMigrateDataInteractor.init(presentationContext: presentationContext)
+        let loginMigrateDataPressenter = PNLoginMigrateDataPresenter.init(loginRouter: loginRouter)
+        
+        loginUserInteractor.add(observer: loginUserPresenter)
+        loginMigrateDataInteractor.add(observer: loginMigrateDataPressenter)
+        loginUserInteractor.injectResult(from: loginInputValidationInteractor)
+        loginMigrateDataInteractor.injectResult(from: loginUserInteractor)
+        
+        PNOperationQueue.realmOperationQueue.add(operations: [networkAvailabilityInteractor, loginInputValidationInteractor, loginUserInteractor, loginMigrateDataInteractor])
     }
     
     /**
@@ -66,5 +76,9 @@ class PNLoginViewEventHandler: PNLoginVIPEREventHandler {
      */
     func goToSignUp() {
         self.loginRouter.routeToRegistration()
+    }
+    
+    func dimiss() {
+        self.loginRouter.dismiss()
     }
 }

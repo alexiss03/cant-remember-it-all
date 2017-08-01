@@ -23,6 +23,7 @@
 		0021551E1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */; };
 		00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE31E9B91F000DEBBF5 /* Note.swift */; };
 		00231BE61E9B929800DEBBF5 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00231BE51E9B929800DEBBF5 /* Notebook.swift */; };
+		002638F21F2F1D38001F7A8D /* PNMoveNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002638F11F2F1D38001F7A8D /* PNMoveNoteView.xib */; };
 		0033085A1F0A01E800FC10FE /* MoveNoteQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003308581F0A01E300FC10FE /* MoveNoteQuickSpec.swift */; };
 		0034883E1F05F36E004432A4 /* EditNotenookQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034883D1F05F36E004432A4 /* EditNotenookQuickSpec.swift */; };
 		00357E6B1EF644A000A4A5CC /* LogoutQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00357E691EF63F9900A4A5CC /* LogoutQuickSpec.swift */; };
@@ -172,6 +173,7 @@
 		0021551D1EF7AFB900DF1F3D /* PNCreateNoteInputInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNCreateNoteInputInteractor.swift; path = "Modules/Create Note/PNCreateNoteInputInteractor.swift"; sourceTree = "<group>"; };
 		00231BE31E9B91F000DEBBF5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
 		00231BE51E9B929800DEBBF5 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notebook.swift; path = Modules/Notebook.swift; sourceTree = "<group>"; };
+		002638F11F2F1D38001F7A8D /* PNMoveNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PNMoveNoteView.xib; path = "Modules/Move Note/PNMoveNoteView.xib"; sourceTree = "<group>"; };
 		00303F19CEAFFF9B741E3E51 /* Pods-MemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemoTests/Pods-MemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		003308581F0A01E300FC10FE /* MoveNoteQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoveNoteQuickSpec.swift; path = "Move Note/MoveNoteQuickSpec.swift"; sourceTree = "<group>"; };
 		0034883D1F05F36E004432A4 /* EditNotenookQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNotenookQuickSpec.swift; path = "Edit Notebook/EditNotenookQuickSpec.swift"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		001CEF421F02355300E500BF /* Move Note */ = {
 			isa = PBXGroup;
 			children = (
+				002638EF1F2F1CF5001F7A8D /* Views */,
 				00212EFD1F1F4E4400BB549D /* Presenters */,
 				0005DC0D1F03F64B00CE532D /* Controllers */,
 				001CEF431F02385000E500BF /* Interactors */,
@@ -469,6 +472,22 @@
 				00CD5A821E9C5D87009F9569 /* Account.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		002638EF1F2F1CF5001F7A8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				002638F01F2F1D01001F7A8D /* Nibs */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		002638F01F2F1D01001F7A8D /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				002638F11F2F1D38001F7A8D /* PNMoveNoteView.xib */,
+			);
+			name = Nibs;
 			sourceTree = "<group>";
 		};
 		003536F31EF907D6002B70CD /* Interactors */ = {
@@ -1365,6 +1384,7 @@
 				00AE74A41E8CE8A50081C35C /* Lato-Italic.ttf in Resources */,
 				00AE74A51E8CE8A50081C35C /* Lato-Light.ttf in Resources */,
 				009E5AAF1EB1AB1F001F4889 /* PNLoginView.xib in Resources */,
+				002638F21F2F1D38001F7A8D /* PNMoveNoteView.xib in Resources */,
 				00AE74A61E8CE8A50081C35C /* Lato-LightItalic.ttf in Resources */,
 				00AE74A71E8CE8A50081C35C /* Lato-Medium.ttf in Resources */,
 				00AE74A81E8CE8A50081C35C /* Lato-MediumItalic.ttf in Resources */,

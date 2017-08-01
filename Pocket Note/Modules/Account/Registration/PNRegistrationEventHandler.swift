@@ -5,7 +5,7 @@
 //
 //  Created by Hanet on 6/7/17.
 //  Copyright © 2017 Mary Alexis Solis. All rights reserved.
-//
+//c
 
 /**
  The `PNRegistrationEventHandler` protocol contains event handler's for the Registratiosn module.

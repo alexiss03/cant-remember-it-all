@@ -11,6 +11,7 @@ import SlideMenuControllerSwift
 
 protocol NotesFeedCoordinatorDelegate: class {
     func notesFeedCoordinatorDidLogout(notesFeedCoordinator: NotesFeedCoordinator)
+    func notesFeedCoordinatorDidShowIntegrateAccount(notesFeedCoordinator: NotesFeedCoordinator)
 }
 
 class NotesFeedCoordinatorPayload {
@@ -85,6 +86,10 @@ extension NotesFeedCoordinator: PNSideMenuViewControllerDelegate {
             self.notesFeedNavigationController?.present(notebooksListViewController, animated: true, completion: nil)
         }
     }
+    
+    func didTapIntegrateAccount() {
+        delegate?.notesFeedCoordinatorDidShowIntegrateAccount(notesFeedCoordinator: self)
+    }
 }
 
 extension NotesFeedCoordinator: PNNotebooksListViewControllerDelegate {
@@ -106,7 +111,6 @@ extension NotesFeedCoordinator: PNNotesFeedViewControllerDelegate {
         
         let createNoteViewController = PNCreateNoteViewController()
         createNoteViewController.notebook = notesFeedPayload?.currentNotebook
-        
         
         DispatchQueue.main.async {
             self.notesFeedNavigationController?.pushViewController(createNoteViewController, animated: true)
