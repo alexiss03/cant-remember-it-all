@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9DB-Ez-WY6">
-                    <rect key="frame" x="38" y="229" width="300" height="210"/>
+                    <rect key="frame" x="38" y="70" width="300" height="210"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9h-mK-aaV">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="63.5"/>
@@ -115,7 +114,7 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-iJ-xDE">
-                    <rect key="frame" x="109" y="447" width="158" height="30"/>
+                    <rect key="frame" x="109" y="288" width="158" height="30"/>
                     <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="15"/>
                     <state key="normal" title="No account? Sign up here">
                         <color key="titleColor" red="0.031372549020000001" green="0.50588235290000005" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,24 +123,11 @@
                         <action selector="signUpHereButtonTapped:" destination="z6b-FA-GGm" eventType="touchUpInside" id="WTm-Wd-rvy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbO-mM-FAZ">
-                    <rect key="frame" x="20" y="25" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="GbO-mM-FAZ" secondAttribute="height" multiplier="1:1" id="g01-Rn-o0e"/>
-                        <constraint firstAttribute="width" constant="25" id="g2k-Je-iqo"/>
-                    </constraints>
-                    <state key="normal" image="IconClose"/>
-                    <connections>
-                        <action selector="closeButtonTapped:" destination="z6b-FA-GGm" eventType="touchUpInside" id="6VL-9F-VoV"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="GbO-mM-FAZ" firstAttribute="leading" secondItem="z6b-FA-GGm" secondAttribute="leading" constant="20" id="6LL-gw-q9z"/>
-                <constraint firstItem="9DB-Ez-WY6" firstAttribute="centerY" secondItem="z6b-FA-GGm" secondAttribute="centerY" id="YSk-WD-ofC"/>
+                <constraint firstItem="9DB-Ez-WY6" firstAttribute="top" secondItem="z6b-FA-GGm" secondAttribute="top" constant="70" id="Z5F-GL-j5q"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="centerX" secondItem="z6b-FA-GGm" secondAttribute="centerX" id="eMt-R0-2ON"/>
-                <constraint firstItem="GbO-mM-FAZ" firstAttribute="top" secondItem="z6b-FA-GGm" secondAttribute="top" constant="25" id="hME-mJ-Cc5"/>
                 <constraint firstItem="Ciy-iJ-xDE" firstAttribute="centerX" secondItem="cSb-W0-z3j" secondAttribute="centerX" id="rF8-1T-SbI"/>
                 <constraint firstItem="9DB-Ez-WY6" firstAttribute="width" secondItem="z6b-FA-GGm" secondAttribute="width" multiplier="0.8" id="tOP-f5-SNr"/>
                 <constraint firstItem="Ciy-iJ-xDE" firstAttribute="top" secondItem="cSb-W0-z3j" secondAttribute="bottom" constant="8" id="uxc-ra-2rI"/>
@@ -155,7 +141,4 @@
             <point key="canvasLocation" x="65.5" y="53.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="IconClose" width="512" height="512"/>
-    </resources>
 </document>

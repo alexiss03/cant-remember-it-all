@@ -45,11 +45,6 @@ class PNLoginView: UIView, PNLoginVIPERView {
         eventHandler?.login(emailText: emailTextField.text, passwordText: passwordTextField.text)
     }
     
-    
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        eventHandler?.dimiss()
-    }
-
     /**
      This method is the action receiver of the touch inside the sign up here button.
      

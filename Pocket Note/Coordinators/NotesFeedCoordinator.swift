@@ -11,7 +11,6 @@ import SlideMenuControllerSwift
 
 protocol NotesFeedCoordinatorDelegate: class {
     func notesFeedCoordinatorDidLogout(notesFeedCoordinator: NotesFeedCoordinator)
-    func notesFeedCoordinatorDidShowIntegrateAccount(notesFeedCoordinator: NotesFeedCoordinator)
 }
 
 class NotesFeedCoordinatorPayload {
@@ -82,13 +81,85 @@ extension NotesFeedCoordinator: PNSideMenuViewControllerDelegate {
         let notebooksListViewController = PNNotebooksListViewController()
         notebooksListViewController.delegate = self
         
-        DispatchQueue.main.async {
-            self.notesFeedNavigationController?.present(notebooksListViewController, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf =  self else {
+                print("Self is nil")
+                return
+            }
+
+            strongSelf.notesFeedNavigationController?.present(notebooksListViewController, animated: true, completion: nil)
         }
     }
     
     func didTapIntegrateAccount() {
-        delegate?.notesFeedCoordinatorDidShowIntegrateAccount(notesFeedCoordinator: self)
+        showLoginViewController()
+    }
+    
+    fileprivate func showLoginViewController() {
+        let loginViewController = PNLoginViewController()
+        loginViewController.delegate = self
+        
+        DispatchQueue.main.async {  [weak self] in
+            guard let strongSelf =  self else {
+                print("Self is nil")
+                return
+            }
+
+            strongSelf.navigationController.navigationBar.isHidden = false
+            strongSelf.navigationController.pushViewController(loginViewController, animated: true)
+        }
+    }
+}
+
+extension NotesFeedCoordinator: PNLoginViewControllerDelegate {
+    func didTapRegistration() {
+        let registrationViewController = PNRegistrationViewController()
+        registrationViewController.delegate = self
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf =  self else {
+                print("Self is nil")
+                return
+            }
+            strongSelf.navigationController.pushViewController(registrationViewController, animated: true)
+        }
+    }
+    
+    func loginSuccessful() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Self is nil")
+                return
+            }
+            strongSelf.navigationController.popToRootViewController(animated: true)
+            strongSelf.start()
+        }
+    }
+    
+    func loginDismiss() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Self is nil")
+                return
+            }
+            
+            strongSelf.navigationController.popToRootViewController(animated: true)
+        }
+    }
+}
+
+extension NotesFeedCoordinator: PNRegistrationViewControllerDelegate {
+    func registrationSuccessful() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                print("Self is nil")
+                return
+            }
+            
+            strongSelf.navigationController.popViewController(animated: false)
+            strongSelf.loginDismiss()
+            strongSelf.start()
+        }
     }
 }
 

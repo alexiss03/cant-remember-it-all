@@ -17,7 +17,7 @@ protocol PNRegistrationVIPERRouter: VIPERRouter {
 }
 
 protocol PNRegistrationViewControllerDelegate: class {
-    func successfulRegistration()
+    func registrationSuccessful()
 }
 /**
     The view controller class responsible for the Registration module.
@@ -73,7 +73,7 @@ class PNRegistrationViewController: UIViewController, PNNavigationBarProtocol, P
 
 extension PNRegistrationViewController {
     final func routeToNotesFeed() {
-        delegate?.successfulRegistration()
+        delegate?.registrationSuccessful()
     }
     
     final func routeAlertController(alert: UIAlertController) {

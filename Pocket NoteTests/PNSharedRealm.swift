@@ -89,7 +89,6 @@ struct PNSharedRealm {
     }
     
     static func unattachedRemoteRealm() {
-        //Realm.Configuration.defaultConfiguration.fileURL =
-        
+        Realm.Configuration.defaultConfiguration = Realm.Configuration.init(fileURL: Bundle.main.url(forResource: syncRealmPath, withExtension: "realm"), inMemoryIdentifier: syncRealmPath, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 1, migrationBlock: nil, deleteRealmIfMigrationNeeded: true, shouldCompactOnLaunch: nil, objectTypes: [Account.self, Note.self, Notebook.self])
     }
 }

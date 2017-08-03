@@ -19,5 +19,6 @@ class PNLogoutUserOperation: PSOperation {
     */
     override func execute() {
         SyncUser.current?.logOut()
+        PNSharedRealm.unattachedRemoteRealm()
     }
 }

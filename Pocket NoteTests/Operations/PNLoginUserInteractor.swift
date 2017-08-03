@@ -69,6 +69,20 @@ class PNLoginMigrateDataInteractor: Procedure, InputProcedure {
             return
         }
         
+        guard let localRealm = PNSharedRealm.realmInstance() else {
+            print("Local realm is nil")
+            return
+        }
+        
+        let notebooks = localRealm.objects(Notebook.self)
+        let notes = localRealm.objects(Note.self)
+        
+        if notebooks.count == 0, notes.count == 0 {
+            _ = PNSharedRealm.configureRealm(user: user)
+            finish()
+            return
+        }
+        
         let alertController = UIAlertController.init(title: "", message: "Do you want to merge the existing notes into your account?", preferredStyle: .alert)
         let mergeAction = UIAlertAction.init(title: "Yes", style: .default, handler: { [weak self] (_) in
             guard let strongSelf = self else {

@@ -54,25 +54,10 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        
         showNotesFeedViewController()
     }
     
-    fileprivate func presentLoginViewController() {
-        let loginViewController = PNLoginViewController()
-        loginViewController.delegate = self
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else {
-                print("Weak self is nil")
-                return
-            }
-
-            strongSelf.navigationController.setViewControllers([loginViewController], animated: true)
-        }
-    }
-    
-    fileprivate func rootAsLoginViewController() {
+    fileprivate func showLoginViewController() {
         let loginViewController = PNLoginViewController()
         loginViewController.delegate = self
         
@@ -81,7 +66,7 @@ class ApplicationCoordinator: Coordinator {
                 print("Weak self is nil")
                 return
             }
-            
+
             strongSelf.navigationController.setViewControllers([loginViewController], animated: true)
         }
     }
@@ -128,7 +113,7 @@ extension ApplicationCoordinator: PNLoginViewControllerDelegate {
 }
 
 extension ApplicationCoordinator: PNRegistrationViewControllerDelegate {
-    func successfulRegistration() {
+    func registrationSuccessful() {
         navigationController.navigationBar.isHidden = true
         showNotesFeedViewController()
     }
@@ -136,12 +121,7 @@ extension ApplicationCoordinator: PNRegistrationViewControllerDelegate {
 
 extension ApplicationCoordinator: NotesFeedCoordinatorDelegate {
     func notesFeedCoordinatorDidLogout(notesFeedCoordinator: NotesFeedCoordinator) {
-        rootAsLoginViewController()
-        removeChildCoordinator(notesFeedCoordinator)
-    }
-    
-    func notesFeedCoordinatorDidShowIntegrateAccount(notesFeedCoordinator: NotesFeedCoordinator) {
-        presentLoginViewController()
+        showLoginViewController()
         removeChildCoordinator(notesFeedCoordinator)
     }
 }

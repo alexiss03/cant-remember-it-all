@@ -39,6 +39,13 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
         
         self.baseView = view as? PNLoginView
         assembleEventHandlers()
+        
+        if let unwrappedBaseView = self.baseView {
+            unwrappedBaseView.frame = self.view.frame
+            self.view = unwrappedBaseView
+        }
+        
+        baseView?.prepareForReuse()
     }
     
     private func assembleEventHandlers() {
@@ -54,12 +61,13 @@ class PNLoginViewController: UIViewController, PNNavigationBarProtocol, PNLoginV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let unwrappedBaseView = self.baseView {
-            unwrappedBaseView.frame = self.view.frame
-            self.view = unwrappedBaseView
-        }
+        navigationItem.leftBarButtonItem = nil
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         hideNavigationBar(viewController: self)
-        baseView?.prepareForReuse()
     }
 }
 
@@ -70,7 +78,6 @@ extension PNLoginViewController {
     
     func routeToNotesFeed() {
         delegate?.loginSuccessful()
-        dismiss(animated: true, completion: nil)
     }
     
     func routeAlertController(alert: UIAlertController) {
@@ -95,7 +102,7 @@ extension PNLoginViewController {
 
     func routeToRegistration() {
         delegate?.didTapRegistration()
-    }
+    }    
     
     func dismiss() {
         delegate?.loginDismiss()
