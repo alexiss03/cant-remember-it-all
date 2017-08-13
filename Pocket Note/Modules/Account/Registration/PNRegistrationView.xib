@@ -34,28 +34,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="300" height="63.5"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2U-Eh-gOs">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44.5" id="bFT-ws-7u9"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 </textField>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUr-rX-2qI">
-                                    <rect key="frame" x="0.0" y="44.5" width="300" height="5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="5" id="uZv-DY-oMV"/>
-                                    </constraints>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chf-Wd-txN">
-                                    <rect key="frame" x="0.0" y="49.5" width="300" height="14"/>
+                                    <rect key="frame" x="0.0" y="44" width="300" height="19.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="xvZ-xc-wb9"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="E2U-Eh-gOs" firstAttribute="height" secondItem="gdI-3O-euh" secondAttribute="height" multiplier="0.7" id="LK8-T7-zc7"/>
-                                <constraint firstItem="chf-Wd-txN" firstAttribute="baseline" secondItem="E2U-Eh-gOs" secondAttribute="baseline" id="ku5-rJ-Nko"/>
+                                <constraint firstItem="chf-Wd-txN" firstAttribute="top" secondItem="E2U-Eh-gOs" secondAttribute="bottom" id="YEw-sm-KsL"/>
+                                <constraint firstAttribute="bottom" secondItem="chf-Wd-txN" secondAttribute="bottom" id="kMY-Ao-b1Q"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GiG-Mk-qdA">
@@ -63,27 +62,27 @@
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1w-zn-Cyg">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44.5" id="Q4f-rX-QXR"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 </textField>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GD2-mL-pQk">
-                                    <rect key="frame" x="0.0" y="44" width="300" height="5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="5" id="vcN-IN-fw9"/>
-                                    </constraints>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30I-cC-cDM">
-                                    <rect key="frame" x="0.0" y="49" width="300" height="14"/>
+                                    <rect key="frame" x="0.0" y="44" width="300" height="19"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Gfp-94-rYt"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="30I-cC-cDM" firstAttribute="baseline" secondItem="D1w-zn-Cyg" secondAttribute="baseline" id="UV9-s2-aAr"/>
-                                <constraint firstItem="D1w-zn-Cyg" firstAttribute="height" secondItem="GiG-Mk-qdA" secondAttribute="height" multiplier="0.7" id="gqi-Bj-RM8"/>
+                                <constraint firstAttribute="bottom" secondItem="30I-cC-cDM" secondAttribute="bottom" id="6eC-v1-rmd"/>
+                                <constraint firstItem="D1w-zn-Cyg" firstAttribute="top" secondItem="GiG-Mk-qdA" secondAttribute="top" id="GlE-1u-5os"/>
+                                <constraint firstItem="30I-cC-cDM" firstAttribute="top" secondItem="D1w-zn-Cyg" secondAttribute="bottom" id="p5w-bO-E6F"/>
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dde-qN-fdc">
@@ -104,7 +103,10 @@
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="210" id="s0J-KT-koj"/>
+                        <constraint firstItem="GiG-Mk-qdA" firstAttribute="top" secondItem="gdI-3O-euh" secondAttribute="bottom" constant="10" id="1pI-nt-c4e"/>
+                        <constraint firstItem="dde-qN-fdc" firstAttribute="top" secondItem="GiG-Mk-qdA" secondAttribute="bottom" constant="10" id="6Ll-fM-aYc"/>
+                        <constraint firstItem="gdI-3O-euh" firstAttribute="top" secondItem="vg5-Yw-tef" secondAttribute="top" id="TVV-Q7-9oy"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="210" id="sZ3-4O-ZgO"/>
                     </constraints>
                 </stackView>
             </subviews>

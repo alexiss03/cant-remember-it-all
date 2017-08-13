@@ -39,7 +39,7 @@ class PNSearchNoteInteractor: PNSearchNoteInteractorInterface {
                 let notebookFilter = NSPredicate.init(format: "body CONTAINS[c] %@ || title CONTAINS[c] %@", unwrappedSearchText, unwrappedSearchText)
                 let notes = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
                 self.output?.update(notes: notes)
-                self.output?.setMenu(title: "MEMO")
+                self.output?.setMenu(title: "QUILL")
             } else if let unwrappedCurrentNotebook = currentNotebook, let notebookName = unwrappedCurrentNotebook.name, text == nil {
                 let notebookFilter = NSPredicate.init(format: "notebook == %@", unwrappedCurrentNotebook)
                 let notes = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
@@ -49,7 +49,7 @@ class PNSearchNoteInteractor: PNSearchNoteInteractorInterface {
                 let notebookFilter = NSPredicate.init(format: "dateCreated != nil")
                 let notes = unwrappedRealm.objects(Note.self).filter(notebookFilter).sorted(byKeyPath: "dateUpdated", ascending: false)
                 self.output?.update(notes: notes)
-                self.output?.setMenu(title: "MEMO")
+                self.output?.setMenu(title: "QUILL")
             }
 
         }

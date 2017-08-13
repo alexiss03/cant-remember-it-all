@@ -19,6 +19,8 @@ struct PNRegistrationInputPresenter: ProcedureObserver, PNRegistrationInputVIPER
     }
     
     func did(cancel procedure: Procedure, withErrors: [Error]) {
+        registrationView.setEmailErrorLabel(errorMessage: "")
+        registrationView.setPasswordErrorLabel(errorMessage: "")
         
         for error in withErrors {
             let error = error as NSError

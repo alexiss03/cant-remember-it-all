@@ -41,27 +41,26 @@
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1g-56-TNJ">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44.5" id="sXz-Zd-dvp"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 </textField>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-Y6-ikS">
-                                    <rect key="frame" x="0.0" y="44.5" width="300" height="5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="5" id="KzZ-MR-X9L"/>
-                                    </constraints>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fJ-n4-vS9">
-                                    <rect key="frame" x="0.0" y="49.5" width="300" height="14"/>
+                                    <rect key="frame" x="0.0" y="44.5" width="300" height="19"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="b8y-I8-Yx5"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="1fJ-n4-vS9" firstAttribute="baseline" secondItem="d1g-56-TNJ" secondAttribute="baseline" id="8jd-Ls-wnf"/>
-                                <constraint firstItem="d1g-56-TNJ" firstAttribute="height" secondItem="Z9h-mK-aaV" secondAttribute="height" multiplier="0.7" id="DAa-tS-dXF"/>
+                                <constraint firstAttribute="bottom" secondItem="1fJ-n4-vS9" secondAttribute="bottom" id="Ufs-Bu-AOH"/>
+                                <constraint firstItem="1fJ-n4-vS9" firstAttribute="top" secondItem="d1g-56-TNJ" secondAttribute="bottom" id="dTX-34-Qzr"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Ao-Se-91w">
@@ -69,27 +68,27 @@
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="saq-Lt-kzi">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44.5" id="tj8-vc-KbD"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 </textField>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6IM-AD-6j5">
-                                    <rect key="frame" x="0.0" y="44" width="300" height="5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="5" id="7Pg-yS-rel"/>
-                                    </constraints>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH9-3O-IqL">
-                                    <rect key="frame" x="0.0" y="49" width="300" height="14"/>
+                                    <rect key="frame" x="0.0" y="44" width="300" height="19"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="IoD-ax-kuq"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="11"/>
                                     <color key="textColor" red="0.81510416669999997" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="saq-Lt-kzi" firstAttribute="height" secondItem="5Ao-Se-91w" secondAttribute="height" multiplier="0.7" id="CCU-Sl-Y1P"/>
-                                <constraint firstItem="OH9-3O-IqL" firstAttribute="baseline" secondItem="saq-Lt-kzi" secondAttribute="baseline" id="hJa-MI-eTU"/>
+                                <constraint firstAttribute="bottom" secondItem="OH9-3O-IqL" secondAttribute="bottom" id="7c0-kp-w3B"/>
+                                <constraint firstItem="saq-Lt-kzi" firstAttribute="top" secondItem="5Ao-Se-91w" secondAttribute="top" id="h5i-sm-Lc6"/>
+                                <constraint firstItem="OH9-3O-IqL" firstAttribute="top" secondItem="saq-Lt-kzi" secondAttribute="bottom" id="mHW-iB-EjD"/>
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSb-W0-z3j">
@@ -110,7 +109,10 @@
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="210" id="AOf-5c-YJL"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="210" id="AOf-5c-YJL"/>
+                        <constraint firstItem="Z9h-mK-aaV" firstAttribute="top" secondItem="9DB-Ez-WY6" secondAttribute="top" id="JKC-y1-LWS"/>
+                        <constraint firstItem="5Ao-Se-91w" firstAttribute="top" secondItem="Z9h-mK-aaV" secondAttribute="bottom" constant="10" id="Zou-yC-I5r"/>
+                        <constraint firstItem="cSb-W0-z3j" firstAttribute="top" secondItem="5Ao-Se-91w" secondAttribute="bottom" constant="10" id="jnA-On-oVy"/>
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-iJ-xDE">

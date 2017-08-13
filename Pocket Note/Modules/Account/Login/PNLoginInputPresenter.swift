@@ -33,6 +33,9 @@ struct PNLoginInputPresenter: ProcedureObserver, PNLoginInputVIPERPresenter, VIP
      Displays the errors in LOGIN VIPER VIEW.
      */
     func did(cancel procedure: Procedure, withErrors: [Error]) {
+        loginView.setEmailErrorLabel(errorMessage: "")
+        loginView.setPasswordErrorLabel(errorMessage: "")
+        
         for error in withErrors {
             let error = error as NSError
             

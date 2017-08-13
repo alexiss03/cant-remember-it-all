@@ -35,6 +35,7 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         
         baseView = view as? PNCreateNoteView
         initEventHandlers()
+        baseView?.contentTextView.delegate = self
     }
     
     private func initEventHandlers() {
@@ -54,8 +55,6 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         if let unwrappedBaseView = baseView, let contentText = note?.body {
             unwrappedBaseView.setContentTextView(content: contentText)
         }
-        
-        //showNavigationBar(viewController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,5 +79,13 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
 extension PNCreateNoteViewController: VIPERRouter {
     func routeAlertController(alert: UIAlertController) {
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension PNCreateNoteViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        textView.attributedText = NSAttributedString.init(string: textView.text + text, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize:PNNoteTypographyContants.normalFontSize)])
+        
+        return false
     }
 }

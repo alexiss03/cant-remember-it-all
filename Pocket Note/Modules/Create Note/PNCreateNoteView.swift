@@ -19,7 +19,7 @@ protocol PNCreateNoteVIPERView: VIPERView {
  */
 class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
     /// A `UITextView` that contains the content of the note to be updated. This is where the user edits the content of the note.
-    @IBOutlet private weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextView: UITextView!
     private var textViewKeyboardObserver: TextViewKeyboardObserver?
     
     override func awakeFromNib() {
@@ -28,6 +28,9 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
         
         textViewKeyboardObserver = TextViewKeyboardObserver.init(notesTextView: contentTextView)
         textViewKeyboardObserver?.startObserving()
+        
+        let keyboardToolbar = Bundle.main.loadNibNamed("PNCreateNoteToolbarView", owner: self, options: nil)?[0] as? UIView
+        contentTextView.inputAccessoryView = keyboardToolbar
     }
     
     /**

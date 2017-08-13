@@ -28,6 +28,8 @@ struct PNSharedRealm {
      */
     static func configureDefaultRealm() -> Realm? {
         guard let user = SyncUser.current else {
+            Realm.Configuration.defaultConfiguration = Realm.Configuration.init(fileURL: Bundle.main.url(forResource: syncRealmPath, withExtension: "realm"), inMemoryIdentifier: syncRealmPath, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 1, migrationBlock: nil, deleteRealmIfMigrationNeeded: true, shouldCompactOnLaunch: nil, objectTypes: [Account.self, Note.self, Notebook.self])
+            
             var realm: Realm?
             
             do {
@@ -90,5 +92,16 @@ struct PNSharedRealm {
     
     static func unattachedRemoteRealm() {
         Realm.Configuration.defaultConfiguration = Realm.Configuration.init(fileURL: Bundle.main.url(forResource: syncRealmPath, withExtension: "realm"), inMemoryIdentifier: syncRealmPath, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 1, migrationBlock: nil, deleteRealmIfMigrationNeeded: true, shouldCompactOnLaunch: nil, objectTypes: [Account.self, Note.self, Notebook.self])
+        
+        DispatchQueue.main.async {
+            do {
+                let realm = try Realm()
+                
+                try realm.write {
+                    realm.deleteAll()
+                }
+                
+            } catch { }
+        }
     }
 }

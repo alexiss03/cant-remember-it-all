@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
-protocol PNNotebooksListViewControllerDelegate {
+protocol PNNotebooksListViewControllerDelegate: class {
     func update(currentNotebook: Notebook?)
 }
 
@@ -26,7 +26,7 @@ class PNNotebooksListViewController: UIViewController {
     
     fileprivate var eventHandler: PNNotebooksListViewEventHandler?
     fileprivate var notificationToken: NotificationToken?
-    var delegate: PNNotebooksListViewControllerDelegate?
+    weak var delegate: PNNotebooksListViewControllerDelegate?
     
     fileprivate var notebooks: Results<Notebook>? = {
         guard let unwrappedRealm = PNSharedRealm.realmInstance() else {

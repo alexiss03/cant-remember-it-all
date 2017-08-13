@@ -348,7 +348,7 @@ extension PNNotesFeedViewController: PNNotesFeedViewPresenterOutput {
             setMenu(title: unwrappedTitle, target: self, action: #selector(self.openNotebooks), viewController: self, slideController: slideController)
             setNotebookButton(target: self, currentNotebook: currentNotebook, navigationItem: navigationItem)
         } else {
-            setMenu(title: "MEMO", target: self, action: #selector(self.openNotebooks), viewController: self, slideController: slideController)
+            setMenu(title: "QUILL", target: self, action: #selector(self.openNotebooks), viewController: self, slideController: slideController)
             setNotebookButton(target: self, currentNotebook: nil, navigationItem: navigationItem)
         }
     }
