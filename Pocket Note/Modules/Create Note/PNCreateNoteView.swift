@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PNCreateNoteVIPERView: VIPERView {
-    func setContentTextView(content: String)
+    func setContentTextView(content: NSAttributedString)
     func setContentTextViewAsFirstResponder()
     func getContentText() -> String?
 }
@@ -38,8 +38,8 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
     
     - Parameter content: A string value that is the content of a note to be displayed.
     */
-    public func setContentTextView(content: String) {
-        contentTextView.text = content
+    public func setContentTextView(content: NSAttributedString) {
+        contentTextView.attributedText = content
     }
     
     func setContentTextViewAsFirstResponder() {

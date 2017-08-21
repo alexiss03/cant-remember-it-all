@@ -51,19 +51,16 @@ class PNCreateNoteToolbarView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        toolbarButton1.setImage(UIImage.init(named: "IconBold"), for: .normal)
-        toolbarButton2.setImage(UIImage.init(named: "IconUnderline"), for: .normal)
-        toolbarButton3.setImage(UIImage.init(named: "IconItalicized"), for: .normal)
+        toolbarButton1.setTitle("", for: .normal)
+        toolbarButton2.setTitle("", for: .normal)
+        toolbarButton3.setTitle("", for: .normal)
+        
         toolbarButton4.setImage(UIImage.init(named: "IconBulletList"), for: .normal)
         toolbarButton5.setImage(UIImage.init(named: "IconCheckList"), for: .normal)
         toolbarButton6.setImage(UIImage.init(named: "IconCamera"), for: .normal)
         
-        toolbarButton1.imageView?.contentMode = .scaleAspectFit
-        toolbarButton2.imageView?.contentMode = .scaleAspectFit
-        toolbarButton3.imageView?.contentMode = .scaleAspectFit
         toolbarButton4.imageView?.contentMode = .scaleAspectFit
         toolbarButton5.imageView?.contentMode = .scaleAspectFit
         toolbarButton6.imageView?.contentMode = .scaleAspectFit
     }
-
 }

@@ -28,11 +28,11 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgY-V7-irl">
-                    <rect key="frame" x="285" y="577" width="70" height="70"/>
+                    <rect key="frame" x="300" y="592" width="55" height="55"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="kgY-V7-irl" secondAttribute="height" multiplier="1:1" id="DMI-fM-VnR"/>
-                        <constraint firstAttribute="width" constant="70" id="s4L-od-TN1"/>
+                        <constraint firstAttribute="width" constant="55" id="s4L-od-TN1"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="42"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,7 +41,7 @@
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="35"/>
+                            <real key="value" value="27.5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>

@@ -36,7 +36,7 @@ extension UIColor {
     }
 }
 
-
 struct PNNoteTypographyContants {
-    static let normalFontSize: CGFloat = 13.0
+    static let normalFontSize: CGFloat = 15.0
+    static let headerFontSize: CGFloat = 18.0
 }

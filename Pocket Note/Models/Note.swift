@@ -15,6 +15,7 @@ import ProcedureKit
  A note also can belong to one note, but is not required. It can also be moved from one note to another.
  */
 class Note: Object {
+    dynamic var bodyMarkDown: Data?
     dynamic var body: String?
     dynamic var title: String?
     dynamic var dateCreated: Date?
