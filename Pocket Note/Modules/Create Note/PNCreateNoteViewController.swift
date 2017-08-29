@@ -32,7 +32,7 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     var note: Note?
     /// A `Notebook` instance that will contain the note to be created or already contains the note to be updated.
     var notebook: Notebook?
-    var inputStyleMode: TextInputStyleMode = .bold
+    var inputStyleMode: TextInputStyleMode = .normal
     private var eventHandler: PNCreateNoteVIPEREventHandler?
     
     /**
@@ -64,27 +64,15 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let unwrappedBaseView = baseView, let contentText = note?.body {
-            var htmlString: String? = ""
-            let attrStr = NSAttributedString.init(string: "Hello World", attributes: [NSFontAttributeName: UIFont.init(name: "Lato-Bold", size: 50.0)])
-            let documentAttributes = [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType]
-            do {
-                let htmlData = try attrStr.data(from: NSMakeRange(0, attrStr.length), documentAttributes:documentAttributes)
-                htmlString = String(data:htmlData, encoding:String.Encoding.utf8)
-                print(htmlString)
-            }
-            catch {
-                print("error creating HTML from Attributed String")
-            }
-            
-            do {
-                if let attrStr = try NSAttributedString(data: (htmlString?.data(using: .utf8))!, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType], documentAttributes: nil)  as? NSAttributedString {
-                    unwrappedBaseView.setContentTextView(content: attrStr)
-                    print(attrStr)
-                }
-            }
-            catch {
-                print("error creating attributed string")
+        guard let  baseView = baseView else {
+            print("Base view is nil")
+            return
+        }
+        
+        if let contentText = note?.body {
+            if let attributedString = HTMLDecoder.decode(htmlString: contentText) {
+                baseView.setContentTextView(content: attributedString)
+                print(attributedString)
             }
         }
     }
@@ -92,8 +80,8 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let unwrappedBaseView = baseView, note == nil {
-            unwrappedBaseView.setContentTextViewAsFirstResponder()
+        if let baseView = baseView, note == nil {
+            baseView.setContentTextViewAsFirstResponder()
         }
     }
     
@@ -104,13 +92,43 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
      */
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        eventHandler?.saveNote(content: baseView?.getContentText())
+        eventHandler?.saveNote(content: HTMLEncoder.encode(attributedText: baseView?.contentTextView.attributedText))
     }
     
     private func addMenuItems() {
         let menuController = UIMenuController.shared
-        let boldMenuItem = UIMenuItem.init(title: "Bold", action: #selector(PNCreateNoteViewController.setTextToBold))
-        menuController.menuItems = [boldMenuItem]
+        let boldTextMenuItem = UIMenuItem.init(title: "Bold", action: #selector(PNCreateNoteViewController.setTextToBold))
+        let italicTextMenuItem = UIMenuItem.init(title: "Italic", action: #selector(PNCreateNoteViewController.setTextToItalic))
+        let underlinedTextMenuItem = UIMenuItem.init(title: "Underline", action: #selector(PNCreateNoteViewController.setToUnderlined))
+        menuController.menuItems = [boldTextMenuItem, italicTextMenuItem, underlinedTextMenuItem]
+    }
+    
+    @objc private func setTextToBold() {
+        let selectedRange = baseView?.contentTextView.selectedRange
+        
+        let fontBold = UIFont.init(name: "Lato-Bold", size: PNNoteTypographyContants.normalFontSize)
+        let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
+        textViewText?.setAttributes([NSFontAttributeName: fontBold as Any], range: selectedRange!)
+        baseView?.contentTextView.attributedText = textViewText
+    }
+    
+    @objc private func setTextToItalic() {
+        let selectedRange = baseView?.contentTextView.selectedRange
+        
+        let fontItalic = UIFont.init(name: "Lato-Italic", size: PNNoteTypographyContants.normalFontSize)
+        let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
+        textViewText?.setAttributes([NSFontAttributeName: fontItalic as Any], range: selectedRange!)
+        baseView?.contentTextView.attributedText = textViewText
+    }
+    
+    @objc private func setToUnderlined() {
+        let selectedRange = baseView?.contentTextView.selectedRange
+        
+        let fontRegular = UIFont.init(name: "Lato-Regular", size: PNNoteTypographyContants.normalFontSize)
+        let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
+        
+        textViewText?.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue, NSFontAttributeName: fontRegular as Any], range: selectedRange!)
+        baseView?.contentTextView.attributedText = textViewText
     }
 }
 
@@ -187,14 +205,5 @@ extension PNCreateNoteViewController: UITextViewDelegate {
                 textView.attributedText = text
         }
         return false
-    }
-    
-    func setTextToBold() {
-        let selectedRange = baseView?.contentTextView.selectedRange
-      
-        let fontBold = UIFont.init(name: "Lato-Bold", size: PNNoteTypographyContants.normalFontSize)
-        let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
-        textViewText?.setAttributes([NSFontAttributeName: fontBold as Any], range: selectedRange!)
-        baseView?.contentTextView.attributedText = textViewText
     }
 }

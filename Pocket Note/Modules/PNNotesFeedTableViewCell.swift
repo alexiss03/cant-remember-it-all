@@ -23,8 +23,13 @@ class PNNotesFeedTableViewCell: UITableViewCell {
      - Parameter note: A `Note` instance containing the content to be displayed.
     */
     public func setContent(note: Note) {
-        descriptionLabel.text = note.body
-        titleLabel.text = note.body
+        if let body = note.body {
+            let plainText = HTMLDecoder.decode(htmlString: body)?.string
+            
+            titleLabel.text = plainText
+            descriptionLabel.text = plainText
+        }
+        
         dateLabel.text = note.dateUpdated?.displayString()
         if note.notebook != nil {
             markedIconImageView.isHidden = false

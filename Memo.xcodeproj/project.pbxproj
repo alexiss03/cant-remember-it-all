@@ -64,6 +64,8 @@
 		00660CF91F149212008F4CF8 /* KeyboardSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CF81F149212008F4CF8 /* KeyboardSetting.swift */; };
 		00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */; };
 		00667E2E1EE7CCFE002504FF /* PNRegistrationEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00667E2D1EE7CCFE002504FF /* PNRegistrationEventHandler.swift */; };
+		0071D2971F554EF200BE66C8 /* HTMLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0071D2961F554EF200BE66C8 /* HTMLEncoder.swift */; };
+		0071D2991F554F2600BE66C8 /* HTMLDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0071D2981F554F2600BE66C8 /* HTMLDecoder.swift */; };
 		007356CC1F0476DD0025E517 /* PNNoNetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007356CA1F0476DD0025E517 /* PNNoNetworkObserver.swift */; };
 		007356CD1F0476DD0025E517 /* PNLoginUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007356CB1F0476DD0025E517 /* PNLoginUserPresenter.swift */; };
 		007DEC7C1EF9FC5F00F2FC9A /* EditNoteQuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DEC7A1EF9FB2000F2FC9A /* EditNoteQuickSpec.swift */; };
@@ -217,6 +219,8 @@
 		00660CF81F149212008F4CF8 /* KeyboardSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardSetting.swift; path = "Pocket Note/Common/Protocols/KeyboardSetting.swift"; sourceTree = SOURCE_ROOT; };
 		00660CFC1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewKeyboardObserver.swift; path = "Pocket Note/Common/Observers/TextViewKeyboardObserver.swift"; sourceTree = SOURCE_ROOT; };
 		00667E2D1EE7CCFE002504FF /* PNRegistrationEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNRegistrationEventHandler.swift; path = Modules/Account/Registration/PNRegistrationEventHandler.swift; sourceTree = "<group>"; };
+		0071D2961F554EF200BE66C8 /* HTMLEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTMLEncoder.swift; path = "Modules/Create Note/HTMLEncoder.swift"; sourceTree = "<group>"; };
+		0071D2981F554F2600BE66C8 /* HTMLDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTMLDecoder.swift; path = "Modules/Create Note/HTMLDecoder.swift"; sourceTree = "<group>"; };
 		007356CA1F0476DD0025E517 /* PNNoNetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNoNetworkObserver.swift; path = Modules/Account/Login/PNNoNetworkObserver.swift; sourceTree = "<group>"; };
 		007356CB1F0476DD0025E517 /* PNLoginUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLoginUserPresenter.swift; path = Modules/Account/Login/PNLoginUserPresenter.swift; sourceTree = "<group>"; };
 		007DEC7A1EF9FB2000F2FC9A /* EditNoteQuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNoteQuickSpec.swift; path = "Edit Note/EditNoteQuickSpec.swift"; sourceTree = "<group>"; };
@@ -758,6 +762,8 @@
 			isa = PBXGroup;
 			children = (
 				008D3A801ED6AC2D003B51DE /* Reachability.swift */,
+				0071D2961F554EF200BE66C8 /* HTMLEncoder.swift */,
+				0071D2981F554F2600BE66C8 /* HTMLDecoder.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -926,7 +932,6 @@
 		00A66C9C1E89F95200924C34 /* Pocket Note */ = {
 			isa = PBXGroup;
 			children = (
-				008D3A7F1ED6AC10003B51DE /* Helpers */,
 				00821E8C1ECD431100177780 /* Pocket Note.entitlements */,
 				00231BE21E9B90B100DEBBF5 /* Models */,
 				00F611E41EB061D6000160BA /* Storyboards */,
@@ -1046,6 +1051,7 @@
 		00AE74711E8CDE200081C35C /* Edit/Create Note */ = {
 			isa = PBXGroup;
 			children = (
+				008D3A7F1ED6AC10003B51DE /* Helpers */,
 				00AE74731E8CE2C80081C35C /* Views */,
 				002155191EF79DD500DF1F3D /* Interactors */,
 				0021551C1EF7AE7100DF1F3D /* Presenters */,
@@ -1592,6 +1598,7 @@
 				00CD5A831E9C5D87009F9569 /* Account.swift in Sources */,
 				0037DD0A1F0CCB060035ACED /* PNRegistrationUserInteractor.swift in Sources */,
 				0092D4001F29C33F000562A5 /* ApplicationCoordinator.swift in Sources */,
+				0071D2971F554EF200BE66C8 /* HTMLEncoder.swift in Sources */,
 				009E5ABF1EB1B44E001F4889 /* PNRegistrationView.swift in Sources */,
 				0049C2C31F209425007F60B2 /* PNConstants.swift in Sources */,
 				0049C2C61F209425007F60B2 /* PNSharedRealm.swift in Sources */,
@@ -1621,6 +1628,7 @@
 				0055CA1A1F0C652900C3E208 /* VIPERInteractor.swift in Sources */,
 				00AE74B11E8CECE90081C35C /* PNCreateNoteView.swift in Sources */,
 				001CEF4A1F0243E800E500BF /* Date.swift in Sources */,
+				0071D2991F554F2600BE66C8 /* HTMLDecoder.swift in Sources */,
 				0049C2BC1F206A8E007F60B2 /* PNNotebooksListPresenter.swift in Sources */,
 				001CEF4C1F02442F00E500BF /* UITableView.swift in Sources */,
 				0092D4091F29D1B4000562A5 /* NotesFeedCoordinator.swift in Sources */,

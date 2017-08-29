@@ -11,7 +11,6 @@ import UIKit
 protocol PNCreateNoteVIPERView: VIPERView {
     func setContentTextView(content: NSAttributedString)
     func setContentTextViewAsFirstResponder()
-    func getContentText() -> String?
 }
 
 /**
@@ -44,9 +43,5 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
     
     func setContentTextViewAsFirstResponder() {
         contentTextView.becomeFirstResponder()
-    }
-    
-    func getContentText() -> String? {
-        return contentTextView?.text
     }
 }

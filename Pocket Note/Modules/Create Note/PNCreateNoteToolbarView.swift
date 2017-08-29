@@ -54,13 +54,10 @@ class PNCreateNoteToolbarView: UIView {
         toolbarButton1.setTitle("", for: .normal)
         toolbarButton2.setTitle("", for: .normal)
         toolbarButton3.setTitle("", for: .normal)
+        toolbarButton4.setTitle("", for: .normal)
+        toolbarButton5.setTitle("", for: .normal)
         
-        toolbarButton4.setImage(UIImage.init(named: "IconBulletList"), for: .normal)
-        toolbarButton5.setImage(UIImage.init(named: "IconCheckList"), for: .normal)
         toolbarButton6.setImage(UIImage.init(named: "IconCamera"), for: .normal)
-        
-        toolbarButton4.imageView?.contentMode = .scaleAspectFit
-        toolbarButton5.imageView?.contentMode = .scaleAspectFit
         toolbarButton6.imageView?.contentMode = .scaleAspectFit
     }
 }
