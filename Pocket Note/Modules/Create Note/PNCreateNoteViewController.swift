@@ -43,11 +43,18 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        baseView = view as? PNCreateNoteView
+        setView()
         initEventHandlers()
+
+        addMenuItems()
+    }
+    
+    private func setView() {
+        baseView = view as? PNCreateNoteView
         baseView?.contentTextView.delegate = self
         
-        addMenuItems()
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(PNCreateNoteViewController.setToEditable))
+        baseView?.contentTextView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func initEventHandlers() {
@@ -139,71 +146,12 @@ extension PNCreateNoteViewController: VIPERRouter {
 }
 
 extension PNCreateNoteViewController: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        guard range.location >= textView.attributedText.length else {
-            return true
-        }
-        
-        switch inputStyleMode {
-            case .normal:
-                return true
-            case .bold:
-                let fontBold = UIFont.init(name: "Lato-Bold", size: PNNoteTypographyContants.normalFontSize)
-                let replacementText = NSMutableAttributedString.init(string: text, attributes: [NSFontAttributeName: fontBold as Any])
-                
-                let text = textView.attributedText.mutableCopy() as? NSMutableAttributedString
-                text?.append(replacementText)
-                textView.attributedText = text
-                
-            case .italicized:
-                let fontItalic = UIFont.init(name: "Lato-Italic", size: PNNoteTypographyContants.normalFontSize)
-                let replacementText = NSMutableAttributedString.init(string: text, attributes: [NSFontAttributeName: fontItalic as Any])
-                
-                let text = textView.attributedText.mutableCopy() as? NSMutableAttributedString
-                text?.append(replacementText)
-                textView.attributedText = text
-                
-            case .underline:
-                let normalFont = UIFont.init(name: "Lato-Regular", size: PNNoteTypographyContants.normalFontSize)
-                let replacementText = NSAttributedString(string: text, attributes:
-                    [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue, NSFontAttributeName: normalFont as Any])
-                
-                let text = textView.attributedText.mutableCopy() as? NSMutableAttributedString
-                text?.append(replacementText)
-                textView.attributedText = text
-            case .bulleted:
-                let normalFont = UIFont.init(name: "Lato-Regular", size: PNNoteTypographyContants.normalFontSize)
-                let replacementText = NSMutableAttributedString(string: text, attributes:
-                    [NSFontAttributeName: normalFont as Any])
-                
-                if text.contains("\n") {
-                    let attachment = NSTextAttachment.init()
-                    attachment.image = UIImage.init(named: "IconBullet")
-                    let bulletSize = CGSize.init(width: PNNoteTypographyContants.normalFontSize, height: PNNoteTypographyContants.normalFontSize)
-                    attachment.bounds = CGRect.init(origin: attachment.bounds.origin, size: bulletSize)
-                    replacementText.append(NSAttributedString.init(attachment: attachment))
-                }
-            
-                let text = textView.attributedText.mutableCopy() as? NSMutableAttributedString
-                text?.append(replacementText)
-                textView.attributedText = text
-            case .checklist:
-                let normalFont = UIFont.init(name: "Lato-Regular", size: PNNoteTypographyContants.normalFontSize)
-                let replacementText = NSMutableAttributedString(string: text, attributes:
-                    [NSFontAttributeName: normalFont as Any])
-                
-                if text.contains("\n") {
-                    let attachment = NSTextAttachment.init()
-                    attachment.image = UIImage.init(named: "IconCheck")
-                    let bulletSize = CGSize.init(width: PNNoteTypographyContants.normalFontSize, height: PNNoteTypographyContants.normalFontSize)
-                    attachment.bounds = CGRect.init(origin: attachment.bounds.origin, size: bulletSize)
-                    replacementText.append(NSAttributedString.init(attachment: attachment))
-                }
-                
-                let text = textView.attributedText.mutableCopy() as? NSMutableAttributedString
-                text?.append(replacementText)
-                textView.attributedText = text
-        }
-        return false
+    func setToEditable() {
+        baseView?.contentTextView.isEditable = true
+        baseView?.becomeFirstResponder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.isEditable = false
     }
 }
