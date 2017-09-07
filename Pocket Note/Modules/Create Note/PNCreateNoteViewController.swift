@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import ProcedureKit
+import TesseractOCR
 
 enum TextInputStyleMode {
     case bold
@@ -20,7 +21,6 @@ enum TextInputStyleMode {
 }
 
 protocol PNCreateNoteRouter: VIPERRouter { }
-
 /**
  The class `PNCreateNoteViewController` is the custom view controller of the Create Note and Update Note modules
  */
@@ -35,6 +35,8 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     var inputStyleMode: TextInputStyleMode = .normal
     private var eventHandler: PNCreateNoteVIPEREventHandler?
     
+    fileprivate var tesseract: G8Tesseract?
+    
     /**
      Overrides the superclass' implementation.
      
@@ -47,14 +49,18 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         initEventHandlers()
 
         addMenuItems()
+        
+        tesseract = G8Tesseract(language:"eng")
     }
     
     private func setView() {
         baseView = view as? PNCreateNoteView
+        baseView?.delegate = self
         baseView?.contentTextView.delegate = self
         
         let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(PNCreateNoteViewController.setToEditable))
         baseView?.contentTextView.addGestureRecognizer(tapGestureRecognizer)
+
     }
     
     private func initEventHandlers() {
@@ -82,9 +88,17 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
                 print(attributedString)
             }
         }
+        
+        setNavigationBackButton()
+    }
+    
+    private func setNavigationBackButton() {
+        navigationController?.navigationBar.tintColor = PNConstants.tintColor
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.backItem?.title = ""
         super.viewDidAppear(animated)
         
         if let baseView = baseView, note == nil {
@@ -99,6 +113,11 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
      */
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        guard let contentAttributedText = baseView?.contentTextView.attributedText, contentAttributedText.string.characters.count > 0 else {
+            print("Note is empty")
+            return
+        }
+        
         eventHandler?.saveNote(content: HTMLEncoder.encode(attributedText: baseView?.contentTextView.attributedText))
     }
     
@@ -122,7 +141,7 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     @objc private func setTextToItalic() {
         let selectedRange = baseView?.contentTextView.selectedRange
         
-        let fontItalic = UIFont.init(name: "Lato-Italic", size: PNNoteTypographyContants.normalFontSize)
+        let fontItalic = UIFont.init(name: PNNoteTypographyContants.noteItalicFont, size: PNNoteTypographyContants.normalFontSize)
         let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
         textViewText?.setAttributes([NSFontAttributeName: fontItalic as Any], range: selectedRange!)
         baseView?.contentTextView.attributedText = textViewText
@@ -131,11 +150,27 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     @objc private func setToUnderlined() {
         let selectedRange = baseView?.contentTextView.selectedRange
         
-        let fontRegular = UIFont.init(name: "Lato-Regular", size: PNNoteTypographyContants.normalFontSize)
+        let fontRegular = UIFont.init(name: PNNoteTypographyContants.noteNormalFont, size: PNNoteTypographyContants.normalFontSize)
         let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
         
         textViewText?.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue, NSFontAttributeName: fontRegular as Any], range: selectedRange!)
         baseView?.contentTextView.attributedText = textViewText
+    }
+    
+    private func takeAPhoto(_ sender: Any) {
+        let imagePicker = UIImagePickerController.init()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .rear
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func uploadFromGalleryTapped(_ sender: Any) {
+        let imagePicker = UIImagePickerController.init()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing  = true
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -153,5 +188,32 @@ extension PNCreateNoteViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         textView.isEditable = false
+    }
+}
+
+extension PNCreateNoteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            tesseract?.image = UIImage.init(data: UIImageJPEGRepresentation(image, 1.0)!)
+            tesseract?.recognize()
+            
+            if let recognizedText = tesseract?.recognizedText {
+                baseView?.contentTextView.attributedText = NSAttributedString.init(string: recognizedText)
+            }
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PNCreateNoteViewController: PNCreateNoteViewOutputDelegate {
+    func scanDocumentTapped() {
+        let imagePicker = UIImagePickerController.init()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .rear
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
     }
 }

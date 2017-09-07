@@ -8,8 +8,11 @@
 
 import UIKit
 
+protocol PNCreateNoteToolbarViewDelegate: class {
+    func scanDocumentButtonTapped()
+}
+
 class PNCreateNoteToolbarView: UIView {
-    
     @IBOutlet weak var toolbarButton1: UIButton! {
         didSet {
             header1Button = toolbarButton1
@@ -48,6 +51,8 @@ class PNCreateNoteToolbarView: UIView {
     weak var checklistButton: UIButton?
     weak var cameraButton: UIButton?
     
+    weak var delegate: PNCreateNoteToolbarViewDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -60,4 +65,9 @@ class PNCreateNoteToolbarView: UIView {
         toolbarButton6.setImage(UIImage.init(named: "IconCamera"), for: .normal)
         toolbarButton6.imageView?.contentMode = .scaleAspectFit
     }
+    
+    @IBAction func button6Tapped(_ sender: Any) {
+        delegate?.scanDocumentButtonTapped()
+    }
+    
 }

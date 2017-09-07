@@ -131,9 +131,9 @@ extension PNNotesFeedViewController: NoteFeedMenu {
             }
         })
         
-        let deleteNotebookAction = AlertAction.init(title: "Delete Notebook", style: .default, handler: { [weak self] (_ : UIAlertAction!) -> Void in
-            if let unwrappedCurrentNotebook = self?.currentNotebook {
-                self?.eventHandler?.handleDelete(notebook: unwrappedCurrentNotebook)
+        let deleteNotebookAction = AlertAction.init(title: "Delete Notebook", style: .default, handler: { [unowned self] (_ : UIAlertAction!) -> Void in
+            if let unwrappedCurrentNotebook = self.currentNotebook {
+                self.eventHandler?.handleDelete(notebook: unwrappedCurrentNotebook)
             }
         })
         
@@ -143,6 +143,7 @@ extension PNNotesFeedViewController: NoteFeedMenu {
         alertController.addAction(deleteNotebookAction)
         alertController.addAction(cancelAction)
         
+        alertController.view.tintColor = PNConstants.tintColor
         present(alertController, animated: true, completion: nil)
     }
     
@@ -244,9 +245,11 @@ extension PNNotesFeedViewController: UITableViewDelegate {
     fileprivate func pushToViewNote(selectedIndexPath: IndexPath) {
         let viewNoteController = PNCreateNoteViewController()
         viewNoteController.note = notes?[selectedIndexPath.row]
-        
+
         navigationController?.pushViewController(viewNoteController, animated: true)
+        
     }
+    
 }
 
 extension PNNotesFeedViewController: UITableViewDataSource {

@@ -16,6 +16,8 @@ struct PNConstants {
     static let redColor = UIColor.init(rgb:0xDA291C)
     static let redColorTheme = UIColor.init(rgb: 0xA71D31)
     
+    static let tintColor = UIColor.black
+    
 }
 
 extension UIColor {
@@ -37,6 +39,8 @@ extension UIColor {
 }
 
 struct PNNoteTypographyContants {
-    static let normalFontSize: CGFloat = 15.0
-    static let headerFontSize: CGFloat = 18.0
+    static let noteNormalFont: String = "Lato-Light"
+    static let noteItalicFont: String = "Lato-LightItalic"
+    static let normalFontSize: CGFloat = 18.0
+    static let headerFontSize: CGFloat = 22.0
 }

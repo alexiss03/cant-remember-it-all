@@ -22,6 +22,12 @@ struct HTMLDecoder {
                 html.addAttribute(NSFontAttributeName, value: resizedFont, range: range)
             }
         }
+        let resizedFont = UIFont.init(name: PNNoteTypographyContants.noteNormalFont, size: PNNoteTypographyContants.normalFontSize)
+        html.addAttribute(NSFontAttributeName, value: resizedFont ?? (Any).self, range: NSMakeRange(html.length-1, 1))
+        
+        let paragraphStyle = NSMutableParagraphStyle.init()
+        paragraphStyle.lineSpacing = 3.0
+        html.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, html.length))
         html.endEditing()
     
         return html

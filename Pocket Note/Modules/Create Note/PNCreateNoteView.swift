@@ -13,6 +13,10 @@ protocol PNCreateNoteVIPERView: VIPERView {
     func setContentTextViewAsFirstResponder()
 }
 
+protocol PNCreateNoteViewOutputDelegate: class {
+    func scanDocumentTapped()
+}
+
 /**
  The `PNCreateNoteView` class is a custom `UIView` for the Create Note and Update Note modules.
  */
@@ -20,6 +24,7 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
     /// A `UITextView` that contains the content of the note to be updated. This is where the user edits the content of the note.
     @IBOutlet weak var contentTextView: UITextView!
     private var textViewKeyboardObserver: TextViewKeyboardObserver?
+    weak var delegate: PNCreateNoteViewOutputDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +33,14 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
         textViewKeyboardObserver = TextViewKeyboardObserver.init(notesTextView: contentTextView)
         textViewKeyboardObserver?.startObserving()
         
-        let keyboardToolbar = Bundle.main.loadNibNamed("PNCreateNoteToolbarView", owner: self, options: nil)?[0] as? UIView
+        let keyboardToolbar = Bundle.main.loadNibNamed("PNCreateNoteToolbarView", owner: self, options: nil)?[0] as? PNCreateNoteToolbarView
+        keyboardToolbar?.delegate = self
         contentTextView.inputAccessoryView = keyboardToolbar
+        
+        let paragraphStyle = NSMutableParagraphStyle.init()
+        paragraphStyle.lineSpacing = 3.0
+        contentTextView.attributedText = NSAttributedString.init(string: "", attributes: [NSParagraphStyleAttributeName: paragraphStyle])
+        
     }
     
     /**
@@ -42,6 +53,13 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
     }
     
     func setContentTextViewAsFirstResponder() {
+        contentTextView.isEditable = true
         contentTextView.becomeFirstResponder()
+    }
+}
+
+extension PNCreateNoteView: PNCreateNoteToolbarViewDelegate {
+    func scanDocumentButtonTapped() {
+        delegate?.scanDocumentTapped()
     }
 }

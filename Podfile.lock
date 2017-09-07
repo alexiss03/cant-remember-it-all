@@ -21,6 +21,7 @@ PODS:
     - Realm (= 2.8.3)
   - SlideMenuControllerSwift (3.0.1)
   - SwiftLint (0.17.0)
+  - TesseractOCRiOS (4.0.0)
 
 DEPENDENCIES:
   - DZNEmptyDataSet
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - RealmSwift
   - SlideMenuControllerSwift
   - SwiftLint
+  - TesseractOCRiOS (= 4.0.0)
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -42,7 +44,8 @@ SPEC CHECKSUMS:
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
+  TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
 
-PODFILE CHECKSUM: 5872487d3bacc9c4d81e61c25d27b3dbadcc4437
+PODFILE CHECKSUM: 10119c0f907a7a3632c25fb7e4500844e689d25a
 
 COCOAPODS: 1.1.1

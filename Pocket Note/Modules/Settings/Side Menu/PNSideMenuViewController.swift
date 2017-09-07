@@ -56,7 +56,7 @@ class PNSideMenuViewController: UIViewController {
         }
         
         if SyncUser.current == nil {
-            menuItems = ["INTEGRATE EXISTING ACCOUNT"]
+            menuItems = ["Sync Account"]
             baseView.hideLogoutButton()
         }
     }
@@ -88,7 +88,7 @@ extension PNSideMenuViewController: UITableViewDataSource {
         
         unwrappedCell.textLabel?.text = menuItems[indexPath.row]
         unwrappedCell.textLabel?.textColor = UIColor.white
-        unwrappedCell.textLabel?.font = UIFont.init(name: "Lato", size: 15)
+        unwrappedCell.textLabel?.font = UIFont.init(name: "Lato", size: 17)
         unwrappedCell.backgroundColor = UIColor.clear
         return unwrappedCell
     }
