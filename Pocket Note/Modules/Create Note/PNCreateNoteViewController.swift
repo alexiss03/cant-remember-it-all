@@ -11,15 +11,6 @@ import RealmSwift
 import ProcedureKit
 import TesseractOCR
 
-enum TextInputStyleMode {
-    case bold
-    case underline
-    case italicized
-    case bulleted
-    case checklist
-    case normal
-}
-
 protocol PNCreateNoteRouter: VIPERRouter { }
 /**
  The class `PNCreateNoteViewController` is the custom view controller of the Create Note and Update Note modules
@@ -33,7 +24,17 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     /// A `Notebook` instance that will contain the note to be created or already contains the note to be updated.
     var notebook: Notebook?
     var inputStyleMode: TextInputStyleMode = .normal
-    private var eventHandler: PNCreateNoteVIPEREventHandler?
+    
+    fileprivate var createEventHandler: PNCreateNoteVIPEREventHandler?
+    fileprivate var scanDocumentEventHandler: PNScanDocumentVIPEREventHandler?
+    
+    private let imagePickerController: UIImagePickerController = {
+        let imagePickerController = UIImagePickerController.init()
+        imagePickerController.sourceType = .camera
+        imagePickerController.cameraDevice = .rear
+        imagePickerController.allowsEditing = true
+        return imagePickerController
+    }()
     
     fileprivate var tesseract: G8Tesseract?
     
@@ -49,7 +50,6 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         initEventHandlers()
 
         addMenuItems()
-        
         tesseract = G8Tesseract(language:"eng")
     }
     
@@ -64,9 +64,22 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     }
     
     private func initEventHandlers() {
-        if let unwrappedRealm = PNSharedRealm.configureDefaultRealm() {
-            eventHandler = PNCreateNoteEventHandler.init(note: note, notebook: notebook, realm: unwrappedRealm)
+        guard let realm = PNSharedRealm.configureDefaultRealm() else {
+            print("Realm is nil")
+            return
         }
+        
+        createEventHandler = PNCreateNoteEventHandler.init(note: note, notebook: notebook, realm: realm)
+        
+        guard let tesseract = G8Tesseract(language:"eng") else {
+            print("Tesseract is nil")
+            return
+        }
+        
+        let scanDocumentInteractor = PNScanDocumentInteractor.init(imagePickerController: imagePickerController, tesseract: tesseract)
+        let scanDocumenterPresenter = PNScanDocumentPresenter.init(scanDocumentInteractor: scanDocumentInteractor, output: self)
+        scanDocumentInteractor.output = scanDocumenterPresenter
+        scanDocumentEventHandler = scanDocumenterPresenter
     }
     
     /**
@@ -77,16 +90,14 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let  baseView = baseView else {
+        guard let  baseView = baseView, let contentText = baseView.contentTextView.attributedText, contentText.string.characters.count == 0 else {
             print("Base view is nil")
             return
         }
         
-        if let contentText = note?.body {
-            if let attributedString = HTMLDecoder.decode(htmlString: contentText) {
-                baseView.setContentTextView(content: attributedString)
-                print(attributedString)
-            }
+        if let contentText = note?.body, let attributedString = HTMLDecoder.decode(htmlString: contentText) {
+            baseView.setContentTextView(content: attributedString)
+            print(attributedString)
         }
         
         setNavigationBackButton()
@@ -94,13 +105,11 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     
     private func setNavigationBackButton() {
         navigationController?.navigationBar.tintColor = PNConstants.tintColor
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.backItem?.title = ""
         super.viewDidAppear(animated)
-        
+
         if let baseView = baseView, note == nil {
             baseView.setContentTextViewAsFirstResponder()
         }
@@ -113,12 +122,15 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
      */
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+
+    override func willMove(toParentViewController parent: UIViewController?) {
         guard let contentAttributedText = baseView?.contentTextView.attributedText, contentAttributedText.string.characters.count > 0 else {
             print("Note is empty")
             return
         }
         
-        eventHandler?.saveNote(content: HTMLEncoder.encode(attributedText: baseView?.contentTextView.attributedText))
+        createEventHandler?.saveNote(content: HTMLEncoder.encode(attributedText: baseView?.contentTextView.attributedText))
     }
     
     private func addMenuItems() {
@@ -156,22 +168,6 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         textViewText?.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue, NSFontAttributeName: fontRegular as Any], range: selectedRange!)
         baseView?.contentTextView.attributedText = textViewText
     }
-    
-    private func takeAPhoto(_ sender: Any) {
-        let imagePicker = UIImagePickerController.init()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.cameraDevice = .rear
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    private func uploadFromGalleryTapped(_ sender: Any) {
-        let imagePicker = UIImagePickerController.init()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing  = true
-        present(imagePicker, animated: true, completion: nil)
-    }
 }
 
 extension PNCreateNoteViewController: VIPERRouter {
@@ -191,29 +187,25 @@ extension PNCreateNoteViewController: UITextViewDelegate {
     }
 }
 
-extension PNCreateNoteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            tesseract?.image = UIImage.init(data: UIImageJPEGRepresentation(image, 1.0)!)
-            tesseract?.recognize()
-            
-            if let recognizedText = tesseract?.recognizedText {
-                baseView?.contentTextView.attributedText = NSAttributedString.init(string: recognizedText)
-            }
-        }
-        
-        picker.dismiss(animated: true, completion: nil)
+extension PNCreateNoteViewController: PNCreateNoteViewOutputDelegate {
+    func scanDocumentTapped() {
+        scanDocumentEventHandler?.scanDocument()
     }
 }
 
-extension PNCreateNoteViewController: PNCreateNoteViewOutputDelegate {
-    func scanDocumentTapped() {
-        let imagePicker = UIImagePickerController.init()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.cameraDevice = .rear
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
+extension PNCreateNoteViewController: PNScanDocumentPresenterOutput {
+    func present(controller: UIViewController) {
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func appendTextView(scannedFormattedText: NSAttributedString) {
+        guard let contentAttributedText = baseView?.contentTextView.attributedText else {
+           baseView?.contentTextView.attributedText = scannedFormattedText
+            return
+        }
+        
+        let mutableExistingAttributedText = NSMutableAttributedString.init(attributedString: contentAttributedText)
+        mutableExistingAttributedText.append(scannedFormattedText)
+        baseView?.contentTextView.attributedText = NSAttributedString.init(attributedString: mutableExistingAttributedText)
     }
 }
