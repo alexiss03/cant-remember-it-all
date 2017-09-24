@@ -28,7 +28,7 @@ extension Menu {
         navigationBar?.isTranslucent = false
         
         let menuIcon  = UIImage(named: "IconMenu")!.withRenderingMode(.alwaysOriginal)
-        let menuButton = UIButton(frame: CGRect(x: 5, y: 0, width: 28, height: 28))
+        let menuButton = UIButton(frame: CGRect(x: 5, y: 0, width: 20, height: 20))
         menuButton.setBackgroundImage(menuIcon, for: .normal)
         menuButton.addTarget(slideController, action: #selector(SlideMenuController.openLeft), for: .touchUpInside)
         
