@@ -61,9 +61,10 @@ class PNCreateNoteToolbarView: UIView {
         toolbarButton3.setTitle("", for: .normal)
         toolbarButton4.setTitle("", for: .normal)
         toolbarButton5.setTitle("", for: .normal)
+
+        let scanDocumentAttributedString = NSAttributedString.init(string: "Scan", attributes: [NSFontAttributeName: UIFont.init(name: PNNoteTypographyContants.noteBoldFont, size: PNNoteTypographyContants.normalFontSize) ?? (Any).self])
         
-        toolbarButton6.setImage(UIImage.init(named: "IconCamera"), for: .normal)
-        toolbarButton6.imageView?.contentMode = .scaleAspectFit
+        toolbarButton6.setAttributedTitle(scanDocumentAttributedString, for: .normal)
     }
     
     @IBAction func button6Tapped(_ sender: Any) {

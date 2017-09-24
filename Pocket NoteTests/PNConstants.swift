@@ -41,6 +41,7 @@ extension UIColor {
 struct PNNoteTypographyContants {
     static let noteNormalFont: String = "Lato-Light"
     static let noteItalicFont: String = "Lato-LightItalic"
+    static let noteBoldFont: String = "Lato-Bold"
     static let normalFontSize: CGFloat = 18.0
     static let headerFontSize: CGFloat = 22.0
 }
