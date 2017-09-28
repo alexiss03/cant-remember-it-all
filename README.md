@@ -32,6 +32,10 @@ After cloning the project, install the pod dependencies.
 ```
 pod install
 ```
+You would not be able to project yet. You need to create a `PNKeys` structure or class with static properties namely syncHost and `authenticationServerURL`. 
+
+*I'll provide a sample server url to eradicate the previous step.*
+
 Then, build and run the project.
 
 *If you have any questions or clarifications, please feel free to contact me or file an issue.*
