@@ -34,7 +34,7 @@ pod install
 ```
 You would not be able to project yet. You need to create a `PNKeys` structure or class with static properties namely syncHost and `authenticationServerURL`. 
 
-*I'll provide a sample server url to eradicate the previous step.*
+*Moving forward, I'll provide a sample server url to eradicate the previous step.*
 
 Then, build and run the project.
 
