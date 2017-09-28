@@ -9,11 +9,11 @@ import Foundation
 import RealmSwift
 
 class Account: Object {
-    dynamic var username: String?
-    dynamic var firstName: String?
-    dynamic var lastName: String?
-    dynamic var password: String?
-    dynamic var accountId: String? = UUID.init().uuidString
+    @objc dynamic var username: String?
+    @objc dynamic var firstName: String?
+    @objc dynamic var lastName: String?
+    @objc dynamic var password: String?
+    @objc dynamic var accountId: String? = UUID.init().uuidString
 
     override static func primaryKey() -> String? {
         return "accountId"

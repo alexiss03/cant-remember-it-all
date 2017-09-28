@@ -39,7 +39,7 @@ class PNCreateNoteView: UIView, PNCreateNoteVIPERView, KeyboardSetting {
         
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 3.0
-        contentTextView.attributedText = NSAttributedString.init(string: "", attributes: [NSParagraphStyleAttributeName: paragraphStyle])
+        contentTextView.attributedText = NSAttributedString.init(string: "", attributes: [NSAttributedStringKey.paragraphStyle: paragraphStyle])
         
     }
     

@@ -40,7 +40,7 @@ class PNScanDocumentPresenter: PNScanDocumentVIPEREventHandler, PNScanDocumentIn
     }
     
     func appendTextView(scannedText: String) {
-        output?.appendTextView(scannedFormattedText: NSAttributedString.init(string: scannedText, attributes: [NSFontAttributeName: UIFont.init(name: PNNoteTypographyContants.noteNormalFont, size: PNNoteTypographyContants.normalFontSize) ?? (Any).self]))
+        output?.appendTextView(scannedFormattedText: NSAttributedString.init(string: scannedText, attributes: [NSAttributedStringKey.font: UIFont.init(name: PNNoteTypographyContants.noteNormalFont, size: PNNoteTypographyContants.normalFontSize) ?? (Any).self]))
     }
 }
 

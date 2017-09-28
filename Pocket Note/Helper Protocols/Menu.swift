@@ -20,7 +20,7 @@ extension Menu {
         let navigationBar = viewController.navigationController?.navigationBar
         
         let pocketNoteButton = UIButton.init(type: .custom)
-        let attributedTitle = NSAttributedString.init(string: title, attributes: [NSFontAttributeName: UIFont(name: "Lato-Italic", size: 20.0)!, NSForegroundColorAttributeName: UIColor.black])
+        let attributedTitle = NSAttributedString.init(string: title, attributes: [NSAttributedStringKey.font: UIFont(name: "Lato-Italic", size: 20.0)!, NSAttributedStringKey.foregroundColor: UIColor.black])
         pocketNoteButton.setAttributedTitle(attributedTitle, for: .normal)
         pocketNoteButton.addTarget(target, action: action, for: .touchUpInside)
         navigationItem.titleView = pocketNoteButton

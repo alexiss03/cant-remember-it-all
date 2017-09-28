@@ -62,7 +62,7 @@ class PNCreateNoteToolbarView: UIView {
         toolbarButton4.setTitle("", for: .normal)
         toolbarButton5.setTitle("", for: .normal)
 
-        let scanDocumentAttributedString = NSAttributedString.init(string: "Scan", attributes: [NSFontAttributeName: UIFont.init(name: PNNoteTypographyContants.noteBoldFont, size: PNNoteTypographyContants.normalFontSize) ?? (Any).self])
+        let scanDocumentAttributedString = NSAttributedString.init(string: "Scan", attributes: [NSAttributedStringKey.font: UIFont.init(name: PNNoteTypographyContants.noteBoldFont, size: PNNoteTypographyContants.normalFontSize) ?? (Any).self])
         
         toolbarButton6.setAttributedTitle(scanDocumentAttributedString, for: .normal)
     }

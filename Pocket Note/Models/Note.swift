@@ -15,14 +15,14 @@ import ProcedureKit
  A note also can belong to one note, but is not required. It can also be moved from one note to another.
  */
 class Note: Object {
-    dynamic var bodyMarkDown: Data?
-    dynamic var body: String?
-    dynamic var title: String?
-    dynamic var dateCreated: Date?
-    dynamic var dateUpdated: Date?
-    dynamic var notebook: Notebook?
-    dynamic var noteId: String?
-    dynamic var account: Account?
+    @objc dynamic var bodyMarkDown: Data?
+    @objc dynamic var body: String?
+    @objc dynamic var title: String?
+    @objc dynamic var dateCreated: Date?
+    @objc dynamic var dateUpdated: Date?
+    @objc dynamic var notebook: Notebook?
+    @objc dynamic var noteId: String?
+    @objc dynamic var account: Account?
 
     override static func primaryKey() -> String? {
         return "noteId"

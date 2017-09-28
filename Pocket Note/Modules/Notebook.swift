@@ -13,10 +13,10 @@ import RealmSwift
  The `Notebook` class represents a notebook. A notebook can be created, updated, and deleted. A notebook can contain any number of notebooks.
  */
 class Notebook: Object {
-    dynamic var name: String?
-    dynamic var dateCreated: Date?
-    dynamic var dateUpdated: Date?
-    dynamic var notebookId: String?
+    @objc dynamic var name: String?
+    @objc dynamic var dateCreated: Date?
+    @objc dynamic var dateUpdated: Date?
+    @objc dynamic var notebookId: String?
     let notes = LinkingObjects(fromType: Note.self, property: "notebook")
 
     override static func primaryKey() -> String? {

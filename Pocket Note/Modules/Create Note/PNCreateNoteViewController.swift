@@ -146,7 +146,7 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         
         let fontBold = UIFont.init(name: "Lato-Bold", size: PNNoteTypographyContants.normalFontSize)
         let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
-        textViewText?.setAttributes([NSFontAttributeName: fontBold as Any], range: selectedRange!)
+        textViewText?.setAttributes([NSAttributedStringKey.font: fontBold as Any], range: selectedRange!)
         baseView?.contentTextView.attributedText = textViewText
     }
     
@@ -155,7 +155,7 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         
         let fontItalic = UIFont.init(name: PNNoteTypographyContants.noteItalicFont, size: PNNoteTypographyContants.normalFontSize)
         let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
-        textViewText?.setAttributes([NSFontAttributeName: fontItalic as Any], range: selectedRange!)
+        textViewText?.setAttributes([NSAttributedStringKey.font: fontItalic as Any], range: selectedRange!)
         baseView?.contentTextView.attributedText = textViewText
     }
     
@@ -165,7 +165,7 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
         let fontRegular = UIFont.init(name: PNNoteTypographyContants.noteNormalFont, size: PNNoteTypographyContants.normalFontSize)
         let textViewText = baseView?.contentTextView.attributedText.mutableCopy() as? NSMutableAttributedString
         
-        textViewText?.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue, NSFontAttributeName: fontRegular as Any], range: selectedRange!)
+        textViewText?.addAttributes([NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue, NSAttributedStringKey.font: fontRegular as Any], range: selectedRange!)
         baseView?.contentTextView.attributedText = textViewText
     }
 }
@@ -177,7 +177,7 @@ extension PNCreateNoteViewController: VIPERRouter {
 }
 
 extension PNCreateNoteViewController: UITextViewDelegate {
-    func setToEditable() {
+    @objc func setToEditable() {
         baseView?.contentTextView.isEditable = true
         baseView?.becomeFirstResponder()
     }
