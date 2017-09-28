@@ -12,8 +12,8 @@ import RealmSwift
  The `PNSharedRealm` struct contains the globally shared Realm options.
  */
 struct PNSharedRealm {
-    static let syncHost = "maryalexissolis.com"
-    static let authenticationServerURL = URL(string:"https://maryalexissolis.com:9443/")!
+    static let syncHost = PNKeys.syncHost
+    static let authenticationServerURL = PNKeys.authenticationServerURL
     
     static let syncRealmPath = "memo"
     static let defaultListName = "My Tasks"

@@ -77,6 +77,7 @@
 		007DEC871EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DEC861EFA3A1400F2FC9A /* PNDeleteNoteOperation.swift */; };
 		008D3A7C1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */; };
 		008D3A811ED6AC2D003B51DE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D3A801ED6AC2D003B51DE /* Reachability.swift */; };
+		008ED53C1F7C8ABE005F2B34 /* PNKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008ED53B1F7C8ABE005F2B34 /* PNKeys.swift */; };
 		0092D4001F29C33F000562A5 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092D3FF1F29C33F000562A5 /* ApplicationCoordinator.swift */; };
 		0092D4071F29C6F0000562A5 /* RootViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092D4061F29C6F0000562A5 /* RootViewCoordinator.swift */; };
 		0092D4091F29D1B4000562A5 /* NotesFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092D4081F29D1B4000562A5 /* NotesFeedCoordinator.swift */; };
@@ -237,6 +238,7 @@
 		00821E8C1ECD431100177780 /* Pocket Note.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pocket Note.entitlements"; sourceTree = "<group>"; };
 		008D3A7B1ED6AA90003B51DE /* PNNetworkAvailabilityOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNNetworkAvailabilityOperation.swift; path = Operations/Network/PNNetworkAvailabilityOperation.swift; sourceTree = "<group>"; };
 		008D3A801ED6AC2D003B51DE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Helpers/Reachability.swift; sourceTree = "<group>"; };
+		008ED53B1F7C8ABE005F2B34 /* PNKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNKeys.swift; path = "Pocket Note/Modules/PNKeys.swift"; sourceTree = SOURCE_ROOT; };
 		0092D3FF1F29C33F000562A5 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationCoordinator.swift; path = "Pocket Note/Coordinators/ApplicationCoordinator.swift"; sourceTree = SOURCE_ROOT; };
 		0092D4061F29C6F0000562A5 /* RootViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewCoordinator.swift; sourceTree = "<group>"; };
 		0092D4081F29D1B4000562A5 /* NotesFeedCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesFeedCoordinator.swift; path = "Pocket Note/Coordinators/NotesFeedCoordinator.swift"; sourceTree = SOURCE_ROOT; };
@@ -781,6 +783,7 @@
 		008D3A781ED66D50003B51DE /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				008ED53B1F7C8ABE005F2B34 /* PNKeys.swift */,
 				0049C2BF1F209425007F60B2 /* PNConstants.swift */,
 				0049C2C01F209425007F60B2 /* PNFormattedString.swift */,
 				0049C2C11F209425007F60B2 /* PNOperationQueue.swift */,
@@ -1687,6 +1690,7 @@
 				001CEF4F1F0246E700E500BF /* NoteFeedMenu.swift in Sources */,
 				002155181EF79BAD00DF1F3D /* PNCreateNoteInteractor.swift in Sources */,
 				00231BE41E9B91F000DEBBF5 /* Note.swift in Sources */,
+				008ED53C1F7C8ABE005F2B34 /* PNKeys.swift in Sources */,
 				00499DC41F02861600E8E5F7 /* PNEditNotebookInteractor.swift in Sources */,
 				00660CFD1F1497BA008F4CF8 /* TextViewKeyboardObserver.swift in Sources */,
 				000BBC961EFCB1C7008713A2 /* PNCreateNotebookInteractor.swift in Sources */,
