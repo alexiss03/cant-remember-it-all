@@ -30,8 +30,14 @@ class PNCreateNoteViewController: UIViewController, PNNavigationBarProtocol {
     
     private let imagePickerController: UIImagePickerController = {
         let imagePickerController = UIImagePickerController.init()
-        imagePickerController.sourceType = .camera
-        imagePickerController.cameraDevice = .rear
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePickerController.sourceType = .camera
+            imagePickerController.cameraDevice = .rear
+            return imagePickerController
+        } else {
+            imagePickerController.sourceType = .photoLibrary
+        }
+        
         imagePickerController.allowsEditing = true
         return imagePickerController
     }()

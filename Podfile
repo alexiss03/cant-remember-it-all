@@ -8,11 +8,12 @@ target 'Memo' do
   # Pods for Pocket Note
   pod 'RealmSwift' 
   pod 'SwiftLint'
-  pod 'SlideMenuControllerSwift'  
-  pod 'PSOperations/Core', '~> 3.0' 
+  #pod 'SlideMenuControllerSwift'  
+  pod 'PSOperations/Core' 
   pod 'ProcedureKit/All'
   pod 'DZNEmptyDataSet'
   pod 'TesseractOCRiOS', '4.0.0'
+  pod 'SlideMenuControllerSwift', :git => 'git@github.com:dekatotoro/SlideMenuControllerSwift.git', :branch => 'swift4'
   
   def testing_pods
     pod 'Quick'

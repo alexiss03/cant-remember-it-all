@@ -23,11 +23,7 @@ class PNScanDocumentInteractor: NSObject, PNScanDocumentInteractorInterface {
         self.tesseract = tesseract
         super.init()
         
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .camera
-        imagePickerController.cameraDevice = .rear
-        imagePickerController.allowsEditing = true
-        
+        imagePickerController.delegate = self        
     }
     
     func openCamera() {
