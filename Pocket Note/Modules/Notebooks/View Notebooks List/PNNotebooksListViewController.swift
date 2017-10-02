@@ -55,9 +55,9 @@ class PNNotebooksListViewController: UIViewController {
         unwrappedBaseView.frame = self.view.frame
         
         self.view = unwrappedBaseView
-        self.baseView?.tableView.delegate = self
-        self.baseView?.tableView.dataSource = self
-        self.baseView?.tableView.emptyDataSetSource = self
+        baseView?.tableView.delegate = self
+        baseView?.tableView.dataSource = self
+        baseView?.tableView.emptyDataSetSource = self
         
         let tableViewCellNib = UINib.init(nibName: "PNNotebooksListTableViewCell", bundle: Bundle.main)
         let tableViewCellNibId = "PNNotebooksListTableViewCell"
