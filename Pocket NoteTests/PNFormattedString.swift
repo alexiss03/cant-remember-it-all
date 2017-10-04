@@ -10,9 +10,7 @@ import UIKit
 
 struct PNFormattedString {
     static func formattedString(text: String, fontName: String, fontSize: CGFloat) -> NSAttributedString {
-        guard let attributes = [NSAttributedStringKey.font.rawValue: UIFont.init(name: fontName, size: fontSize) as Any, NSAttributedStringKey.foregroundColor: UIColor.lightGray] as? [NSAttributedStringKey: Any] else {
-            return NSAttributedString.init()
-        }
+        let attributes = [NSAttributedStringKey.font: UIFont.init(name: fontName, size: fontSize) as Any, NSAttributedStringKey.foregroundColor: UIColor.lightGray]
         
         return NSAttributedString.init(string: text, attributes: attributes)
     }
