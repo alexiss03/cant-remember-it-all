@@ -1,4 +1,4 @@
-A Notes App
+Quill
 ===========
 This is a personal project with the primary purpose to play around different technologies, and pratices on iOS development. The overall architecture of this app is soft-compliant to the **VIPER architecture**, I have modified some part of the common implementation such as instead of using plain classes for the components, I took advantage of the `Operations` and `Observers`. One of the goals for this project is to implement its full business logic using `Operations` while keeping in mind that **Swift is a protocol-oriented language** rather than an object-oriented.
 
