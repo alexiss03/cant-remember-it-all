@@ -99,14 +99,10 @@ extension NotesFeedCoordinator: PNSideMenuViewControllerDelegate {
         let loginViewController = PNLoginViewController()
         loginViewController.delegate = self
         
-        DispatchQueue.main.async {  [weak self] in
-            guard let strongSelf =  self else {
-                print("Self is nil")
-                return
-            }
-
-            strongSelf.navigationController.navigationBar.isHidden = false
-            strongSelf.navigationController.pushViewController(loginViewController, animated: true)
+        DispatchQueue.main.async {[unowned self] in
+            self.navigationController.navigationBar.isHidden = false
+            self.navigationController.navigationBar.tintColor = .black
+            self.navigationController.pushViewController(loginViewController, animated: true)
         }
     }
 }

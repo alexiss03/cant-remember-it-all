@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTc-Ya-LTM">
-                    <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                    <rect key="frame" x="0.0" y="56" width="375" height="611"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="4Go-gI-nLC">
@@ -60,7 +60,7 @@
                 <constraint firstItem="4Go-gI-nLC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ToS-rh-U3U"/>
                 <constraint firstAttribute="bottom" secondItem="kgY-V7-irl" secondAttribute="bottom" constant="20" id="TtE-SI-ivU"/>
                 <constraint firstItem="4Go-gI-nLC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VEC-ii-cwC"/>
-                <constraint firstAttribute="bottom" secondItem="XTc-Ya-LTM" secondAttribute="bottom" constant="20" symbolic="YES" id="X4I-9W-ocV"/>
+                <constraint firstAttribute="bottom" secondItem="XTc-Ya-LTM" secondAttribute="bottom" id="X4I-9W-ocV"/>
                 <constraint firstAttribute="trailing" secondItem="4Go-gI-nLC" secondAttribute="trailing" id="atG-Va-PmJ"/>
             </constraints>
             <connections>

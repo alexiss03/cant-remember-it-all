@@ -61,13 +61,9 @@ class ApplicationCoordinator: Coordinator {
         let loginViewController = PNLoginViewController()
         loginViewController.delegate = self
         
-        DispatchQueue.main.async {[weak self] in
-            guard let strongSelf = self else {
-                print("Weak self is nil")
-                return
-            }
-
-            strongSelf.navigationController.setViewControllers([loginViewController], animated: true)
+        DispatchQueue.main.async {[unowned self] in
+            self.navigationController.navigationBar.tintColor = .black
+            self.navigationController.setViewControllers([loginViewController], animated: true)
         }
     }
     
